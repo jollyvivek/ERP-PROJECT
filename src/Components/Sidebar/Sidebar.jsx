@@ -12,6 +12,7 @@ import Inventry from "../SidebarMenu/Inventry";
 import Purchase from "../SidebarMenu/Purchase";
 import Finance from "../SidebarMenu/Finance";
 import Quality from "../SidebarMenu/Quality";
+import Crm from "../SidebarMenu/Crm";
 
 
 
@@ -34,6 +35,7 @@ const Sidebar = () => {
             <Purchase/>
             <Finance/>
             <Quality/>
+            <Crm/>
             
           </div>
         </div>
