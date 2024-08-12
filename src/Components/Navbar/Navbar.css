@@ -1,0 +1,54 @@
+.nav-cont{
+  /* border: 2px solid blue; */
+  padding-inline: 2% !important;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-cont-left{
+  background: inherit;
+}
+
+.nav-cont-left .hamberMenu{
+  font-size: 2em;
+  cursor: pointer;
+  display: none;
+}
+
+.nav-cont .logo{
+  width: 100%;
+  max-width: 200px;
+  object-fit: contain;
+  margin-right: 1em;
+}
+
+.nav-cont-left .mobile-icon{
+  font-size: 2em;
+  /* color: purple; */
+}
+
+.nav-cont-left .mobile-num{
+  font-size: 1.2em;
+}
+
+.nav-cont-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+}
+
+.nav-cont-right .setting{
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.setting .setting-icon{
+  cursor: pointer;
+}
+
+.nav-cont-right p{
+  padding-inline: 0.5em;
+}

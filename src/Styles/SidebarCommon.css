@@ -1,0 +1,141 @@
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inventry-menu {
+  background: inherit;
+}
+
+.inventry-cont {
+  line-height: 1;
+}
+
+.inventry-cont .arrow-icon {
+  font-size: 2.5em !important;
+}
+
+.inventry-menu li {
+  cursor: pointer;
+  line-height: 0;
+}
+
+.inventry-menu .master {
+  line-height: 0;
+  padding-block: 0;
+}
+
+.inventry-menu .master-items li {
+  line-height: 1;
+  cursor: pointer;
+}
+
+.vendor-items li,
+.inward-items li,
+.outward-items li,
+.jobwork-items li {
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.inventry-menu .inventry-stock,
+.inventry-menu .invenry-packing {
+  line-height: 1.5;
+}
+
+.inventry-menu .reports-items li,
+.inventry-menu .reports2-items li {
+  line-height: 1.5 !important;
+}
+
+.inventry-menu .arrow-icon {
+  font-size: 2em;
+}
+
+.inventry-menu .title {
+  font-size: 1.3em;
+}
+
+.inventry-menu li {
+  font-size: 1.3em;
+}
+
+/* purchase-menu */
+
+.purchase-menu {
+  background: inherit;
+}
+
+.purchase .title {
+  font-size: 1.3em;
+}
+
+.purchse-items li {
+  font-size: 1.3em;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.purchse-items .inward,
+.purchse-items .reports {
+  line-height: 0;
+}
+
+.purchse-items .arrow-icon {
+  font-size: 2em;
+}
+
+/* finance-cont */
+.finance-cont {
+  /* border: 2px solid red; */
+  background: inherit;
+}
+
+.finance {
+  line-height: 0;
+}
+
+.finance .title,
+.finance-item .title {
+  font-size: 1.3em;
+}
+
+.finance-item li {
+  line-height: 0;
+}
+
+.finance-item .finance-master {
+  line-height: 0;
+}
+
+.finance-master-items li,
+.finance-purchase-items li,
+.finance-sales-items li,
+.finance-transaction-items li,
+.finance-tally-items li,
+.finance-reports-items li {
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.finance-cont .cheque {
+  line-height: 0;
+}
+
+.cheque .arrow-icon {
+  font-size: 2em !important;
+}
+
+.finance-reports-items .register {
+  line-height: 0;
+}
+
+.sales-register,
+.outstanding,
+.account-summary,
+.gst-report,
+.gst-one,
+.gst-two,.inventry-report,.inventry-sumarry {
+  line-height: 0 !important;
+}
