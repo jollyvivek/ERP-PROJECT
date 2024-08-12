@@ -11,6 +11,10 @@ import SidebarRight from "../Sidebar/SidebarRight";
 import Inventry from "../SidebarMenu/Inventry";
 import Purchase from "../SidebarMenu/Purchase";
 import Finance from "../SidebarMenu/Finance";
+import Quality from "../SidebarMenu/Quality";
+
+
+
 
 
 const Sidebar = () => {
@@ -31,6 +35,8 @@ const Sidebar = () => {
             <Inventry/>
             <Purchase/>
             <Finance/>
+            <Quality/>
+            
           </div>
         </div>
         <div className="col-md-9 p-0">
