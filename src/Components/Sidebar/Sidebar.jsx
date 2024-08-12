@@ -15,8 +15,6 @@ import Quality from "../SidebarMenu/Quality";
 
 
 
-
-
 const Sidebar = () => {
   return (
     <div className="sidebar container-fluid">
