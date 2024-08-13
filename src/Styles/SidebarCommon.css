@@ -12,6 +12,10 @@
   font-size: 1.3em ;
 }
 
+ul li{
+  cursor: pointer;
+}
+
 .inventry-menu {
   background: inherit;
 }
