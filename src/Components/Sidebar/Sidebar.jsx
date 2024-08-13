@@ -13,6 +13,7 @@ import Purchase from "../SidebarMenu/Purchase";
 import Finance from "../SidebarMenu/Finance";
 import Quality from "../SidebarMenu/Quality";
 import Crm from "../SidebarMenu/Crm";
+import HrPayroll from "../SidebarMenu/HrPayroll";
 
 
 
@@ -36,6 +37,7 @@ const Sidebar = () => {
             <Finance/>
             <Quality/>
             <Crm/>
+            <HrPayroll/>
             
           </div>
         </div>
