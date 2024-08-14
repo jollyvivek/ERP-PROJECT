@@ -17,6 +17,8 @@ import HrPayroll from "../SidebarMenu/HrPayroll";
 import Production from "../SidebarMenu/Production";
 import IsoReport from "../SidebarMenu/IsoReport";
 import EnggMang from "../SidebarMenu/EnggMang";
+import Other from "../SidebarMenu/Other";
+import Logout from "../SidebarMenu/Logout";
 
 
 
@@ -44,6 +46,8 @@ const Sidebar = () => {
             <Production/>
             <IsoReport/>
             <EnggMang/>
+            <Other/>
+            <Logout/>
             
           </div>
         </div>

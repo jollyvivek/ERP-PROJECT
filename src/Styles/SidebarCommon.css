@@ -192,3 +192,10 @@ ul li{
 .crm-inquery-items .title,.crm-deal .title {
   font-size: 1.3em;
 }
+
+/* logout-top */
+
+.logout-top .title{
+ margin-left: 4.5em;
+ cursor: pointer;
+}
