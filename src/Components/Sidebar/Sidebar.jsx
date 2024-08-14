@@ -16,6 +16,7 @@ import Crm from "../SidebarMenu/Crm";
 import HrPayroll from "../SidebarMenu/HrPayroll";
 import Production from "../SidebarMenu/Production";
 import IsoReport from "../SidebarMenu/IsoReport";
+import EnggMang from "../SidebarMenu/EnggMang";
 
 
 
@@ -42,6 +43,7 @@ const Sidebar = () => {
             <HrPayroll/>
             <Production/>
             <IsoReport/>
+            <EnggMang/>
             
           </div>
         </div>
