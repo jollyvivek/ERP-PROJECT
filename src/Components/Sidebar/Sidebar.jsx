@@ -15,6 +15,7 @@ import Quality from "../SidebarMenu/Quality";
 import Crm from "../SidebarMenu/Crm";
 import HrPayroll from "../SidebarMenu/HrPayroll";
 import Production from "../SidebarMenu/Production";
+import IsoReport from "../SidebarMenu/IsoReport";
 
 
 
@@ -40,6 +41,7 @@ const Sidebar = () => {
             <Crm/>
             <HrPayroll/>
             <Production/>
+            <IsoReport/>
             
           </div>
         </div>
