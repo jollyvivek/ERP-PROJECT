@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const CompanyDetail = () => {
-  const url = "http://localhost:4000";
+  // const url = "http://localhost:4000"
   const [logo,setLogo]=useState(false)
   const [data, setData] = useState({
     companyName: "",
@@ -54,7 +54,9 @@ const CompanyDetail = () => {
     formData.append("pincode",Number(data.pincode))
     formData.append("note",data.note)
 
-    const response = await axios.post(`${url}/api/company/add`,formData);
+    // console.log(data,logo)
+    
+    const response = await axios.post("http://localhost:4000/api/company/add",formData);
 
     if (response.data.success) {
       setData({
@@ -78,10 +80,11 @@ const CompanyDetail = () => {
       console.log("success")
 
     }else{
-      
+      alert("error")
       console.log("error")
     }
   };
+
   return (
     <div className=" container-fluid ">
       <div className="row">
@@ -112,7 +115,7 @@ const CompanyDetail = () => {
           <div className="row mt-2">
             <fieldset>
               <legend>COMPANY DETAILS</legend>
-              <form  onSubmit={handleSubmit}>
+              <form   method="post" onSubmit={handleSubmit}>
                 <div className="row ">
                   <div className="col-md-6 mt-3 ">
                     <div className="mb-3 row ">

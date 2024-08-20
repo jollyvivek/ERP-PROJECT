@@ -2,12 +2,15 @@ import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Sidebar from "./Components/Sidebar/Sidebar";
+import { ToastContainer } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 // import { Route, Routes } from "react-router-dom";
 // import Role from './Components/AdminItems/Role'
 // import CompanyDetail from "./Components/AdminItems/CompanyDetail";
 
 const App = () => {
   return <div>
+    <ToastContainer/>
     <Navbar/>
     {/* <hr /> */}
     <div className="app-content ">
