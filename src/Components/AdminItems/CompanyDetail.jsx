@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const CompanyDetail = () => {
-  // const url = "http://localhost:4000"
+  const url = "http://localhost:4000"
   const [logo,setLogo]=useState(false)
   const [data, setData] = useState({
     companyName: "",
@@ -56,7 +57,7 @@ const CompanyDetail = () => {
 
     // console.log(data,logo)
     
-    const response = await axios.post("http://localhost:4000/api/company/add",formData);
+    const response = await axios.post(`${url}/api/company/add`,formData);
 
     if (response.data.success) {
       setData({
@@ -78,10 +79,11 @@ const CompanyDetail = () => {
       })
       setLogo(false)
       console.log("success")
+      toast.success(response.data.message)
 
     }else{
-      alert("error")
-      console.log("error")
+      console.log("error");
+      toast.error(response.data.message)
     }
   };
 
