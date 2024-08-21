@@ -1,13 +1,14 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import '../../Styles/SidebarCommon.css'
 
 const Role = () => {
-  const url = " http://localhost:4000/api/company/list"
+  const url = " http://localhost:4000"
   const [list , setList] = useState([])
 
   const fetchCompany = async() =>{
-    const response = await axios.get(`${url}`);
-    console.log(response.data)
+    const response = await axios.get(`${url}/api/company/list`);
+    // console.log(response.data)
     if(response.data.success){
       setList(response.data.data)
      
@@ -28,7 +29,7 @@ fetchCompany();
         {list.map((item,index)=>{
             return <div key={index}>
               <h3>{item.companyName}</h3>
-              <img src={item.logo} alt="logo" />
+              <img src={`${url}/images/` + item.logo} alt="logo" className='w-25' />
               <h5>{item.tagline}</h5>
               <h5>{item.website}</h5>
               <h5>{item.email}</h5>
@@ -43,14 +44,7 @@ fetchCompany();
               <h5>{item.city}</h5>
               <h5>{item.pincode}</h5>
               <h5>{item.note}</h5>
-            
-
-
-
-
-
-
-
+          
             </div>
         })}
 

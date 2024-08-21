@@ -19,6 +19,8 @@ import IsoReport from "../SidebarMenu/IsoReport";
 import EnggMang from "../SidebarMenu/EnggMang";
 import Other from "../SidebarMenu/Other";
 import Logout from "../SidebarMenu/Logout";
+import BasicDetails from "../AdminItems/BasicDetails";
+import TaxAndBankDetails from "../AdminItems/TaxAndBankDetails";
 
 
 
@@ -54,8 +56,10 @@ const Sidebar = () => {
         <div className="col-md-9 p-0">
           
         <Routes>
+        <Route path="/basic_details" element={<BasicDetails/>}/>
         <Route path="/" element={<SidebarRight/>}/>
-        <Route path="/company" element={<CompanyDetail/>}/>
+        <Route path="/company/*" element={<CompanyDetail/>}/>
+        <Route path="/tax_bankDetails" element={<TaxAndBankDetails/>}/>
         <Route path="/role" element={<Role/>}/>
         <Route path="manage_user" element={<ManageUser/>}/>
         <Route/>
