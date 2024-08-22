@@ -12,7 +12,7 @@ const NavTabs = () => {
               <button className="btn btn-sm fs-5"
               onClick={()=>navigate('/tax_bankdetails')}>Tax & Bank Details</button>
               <button className="btn btn-sm fs-5"
-              onClick={()=>alert("Terms & Condtions")}>Terms & Condtions</button>
+              onClick={()=>navigate("/terms_condtions")}>Terms & Condtions</button>
               <button className="btn btn-sm fs-5 "
               onClick={()=>alert("Report Haeding")}>Report Haeding</button>
               <button className="btn btn-sm fs-5 "

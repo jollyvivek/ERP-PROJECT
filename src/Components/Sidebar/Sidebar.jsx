@@ -21,6 +21,7 @@ import Other from "../SidebarMenu/Other";
 import Logout from "../SidebarMenu/Logout";
 import BasicDetails from "../AdminItems/BasicDetails";
 import TaxAndBankDetails from "../AdminItems/TaxAndBankDetails";
+import TermsCondtions from "../AdminItems/TermsCondtions";
 
 
 
@@ -60,9 +61,10 @@ const Sidebar = () => {
         <Route path="/" element={<SidebarRight/>}/>
         <Route path="/company/*" element={<CompanyDetail/>}/>
         <Route path="/tax_bankDetails" element={<TaxAndBankDetails/>}/>
+        <Route path="/terms_condtions" element={<TermsCondtions/>}/>
         <Route path="/role" element={<Role/>}/>
         <Route path="manage_user" element={<ManageUser/>}/>
-        <Route/>
+        
         <Route/>
       </Routes>
         </div>
