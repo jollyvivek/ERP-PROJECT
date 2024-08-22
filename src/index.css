@@ -40,3 +40,12 @@ legend {
   float: none;
   width: auto;
 }
+
+.form-select{
+  height: 3em;
+}
+
+.btn-next{
+  width: 100%;
+  max-width: 5em;
+}
