@@ -90,18 +90,18 @@ const BasicDetails = () => {
 
   return (
     <div className='container-fluid'>
-      
        <div className="row mt-2">
+          <div className='col-md-12'>
             <fieldset>
               <legend>COMPANY DETAILS</legend>
               <form   method="post" onSubmit={handleSubmit}>
                 <div className="row ">
                   <div className="col-md-6 mt-3 ">
                     <div className="mb-3 row ">
-                      <label className="col-sm-4 col-form-label fs-5">
+                      <label className="col-sm-5 col-form-label fs-5">
                         Company Name
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <input
                           type="text"
                           className="form-control"
@@ -113,11 +113,11 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         Company Logo
                        
                       </label>
-                      <div className="col-sm-8 d-flex flex-column align-items-center">
+                      <div className="col-sm-7 d-flex flex-column align-items-center">
                         <input
                           type="file"
                           className="form-control"
@@ -129,10 +129,10 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         Tag Line
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <input
                           type="text"
                           className="form-control"
@@ -144,10 +144,10 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         Website
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <input
                           type="email"
                           className="form-control"
@@ -159,10 +159,10 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         Email Id
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <input
                           type="email"
                           className="form-control"
@@ -174,10 +174,10 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         Optional Email Id
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <input
                           type="email"
                           className="form-control"
@@ -189,10 +189,10 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         Aadhaar No
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <input
                           type="number"
                           className="form-control"
@@ -203,13 +203,11 @@ const BasicDetails = () => {
                         />
                       </div>
                     </div>
-                  </div>
-                  <div className="col-md-6 mt-3 ps-3">
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         Contact No
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <input
                           type="number"
                           className="form-control"
@@ -220,11 +218,28 @@ const BasicDetails = () => {
                         />
                       </div>
                     </div>
+                  </div>
+                  <div className="col-md-6 mt-3 ps-3">
+                    {/* <div className="mb-3 row">
+                      <label className="col-sm-5 col-form-label  fs-5">
+                        Contact No
+                      </label>
+                      <div className="col-sm-7">
+                        <input
+                          type="number"
+                          className="form-control"
+                          onChange={onChangeHandler}
+                          name="contactNo"
+                          value={data.contactNo}
+                          required
+                        />
+                      </div>
+                    </div> */}
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         Contact Person
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <input
                           type="text"
                           className="form-control"
@@ -236,10 +251,10 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         Person Contact No
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <input
                           type="number"
                           className="form-control"
@@ -251,10 +266,10 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         Address
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <textarea
                           className="form-control"
                           onChange={onChangeHandler}
@@ -265,10 +280,10 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         Country
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <input
                           type="text"
                           className="form-control"
@@ -280,10 +295,10 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         State
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <input
                           type="text"
                           className="form-control"
@@ -295,10 +310,10 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         City
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <input
                           type="text"
                           className="form-control"
@@ -310,10 +325,10 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         Pincode
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <input
                           type="number"
                           className="form-control"
@@ -325,10 +340,10 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-4 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label  fs-5">
                         Note
                       </label>
-                      <div className="col-sm-8">
+                      <div className="col-sm-7">
                         <textarea
                           id=""
                           className="form-control"
@@ -347,13 +362,13 @@ const BasicDetails = () => {
                         >
                           Next
                         </button>
-                        {/* <input type="button" value="Next" class="form-control fs-3 btn-next" /> */}
                       </div>
                     </div>
                   </div>
                 </div>
               </form>
             </fieldset>
+          </div>
         </div>
     </div>
   )

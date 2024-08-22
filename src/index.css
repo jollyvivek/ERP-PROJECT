@@ -26,3 +26,17 @@ ul {
   list-style: none;
   padding-inline: 0;
 }
+
+
+fieldset {
+  width: auto;
+  border: 1.5px solid grey;
+  padding-inline: 0.5em;
+}
+
+legend {
+  margin-left: 1em;
+  font-size: 1.3em;
+  float: none;
+  width: auto;
+}
