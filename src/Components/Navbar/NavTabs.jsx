@@ -14,9 +14,9 @@ const NavTabs = () => {
               <button className="btn btn-sm fs-5"
               onClick={()=>navigate("/terms_condtions")}>Terms & Condtions</button>
               <button className="btn btn-sm fs-5 "
-              onClick={()=>alert("Report Haeding")}>Report Haeding</button>
+              onClick={()=>navigate("/report_heading")}>Report Haeding</button>
               <button className="btn btn-sm fs-5 "
-              onClick={()=>alert("Report Haeding")}>Report Haeding</button>
+              onClick={()=>navigate("/report_heading_two")}>Report Haeding</button>
               <button className="btn btn-sm fs-5 "
               onClick={()=>alert("other Setting")}>Other Setting</button>
               <button className="btn btn-sm fs-5">CRM/HR Setting</button>

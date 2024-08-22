@@ -22,6 +22,8 @@ import Logout from "../SidebarMenu/Logout";
 import BasicDetails from "../AdminItems/BasicDetails";
 import TaxAndBankDetails from "../AdminItems/TaxAndBankDetails";
 import TermsCondtions from "../AdminItems/TermsCondtions";
+import ReportHeading from '../AdminItems/ReportHeading';
+import ReportHeadingTwo from '../AdminItems/ReportHeadingTwo'
 
 
 
@@ -62,10 +64,12 @@ const Sidebar = () => {
         <Route path="/company/*" element={<CompanyDetail/>}/>
         <Route path="/tax_bankDetails" element={<TaxAndBankDetails/>}/>
         <Route path="/terms_condtions" element={<TermsCondtions/>}/>
+        <Route path="/report_heading" element={<ReportHeading/>}/>
+        <Route path="/report_heading_two" element={<ReportHeadingTwo/>}/>
         <Route path="/role" element={<Role/>}/>
         <Route path="manage_user" element={<ManageUser/>}/>
         
-        <Route/>
+       
       </Routes>
         </div>
       </div>
