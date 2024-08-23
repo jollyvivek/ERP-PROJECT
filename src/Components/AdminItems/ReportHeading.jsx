@@ -5,8 +5,8 @@ const ReportHeading = () => {
   return (
     <div className='container-fluid'>
       <div className='row'>
-        <div className='col-md-12'>
-        <h4 className='company-title fs-5'>Company Details</h4>
+        <div className='col-md-12 p-0'>
+        <h4 className='company-title fs-5 px-3'>Company Details</h4>
           <NavTabs/>
         </div>
       </div>

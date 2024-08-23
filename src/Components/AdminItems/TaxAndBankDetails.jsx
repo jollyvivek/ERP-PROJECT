@@ -4,8 +4,13 @@ import NavTabs from '../Navbar/NavTabs'
 const TaxAndBankDetails = () => {
   return (
     <div className='container-fluid'>
+    <h4 className="company-title fs-5">Company Details</h4>
+        <div className='row'>
+            <div className='col-md-12 p-0'>
+            <NavTabs/>
+            </div>
+        </div>
 
-      <NavTabs/>
       <div className="row mt-3">
             <form action='' className="col-md-12">
                 <div className="row">

@@ -10,7 +10,11 @@ const CompanyDetail = () => {
       <div className="row">
         <div className="col-md-12 company">
           <h4 className="company-title fs-5">Company Details</h4>
-            <NavTabs/>
+          <div className="row">
+              <div className="colmd-12 p-0">
+                <NavTabs/>
+              </div>
+          </div>
           <BasicDetails/>         
         </div>
       </div>
