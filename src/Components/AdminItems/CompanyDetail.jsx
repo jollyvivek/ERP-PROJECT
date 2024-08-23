@@ -9,7 +9,7 @@ const CompanyDetail = () => {
     <div className=" container-fluid ">
       <div className="row">
         <div className="col-md-12 company">
-          <h4>Company Details</h4>
+          <h4 className="company-title fs-5">Company Details</h4>
             <NavTabs/>
           <BasicDetails/>         
         </div>

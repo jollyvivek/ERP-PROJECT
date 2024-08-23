@@ -27,6 +27,10 @@ ul {
   padding-inline: 0;
 }
 
+.company-title{
+  text-transform: uppercase;
+}
+
 
 fieldset {
   width: auto;
