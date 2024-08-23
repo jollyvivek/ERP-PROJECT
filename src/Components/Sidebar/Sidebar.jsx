@@ -24,6 +24,7 @@ import TaxAndBankDetails from "../AdminItems/TaxAndBankDetails";
 import TermsCondtions from "../AdminItems/TermsCondtions";
 import ReportHeading from '../AdminItems/ReportHeading';
 import ReportHeadingTwo from '../AdminItems/ReportHeadingTwo'
+import OtherSetting from "../AdminItems/OtherSetting";
 
 
 
@@ -66,6 +67,7 @@ const Sidebar = () => {
         <Route path="/terms_condtions" element={<TermsCondtions/>}/>
         <Route path="/report_heading" element={<ReportHeading/>}/>
         <Route path="/report_heading_two" element={<ReportHeadingTwo/>}/>
+        <Route path="/other_setting" element={<OtherSetting/>}/>
         <Route path="/role" element={<Role/>}/>
         <Route path="manage_user" element={<ManageUser/>}/>
         

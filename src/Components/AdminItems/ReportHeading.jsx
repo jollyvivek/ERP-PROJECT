@@ -264,7 +264,7 @@ const ReportHeading = () => {
                         </div>
                     </div>
                     <div className=" my-3 d-flex justify-content-end align-items-center">
-                        <button type="submit" className="btn form-control btn-next py-2 fs-5 border-secondaryg">Next</button>
+                        <button type="submit" className="btn form-control btn-next py-2 fs-5 border-secondary">Next</button>
                     </div>
                 </form>
             </div>

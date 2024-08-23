@@ -18,7 +18,7 @@ const NavTabs = () => {
               <button className="btn btn-sm fs-5 "
               onClick={()=>navigate("/report_heading_two")}>Report Haeding</button>
               <button className="btn btn-sm fs-5 "
-              onClick={()=>alert("other Setting")}>Other Setting</button>
+              onClick={()=>navigate("/other_setting")}>Other Setting</button>
               <button className="btn btn-sm fs-5">CRM/HR Setting</button>
               <button className="btn btn-sm fs-5 ">
                 Finance/Inventory Setting
