@@ -230,7 +230,7 @@ const ReportHeading = () => {
                                         <div className="mb-3 row">
                                             <label for="" className=" col-sm-6 col-form-label fs-5  text-end">Tax Import
                                                 Invoice Heading :</label>
-                                            <div className="col-sm-5 d-flex align-items-center">
+                                            <div className="col-sm-6 d-flex align-items-center">
                                                 <input type="text" className="form-control" required />
                                             </div>
                                         </div>
@@ -238,7 +238,7 @@ const ReportHeading = () => {
                                             <label for="" className=" col-sm-6 col-form-label fs-5  text-end">Tax Import
                                                 Invoice
                                                 Sub Heading :</label>
-                                            <div className="col-sm-5 d-flex align-items-center">
+                                            <div className="col-sm-6 d-flex align-items-center">
                                                 <input type="text" className="form-control" required />
                                             </div>
                                         </div>
