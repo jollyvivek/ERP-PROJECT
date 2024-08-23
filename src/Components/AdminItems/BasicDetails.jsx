@@ -358,7 +358,7 @@ const BasicDetails = () => {
                       <div className="col-sm-12 d-flex justify-content-end align-items-center">
                         <button
                           type="submit"
-                          className="px-5 py-2 rounded-3 fs-4"
+                          className=" py-1 rounded-1 btn-next border-secondary bg-transparent fs-5"
                         >
                           Next
                         </button>
