@@ -29,6 +29,7 @@ import CrmHrSetting from "../AdminItems/CrmHrSetting";
 import FinanceInventrySetting from "../AdminItems/FinanceInventrySetting";
 import TcsSettingEInvoice from "../AdminItems/TcsSettingEInvoice";
 import CostingSetting from "../AdminItems/CostingSetting";
+import ProductionSetting from "../AdminItems/ProductionSetting";
 
 
 
@@ -76,6 +77,7 @@ const Sidebar = () => {
         <Route path="/finance_inventry_setting" element={<FinanceInventrySetting/>}/>
         <Route path="/tcs_einvoice" element={<TcsSettingEInvoice/>}/>
         <Route path ='/costing_setting' element={<CostingSetting/>}/>
+        <Route path="/production_setting" element={<ProductionSetting/>}/>
         <Route path="/role" element={<Role/>}/>
         <Route path="manage_user" element={<ManageUser/>}/>
         

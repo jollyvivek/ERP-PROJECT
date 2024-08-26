@@ -27,7 +27,7 @@ const NavTabs = () => {
                 TCS Setting & E-Invoice
               </button>
               <button onClick={()=>navigate('/costing_setting')} className="btn btn-sm fs-5 ">Costing Setting</button>
-              <button className="btn btn-sm fs-5 ">Production setting</button>
+              <button onClick={()=>navigate("/production_setting")} className="btn btn-sm fs-5 ">Production setting</button>
               {/* <button className="btn btn-sm fs-5 ">Terms & Conditions</button> */}
       </div>
       </div>
