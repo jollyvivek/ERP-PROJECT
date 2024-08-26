@@ -23,7 +23,7 @@ const NavTabs = () => {
               <button onClick={()=>navigate('/finance_inventry_setting')} className="btn btn-sm fs-5 ">
                 Finance/Inventory Setting
               </button>
-              <button className="btn btn-sm fs-5 ">
+              <button onClick={()=>navigate('/tcs_einvoice')} className="btn btn-sm fs-5 ">
                 TCS Setting & E-Invoice
               </button>
               <button className="btn btn-sm fs-5 ">Costing Setting</button>
