@@ -13,7 +13,7 @@ const Other = () => {
   return (
     <div className='other'>
 
-    <div className='other-top flex lineHeight'>
+    <div className='other-top flex lineHeight mb-1'>
       <span className='icon fs-4'><FaQuestion /></span>
       <span className='title'>Other</span>
       <span className='arrow-icon' onClick={otherDropdown}><RiArrowDropDownLine/></span>

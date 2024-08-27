@@ -270,34 +270,68 @@ ul li {
 .hr-leave-items li,
 .hr-employee-items li,
 .hr-performance-items li,
-.hr-attendance-items li,.hr-payroll-items li,.hr-reports-items li,.hr-graphs-items li {
+.hr-attendance-items li,
+.hr-payroll-items li,
+.hr-reports-items li,
+.hr-graphs-items li {
   padding-block: 5px;
 }
 
-
 /* production */
 
-.production-top{
+.production-top {
   padding-inline: 5px;
   border-radius: 5px;
   background: gray;
   color: white;
 }
 
-.production-items li{
+.production-items li {
   padding-block: 5px;
 }
 
 /* iso */
 
-.iso-top{
+.iso-top {
   background: gray;
   color: white;
   padding-inline: 5px;
   border-radius: 5px;
 }
 
-.iso-marketing-items li,.iso-production-items li ,.iso-purchase-items li{
+.iso-marketing-items li,
+.iso-production-items li,
+.iso-purchase-items li {
+  padding-block: 5px;
+}
+
+/* EnggMang */
+
+.engg-top {
+  background: gray;
+  color: white;
+  padding-inline: 5px;
+  border-radius: 5px;
+}
+
+.engg-master-items li,
+.engg-preventive-items li,
+.engg-calibration-items li,
+.engg-training-items li,
+.engg-audit-items li {
+  padding-block: 5px;
+}
+
+/* other */
+
+.other-top{
+  background: grey;
+  color: white;
+  padding-inline: 5px;
+  border-radius: 5px;
+}
+
+.other-items li{
   padding-block: 5px;
 }
 

@@ -40,9 +40,9 @@ const [audit,setAudit] = useState(false)
 
   return (
     <div className='engg-cont '>
-      <div className='engg-top flex lineHeight'>
+      <div className='engg-top flex lineHeight mb-1'>
         <span className='icon fs-2'><MdManageAccounts/></span>
-        <span className=' title text-center'>Engg and Management</span>
+        <span className=' title text-center'>Engg & Management</span>
         <span className='arrow-icon' onClick={enggItemsDropdown}><RiArrowDropDownLine/></span>
       </div>
       {enggItems ? (
@@ -71,7 +71,7 @@ const [audit,setAudit] = useState(false)
                 <li className="title">Report</li>
               </ul>
               ):null}
-              <li className="title">Breakdown Report</li>
+              <li className="title py-1">Breakdown Report</li>
 
               <li className="calibration flex lineHeight">
                 <span className="title">Calibration Mainteance</span>
@@ -108,7 +108,7 @@ const [audit,setAudit] = useState(false)
                 <li className="title">Internal Audit Schedule</li>
               </ul>
                ):null}
-              <li className="title">Damage Report </li>
+              <li className="title py-1">Damage Report </li>
       </ul>
       </div>
       ):null}
