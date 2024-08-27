@@ -106,7 +106,7 @@ const Finance = () => {
 
   return (
     <div className="finance-cont">
-      <div className="finance flex  ">
+      <div className="finance flex mb-1">
         <span className="icon fs-2"><MdOutlineAttachMoney /></span>
         <span className="title">Finance</span>
         <span className="arrow-icon" onClick={financeItemDropdown}><RiArrowDropDownLine/></span>

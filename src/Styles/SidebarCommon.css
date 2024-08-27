@@ -119,6 +119,10 @@ ul li{
 
 .finance {
   line-height: 0;
+  padding-inline: 5px;
+  border-radius: 5px;
+  background: grey;
+  color: white;
 }
 
 .finance .title,
@@ -142,6 +146,7 @@ ul li{
 .finance-reports-items li {
   line-height: 1.5;
   cursor: pointer;
+  padding-block: 5px;
 }
 
 .finance-cont .cheque {
