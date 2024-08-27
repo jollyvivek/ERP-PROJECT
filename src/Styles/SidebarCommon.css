@@ -257,6 +257,23 @@ ul li {
   padding-block: 5px;
 }
 
+/* hr and payroll */
+
+.hrPayroll-top {
+  padding-inline: 5px;
+  background: gray;
+  color: white;
+  border-radius: 5px;
+}
+
+.hr-master-items li,
+.hr-leave-items li,
+.hr-employee-items li,
+.hr-performance-items li,
+.hr-attendance-items li,.hr-payroll-items li,.hr-reports-items li,.hr-graphs-items li {
+  padding-block: 5px;
+}
+
 /* logout-top */
 
 .logout-top .title {

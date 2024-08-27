@@ -84,7 +84,7 @@ const hrPayrollGraphsDropdown = () =>{
 
   return (
     <div className='hrPayroll'>
-      <div className='hrPayroll-top flex lineHeight'>
+      <div className='hrPayroll-top flex lineHeight mb-1'>
         <span className='icon fs-2'><FaUserGroup /></span>
         <span className='title'>Hr and Payroll</span>
         <span className='arrow-icon' onClick={hrPayrollDropdown}><RiArrowDropDownLine/></span>
@@ -124,7 +124,7 @@ const hrPayrollGraphsDropdown = () =>{
               </li>
               {hrLeave ? (
               <ul className="hr-leave-items">
-                <li className=" leave-master flex lineHeight">
+                <li className=" leave-master flex lineHeight mb-1 py-0">
                   <span className="title">Master</span>
                   <span className="arrow-icon"  onClick={hrLeaveMasterDropdown}>
                     <RiArrowDropDownLine/>
@@ -149,7 +149,7 @@ const hrPayrollGraphsDropdown = () =>{
               </li>
               {hrEmployee ? (
               <ul className="hr-employee-items">
-                <li class="employee-master flex lineHeight ">
+                <li class="employee-master flex lineHeight mb-1 py-0">
                   <span className="title">Master</span>
                   <span className="arrow-icon" onClick={hrEmployeeMasterDropdown}><RiArrowDropDownLine/></span>
                 </li>
@@ -170,7 +170,7 @@ const hrPayrollGraphsDropdown = () =>{
               </li>
                 {hrPerformance ? (
               <ul className="hr-performance-items">
-                <li class=" performance-master flex lineHeight ">
+                <li class=" performance-master flex lineHeight mb-1 py-0">
                   <span className="title">Master</span>
                   <span className="arrow-icon" onClick={performanceMasterDropdown}><RiArrowDropDownLine/> </span>
                 </li>
@@ -274,8 +274,8 @@ const hrPayrollGraphsDropdown = () =>{
                 <li className='title'>Postion wise  Chart</li>
               </ul>
               ):null}
-              <li className='title'>Send Sms </li>
-            </ul>
+              <li className='title py-1'>Send Sms </li>
+      </ul>
 
       </div>
       ):null}
