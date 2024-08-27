@@ -274,6 +274,33 @@ ul li {
   padding-block: 5px;
 }
 
+
+/* production */
+
+.production-top{
+  padding-inline: 5px;
+  border-radius: 5px;
+  background: gray;
+  color: white;
+}
+
+.production-items li{
+  padding-block: 5px;
+}
+
+/* iso */
+
+.iso-top{
+  background: gray;
+  color: white;
+  padding-inline: 5px;
+  border-radius: 5px;
+}
+
+.iso-marketing-items li,.iso-production-items li ,.iso-purchase-items li{
+  padding-block: 5px;
+}
+
 /* logout-top */
 
 .logout-top .title {

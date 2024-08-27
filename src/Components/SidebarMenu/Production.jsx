@@ -34,7 +34,7 @@ const Production = () => {
 
   return (
     <div className="production">
-      <div className="production-top flex lineHeight">
+      <div className="production-top flex lineHeight mb-1">
         <span className="icon fs-2">
           <FaIndustry />
         </span>
@@ -55,7 +55,7 @@ const Production = () => {
           </li>
           {production ? (
           <ul className="production-items">
-            <li className="production-master flex lineHeight">
+            <li className="production-master flex lineHeight py-0">
               <span  className="title">
                 Master
               </span>

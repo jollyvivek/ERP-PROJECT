@@ -33,7 +33,7 @@ const IsoReport = () => {
 
   return (
     <div className='iso'>
-      <div className='iso-top flex lineHeight'>
+      <div className='iso-top flex lineHeight mb-1'>
         <span className='icon fs-2'><FaChartBar /></span>
         <span className='title'>ISO Report</span>
         <span className='arrow-icon' onClick={isoDropdown}><RiArrowDropDownLine/></span>
@@ -91,7 +91,7 @@ const IsoReport = () => {
               </li>
               {quality ? (
               <ul className="iso-quality-items">
-                <li className="title">Calibration Plan Report</li>
+                <li className="title py-1">Calibration Plan Report</li>
               </ul>
               ):null}
       </ul>
