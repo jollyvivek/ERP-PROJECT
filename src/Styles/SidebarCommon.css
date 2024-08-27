@@ -8,21 +8,21 @@
   line-height: 0;
 }
 
-.navlink{
+.navlink {
   text-decoration: none;
   color: black;
 }
 
-.navlink.active{
+.navlink.active {
   background: lightgray;
- border-radius: 5px;
+  border-radius: 5px;
 }
 
 .title {
-  font-size: 1.3em ;
+  font-size: 1.3em;
 }
 
-ul li{
+ul li {
   cursor: pointer;
 }
 
@@ -34,7 +34,7 @@ ul li{
   line-height: 1;
   padding-inline: 5px;
   border-radius: 5px;
-  background:grey;
+  background: grey;
   color: white;
 }
 
@@ -93,10 +93,10 @@ ul li{
   background: inherit;
 }
 
-.purchase{
+.purchase {
   background: grey;
   color: white;
-  line-height:1;
+  line-height: 1;
   padding-inline: 5px;
   border-radius: 5px;
 }
@@ -109,7 +109,7 @@ ul li{
   font-size: 1.3em;
   line-height: 1.5;
   cursor: pointer;
-  padding-block:5px;
+  padding-block: 5px;
 }
 
 .purchse-items .inward,
@@ -184,16 +184,15 @@ ul li{
 
 /* quality */
 
-
-.quality-title{
+.quality-title {
   line-height: 0;
   padding-inline: 5px;
   background: gray;
   color: white;
 }
 
-.quality-items li{
-padding-block: 5px;
+.quality-items li {
+  padding-block: 5px;
 }
 
 .quality .title {
@@ -219,10 +218,32 @@ padding-block: 5px;
 
 /* crm module */
 
+.crm-top {
+  padding-inline: 5px;
+  background: gray;
+  color: white;
+  border-radius: 5px;
+}
+
 .crm-top,
 .crm-master,
 .crm-inquery {
   line-height: 0;
+}
+
+.crm-inquiry-master li,
+.crm-inquery-items li,
+.crm-deal-items li,
+.crm-sales-items li,
+.crm-task-item li,
+.crm-contact-items li,
+.crm-complanint-items li,
+.crm-phonebook-items li,
+.crm-mis-items li,
+.crm-graphs-items li,
+.crm-attachment-items li,
+.crm-report-items li {
+  padding-block: 5px;
 }
 
 .crm-top .title,
@@ -230,13 +251,15 @@ padding-block: 5px;
 .crm-master-items .title,
 .crm-inquery .title,
 .crm-inquiry-master .title,
-.crm-inquery-items .title,.crm-deal .title {
+.crm-inquery-items .title,
+.crm-deal .title {
   font-size: 1.3em;
+  padding-block: 5px;
 }
 
 /* logout-top */
 
-.logout-top .title{
- margin-left: 4.5em;
- cursor: pointer;
+.logout-top .title {
+  margin-left: 4.5em;
+  cursor: pointer;
 }

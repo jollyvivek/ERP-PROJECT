@@ -100,7 +100,7 @@ setCrmReport(!crmReport)
 
   return (
     <div className='crm'>
-      <div className='crm-top flex'>
+      <div className='crm-top flex mb-1'>
         <span className='icon fs-2'><FaUsers /></span>
         <span className='title'>CRM</span>
         <span className='arrow-icon' onClick={crmItemsDrpodown}><RiArrowDropDownLine/></span>
@@ -154,7 +154,7 @@ setCrmReport(!crmReport)
               </li>
               {crmDeal ? (
               <ul className="crm-deal-items">
-                <li className=" crm-deal-master lineHeight flex">
+                <li className=" crm-deal-master lineHeight py-0 flex">
                   <span className="title">Master</span>
                   <span className="arrow-icon" onClick={crmDealMasterDropdown}> <RiArrowDropDownLine/> </span>                  
                 </li>
@@ -187,7 +187,7 @@ setCrmReport(!crmReport)
               </li>
                 {crmTask ? (
               <ul className="crm-task-item ">
-                <li className="crm-task-master flex lineHeight">
+                <li className="crm-task-master flex lineHeight py-0">
                   <span className="title ">Master</span>
                   <span className="arrow-icon" onClick={crmTaskMasterDropdown}><RiArrowDropDownLine/> </span>
                 </li>
@@ -200,7 +200,7 @@ setCrmReport(!crmReport)
               </ul>
               ):null}
 
-              <li className="title">Customer</li>
+              <li className="title py-1">Customer</li>
 
               <li className=" crm-contact flex lineHeight">
                 <span  className="title">Contact</span>
@@ -208,7 +208,7 @@ setCrmReport(!crmReport)
               </li>
               {crmContact ? (
               <ul class="crm-contact-items">
-                <li class=" crm-contact-master lineHeight flex">
+                <li class=" crm-contact-master lineHeight flex py-0">
                   <span  className="title">Master</span>
                   <span className="arrow-icon" onClick={contactMasterDropdown}><RiArrowDropDownLine/></span>
                 </li>
@@ -228,7 +228,7 @@ setCrmReport(!crmReport)
               </li>
               {crmComplaint ? (
               <ul className="crm-complanint-items">
-                <li className=" crm-complaint-master flex lineHeight">
+                <li className=" crm-complaint-master flex lineHeight py-0">
                   <span  className="title">Master</span>
                   <span className="arrow-icon" onClick={complaintMasterDropdown}><RiArrowDropDownLine/></span>
                 </li>
@@ -255,7 +255,7 @@ setCrmReport(!crmReport)
               </ul>
               ):null}
 
-              <li className="title">Follow Up</li>
+              <li className="title py-1">Follow Up</li>
 
               <li className=" crm-mis flex lineHeight">
                 <span  className="title">MIS</span>
@@ -283,8 +283,8 @@ setCrmReport(!crmReport)
               </ul>
               ):null}
 
-              <li class=" title">Customer Satisfication Survey</li>
-              <li class=" title">Invoice Satisfaction Survey</li>
+              <li class=" title py-1">Customer Satisfication Survey</li>
+              <li class=" title py-1">Invoice Satisfaction Survey</li>
 
               <li class=" crm-attachment flex lineHeight">
                 <span className='title'> Attachment</span>
