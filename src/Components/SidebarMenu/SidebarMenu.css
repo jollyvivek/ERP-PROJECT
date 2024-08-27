@@ -1,3 +1,23 @@
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul li{
+  padding-inline: 5px;
+}
+
+ul li:hover{
+  background:lightgray;
+  border-radius: 5px;
+}
+
+.title{
+  font-size: 1.3em;
+}
+
+
 .admin-menu{
   /* border: 2px solid green; */
   width: 100%;
@@ -6,6 +26,10 @@
 
 .admin-menu-cont{
   line-height: 1;
+  padding-inline:5px;
+  border-radius: 5px;
+  background: gray;
+  color: white;
 }
 
 .admin-menu .title{
@@ -64,6 +88,10 @@
 
  .profile-items li span{
   font-size: 1.2em;
+}
+
+.master-items li{
+  padding-block:0.8em !important;
 }
 
 

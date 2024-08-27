@@ -4,7 +4,7 @@ import { FaUser } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { useState } from "react";
 // import $ from 'jquery'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Admin = () => {
   const [adminItems, setAdminItem] = useState(false);
   const [profileItem, setProfileItem] = useState(false);
@@ -39,8 +39,8 @@ const Admin = () => {
   }
 
   return (
-    <div className="admin-menu ">
-      <div className=" d-flex justify-content-between align-items-center admin-menu-cont">
+    <div className="admin-menu  ">
+      <div className=" admin-menu-cont flex mb-2">
         <span className="icon fs-3">
           <FaUser />
         </span>
@@ -52,7 +52,7 @@ const Admin = () => {
       {adminItems ? (
         <div id="admin-items" className="admin-items">
           <ul>
-            <li className="d-flex justify-content-between align-items-center profile">
+            <li className="profile flex text-dark">
               <span>Profile</span>
               <span
                 className=" profile-arrow fs-1 "
@@ -75,7 +75,7 @@ const Admin = () => {
             <li  className="title manage-user" onClick={()=>navigate('/manage_user')}>            
               <span>Manage Users</span>
             </li>
-            <li className="d-flex justify-content-between align-items-center">
+            <li className="master flex">
               <span>Master</span>
               <span className="arrow-icon" onClick={masterDropdown}>
                 <RiArrowDropDownLine />
@@ -83,14 +83,14 @@ const Admin = () => {
             </li>
             {masterItems ? (
               <ul className="master-items">
-                <li>
+                <li className="title">
                   <span> Country Master</span>
                 </li>
-                <li>
+                <li className="title">
                   {" "}
                   <span>Bank Master</span>
                 </li>
-                <li>
+                <li className="title">
                   <span>State Master</span>
                 </li>
               </ul>
@@ -114,7 +114,7 @@ const Admin = () => {
                 </li>
               </ul>
             ) : null}
-            <li>
+            <li className="title">
               <span>Change Password</span>
             </li>
             <li className="d-flex justify-content-between align-items-center">
@@ -198,7 +198,7 @@ const Admin = () => {
                 </li>
               </ul>
             ) : null}
-            <li>
+            <li className="title">
               <span>Export Excel</span>
             </li>
             <li className="d-flex justify-content-between align-items-center">
@@ -207,22 +207,22 @@ const Admin = () => {
             </li>
             {financialYearItem ?(
             <ul className="finance-year-items">
-                <li> <span>Create Year </span></li>
-                <li> <span>Inventry Setting </span></li>
-                <li> <span>Financial Setting </span></li>
+                <li className="title"> <span>Create Year </span></li>
+                <li className="title"> <span>Inventry Setting </span></li>
+                <li className="title"> <span>Financial Setting </span></li>
               </ul>
               ):null}
 
-            <li className="mb-3">
+            <li className=" title">
               <span>Master Report</span>
             </li>
-            <li className="mb-3">
+            <li className=" title">
               <span>Mail History</span>
             </li>
-            <li className="mb-3">
+            <li className=" title">
               <span>Managemeny Log</span>
             </li>
-            <li>
+            <li className="title">
               <span>Batch Tracking</span>
             </li>
           </ul>
