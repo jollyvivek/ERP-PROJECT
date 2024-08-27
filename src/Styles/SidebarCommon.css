@@ -22,6 +22,10 @@ ul li{
 
 .inventry-cont {
   line-height: 1;
+  padding-inline: 5px;
+  border-radius: 5px;
+  background:grey;
+  color: white;
 }
 
 .inventry-cont .arrow-icon {
@@ -79,6 +83,14 @@ ul li{
   background: inherit;
 }
 
+.purchase{
+  background: grey;
+  color: white;
+  line-height:1;
+  padding-inline: 5px;
+  border-radius: 5px;
+}
+
 .purchase .title {
   font-size: 1.3em;
 }
@@ -87,6 +99,7 @@ ul li{
   font-size: 1.3em;
   line-height: 1.5;
   cursor: pointer;
+  padding-block:5px;
 }
 
 .purchse-items .inward,

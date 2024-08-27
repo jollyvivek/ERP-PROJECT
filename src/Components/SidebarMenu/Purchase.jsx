@@ -23,7 +23,7 @@ const Purchase = () => {
 
   return (
     <div className='purchase-menu'>
-      <div className='purchase d-flex justify-content-between align-items-center'>
+      <div className='purchase flex mb-1 border'>
       <span className='icon fs-3'><FaShoppingCart /></span>
       <span className='title'>Purchase</span>
       <span className='arrow-icon' onClick={purchaseDropdown}><RiArrowDropDownLine/></span>

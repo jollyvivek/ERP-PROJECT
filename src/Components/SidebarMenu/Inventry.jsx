@@ -50,7 +50,7 @@ const reportsTwoDropdown = () =>{
 
   return (
     <div className='inventry-menu'>
-      <div className='d-flex justify-content-between align-items-center inventry-cont'>
+      <div className=' inventry-cont flex mb-1 border'>
       <span className='icon fs-3'><FaBox /></span>
       <span className='title'>Inventry</span>
       <span className='arrow-icon' onClick={openInventryDropdown}><RiArrowDropDownLine/></span>

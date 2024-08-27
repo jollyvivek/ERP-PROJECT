@@ -39,8 +39,8 @@ const Admin = () => {
   }
 
   return (
-    <div className="admin-menu  ">
-      <div className=" admin-menu-cont flex mb-2">
+    <div className="admin-menu ">
+      <div className=" admin-menu-cont flex mb-1">
         <span className="icon fs-3">
           <FaUser />
         </span>

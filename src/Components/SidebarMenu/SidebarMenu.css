@@ -10,6 +10,7 @@ ul li{
 
 ul li:hover{
   background:lightgray;
+  /* color: white; */
   border-radius: 5px;
 }
 
