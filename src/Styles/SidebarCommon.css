@@ -8,6 +8,16 @@
   line-height: 0;
 }
 
+.navlink{
+  text-decoration: none;
+  color: black;
+}
+
+.navlink.active{
+  background: lightgray;
+ border-radius: 5px;
+}
+
 .title {
   font-size: 1.3em ;
 }
@@ -173,6 +183,19 @@ ul li{
 }
 
 /* quality */
+
+
+.quality-title{
+  line-height: 0;
+  padding-inline: 5px;
+  background: gray;
+  color: white;
+}
+
+.quality-items li{
+padding-block: 5px;
+}
+
 .quality .title {
   font-size: 1.3em;
 }

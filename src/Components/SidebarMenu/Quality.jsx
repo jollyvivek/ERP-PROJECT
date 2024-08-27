@@ -26,8 +26,8 @@ const Quality = () => {
 
   return (
     <div className="quality">
-      <div className="flex">
-        <span className="icon fs-2">
+      <div className="quality-title flex mb-1">
+        <span className="icon fs-3">
           <FaClipboardCheck />
         </span>
         <span className="title">QC/QA</span>
@@ -51,7 +51,6 @@ const Quality = () => {
                 <li className="title">Plating Master</li>
               </ul>
               ):null}
-
 
               <li className="title">ISO Document</li>
               <li className="title">Pending QC</li>
