@@ -14,6 +14,15 @@ ul li:hover{
   border-radius: 5px;
 }
 
+.nav-link{
+  text-decoration: none;
+  font-size: 1.3em;
+  background: transparent;
+}
+
+.nav-link .active{
+  background:lightgray !important;
+}
 .title{
   font-size: 1.3em;
 }

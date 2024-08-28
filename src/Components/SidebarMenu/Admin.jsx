@@ -4,7 +4,7 @@ import { FaUser } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { useState } from "react";
 // import $ from 'jquery'
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 const Admin = () => {
   const [adminItems, setAdminItem] = useState(false);
   const [profileItem, setProfileItem] = useState(false);
@@ -65,7 +65,7 @@ const Admin = () => {
             {profileItem ? (
               <ul className="profile-items">
                 <li  className="title" onClick={()=>navigate('/company')}>
-                  <span>Company Details</span>
+                  <NavLink className="nav-link w-100">Company Details</NavLink>
                 </li>
               </ul>
             ) : null}

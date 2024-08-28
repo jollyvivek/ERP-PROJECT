@@ -63,7 +63,6 @@ const Sidebar = () => {
           </div>
         </div>
         <div className="col-md-9 p-0">
-          
         <Routes>
         <Route path="/basic_details" element={<BasicDetails/>}/>
         <Route path="/" element={<SidebarRight/>}/>

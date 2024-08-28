@@ -11,7 +11,7 @@ const Navbar = () => {
   const navigate = useNavigate()
   return (
     
-     <div className='container-fluid nav-cont '>
+     <div className='container-fluid nav-cont'>
       <div className='row'>
         <div className='col-md-6 d-flex gap-5 nav-cont-left '>
           <div className="d-flex align-items-center gap-3">
