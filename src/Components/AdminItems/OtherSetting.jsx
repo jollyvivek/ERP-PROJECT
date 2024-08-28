@@ -366,14 +366,14 @@ const OtherSetting = () => {
                     <div className="row">
                         <div className="col-6 mt-3">
                             <div className="mb-3 row">
-                                <label for="" className=" col-sm-7 col-form-label fs-6 text-end"> Merge PDF System Path :</label>
+                                <label className=" col-sm-7 col-form-label fs-5 text-end"> Merge PDF System Path :</label>
                                 <div className="col-sm-4 d-flex align-items-center">
                                     <input type="text" className="form-control" required />
                                 </div>
                                 <button type='button' className='col-sm-1 border-0 bg-transparent text-left'>R</button>
                             </div>
                             <div className="mb-3 row d-flex align-items-center">
-                                <label for="" className=" col-sm-7 text-end col-form-label fs-6"> Select Path For EU Declaration Path :</label>
+                                <label className=" col-sm-7 text-end col-form-label fs-5"> Select Path For EU Declaration Path :</label>
                                 <div className="col-sm-4 d-flex align-items-center">
                                     <input type="text" className="form-control" required />
                                 </div>

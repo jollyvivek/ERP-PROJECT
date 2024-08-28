@@ -21,14 +21,14 @@ const ReportHeadingTwo = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label for="" className="col-sm-7 col-form-label fs-6 text-end">Tax Order
+                                            <label  className="col-sm-7 col-form-label fs-5 text-end">Tax Order
                                                 Heading :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input type="text" className="form-control form-control-sm" required />
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-6 text-end">Proforma
+                                            <label  className=" col-sm-7 col-form-label fs-5 text-end">Proforma
                                                 Invoice :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input type="text" className="form-control form-control-sm" required />
@@ -64,28 +64,28 @@ const ReportHeadingTwo = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label for="" className="col-sm-7 col-form-label fs-6 text-end">Tax Order
+                                            <label  className="col-sm-7 col-form-label fs-5 text-end">Tax Order
                                                 Heading :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input type="text" className="form-control form-control-sm" required />
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-6 text-end ">Tax Order
+                                            <label  className=" col-sm-7 col-form-label fs-5 text-end ">Tax Order
                                                 Subheading :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input type="text" className="form-control form-control-sm" required />
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-6 text-end ">Bill of
+                                            <label  className=" col-sm-7 col-form-label fs-5 text-end ">Bill of
                                                 Supply Order Heading :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input type="text" className="form-control form-control-sm" required />
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-6 text-end ">Bill of
+                                            <label  className=" col-sm-7 col-form-label fs-5 text-end ">Bill of
                                                 Supply Order Subheading :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input type="text" className="form-control form-control-sm" required />
@@ -99,21 +99,21 @@ const ReportHeadingTwo = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label for="" className="col-sm-7 col-form-label fs-6 text-end">Tax Order
+                                            <label  className="col-sm-7 col-form-label fs-5 text-end">Tax Order
                                                 Heading :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input type="text" className="form-control form-control-sm" required />
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-6 text-end ">Tax Order
+                                            <label  className=" col-sm-7 col-form-label fs-5 text-end ">Tax Order
                                                 Subheading :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input type="text" className="form-control form-control-sm" required />
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-6 text-end ">Bill of
+                                            <label  className=" col-sm-7 col-form-label fs-5 text-end ">Bill of
                                                 Supply Order
                                                 Heading :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
@@ -121,7 +121,7 @@ const ReportHeadingTwo = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-6 text-end ">Bill of
+                                            <label  className=" col-sm-7 col-form-label fs-5 text-end ">Bill of
                                                 Supply Order
                                                 Subheading :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
@@ -138,14 +138,14 @@ const ReportHeadingTwo = () => {
                                 <div className="row ">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label for="" className="col-sm-7 col-form-label fs-6 text-end">Tax Order
+                                            <label  className="col-sm-7 col-form-label fs-5 text-end">Tax Order
                                                 Heading :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input type="text" className="form-control form-control-sm" required />
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-6 text-end ">Bill of
+                                            <label  className=" col-sm-7 col-form-label fs-5 text-end ">Bill of
                                                 Supply Order
                                                 Heading :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
@@ -160,7 +160,7 @@ const ReportHeadingTwo = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-6 text-end"> Quotation
+                                            <label  className=" col-sm-7 col-form-label fs-5 text-end"> Quotation
                                                 Tax
                                                 Heading :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
@@ -168,14 +168,14 @@ const ReportHeadingTwo = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-6 text-end">Quotation
+                                            <label  className=" col-sm-7 col-form-label fs-5 text-end">Quotation
                                                 Bill of Supply :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input type="text" className="form-control form-control-sm" required />
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-6 text-end">Export
+                                            <label  className=" col-sm-7 col-form-label fs-5 text-end">Export
                                                 Quotation :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input type="text" className="form-control form-control-sm" required />
@@ -189,14 +189,14 @@ const ReportHeadingTwo = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-6 text-end"> Return
+                                            <label  className=" col-sm-7 col-form-label fs-5 text-end"> Return
                                                 Rejected Heading :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input type="text" className="form-control form-control-sm" required />
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-6 text-end">Return
+                                            <label  className=" col-sm-7 col-form-label fs-5 text-end">Return
                                                 Rejected Report Heading :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input type="text" className="form-control form-control-sm" required />
