@@ -1,33 +1,53 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const NavTabs = () => {
   const navigate = useNavigate()
+
+  const NavLinkCss = ({isActive}) =>{
+    return{
+      border:isActive ? "2px solid grey" :""
+    }
+
+  }
+
   return (
     <div className='container-fluid'>
       <div className='row'>
       <div className="col-md-12 nav-btns ">
-              <button className="btn btn-sm fs-5"
-              onClick={()=>navigate("/company/*")}>Basic Details</button>
-              <button className="btn btn-sm fs-5"
-              onClick={()=>navigate('/tax_bankdetails')}>Tax & Bank Details</button>
-              <button className="btn btn-sm fs-5"
-              onClick={()=>navigate("/terms_condtions")}>Terms & Condtions</button>
-              <button className="btn btn-sm fs-5 "
-              onClick={()=>navigate("/report_heading")}>Report Haeding</button>
-              <button className="btn btn-sm fs-5 "
-              onClick={()=>navigate("/report_heading_two")}>Report Haeding</button>
-              <button className="btn btn-sm fs-5 "
-              onClick={()=>navigate("/other_setting")}>Other Setting</button>
-              <button onClick={()=>navigate('/crmhr_setting')} className="btn btn-sm fs-5">CRM/HR Setting</button>
-              <button onClick={()=>navigate('/finance_inventry_setting')} className="btn btn-sm fs-5 ">
-                Finance/Inventory Setting
+              <button className="btn btn-sm fs-5">
+                <NavLink to="/company/*" style={NavLinkCss} className="navLink">Basic Details</NavLink> 
               </button>
-              <button onClick={()=>navigate('/tcs_einvoice')} className="btn btn-sm fs-5 ">
-                TCS Setting & E-Invoice
+              <button className="btn btn-sm fs-5">
+               <NavLink to='/tax_bankdetails' style={NavLinkCss} className="navLink">Tax & Bank Details</NavLink> 
               </button>
-              <button onClick={()=>navigate('/costing_setting')} className="btn btn-sm fs-5 ">Costing Setting</button>
-              <button onClick={()=>navigate("/production_setting")} className="btn btn-sm fs-5 ">Production setting</button>
+              <button className="btn btn-sm fs-5">
+                <NavLink to="/terms_condtions" style={NavLinkCss} className="navLink">Terms & Condtions</NavLink> 
+              </button>
+              <button className="btn btn-sm fs-5 ">
+                 <NavLink to="/report_heading" style={NavLinkCss} className="navLink"> Report Haeding</NavLink>   
+              </button>
+              <button className="btn btn-sm fs-5">
+                <NavLink to="/report_heading_two" style={NavLinkCss} className="navLink">Report Haeding</NavLink> 
+              </button>
+              <button className="btn btn-sm fs-5">
+                <NavLink to="/other_setting" style={NavLinkCss} className="navLink" >Other Setting</NavLink> 
+              </button>
+              <button className="btn btn-sm fs-5">
+                <NavLink to="/crmhr_setting" style={NavLinkCss} className="navLink"> CRM/HR Setting</NavLink> 
+              </button>
+              <button className="btn btn-sm fs-5 ">
+               <NavLink to="/finance_inventry_setting" style={NavLinkCss} className="navLink">Finance/Inventory Setting</NavLink> 
+              </button>
+              <button className="btn btn-sm fs-5 ">
+               <NavLink to="/tcs_einvoice" style={NavLinkCss} className="navLink"> TCS Setting & E-Invoice</NavLink> 
+              </button>
+              <button className="btn btn-sm fs-5 ">
+                <NavLink to="/costing_setting" style={NavLinkCss} className="navLink">Costing Setting</NavLink> 
+              </button>
+              <button  className="btn btn-sm fs-5 ">
+                <NavLink to="/production_setting" style={NavLinkCss} className="navLink">Production setting</NavLink> 
+              </button>
               {/* <button className="btn btn-sm fs-5 ">Terms & Conditions</button> */}
       </div>
       </div>
