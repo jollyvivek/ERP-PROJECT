@@ -13,9 +13,15 @@
   color: black;
 }
 
+button a.active{
+  text-decoration:none;
+}
+
 .navlink.active {
   background: lightgray;
   border-radius: 5px;
+  border: 2px solid grey;
+  padding: 5px;
 }
 
 .title {

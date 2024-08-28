@@ -16,7 +16,7 @@ const NavTabs = () => {
       <div className='row'>
       <div className="col-md-12 nav-btns ">
               <button className="btn btn-sm fs-5">
-                <NavLink to="/company/*" style={NavLinkCss} className="navLink">Basic Details</NavLink> 
+                <NavLink to="/company/*" style={NavLinkCss} className="navLink" >Basic Details</NavLink> 
               </button>
               <button className="btn btn-sm fs-5">
                <NavLink to='/tax_bankdetails' style={NavLinkCss} className="navLink">Tax & Bank Details</NavLink> 

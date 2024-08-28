@@ -15,6 +15,11 @@ hr{
   background-color: #a9a9a9;
 }
 
+.nav-btns a.active{
+  text-decoration:none;
+  
+}
+
 .navLink{
   text-decoration: none;
   color: black;
