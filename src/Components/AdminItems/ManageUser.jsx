@@ -9,7 +9,7 @@ const ManageUser = () => {
 
   const fetchCompany = async() =>{
     const response = await axios.get(`${url}/api/company/list`);
-    console.log(response.data)
+    // console.log(response.data)
     if(response.data.success){
       setList(response.data.data)
      
@@ -29,7 +29,7 @@ fetchCompany();
         <img
           src={`${url}/images/` + row.logo}
           alt={row.companyName}
-          style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '5px' }}
+          style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '5px' }}
         />
       )
     },

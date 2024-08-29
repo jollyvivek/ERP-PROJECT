@@ -64,8 +64,8 @@ const Admin = () => {
             </li>
             {profileItem ? (
               <ul className="profile-items">
-                <li  className="title" onClick={()=>navigate('/company')}>
-                  <NavLink className="nav-link w-100">Company Details</NavLink>
+                <li  className="title company-details-title">
+                  <NavLink to='/company' className="nav-link w-100 ">Company Details</NavLink>
                 </li>
               </ul>
             ) : null}
