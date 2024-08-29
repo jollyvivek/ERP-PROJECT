@@ -65,7 +65,7 @@ const Admin = () => {
             {profileItem ? (
               <ul className="profile-items">
                 <li  className="title company-details-title">
-                  <NavLink to='/company' className="nav-link w-100 ">Company Details</NavLink>
+                  <NavLink to='/company' className="nav-link w-100 ">Edit Company</NavLink>
                 </li>
               </ul>
             ) : null}
@@ -83,14 +83,13 @@ const Admin = () => {
             </li>
             {masterItems ? (
               <ul className="master-items">
-                <li className="title">
-                  <span> Country Master</span>
+                <li className="title" onClick={()=>navigate("/country_master")} >
+                 <span > Country Master</span>
                 </li>
-                <li className="title">
-                  {" "}
+                <li className="title" onClick={()=>navigate('/bank_master')}>
                   <span>Bank Master</span>
                 </li>
-                <li className="title">
+                <li className="title" onClick={()=>navigate('/state_master')}>
                   <span>State Master</span>
                 </li>
               </ul>

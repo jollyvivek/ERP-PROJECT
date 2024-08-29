@@ -30,6 +30,9 @@ import FinanceInventrySetting from "../AdminItems/FinanceInventrySetting";
 import TcsSettingEInvoice from "../AdminItems/TcsSettingEInvoice";
 import CostingSetting from "../AdminItems/CostingSetting";
 import ProductionSetting from "../AdminItems/ProductionSetting";
+import CountryMaster from "../AdminItems/CountryMaster";
+import StateMaster from "../AdminItems/StateMaster";
+import BankMaster from "../AdminItems/BankMaster";
 
 
 
@@ -79,7 +82,9 @@ const Sidebar = () => {
         <Route path="/production_setting" element={<ProductionSetting/>}/>
         <Route path="/role" element={<Role/>}/>
         <Route path="manage_user" element={<ManageUser/>}/>
-        
+        <Route path="/country_master" element={<CountryMaster/>}/>
+        <Route path="/state_master" element={<StateMaster/>}/>
+        <Route path="/bank_master" element={<BankMaster/>}/>
        
       </Routes>
         </div>
