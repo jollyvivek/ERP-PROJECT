@@ -2,6 +2,15 @@ import React from "react";
 import '../../Styles/AdminMaster.css'
 
 const CountryMaster = () => {
+
+
+
+
+
+  const handleModelFormSubmit = (event)=>{
+    event.preventDefault();
+  }
+
   return (
     <div className="container-fluid px-3">
       {/* <h3>CountryMaster</h3> */}
@@ -16,7 +25,7 @@ const CountryMaster = () => {
                 className=" add-btn btn border-primary"
                 id="addnew-btn"
                 data-bs-toggle="modal"
-                data-bs-target="#exampleModalCenter"
+                data-bs-target="#countryMasterModal"
               >
                 ADD NEW
               </button>
@@ -28,8 +37,8 @@ const CountryMaster = () => {
                 <thead>
                   <tr>
                     <th></th>
-                    <th className="fs-5">Country Code</th>
-                    <th className="fs-5">Country Name</th>
+                    <th className="fs-5 fw-normal">Country Code</th>
+                    <th className="fs-5 fw-normal">Country Name</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -79,7 +88,7 @@ const CountryMaster = () => {
           </div>
           <div
             className="modal fade model-box"
-            id="exampleModalCenter"
+            id="countryMasterModal"
             data-bs-backdrop="static"
             tabindex="-1"
             role="dialog"
@@ -115,13 +124,13 @@ const CountryMaster = () => {
                   ></button>
                   </div>
                 </div>
-                <form action="" className="needs-validation" novalidate>
+                <form action="" className="" onSubmit={handleModelFormSubmit} >
                   <div className="modal-body">
                     <fieldset>
                       <legend>Country Details</legend>
                       <div className="mb-3 row">
                         <label
-                          for=""
+                          htmlFor="code"
                           className=" col-sm-4 col-form-label fs-5  text-end"
                         >
                           Code :
@@ -129,6 +138,7 @@ const CountryMaster = () => {
                         <div className="col-sm-8 d-flex align-items-center">
                           <input
                             type="text"
+                            id="code"
                             className="form-control"
                             required
                           />
@@ -136,14 +146,15 @@ const CountryMaster = () => {
                       </div>
                       <div className="mb-3 row">
                         <label
-                          for=""
+                          htmlFor="countryName"
                           className=" col-sm-4 col-form-label fs-5  text-end"
                         >
                           Name :
                         </label>
                         <div className="col-sm-8 d-flex align-items-center">
                           <input
-                            type="email"
+                            type="text"
+                            id="countryName"
                             className="form-control"
                             required
                           />
