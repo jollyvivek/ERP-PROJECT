@@ -4,6 +4,8 @@ import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import axios from "axios";
 import { toast } from "react-toastify";
 import DataTable from "react-data-table-component";
+import { MdDelete } from "react-icons/md";
+import { MdOutlineSecurityUpdateGood } from "react-icons/md";
 
 const CountryMaster = () => {
 
@@ -94,7 +96,31 @@ const CountryMaster = () => {
           </div>
           <div className="row">
             <div className="col-12 mt-3">
-              <DataTable columns={columns} data={codeList}/>
+              {/* <DataTable columns={columns} data={codeList}/> */}
+              <table className=" table table-striped">
+                   <thead>
+                        <tr>
+                             <th className="text-center" scope="col">Country Code</th>
+                              <th className="text-center" scope="col">Country Name</th>
+                              <th className="text-center" scope="col">Action</th>
+                              
+                          </tr>
+                      </thead>
+                   <tbody>
+                       {codeList.map((item,index)=>{
+                          return(
+                            <>
+                             <tr key={index} className="text-center">
+                             <td>{item.code}</td>
+                            <td>{item.countryName}</td>
+                            <td className=" text-center"><button className="btn text-danger fs-3"><MdDelete /></button> 
+                            <button className="btn fs-3 text-primary"><MdOutlineSecurityUpdateGood /></button></td>
+                            </tr>
+                            </>
+                          )
+                         })}    
+                  </tbody>
+            </table>
             </div>
           </div>
 
