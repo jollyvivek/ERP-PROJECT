@@ -11,8 +11,9 @@ const ManageUser = () => {
     const response = await axios.get(`${url}/api/company/list`);
     // console.log(response.data)
     if(response.data.success){
-      setList(response.data.data)
-     
+      setList(response.data.data);
+      console.log("success")
+      
     }else{
       console.log("Error")
     }
@@ -21,6 +22,7 @@ const ManageUser = () => {
 useEffect(()=>{
 fetchCompany();
 },[])
+
 
   const columns = [
     { name :'companyName', selector: row=>row.companyName,sortable:true},

@@ -72,7 +72,7 @@ const Admin = () => {
             <li className="title role" onClick={()=>navigate('/role')}>           
               <span>Role</span>
             </li>
-            <li  className="title manage-user" onClick={()=>navigate('/manage_user')}>            
+            <li  className="title manage-user" onClick={()=>navigate('/manageuser')}>            
               <span>Manage Users</span>
             </li>
             <li className="master flex">
@@ -83,13 +83,13 @@ const Admin = () => {
             </li>
             {masterItems ? (
               <ul className="master-items">
-                <li className="title" onClick={()=>navigate("/country_master")} >
+                <li className="title" onClick={()=>navigate("/countrymaster")} >
                  <span > Country Master</span>
                 </li>
-                <li className="title" onClick={()=>navigate('/bank_master')}>
+                <li className="title" onClick={()=>navigate('/bankmaster')}>
                   <span>Bank Master</span>
                 </li>
-                <li className="title" onClick={()=>navigate('/state_master')}>
+                <li className="title" onClick={()=>navigate('/statemaster')}>
                   <span>State Master</span>
                 </li>
               </ul>

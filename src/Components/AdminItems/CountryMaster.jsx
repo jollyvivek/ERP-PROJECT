@@ -1,14 +1,75 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import '../../Styles/AdminMaster.css'
+import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle'
+import axios from "axios";
+import { toast } from "react-toastify";
+import DataTable from "react-data-table-component";
 
 const CountryMaster = () => {
 
+ const url = "http://localhost:4000";
+ const [codeList,setCodeList]=useState([])
+ const modalRef = useRef(null);
+ const [data,setData]= useState({
+  code: "",
+  countryName:""
+ });
+
+ const columns = [
+  {name:"Country Code", selectors:row=>row.code, sortable:true},
+  {name:"Country Name", selectors:row=>row.countryName,sortable:true}
+ ]
+
+ 
 
 
+ const codeFetchList = async()=>{
+  const response = await axios.get(`${url}/api/code/list`);
+  if(response.data.success){
+    setCodeList(response.data.data)
+    console.log("success code list data")
+    console.log(response.data)
+  }else{
+    console.log("Error")
+  }
+  
+ }
+
+ useEffect(()=>{
+  codeFetchList();
+ },[]);
 
 
-  const handleModelFormSubmit = (event)=>{
+ const modelHandler = (event)=>{
+  const name =event.target.name;
+  const value = event.target.value;
+  setData((data) => ({ ...data, [name]: value }));
+ }
+
+  const handleModelFormSubmit = async(event)=>{
     event.preventDefault();
+
+    let payload = {
+      code: Number(data.code) || '',
+      countryName: data.countryName || ''
+    }
+
+    const response = await axios.post(`${url}/api/code/add`, payload);
+    if(response.data.success){
+      setData({
+        code: '',
+        countryName:""
+      });
+      toast.success(response.data.message);
+     
+    }else{
+      console.log("error");
+      toast.error(response.data.message)
+    }
+    if (modalRef.current) {
+      const modalElement = new bootstrap.Modal(modalRef.current);
+      modalElement.hide();
+    }
   }
 
   return (
@@ -33,64 +94,17 @@ const CountryMaster = () => {
           </div>
           <div className="row">
             <div className="col-12 mt-3">
-              <table id="example" className="table table-striped">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th className="fs-5 fw-normal">Country Code</th>
-                    <th className="fs-5 fw-normal">Country Name</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td></td>
-                    <td>+91</td>
-                    <td>India</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>+7</td>
-                    <td>Russia</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>+971</td>
-                    <td>UAE</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>+33</td>
-                    <td>FRANCE</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>+55</td>
-                    <td>BRAZIL</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>+64</td>
-                    <td>New Zealand</td>
-                  </tr>
-                </tbody>
-                {/* <tfoot>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
-                            </tfoot>  */}
-              </table>
+              <DataTable columns={columns} data={codeList}/>
             </div>
           </div>
+
+          {/* model */}
           <div
+            ref={modalRef}
             className="modal fade model-box"
             id="countryMasterModal"
             data-bs-backdrop="static"
-            tabindex="-1"
+            // tabindex="-1"
             role="dialog"
             aria-labelledby="exampleModalCenterTitle"
             aria-hidden="true"
@@ -140,6 +154,9 @@ const CountryMaster = () => {
                             type="text"
                             id="code"
                             className="form-control"
+                            name="code"
+                            onChange={modelHandler}
+                            value={data.code}
                             required
                           />
                         </div>
@@ -156,6 +173,9 @@ const CountryMaster = () => {
                             type="text"
                             id="countryName"
                             className="form-control"
+                            name="countryName"
+                            onChange={modelHandler}
+                            value={data.countryName}
                             required
                           />
                         </div>
@@ -172,7 +192,7 @@ const CountryMaster = () => {
                     <button type="button" className="btn btn-secondary  ">
                       Update
                     </button>
-                    <button type="button" className="btn btn-danger  ">
+                    <button type="reset" className="btn btn-danger  ">
                       Delete
                     </button>
                     {/* <button type="button" className="btn btn-secondary fs-4 " data-bs-dismiss="modal">Close</button> */}

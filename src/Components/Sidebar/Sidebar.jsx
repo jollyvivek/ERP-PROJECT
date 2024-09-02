@@ -81,10 +81,10 @@ const Sidebar = () => {
         <Route path ='/costing_setting' element={<CostingSetting/>}/>
         <Route path="/production_setting" element={<ProductionSetting/>}/>
         <Route path="/role" element={<Role/>}/>
-        <Route path="manage_user" element={<ManageUser/>}/>
-        <Route path="/country_master" element={<CountryMaster/>}/>
-        <Route path="/state_master" element={<StateMaster/>}/>
-        <Route path="/bank_master" element={<BankMaster/>}/>
+        <Route path="manageuser" element={<ManageUser/>}/>
+        <Route path="/countrymaster" element={<CountryMaster/>}/>
+        <Route path="/statemaster" element={<StateMaster/>}/>
+        <Route path="/bankmaster" element={<BankMaster/>}/>
        
       </Routes>
         </div>
