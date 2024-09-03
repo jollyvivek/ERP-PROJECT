@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../../Styles/AdminMaster.css'
 import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import axios from "axios";
@@ -11,26 +11,47 @@ const CountryMaster = () => {
 
  const url = "http://localhost:4000";
  const [codeList,setCodeList]=useState([])
- const modalRef = useRef(null);
+ const [showModal, setShowModal] = useState(false);
+
  const [data,setData]= useState({
   code: "",
   countryName:""
  });
 
+ const removeCode = async(event)=>{
+  
+  alert("Remove call");
+
+ }
+
  const columns = [
-  {name:"Country Code", selectors:row=>row.code, sortable:true},
-  {name:"Country Name", selectors:row=>row.countryName,sortable:true}
+  {name:"Country Code", selector:row=>row.code, sortable:true},
+  {name:"Country Name", selector:row=>row.countryName,sortable:true},
+  {name:"Action",selecto:row=>row._id ,cell: row=>(
+    <button className=" btn text-danger text-center fs-4"
+     onClick={removeCode}
+     style={{borderOutline:"0"}}
+     ><MdDelete/></button>
+  )
+
+  }
  ]
 
+ const handleFilter = (event)=>{
+  const searchText = event.target.value.toLowerCase();
+    const filteredData = codeList.filter(row =>
+     row.countryName.toLowerCase().includes(searchText)
+     );
+   setCodeList(filteredData);
+  }
+
  
-
-
  const codeFetchList = async()=>{
   const response = await axios.get(`${url}/api/code/list`);
   if(response.data.success){
     setCodeList(response.data.data)
-    console.log("success code list data")
-    console.log(response.data)
+    // console.log("success code list data")
+    // console.log(response.data)
   }else{
     console.log("Error")
   }
@@ -68,10 +89,7 @@ const CountryMaster = () => {
       console.log("error");
       toast.error(response.data.message)
     }
-    if (modalRef.current) {
-      const modalElement = new bootstrap.Modal(modalRef.current);
-      modalElement.hide();
-    }
+   setShowModal(false)
   }
 
   return (
@@ -81,7 +99,7 @@ const CountryMaster = () => {
         <div className="col-md-12  role-content">
           <div className="row mt-3">
             <div className="col-md-4">
-              <h3 className="fs-3">Country Record </h3>
+              <h3 className="fs-5">Country Record </h3>
             </div>
             <div className="col-md-8 d-flex flex-column align-items-end justify-content-end">
               <button
@@ -89,48 +107,35 @@ const CountryMaster = () => {
                 id="addnew-btn"
                 data-bs-toggle="modal"
                 data-bs-target="#countryMasterModal"
+                onClick={() => setShowModal(true)}
               >
                 ADD NEW
               </button>
             </div>
           </div>
           <div className="row">
-            <div className="col-12 mt-3">
-              {/* <DataTable columns={columns} data={codeList}/> */}
-              <table className=" table table-striped">
-                   <thead>
-                        <tr>
-                             <th className="text-center" scope="col">Country Code</th>
-                              <th className="text-center" scope="col">Country Name</th>
-                              <th className="text-center" scope="col">Action</th>
-                              
-                          </tr>
-                      </thead>
-                   <tbody>
-                       {codeList.map((item,index)=>{
-                          return(
-                            <>
-                             <tr key={index} className="text-center">
-                             <td>{item.code}</td>
-                            <td>{item.countryName}</td>
-                            <td className=" text-center"><button className="btn text-danger fs-3"><MdDelete /></button> 
-                            <button className="btn fs-3 text-primary"><MdOutlineSecurityUpdateGood /></button></td>
-                            </tr>
-                            </>
-                          )
-                         })}    
-                  </tbody>
-            </table>
+            <div className="col-md-12">
+            <div className='mt-3 '>
+              <input type="text" className='form-control ' onChange={handleFilter} placeholder='Search Here'  />
+            </div>
+              <DataTable 
+              columns={columns}
+               data={codeList}
+                // selectableRows
+                // fixedHeader
+                pagination
+               />
             </div>
           </div>
 
           {/* model */}
+          {showModal && (
           <div
-            ref={modalRef}
-            className="modal fade model-box"
+            className="modal show fade model-box"
+            style={{ display: 'block' }}
             id="countryMasterModal"
             data-bs-backdrop="static"
-            // tabindex="-1"
+            tabindex="-1"
             role="dialog"
             aria-labelledby="exampleModalCenterTitle"
             aria-hidden="true"
@@ -138,29 +143,30 @@ const CountryMaster = () => {
             <div className="modal-dialog modal-dialog-centered" role="document">
               <div className="modal-content">
                 <div className="modal-header d-flex justify-content-between">
-                  <h5 className="modal-title fs-3" id="exampleModalLongTitle">
+                  <h5 className="modal-title fs-5" id="exampleModalLongTitle">
                     Country Master
                   </h5>
                   <div className="d-flex align-items-center px-3">
                   <button
                     type="button"
-                    className="btn btn-outline-0 fs-3"
+                    className="btn btn-outline-0 fs-3 d-none"
                     id="minimizeBtn"
                   >
                     &minus;
                   </button>
                   <button
                     type="button"
-                    className="btn btn-outline-0 fs-3 "
+                    className="btn btn-outline-0 fs-3 d-none "
                     id="restoreBtn"
                   >
                     &#9633;
                   </button>
                   <button
                     type="button"
-                    className="btn-close fs-6"
+                    className="btn-close fs-5"
                     data-bs-dismiss="modal"
                     aria-label="Close"
+                    onClick={() => setShowModal(false)}
                   ></button>
                   </div>
                 </div>
@@ -209,13 +215,13 @@ const CountryMaster = () => {
                     </fieldset>
                   </div>
                   <div className="modal-footer d-flex justify-content-center gap-1">
-                    <button type="button" className="btn btn-secondary ">
+                    <button type="button" className="btn btn-secondary d-none ">
                       New
                     </button>
-                    <button type="submit" className="btn btn-primary ">
+                    <button type="submit" className="btn btn-primary">
                       Save
                     </button>
-                    <button type="button" className="btn btn-secondary  ">
+                    <button type="button" className="btn btn-secondary d-none  ">
                       Update
                     </button>
                     <button type="reset" className="btn btn-danger  ">
@@ -227,6 +233,7 @@ const CountryMaster = () => {
               </div>
             </div>
           </div>
+          )}
         </div>
       </div>
     </div>
