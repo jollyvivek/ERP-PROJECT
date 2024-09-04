@@ -18,19 +18,16 @@ const CountryMaster = () => {
   countryName:""
  });
 
- const removeCode = async(event)=>{
-  
-  alert("Remove call");
-
- }
+ 
 
  const columns = [
   {name:"Country Code", selector:row=>row.code, sortable:true},
   {name:"Country Name", selector:row=>row.countryName,sortable:true},
+  // {name:"Id",selector:row=>row._id},
   {name:"Action",selecto:row=>row._id ,cell: row=>(
     <button className=" btn text-danger text-center fs-4"
-     onClick={removeCode}
-     style={{borderOutline:"0"}}
+     onClick={()=>removeCode(row._id)}
+     style={{textDecoration:"none"}}
      ><MdDelete/></button>
   )
 
@@ -63,11 +60,24 @@ const CountryMaster = () => {
  },[]);
 
 
+//  remove code functionality
+
+ const removeCode = async(id)=>{
+  const response = await axios.post(`${url}/api/code/remove`,{id:id})
+  await codeFetchList();
+  toast.success(response.data.message)
+ }
+
+//  model handler
+
+
  const modelHandler = (event)=>{
   const name =event.target.name;
   const value = event.target.value;
   setData((data) => ({ ...data, [name]: value }));
  }
+
+//  model from submit
 
   const handleModelFormSubmit = async(event)=>{
     event.preventDefault();
@@ -90,6 +100,7 @@ const CountryMaster = () => {
       toast.error(response.data.message)
     }
    setShowModal(false)
+   codeFetchList();
   }
 
   return (
