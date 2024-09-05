@@ -62,6 +62,29 @@ const StateMaster = () => {
     stateFetchRecords();
   };
 
+  // import code search functionality
+
+  const serrchStateHandler = ()=>{
+    let filter =document.getElementById("stateSearch").value.toUpperCase();
+    // console.log(filter)
+    let stateTable = document.getElementById("stateTable");
+    // console.log(stateTable)
+    let tr=stateTable.getElementsByTagName("tr");
+    // console.log(tr)
+    for(let i=0;i<tr.length;i++){
+      let td= tr[i].getElementsByTagName("td")[1];
+      if(td){
+        let textValue=td.textContent || td.innerHTML;
+
+        if(textValue.toUpperCase().indexOf(filter) > -1){
+          tr[i].style.display="";
+        }else{
+          tr[i].style.display="none";
+        }
+      }
+        }
+
+  }
 
   return (
     <div className='container-fluid px-3'>
@@ -85,8 +108,8 @@ const StateMaster = () => {
                     <div className="col-12 mt-3">
                       <div className='row'>
                         <div className='col-md-4 d-flex  align-items-center px-3 gap-3'>
-                          <label htmlFor="search" id='stateSearch' className='fs-5'>Search</label>
-                          <input type="text" className='form-control' id="search" autoComplete='false' />
+                          <label htmlFor="stateSearch" className='fs-5'>Search</label>
+                          <input type="text"  id='stateSearch' className='form-control'  autoComplete='false' onKeyUp={serrchStateHandler} />
                         </div>
                       </div>
                         <table id="stateTable" className="table table-striped">
@@ -101,7 +124,7 @@ const StateMaster = () => {
                             <tbody >
                                 {stateRecords.map((item,index)=>{
                                   return(
-                                    <tr className='text-center'>
+                                    <tr className='text-center' key={index}>
                                     <td>0{item.StateCode}</td>
                                     <td>{item.StateName}</td>
                                     <td>{item.Country}</td>
@@ -123,7 +146,8 @@ const StateMaster = () => {
           style={{ display: 'block' }}
           id="stateMaster" 
           data-bs-backdrop="static"
-          tabindex="-1" role="dialog"
+          // tabindex="-1"
+           role="dialog"
           aria-labelledby="exampleModalCenterTitle"
           aria-hidden="true"
         >
@@ -145,7 +169,7 @@ const StateMaster = () => {
                             <legend>State Details</legend>
                               <div className="mb-3 row">
                                 <div className="mb-3 row">
-                                    <label for="" className=" col-sm-5 col-form-label fs-5 text-end">Country Name :
+                                    <label  className=" col-sm-5 col-form-label fs-5 text-end">Country Name :
                                     </label>
                                     <div className="col-sm-7 d-flex align-items-center">
                                         <input type="text" 
@@ -158,7 +182,7 @@ const StateMaster = () => {
                                     </div>
                                 </div>
                                 <div className="mb-3 row">
-                                    <label for="" className=" col-sm-5 col-form-label fs-5 text-end">Code :</label>
+                                    <label  className=" col-sm-5 col-form-label fs-5 text-end">Code :</label>
                                     <div className="col-sm-7 d-flex align-items-center">
                                         <input 
                                         type="number" 
@@ -171,8 +195,8 @@ const StateMaster = () => {
                                     </div>
                                 </div>
                                 <div className="mb-3 row">
-                                    <label for="" className=" col-sm-5 col-form-label fs-5 text-end">State Name :
-                                    </label>
+                                    <label  className=" col-sm-5 col-form-label fs-5 text-end">
+                                      State Name :     </label>
                                     <div className="col-sm-7 d-flex align-items-center">
                                         <input 
                                         type="text"
@@ -186,10 +210,10 @@ const StateMaster = () => {
                               </div>
                         </fieldset>
                     </div>
-                    <div class="modal-footer d-flex justify-content-center gap-1">
-                        <button type="submit" class="btn btn-primary fs-5">Save</button>
+                    <div className="modal-footer d-flex justify-content-center gap-1">
+                        <button type="submit" className="btn btn-primary fs-5">Save</button>
                         <button type="button"
-                         class="btn btn-secondary fs-5 " 
+                         className="btn btn-secondary fs-5 " 
                          data-bs-dismiss="modal" 
                          onClick={() => setShowModal(false)} 
                          >Close
