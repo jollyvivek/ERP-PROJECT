@@ -110,31 +110,7 @@ const StateMaster = () => {
                                 </tr>
                                   )
                                 })}
-                                {/* <tr className='text-center'>
-                                    <td>02</td>
-                                    <td>Himachal Pardesh</td>
-                                    <td>India</td>
-                                </tr>
-                                <tr className='text-center'>
-                                    <td>03</td>
-                                    <td>Punjab</td>
-                                    <td>India</td>
-                                </tr>
-                                <tr className='text-center'>
-                                    <td>04</td>
-                                    <td>Chandigarh</td>
-                                    <td>India</td>
-                                </tr>
-                                <tr className='text-center'>
-                                    <td>05</td>
-                                    <td>Uttarakhand</td>
-                                    <td>India</td>
-                                </tr>
-                                <tr className='text-center'>
-                                    <td>06</td>
-                                    <td>Haryana</td>
-                                    <td>India</td>
-                                </tr> */}
+                               
                             </tbody>
                         </table>
                     </div>

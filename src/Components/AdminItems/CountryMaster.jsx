@@ -27,7 +27,7 @@ const CountryMaster = () => {
   {name:"Action",selecto:row=>row._id ,cell: row=>(
     <button className=" btn text-danger text-center fs-4"
      onClick={()=>removeCode(row._id)}
-     style={{textDecoration:"none"}}
+    //  style={{textDecoration:"none"}}
      ><MdDelete/></button>
   )
 
@@ -36,13 +36,25 @@ const CountryMaster = () => {
 
  const handleFilter = (event)=>{
   const searchText = event.target.value.toLowerCase();
-    const filteredData = codeList.filter(row =>
-     row.countryName.toLowerCase().includes(searchText)
-     );
-   setCodeList(filteredData);
+    const filteredData = codeList.filter(row =>{
+      return row.countryName.toLowerCase().includes(searchText)
+ });
+ if(searchText){
+  setCodeList(filteredData);
+ }else{
+  setCodeList(()=>{
+    codeFetchList();
+  })
+ }
+   
+   
   }
 
- 
+  // useEffect(()=>{
+  //   console.log(codeList)
+  // },[])
+
+
  const codeFetchList = async()=>{
   const response = await axios.get(`${url}/api/code/list`);
   if(response.data.success){
@@ -58,6 +70,8 @@ const CountryMaster = () => {
  useEffect(()=>{
   codeFetchList();
  },[]);
+
+
 
 
 //  remove code functionality
@@ -135,6 +149,9 @@ const CountryMaster = () => {
                 // selectableRows
                 // fixedHeader
                 pagination
+                highlightOnHover
+                pointerOnHover
+                // theme={2===1?"dark":"default"}
                />
             </div>
           </div>
