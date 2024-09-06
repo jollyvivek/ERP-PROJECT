@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
+import { MdDelete } from "react-icons/md";
 
 const BankMaster = ({url}) => {
 const[bankRecords,setBankRecords]=useState([])
@@ -128,7 +129,9 @@ const[bankRecords,setBankRecords]=useState([])
                                           <td>{item.AccountNo}</td>
                                           <td>{item.SwiftCode}</td>
                                           <td>{item.AdCode}</td>
-                                          <td style={{cursor:"pointer"}} onClick={()=> removeBankRecord(item._id)} >X</td>
+                                          <td style={{cursor:"pointer"}}
+                                            className='fs-4 text-danger'
+                                           onClick={()=> removeBankRecord(item._id)} ><MdDelete/></td>
                                       </tr>
                                     )
                                })}
