@@ -37,6 +37,9 @@ import BankMaster from "../AdminItems/BankMaster";
 
 
 const Sidebar = () => {
+
+  const url = "http://localhost:4000";
+
   return (
     <div className="sidebar container-fluid">
       <div className="row">
@@ -82,9 +85,9 @@ const Sidebar = () => {
         <Route path="/production_setting" element={<ProductionSetting/>}/>
         <Route path="/role" element={<Role/>}/>
         <Route path="manageuser" element={<ManageUser/>}/>
-        <Route path="/countrymaster" element={<CountryMaster/>}/>
-        <Route path="/statemaster" element={<StateMaster/>}/>
-        <Route path="/bankmaster" element={<BankMaster/>}/>
+        <Route path="/countrymaster" element={<CountryMaster url={url}/>}/>
+        <Route path="/statemaster" element={<StateMaster url={url}/>}/>
+        <Route path="/bankmaster" element={<BankMaster url={url}/> } />
        
       </Routes>
         </div>

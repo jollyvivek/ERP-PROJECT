@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import '../node_modules/bootstrap/dist/js/bootstrap.js'
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import Sidebar from "./Components/Sidebar/Sidebar";
 import { ToastContainer } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';

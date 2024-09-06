@@ -1,7 +1,10 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify';
 
-const BankMaster = () => {
-
+const BankMaster = ({url}) => {
+const[bankRecords,setBankRecords]=useState([])
+ const [showModal, setShowModal] = useState(false);
   const [data,setData]=useState({
     BankName:"",
     BranchName:"",
@@ -13,26 +16,74 @@ const BankMaster = () => {
     AccountNo:""
   });
 
-  
-
   const modelHandler = (event)=>{
     const name =event.target.name;
     const value = event.target.value;
     setData((data) => ({ ...data, [name]: value }));
    }
 
-   useEffect(()=>{
-    console.log(data)
-  },[data])
+//    fetch bankRecords
+   const fetchBankRecords = async()=>{
+    const response = await axios.get(`${url}/api/bankrecords/list`);
+    if (response.data.success) {
+        setBankRecords(response.data.data);
+        // console.log("Bank records Fetch");
+        // console.log(response.data)
+    } else {
+        console.log("error")
+    }
+   }
 
-   const bankFormSubmitHandler =(event)=>{
-      event.preventDefault()
+ useEffect(()=>{
+    fetchBankRecords();
+  },[])
+
+//   remove bank records
+
+  const removeBankRecord = async(bankRecordId)=>{
+    const response = await axios.post(`${url}/api/bankrecords/remove`,{id:bankRecordId});
+    await fetchBankRecords();
+    toast.success(response.data.message);
+  }
+
+//   model from submit handler
+
+   const bankFormSubmitHandler = async(event)=>{
+      event.preventDefault();
+    let payload ={
+        BankName:data.BankName,
+        BranchName:data.BranchName,
+        IfscCode:data.IfscCode,
+        SwiftCode:Number(data.SwiftCode),
+        AdCode:Number(data.AdCode),
+        MicroCode:Number(data.MicroCode),
+        AccountName:data.AccountName,
+        AccountNo:Number(data.AccountNo)
+    }
+    const response = await axios.post(`${url}/api/bankrecords/add`,payload);
+    if (response.data.success) {
+        setData({
+            BankName:"",
+            BranchName:"",
+            IfscCode:"",
+            SwiftCode:"",
+            AdCode:"",
+            MicroCode:"",
+            AccountName:"",
+            AccountNo:""
+          });
+          toast.success(response.data.message)
+    } else {
+        console.log("error");
+        toast.error(response.data.message)
+    }
+    setShowModal(false);
+    fetchBankRecords();
    }
 
   return (
     <div className='container-fluid px-3'>
-      {/* <h3>BankMaster</h3> */}
-
+        
       <div className="row">
             <div className="col-md-12  role-content">
                 <div className="row mt-3">
@@ -40,8 +91,13 @@ const BankMaster = () => {
                         <h3 className="fs-3">Bank Records </h3>
                     </div>
                     <div className="col-md-8 d-flex flex-column align-items-end justify-content-end">
-                        <button className=" add-btn btn border-primary" id="addnew-btn" data-bs-toggle="modal" data-bs-target="#bankMaster">ADD
-                            NEW</button>
+                        <button
+                             className=" add-btn btn border-primary"
+                             id="addnew-btn"
+                             data-bs-toggle="modal"
+                             data-bs-target="#bankMaster"
+                             onClick={()=>setShowModal(true)}>ADD NEW
+                        </button>
                     </div>
                 </div>
                 <div className="row">
@@ -49,63 +105,34 @@ const BankMaster = () => {
                         <table id="example" className="table table-striped">
                             <thead>
                                 <tr>
-                                <th className="fs-5 fw-normal">Account Name</th>
+                                   <th className="fs-5 fw-normal">Account Name</th>
                                     <th className="fs-5 fw-normal">Bank Name</th>
                                     <th className="fs-5 fw-normal">Branch Name</th>
                                     <th className="fs-5 fw-normal">IFSC Code</th>
                                     <th className="fs-5 fw-normal">Micro Code</th>
                                     <th className="fs-5 fw-normal">Account No</th>
+                                    <th className="fs-5 fw-normal">Swift Code</th>
+                                    <th className="fs-5 fw-normal">AD Code</th>
+                                    <th className="fs-5 fw-normal">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                  <td>Akshay Kumar</td>
-                                    <td>SBI</td>
-                                    <td>Jammu and Kashmir</td>
-                                    <td>654123456</td>
-                                    <td>654123456</td>
-                                    <td>6541234562</td>
-                                </tr>
-                                <tr>
-                                    <td>Vinod Sharma</td>
-                                    <td>Punjab National Bank</td>
-                                    <td>Punjab</td>
-                                    <td>654123456</td>
-                                    <td>654123456</td>
-                                    <td>6541234562</td>
-                                </tr>
-                                <tr>
-                                    <td>Anil Kumar</td>
-                                    <td>ICICI</td>
-                                    <td>Chandigarh</td>
-                                    <td>654123456</td>
-                                    <td>654123456</td>
-                                    <td>6541234562</td> 
-                                </tr>
-                                <tr>
-                                    <td>Pankaj Kumar</td>
-                                    <td>Dean Bank</td>
-                                    <td>Jammu and Kashmir</td>
-                                    <td>654123456</td>
-                                    <td>654123456</td>
-                                    <td>6541234562</td>
-                                </tr>
-                                <tr>
-                                    <td>Rajinder</td>
-                                    <td>UCO Bank</td>
-                                    <td>Haryana</td>
-                                    <td>654123456</td>
-                                    <td>654123456</td>
-                                    <td>6541234562</td>
-                                </tr>
-                                <tr>
-                                    <td>Virat </td>
-                                    <td>HDFC Bank</td>
-                                    <td>Chandigarh</td>
-                                    <td>654123456</td>
-                                    <td>654123456</td>
-                                    <td>6541234562</td>
-                                </tr>
+                               {bankRecords.map((item,index)=>{
+                                    return(
+                                        <tr key={index} className='text-center'>
+                                        <td>{item.AccountName}</td>
+                                          <td>{item.BankName}</td>
+                                          <td>{item.BranchName}</td>
+                                          <td>{item.IfscCode}</td>
+                                          <td>{item.MicroCode}</td>
+                                          <td>{item.AccountNo}</td>
+                                          <td>{item.SwiftCode}</td>
+                                          <td>{item.AdCode}</td>
+                                          <td style={{cursor:"pointer"}} onClick={()=> removeBankRecord(item._id)} >X</td>
+                                      </tr>
+                                    )
+                               })}
+                               
                             </tbody>
                         </table>
                     </div>
@@ -115,7 +142,9 @@ const BankMaster = () => {
       </div>
 
        {/* model  */}
-    <div className="modal fade model-box "
+    {showModal && (
+    <div className="modal show fade model-box "
+        style={{ display: 'block' }}
         id="bankMaster" 
         data-bs-backdrop="static"
         // tabindex="-1" 
@@ -127,7 +156,13 @@ const BankMaster = () => {
             <div className="modal-content">
                 <div className="modal-header">
                     <h5 className="modal-title fs-5">Bank Master</h5>
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <button 
+                        type="button"
+                         className="btn-close"
+                         data-bs-dismiss="modal"
+                          aria-label="Close"
+                          onClick={()=>setShowModal(false)}
+                          >
                     </button>
                 </div>
                 <form action="" className="" onSubmit={bankFormSubmitHandler} >
@@ -244,15 +279,20 @@ const BankMaster = () => {
                     </div>
                     <div className="modal-footer d-flex justify-content-center gap-1">
                         <button type="submit" className="btn btn-primary ">Save</button>
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-secondary  ">Update</button>
+                        <button 
+                            type="button"
+                            className="btn btn-secondary"
+                             data-bs-dismiss="modal"
+                             onClick={()=>setShowModal(false)}
+                             >Close</button>
+                        <button type="button" className="btn btn-secondary">Update</button>
                         <button type="reset" className="btn btn-danger ">Delete</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
+    )}
 
 
     </div>
