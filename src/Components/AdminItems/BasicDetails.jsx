@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 
 const BasicDetails = () => {
@@ -31,6 +31,11 @@ const BasicDetails = () => {
     const value = event.target.value;
     setData((data) => ({ ...data, [name]: value }));
   };
+
+  // useEffect(()=>{
+  //   console.log(data);
+  //   console.log(logo)
+  // },[data,logo])
 
   const handleSubmit = async(e) => {
     e.preventDefault();

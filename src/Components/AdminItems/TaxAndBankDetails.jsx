@@ -9,7 +9,6 @@ const TaxAndBankDetails = () => {
     gstNo: '',
     gstDate: '',
     signature: '',
-    // signImage: null,
     bankName: '',
     branchName: '',
     ifscCode: '',
@@ -34,17 +33,12 @@ const TaxAndBankDetails = () => {
     });
   };
 
-  // const handleFileChange = (e) => {
-  //   setFormData({
-  //     ...formData,
-  //     signImage: e.target.files[0],
-  //   });
-  // };
+// useEffect(()=>{
+//   console.log(formData)
+//   console.log(signImage)
+// },[formData,signImage]);
 
-useEffect(()=>{
-  console.log(formData)
-  console.log(signImage)
-},[])
+
 
   return (
     <div className='container-fluid'>
@@ -87,11 +81,11 @@ useEffect(()=>{
                             </div>
                             <div className="mb-3 row">
                                 <label  className="col-sm-5 col-form-label fs-5">GSTDate :</label>
-                                <div class="col-sm-7">
+                                <div className="col-sm-7">
                                     <input 
                                     type="date"
                                     className="form-control"
-                                     name='gstdate'
+                                     name='gstDate'
                                      value={formData.gstDate}
                                      onChange={handleInputChange}
                                      />
@@ -100,18 +94,18 @@ useEffect(()=>{
                         </fieldset>
                     </div>
                     <div className="col-6">
-                        <fieldset class="px-3">
+                        <fieldset className="px-3">
                             <legend >Authorised Signature</legend>
                             <div className="mb-3 py-1 row">
-                                <label  class="col-sm-6 col-form-label fs-5">Signature :</label>
-                                <div class="col-sm-6">
+                                <label  className="col-sm-6 col-form-label fs-5">Signature :</label>
+                                <div className="col-sm-6">
                                 <select 
                                   className="form-select"
                                    name='signature' 
                                    value={formData.signature}
                                    onChange={handleInputChange}
                                    aria-label="Default select example">
-                                        <option disabled> select menu</option>
+                                        <option > select menu</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                       </select>
@@ -119,7 +113,7 @@ useEffect(()=>{
                             </div>
                             <div className="mb-3 py-2 row">
                                 <label className="col-sm-6 col-form-label fs-5">Signature Image :</label>
-                                <div class="col-sm-6 text-center d-flex flex-column justify-content-center gap-3">
+                                <div className="col-sm-6 text-center d-flex flex-column justify-content-center gap-3">
                                     <img src={signImage ? URL.createObjectURL(signImage):""} className='w-75 m-auto' alt="" />
                                     {/* <label htmlFor="signature-image" className='p-1 w-50 m-auto border'>BROWSE</label> */}
                                     <input 
@@ -205,7 +199,7 @@ useEffect(()=>{
                                 <div className="col-sm-7">
                                     <input 
                                     type="text"
-                                     class="form-control"
+                                     className="form-control"
                                      name='accountNo'
                                      value={formData.accountNo}
                                      onChange={handleInputChange}
@@ -286,7 +280,7 @@ useEffect(()=>{
                                      value={formData.enableSSL}
                                       onChange={handleInputChange} 
                                       aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
+                                        <option>Open this select menu</option>
                                         <option value="True">True</option>
                                         <option value="False">False</option>
                                       </select>
@@ -298,11 +292,11 @@ useEffect(()=>{
                                     <select 
                                     className="form-select"
                                      aria-label="Default select example"
-                                     name='sendMailId'
-                                     value={formData.senderMailId}
+                                     name='sendMailForm'
+                                     value={formData.sendMailForm}
                                      onChange={handleInputChange}
                                      >
-                                        <option selected>Open this select menu</option>
+                                        <option >Open this select menu</option>
                                         <option value="User Mail">User Mail</option>
                                         <option value="False">False</option>
                                       </select>
@@ -310,7 +304,7 @@ useEffect(()=>{
                             </div>
                             <div className="row mb-3">
                                 <div className="col-sm-12 d-flex justify-content-end">
-                                    <button type='submit' className="btn border-secondary px-3 fs-5 fw-normal">Test Mail</button> 
+                                    <button onClick={()=>aler()} type='submit' className="btn border-secondary px-3 fs-5 fw-normal">Test Mail</button> 
                                 </div>
                             </div>
                       </fieldset>
