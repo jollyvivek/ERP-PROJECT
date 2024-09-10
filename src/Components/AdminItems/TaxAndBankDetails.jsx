@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import NavTabs from '../Navbar/NavTabs'
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { error } from 'jquery';
 
-const TaxAndBankDetails = () => {
-
+const TaxAndBankDetails = ({url}) => {
+    const navigate = useNavigate()
   const [signImage,setSignImage] =useState(false)
-  const [formData, setFormData] = useState({
+  const singInputRef= useRef(null)
+  const [data, setData] = useState({
     panNo: '',
     gstNo: '',
     gstDate: '',
@@ -23,15 +28,81 @@ const TaxAndBankDetails = () => {
     enableSSL: '',
     sendMailForm: '',
   });
+  
 
    // Handle input change
    const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setData({
+      ...data,
       [name]: value,
     });
   };
+
+//   taxAndBankDetailSubmitHandler
+
+const taxAndBankDetailSubmitHandler = async(event)=>{
+    event.preventDefault();
+    const formData= new FormData();
+   formData.append("panNo",data.panNo)
+   formData.append("gstNo",data.gstNo)
+   formData.append("gstDate",data.gstDate)
+   formData.append("signature",data.signature)
+   formData.append("signatureImage",signImage)
+   formData.append("bankName",data.bankName)
+   formData.append("branchName",data.branchName)
+   formData.append("ifscCode",data.ifscCode)
+   formData.append("microCode",data.microCode)
+   formData.append("accountName",data.accountName)
+   formData.append("accountNo",data.accountNo)
+   formData.append("senderMailId",data.senderMailId)
+   formData.append("senderPassword",data.senderPassword),
+   formData.append("smtpPort",data.smtpPort)
+   formData.append("smtpHost",data.smtpHost)
+   formData.append("ccMailId",data.ccMailId)
+   formData.append("enableSSL",data.enableSSL)
+   formData.append("sendMailForm",data.sendMailForm)
+
+    // console.log(data,signImage)
+
+    const response = await axios.post(`${url}/api/bankdetails/add`,formData)
+    if(response.data.success){
+        setData({
+            panNo: '',
+            gstNo: '',
+            gstDate: '',
+            signature: '',
+            bankName: '',
+            branchName: '',
+            ifscCode: '',
+            microCode: '',
+            accountName: '',
+            accountNo: '',
+            senderMailId: '',
+            senderPassword: '',
+            smtpPort: '',
+            smtpHost: '',
+            ccMailId: '',
+            enableSSL: '',
+            sendMailForm: '',
+          });
+          setSignImage(false);
+          if(singInputRef.current){
+            singInputRef.current.value="";
+          }
+          toast.success(response.data.message)
+    }else{
+        console.log("Error")
+        toast.error(response.data.message)
+    }
+
+}
+
+
+// console.log(data,signImage)
+
+
+
 
 // useEffect(()=>{
 //   console.log(formData)
@@ -50,7 +121,7 @@ const TaxAndBankDetails = () => {
         </div>
 
       <div className="row mt-3">
-            <form action='' className="col-md-12">
+            <form  className="col-md-12" onSubmit={taxAndBankDetailSubmitHandler}>
                 <div className="row">
                     <div className="col-6 ">
                         <fieldset className="px-3">
@@ -62,8 +133,9 @@ const TaxAndBankDetails = () => {
                                     type="text"
                                      className="form-control"
                                      name='panNo'
-                                     value={formData.panNo}
+                                     value={data.panNo}
                                      onChange={handleInputChange}
+                                     required
                                      />
                                 </div>
                             </div>
@@ -74,8 +146,9 @@ const TaxAndBankDetails = () => {
                                     type="text" 
                                     className="form-control"
                                     name='gstNo'
-                                    value={formData.gstNo}
+                                    value={data.gstNo}
                                     onChange={handleInputChange}
+                                    required
                                     />
                                 </div>
                             </div>
@@ -86,8 +159,9 @@ const TaxAndBankDetails = () => {
                                     type="date"
                                     className="form-control"
                                      name='gstDate'
-                                     value={formData.gstDate}
+                                     value={data.gstDate}
                                      onChange={handleInputChange}
+                                     required
                                      />
                                 </div>
                             </div>
@@ -102,9 +176,9 @@ const TaxAndBankDetails = () => {
                                 <select 
                                   className="form-select"
                                    name='signature' 
-                                   value={formData.signature}
+                                   value={data.signature}
                                    onChange={handleInputChange}
-                                   aria-label="Default select example">
+                                   aria-label="Default select example required">
                                         <option > select menu</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
@@ -118,9 +192,11 @@ const TaxAndBankDetails = () => {
                                     {/* <label htmlFor="signature-image" className='p-1 w-50 m-auto border'>BROWSE</label> */}
                                     <input 
                                       type="file" 
+                                      ref={singInputRef}
                                       id='signature-image'
                                        className="form-control"
                                        onChange={(e)=>setSignImage(e.target.files[0])}
+                                       required
                                        />
                                     
                                 </div>
@@ -141,8 +217,9 @@ const TaxAndBankDetails = () => {
                                      type="text"
                                       className="form-control"
                                       name='bankName'
-                                      value={formData.bankName}
+                                      value={data.bankName}
                                       onChange={handleInputChange}
+                                      required
                                       />
                                 </div>
                             </div>
@@ -153,8 +230,9 @@ const TaxAndBankDetails = () => {
                                       type="text" 
                                       className="form-control"
                                       name='branchName'
-                                      value={formData.branchName}
+                                      value={data.branchName}
                                       onChange={handleInputChange}
+                                      required
                                       />
                                 </div>
                             </div>
@@ -165,8 +243,9 @@ const TaxAndBankDetails = () => {
                                       type="text"
                                        className="form-control"
                                        name='ifscCode'
-                                       value={formData.ifscCode}
+                                       value={data.ifscCode}
                                        onChange={handleInputChange}
+                                       required
                                        />
                                 </div>
                             </div>
@@ -177,8 +256,9 @@ const TaxAndBankDetails = () => {
                                     type="text"
                                      className="form-control"
                                      name='microCode'
-                                     value={formData.microCode}
+                                     value={data.microCode}
                                      onChange={handleInputChange}
+                                     required
                                      />
                                 </div>
                             </div>
@@ -189,8 +269,9 @@ const TaxAndBankDetails = () => {
                                       type="text"
                                       className="form-control"
                                        name='accountName'
-                                       value={formData.accountName}
+                                       value={data.accountName}
                                        onChange={handleInputChange}
+                                       required
                                        />
                                 </div>
                             </div>
@@ -198,11 +279,12 @@ const TaxAndBankDetails = () => {
                                 <label className="col-sm-5 col-form-label fs-5 ">Account No :</label>
                                 <div className="col-sm-7">
                                     <input 
-                                    type="text"
+                                    type="number"
                                      className="form-control"
                                      name='accountNo'
-                                     value={formData.accountNo}
+                                     value={data.accountNo}
                                      onChange={handleInputChange}
+                                     required
                                      />
                                 </div>
                             </div>
@@ -218,8 +300,9 @@ const TaxAndBankDetails = () => {
                                     type="email"
                                      className="form-control"
                                      name='senderMailId'
-                                     value={formData.senderMailId}
+                                     value={data.senderMailId}
                                      onChange={handleInputChange}
+                                     required
                                      />
                                 </div>
                             </div>
@@ -230,8 +313,9 @@ const TaxAndBankDetails = () => {
                                      type="password"
                                       className="form-control"
                                       name='senderPassword'
-                                      value={formData.senderPassword}
+                                      value={data.senderPassword}
                                       onChange={handleInputChange}
+                                      required
 
                                       />
                                 </div>
@@ -243,8 +327,9 @@ const TaxAndBankDetails = () => {
                                      type="text"
                                       className="form-control"
                                       name='smtpPort'
-                                      value={formData.smtpPort}
+                                      value={data.smtpPort}
                                       onChange={handleInputChange}
+                                      required
                                       />
                                 </div>
                             </div>
@@ -255,8 +340,9 @@ const TaxAndBankDetails = () => {
                                     type="text"
                                      className="form-control"
                                      name='smtpHost'
-                                     value={formData.smtpHost}
+                                     value={data.smtpHost}
                                      onChange={handleInputChange}
+                                     required
                                      />
                                 </div>
                             </div>
@@ -267,8 +353,9 @@ const TaxAndBankDetails = () => {
                                      type="email"
                                       className="form-control"
                                       name='ccMailId'
-                                      value={formData.ccMailId}
+                                      value={data.ccMailId}
                                       onChange={handleInputChange}
+                                      required
                                       />
                                 </div>
                             </div>
@@ -277,9 +364,9 @@ const TaxAndBankDetails = () => {
                                 <div className="col-sm-7">
                                     <select className="form-select"
                                      name='enableSSL'
-                                     value={formData.enableSSL}
+                                     value={data.enableSSL}
                                       onChange={handleInputChange} 
-                                      aria-label="Default select example">
+                                      aria-label="Default select example" required>
                                         <option>Open this select menu</option>
                                         <option value="True">True</option>
                                         <option value="False">False</option>
@@ -293,8 +380,9 @@ const TaxAndBankDetails = () => {
                                     className="form-select"
                                      aria-label="Default select example"
                                      name='sendMailForm'
-                                     value={formData.sendMailForm}
+                                     value={data.sendMailForm}
                                      onChange={handleInputChange}
+                                     required
                                      >
                                         <option >Open this select menu</option>
                                         <option value="User Mail">User Mail</option>
@@ -304,7 +392,7 @@ const TaxAndBankDetails = () => {
                             </div>
                             <div className="row mb-3">
                                 <div className="col-sm-12 d-flex justify-content-end">
-                                    <button onClick={()=>aler()} type='submit' className="btn border-secondary px-3 fs-5 fw-normal">Test Mail</button> 
+                                    <button  type='submit' className="btn border-secondary px-3 fs-5 fw-normal">Test Mail</button> 
                                 </div>
                             </div>
                       </fieldset>
@@ -312,7 +400,7 @@ const TaxAndBankDetails = () => {
                 </div>
                 <div className="row mt-3 mb-3">
                   <div className="col-md-12 d-flex justify-content-end">
-                      <button className="btn btn-next px-3 fs-5 border-secondary">NEXT</button>
+                      <button onClick={()=>navigate("/terms_condtions")} type='button' className="btn btn-next px-3 fs-5 border-secondary">NEXT</button>
                    </div>
                  </div>
                 </div>
