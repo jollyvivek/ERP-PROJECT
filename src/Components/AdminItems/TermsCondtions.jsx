@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import NavTabs from '../Navbar/NavTabs'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 const TermsCondtions = () => {
+    const navigate = useNavigate();
   const[data,setData]= useState({
     salesOrder:"",
     sales:"",
@@ -52,12 +54,49 @@ const TermsCondtions = () => {
 
 const handleFormSubmit = (e)=>{
   e.preventDefault();
-  // toast.success("form submit")
+  console.log(data)
+  setData({
+    salesOrder:"",
+    sales:"",
+    salesReturn:"",
+    purchaseOrder:"",
+    purchase:"",
+    purchaseReturn:"",
+    creditNote:"",
+    debitNote:"",
+    exportQuotation:"",
+    inquiry:"",
+    import:"",
+    salesOrderAbout:"",
+    purchaseOrderAbout:"",
+    quotationAbout:"",
+    salesOrderSubject:"",
+    purchaseOrderSubject:"",
+    quotationSubject:"",
+    salesOrderBillOfSupply:"",
+    salesBillOfSupply:"",
+    salesReturnBillOfSupply:"",
+    purchaseOrderBillOfSupply:"",
+    purchaseBillOfSupply:"",
+    purchaseReturnBillOfSupply:"",
+    creditNoteBillOfSupply:"",
+    debitNoteBillOfSupply:"",
+    quotation:"",
+    complaint:"",
+    export:"",
+    exportSalesOrderAbout:"",
+    importPurchaseOrderAbout:"",
+    exportQuotationAbout:"",
+    exportSalesOrderSubject:"",
+    importPurchaseOrderSubject:"",
+    exportQuotationSubject:""
+  })
+  toast.success("form submit")
 }
 
-useEffect(()=>{
-  console.log(data)
-},[data])
+// useEffect(()=>{
+//   console.log(data)
+// },[data])
 
   return (
     <div className='container-fluid'>
@@ -78,13 +117,14 @@ useEffect(()=>{
                                     <div className="col-md-6">
                                         <div className="form-group mb-1">
                                             <label  className="col-form-label fs-5">Sales Order</label>
-                                            <select className="form-select form-control" multiple
-                                                aria-label="multiple select example" name='salesOrder' onChange={handleChange} required>
-                                                <option value="item1">item1</option>
-                                                <option value="item2">item2</option>
-                                                <option value="item3">item3</option>
-                                                <option value="item4">item4</option>
-                                                <option value="item5">item5</option>
+                                            <select className="form-select form-control" 
+                                                aria-label="multiple select example" name='salesOrder' value={data.salesOrder} onChange={handleChange} required>
+                                                <option >select one of the items</option>
+                                                <option value="Lorem ipsum dolor sit amet.">Lorem ipsum dolor sit amet.</option>
+                                                <option value="Lorem ipsum dolor sit amet consectetur adipisicing.">Lorem ipsum dolor sit amet consectetur adipisicing.</option>
+                                                <option value="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea rerum nulla officia.">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea rerum nulla officia.</option>
+                                                <option value="Lorem ipsum dolor sit amet consectetur adipisicing elit.">Lorem ipsum dolor sit amet consectetur adipisicing elit.</option>
+                                                <option value="Lorem ipsum dolor sit amet consectetur.">Lorem ipsum dolor sit amet consectetur.</option>
                                             </select>
                                         </div>
                                         <div className="form-group mb-1">
@@ -98,13 +138,14 @@ useEffect(()=>{
                                         </div>
                                         <div className="form-group mb-1">
                                             <label  className="col-form-label fs-5">Purchase Order</label>
-                                            <select className="form-select salesOrder-select" multiple 
-                                                aria-label="multiple select example" name='purchaseOrder' onChange={handleChange} required>
-                                                <option value="item1">item1</option>
-                                                <option value="item2">item2</option>
-                                                <option value="item3">item3</option>
-                                                <option value="item4">item4</option>
-                                                <option value="item5">item5</option>
+                                            <select className="form-select salesOrder-select" 
+                                                aria-label="multiple select example" name='purchaseOrder' value={data.purchaseOrder} onChange={handleChange} required>
+                                                <option >select one of the items</option>
+                                                <option value="Lorem ipsum dolor sit amet.">Lorem ipsum dolor sit amet.</option>
+                                                <option value="Lorem ipsum dolor sit amet consectetur adipisicing.">Lorem ipsum dolor sit amet consectetur adipisicing.</option>
+                                                <option value="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, nobis.">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, nobis.</option>
+                                                <option value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla autem illo pariatur.">Lorem ipsum dolor sit amet consectetur adipisicing elit.Nulla autem illo pariatur.</option>
+                                                <option value="Lorem ipsum, dolor sit amet consectetur adipisicing elit.">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</option>
                                             </select>
                                         </div>
                                         <div className="form-group mb-1">
@@ -137,13 +178,14 @@ useEffect(()=>{
                                         </div>
                                         <div className="form-group mb-1">
                                             <label  className="col-form-label fs-5">Sales Order About</label>
-                                            <select className="form-select salesOrder-select" multiple
-                                                aria-label="multiple select example" name='salesOrderAbout' onChange={handleChange} required>
-                                                <option value="item1">item1</option>
-                                                <option value="item2">item2</option>
-                                                <option value="item3">item3</option>
-                                                <option value="item4">item4</option>
-                                                <option value="item5">item5</option>
+                                            <select className="form-select salesOrder-select"
+                                                aria-label="multiple select example" name='salesOrderAbout' value={data.salesOrderAbout} onChange={handleChange} required>
+                                                <option >select one of the items</option>
+                                                <option value="Lorem ipsum dolor sit amet.">Lorem ipsum dolor sit amet.</option>
+                                                <option value="Lorem ipsum, dolor sit amet consectetur adipisicing.">Lorem ipsum, dolor sit amet consectetur adipisicing.</option>
+                                                <option value="Lorem ipsum dolor sit amet, consectetur adipisicing elit.">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</option>
+                                                <option value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, voluptate.">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, voluptate.</option>
+                                                <option value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut!">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut!</option>
                                             </select>
                                         </div>
                                         <div className="form-group mb-1">
@@ -152,13 +194,14 @@ useEffect(()=>{
                                         </div>
                                         <div className="form-group mb-1">
                                             <label className="col-form-label fs-5">Quotation About</label>
-                                            <select className="form-select salesOrder-select" multiple
-                                                aria-label="multiple select example" name='quotationAbout' onChange={handleChange} required>
-                                                <option value="item1">item1</option>
-                                                <option value="item2">item2</option>
-                                                <option value="item3">item3</option>
-                                                <option value="item4">item4</option>
-                                                <option value="item5">item5</option>
+                                            <select className="form-select salesOrder-select"
+                                                aria-label="multiple select example" name='quotationAbout' value={data.quotationAbout} onChange={handleChange} required>
+                                                <option >select one of the items</option>
+                                                <option value="Lorem, ipsum dolor.">Lorem, ipsum dolor.</option>
+                                                <option value="Lorem ipsum dolor sit amet.">Lorem ipsum dolor sit amet.</option>
+                                                <option value="Lorem ipsum dolor sit, amet consectetur adipisicing.">Lorem ipsum dolor sit, amet consectetur adipisicing.</option>
+                                                <option value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus!">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus!</option>
+                                                <option value="Lorem ipsum dolor sit amet consectetur.">Lorem ipsum dolor sit amet consectetur.</option>
                                             </select>
                                            
                                         </div>
@@ -219,13 +262,15 @@ useEffect(()=>{
                                         </div>
                                         <div className="form-group mb-1">
                                             <label  className="col-form-label fs-5">Export</label>
-                                            <select className="form-select salesOrder-select" multiple
-                                                aria-label="multiple select example" name='export' onChange={handleChange} required>
-                                                <option value="item1">item1</option>
-                                                <option value="item2">item2</option>
-                                                <option value="item3">item3</option>
-                                                <option value="item4">item4</option>
-                                                <option value="item5">item5</option>
+                                            <select className="form-select salesOrder-select"
+                                                //  multiple
+                                                aria-label="multiple select example" name='export' value={data.export} onChange={handleChange} required>
+                                                <option >select one of the items</option>
+                                                <option value="Lorem ipsum dolor sit.">Lorem ipsum dolor sit.</option>
+                                                <option value="Lorem ipsum dolor sit amet.">Lorem ipsum dolor sit amet.</option>
+                                                <option value="Lorem ipsum dolor sit amet consectetur.">Lorem ipsum dolor sit amet consectetur.</option>
+                                                <option value="Lorem ipsum dolor sit, amet consectetur adipisicing elit.">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</option>
+                                                <option value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, vel.">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, vel.</option>
                                             </select>
                                         </div>
                                         <div className="form-group mb-1">
@@ -238,13 +283,15 @@ useEffect(()=>{
                                         </div>
                                         <div className="form-group mb-1">
                                             <label  className="col-form-label fs-5">Export Quotation About</label>
-                                            <select className="form-select salesOrder-select" multiple
-                                                aria-label="multiple select example" name='exportQuotationAbout' onChange={handleChange} required>
-                                                <option value="item1">item1</option>
-                                                <option value="item2">item2</option>
-                                                <option value="item3">item3</option>
-                                                <option value="item4">item4</option>
-                                                <option value="item5">item5</option>
+                                            <select className="form-select salesOrder-select"
+                                                //  multiple
+                                                aria-label="multiple select example" name='exportQuotationAbout' value={data.exportQuotationAbout} onChange={handleChange} required>
+                                                <option >select one of the items</option>
+                                                <option value="Lorem, ipsum dolor.">Lorem, ipsum dolor.</option>
+                                                <option value="Lorem ipsum dolor sit amet.">Lorem ipsum dolor sit amet.</option>
+                                                <option value="Lorem ipsum dolor sit amet consectetur adipisicing.">Lorem ipsum dolor sit amet consectetur adipisicing.</option>
+                                                <option value="Lorem ipsum dolor sit amet consectetur, adipisicing elit.">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</option>
+                                                <option value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, nisi?">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, nisi?</option>
                                             </select>
                                         </div>
                                         <div className="form-group mt-3">
@@ -262,10 +309,13 @@ useEffect(()=>{
                                     </div>
                                 </div>
                                 <div className=" d-flex justify-content-end align-items-center my-3 ">
-                                    <button type="submit" className="btn form-control btn-next py-2 fs-5 border-secondary ">Next</button>
+                                    <button type="submit" className="btn form-control btn-next py-2 fs-5 border-secondary ">Save</button>
                                 </div>
                             </form>
                         </fieldset>
+                        <div className=" d-flex justify-content-end align-items-center my-3 ">
+                            <button type="button" onClick={()=>navigate('/report_heading')} className="btn form-control btn-next py-2 fs-5 border-secondary ">Next</button>
+                        </div>
                     </div>
       </div>
 
