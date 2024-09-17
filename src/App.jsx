@@ -16,13 +16,13 @@ const App = () => {
     {/* <hr /> */}
     <div className="app-content">
       <Sidebar/>
-      <Routes>
+      {/* <Routes> */}
         {/* <Route path="/company" element={<CompanyDetail/>}/>
         <Route path="/role" element={<Role/>}/> */}
+        {/* <Route/>
         <Route/>
         <Route/>
-        <Route/>
-      </Routes>
+      </Routes> */}
     </div>
   </div>;
 };
