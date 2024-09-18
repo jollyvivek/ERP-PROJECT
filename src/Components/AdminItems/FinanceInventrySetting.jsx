@@ -1,7 +1,110 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NavTabs from '../Navbar/NavTabs'
+import { toast } from 'react-toastify';
 
 const FinanceInventrySetting = () => {
+  const [data,setdata] = useState({
+    SecondUnitCalculationAuto :"",
+    StockAcceptance:"",
+    TheItemNameInTheInvoice :"",
+    Qc_QaRequired:"",
+    DefaultReturnItem :"",
+    RequiredSchedule:"",
+    PriceListApplicable :"",
+    AdditionalChargesGstTaxation:"",
+    WorkInProgress :"",
+    UnitForSize :"",
+    UnitForWeight :"",
+    BatchNoTextName :"",
+
+    TallyHost :"",
+    TallyCompany :"",
+    CustomerItemDetailSend :"",
+
+    ToleranceFirstValue :"",
+    ToleranceSecondValue :"",
+
+    SalesOrderInvoice:"",
+    SheetSize:"",
+    SalesOrder :"",
+    MultipleSalesOrder:"",
+    DomasticBank :"",
+    ExportBank :"",
+
+    IecNo :"",
+    EpcgLicNo :"",
+    LutNo :"",
+    RexNo :"",
+
+    IgstRefundLedger :"",
+    ExportInvoice :"",
+
+    GetWeightFromWeightScale :"",
+    QtyReplaceAddition :"",
+
+    DashboardImage :"",
+    NearDueDaysAlert :"",
+    SelectPathForDrgImage :""
+
+  });
+
+  const changeHandler =(event)=>{
+    const {name,value} =event.target; 
+    setdata({...data,[name]:value})
+  }
+
+  // useEffect(()=>console.log(data),[data])
+
+  const handleFormSubmit = async(event)=>{
+    event.preventDefault();
+    console.log(data)
+    setdata({
+      SecondUnitCalculationAuto :"",
+      StockAcceptance:"",
+      TheItemNameInTheInvoice :"",
+      Qc_QaRequired:"",
+      DefaultReturnItem :"",
+      RequiredSchedule:"",
+      PriceListApplicable :"",
+      AdditionalChargesGstTaxation:"",
+      WorkInProgress :"",
+      UnitForSize :"",
+      UnitForWeight :"",
+      BatchNoTextName :"",
+  
+      TallyHost :"",
+      TallyCompany :"",
+      CustomerItemDetailSend :"",
+  
+      ToleranceFirstValue :"",
+      ToleranceSecondValue :"",
+  
+      SalesOrderInvoice:"",
+      SheetSize:"",
+      SalesOrder :"",
+      MultipleSalesOrder:"",
+      DomasticBank :"",
+      ExportBank :"",
+  
+      IecNo :"",
+      EpcgLicNo :"",
+      LutNo :"",
+      RexNo :"",
+  
+      IgstRefundLedger :"",
+      ExportInvoice :"",
+  
+      GetWeightFromWeightScale :"",
+      QtyReplaceAddition :"",
+  
+      DashboardImage :"",
+      NearDueDaysAlert :"",
+      SelectPathForDrgImage :""
+  
+    });
+    toast.success("form submit")
+  }
+
   return (
     <div className='container-fluid mt-2'>
       <div className='row'>
@@ -12,158 +115,191 @@ const FinanceInventrySetting = () => {
         </div>
       </div>
 
-      <div class="row">
-      <div class="col-md-12">
-        <form action="" class="needs-validation" novalidate>
-          <div class="row">
-            <div class="col-md-6">
+      <div className="row">
+      <div className="col-md-12">
+        <form  onSubmit={handleFormSubmit} >
+          <div className="row">
+            <div className="col-md-6">
               <fieldset>
                 <legend> Inventory Setting</legend>
-                <div class="row">
-                  <div class="col-12">
-                    <div class="mb-3 row">
-                      <label for="" class="col-sm-8 col-form-label fs-5  text-end ">Second Unit
+                <div className="row">
+                  <div className="col-12">
+                    <div className="mb-3 row">
+                      <label className="col-sm-8 col-form-label fs-5 text-end ">Second Unit
                         Calculation Auto :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <select class="form-select form-select-sm" required aria-label="select example">
-                          <option value="">Select</option>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <select className="form-select form-select-sm" name='SecondUnitCalculationAuto' value={data.SecondUnitCalculationAuto} onChange={changeHandler}  required>
+                          <option>Select</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
                         </select>
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class="col-sm-8 col-form-label fs-5  text-end ">Stock
+                    <div className="mb-3 row">
+                      <label className="col-sm-8 col-form-label fs-5  text-end ">Stock
                         Acceptance (Negative) :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <select class="form-select form-select-sm" required aria-label="select example">
-                          <option value="">Select</option>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <select className="form-select form-select-sm" name='StockAcceptance' value={data.StockAcceptance} onChange={changeHandler} required >
+                          <option>Select</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
                         </select>
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class="col-sm-8 col-form-label fs-5 text-end ">Show the
+                    <div className="mb-3 row">
+                      <label className="col-sm-8 col-form-label fs-5 text-end ">Show the
                         Description of the place of the Item Name in the Invoice :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <select class="form-select form-select-sm" required aria-label="select example">
-                          <option value="">Select</option>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <select className="form-select form-select-sm" name='TheItemNameInTheInvoice' value={data.TheItemNameInTheInvoice} onChange={changeHandler} required >
+                          <option>Select</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
                         </select>
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class="col-sm-8 col-form-label fs-5 text-end ">QC/QA
+                    <div className="mb-3 row">
+                      <label className="col-sm-8 col-form-label fs-5 text-end ">QC/QA
                         Required:</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <select class="form-select form-select-sm" required aria-label="select example">
-                          <option value="">Select</option>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <select className="form-select form-select-sm" name='Qc_QaRequired' value={data.Qc_QaRequired} onChange={changeHandler} required >
+                          <option>Select</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
                         </select>
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class="col-sm-8 col-form-label fs-5 text-end ">Default Return
+                    <div className="mb-3 row">
+                      <label className="col-sm-8 col-form-label fs-5 text-end ">Default Return
                         Item :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <select class="form-select form-select-sm" required aria-label="select example">
-                          <option value="">Select</option>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <select className="form-select form-select-sm" required name='DefaultReturnItem' value={data.DefaultReturnItem} onChange={changeHandler}>
+                          <option>Select</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
                         </select>
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class="col-sm-8 col-form-label fs-5 text-end ">Required
+                    <div className="mb-3 row">
+                      <label className="col-sm-8 col-form-label fs-5 text-end ">Required
                         Schedule:</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <select class="form-select form-select-sm" required aria-label="select example">
-                          <option value="">Select</option>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <select className="form-select form-select-sm" name='RequiredSchedule' value={data.RequiredSchedule} onChange={changeHandler} required >
+                          <option>Select</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
                         </select>
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class="col-sm-8 col-form-label fs-5 text-end ">PriceList
+                    <div className="mb-3 row">
+                      <label className="col-sm-8 col-form-label fs-5 text-end ">PriceList
                         Applicable :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <select class="form-select form-select-sm" required aria-label="select example">
-                          <option value="">Select</option>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <select className="form-select form-select-sm" name='PriceListApplicable' value={data.PriceListApplicable} onChange={changeHandler} required >
+                          <option>Select</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
                         </select>
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class="col-sm-8 col-form-label fs-5 text-end ">Additional
+                    <div className="mb-3 row">
+                      <label className="col-sm-8 col-form-label fs-5 text-end ">Additional
                         Charges GST Taxation Based in Item:</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <select class="form-select form-select-sm" required aria-label="select example">
-                          <option value="">Select</option>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <select className="form-select form-select-sm" name='AdditionalChargesGstTaxation' value={data.AdditionalChargesGstTaxation} onChange={changeHandler} required >
+                          <option>Select</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
                         </select>
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Work in
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5  text-end">Work in
                         Progress :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input 
+                        type="text"
+                         className="form-control"
+                         name='WorkInProgress'
+                         value={data.WorkInProgress}
+                         onChange={changeHandler}                         
+                         required />
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Unit For Size
-                        :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5  text-end">Unit For Size :</label>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input 
+                        type="text"
+                        className="form-control"
+                        name='UnitForSize'
+                        value={data.UnitForSize}
+                        onChange={changeHandler}
+                        required />
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Unit For
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5  text-end">Unit For
                         Weight :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input 
+                        type="text"
+                        className="form-control"
+                        name='UnitForWeight'
+                        value={data.UnitForWeight}
+                        onChange={changeHandler}
+                        required />
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Batch No. Text
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5  text-end">Batch No. Text
                         Name :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input 
+                        type="text" 
+                        className="form-control"
+                        name='BatchNoTextName'
+                        value={data.BatchNoTextName}
+                        onChange={changeHandler}
+                        required />
                       </div>
                     </div>
                   </div>
                 </div>
               </fieldset>
-              <fieldset class="mt-3">
+              <fieldset className="mt-3">
                 <legend>Tally Integration Setting</legend>
-                <div class="row ">
-                  <div class="col-12">
-                    <div class="mb-3 row">
-                      <label for="" class="col-sm-8 col-form-label fs-5  text-end">Tally Host
-                        :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
+                <div className="row ">
+                  <div className="col-12">
+                    <div className="mb-3 row">
+                      <label className="col-sm-8 col-form-label fs-5  text-end">Tally Host :</label>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input 
+                        type="text" 
+                        className="form-control"
+                        name='TallyHost'
+                        value={data.TallyHost}
+                        onChange={changeHandler}
+                        required />
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5  text-end ">Tally Company
-                        :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5  text-end ">Tally Company :</label>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input
+                         type="text"
+                          className="form-control"
+                          name='TallyCompany'
+                          value={data.TallyCompany}
+                          onChange={changeHandler}
+                          required />
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5  text-end ">Customer Item
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5  text-end ">Customer Item
                         Detail Send :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <select class="form-select form-select-sm" required aria-label="select example">
-                          <option value="">Select</option>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <select className="form-select form-select-sm" name='CustomerItemDetailSend' value={data.CustomerItemDetailSend} onChange={changeHandler} required >
+                          <option>Select</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
                         </select>
@@ -174,86 +310,114 @@ const FinanceInventrySetting = () => {
               </fieldset>
               <fieldset>
                 <legend>Purchase Setting</legend>
-                <div class="row">
-                  <div class="col-12">
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-4 col-form-label fs-5  text-end">Tolerance
-                        :</label>
-                      <div class="col-sm-4 d-flex align-items-center gap-3">
-                        <span class="fs-5">+</span>
-                        <input type="text" name=""  class="form-control" required />
-                        <span class="fs-5">%</span>
+                <div className="row">
+                  <div className="col-12">
+                    <div className="mb-3 row">
+                      <label className=" col-sm-4 col-form-label fs-5  text-end">Tolerance :</label>
+                      <div className="col-sm-4 d-flex align-items-center gap-3">
+                        <span className="fs-5">+</span>
+                        <input 
+                        type="text" 
+                        className="form-control"
+                        name='ToleranceFirstValue'
+                        value={data.ToleranceFirstValue}
+                        onChange={changeHandler}
+                        required />
+                        <span className="fs-5">%</span>
                       </div>
-                      <div class="col-sm-4 d-flex align-items-center gap-3">
-                        <span class="fs-5">-</span>
-                        <input type="text" name=""  class="form-control" required />
-                        <span class="fs-5">%</span>
+                      <div className="col-sm-4 d-flex align-items-center gap-3">
+                        <span className="fs-5">-</span>
+                        <input 
+                        type="text"
+                        className="form-control"
+                        name='ToleranceSecondValue'
+                        value={data.ToleranceSecondValue}
+                        onChange={changeHandler}
+                        required />
+                        <span className="fs-5">%</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </fieldset>
             </div>
-            <div class="col-md-6 ">
-              <fieldset class="mb-3">
+            <div className="col-md-6 ">
+              <fieldset className="mb-3">
                 <legend>Finance Setting</legend>
-                <div class="row">
-                  <div class="col-12">
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5 text-end">Sales
+                <div className="row">
+                  <div className="col-12">
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5 text-end">Sales
                         Order/Invoice
                         Based On :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <select class="form-select form-select-sm" required aria-label="select example">
-                          <option value="">Select</option>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <select className="form-select form-select-sm" name='SalesOrderInvoice' value={data.SalesOrderInvoice} onChange={changeHandler} required >
+                          <option>Select</option>
                           <option value="Item1">Item1</option>
                           <option value="Item2">Item2</option>
                         </select>
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5 text-end">Sheet Size
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5 text-end">Sheet Size
                         Options
                         Required :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <select class="form-select form-select-sm" required aria-label="select example">
-                          <option value="">Select</option>
-                          <option value="Item1">Item1</option>
-                          <option value="Item2">Item2</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Sales Order
-                        :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
-                      </div>
-                    </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5 text-end">Multiple Sales
-                        Order To
-                        Invoice :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <select class="form-select form-select-sm" required aria-label="select example">
-                          <option value="">Select</option>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <select className="form-select form-select-sm" name='SheetSize' value={data.SheetSize} onChange={changeHandler} required >
+                          <option>Select</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
                         </select>
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Domastic Bank
-                        :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5  text-end">Sales Order :</label>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input 
+                        type="text"
+                        className="form-control"
+                         name='SalesOrder'
+                         value={data.SalesOrder}
+                         onChange={changeHandler}
+                         required />
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Export Bank
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5 text-end">Multiple Sales
+                        Order To
+                        Invoice :</label>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <select className="form-select form-select-sm" name='MultipleSalesOrder' value={data.MultipleSalesOrder}  onChange={changeHandler} required >
+                          <option>Select</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5  text-end">Domastic Bank
                         :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input
+                         type="text"
+                        className="form-control"
+                        name='DomasticBank'
+                        value={data.DomasticBank}
+                        onChange={changeHandler}
+                        required />
+                      </div>
+                    </div>
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5  text-end">Export Bank
+                        :</label>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input 
+                        type="text"
+                         className="form-control"
+                         name='ExportBank'
+                         value={data.ExportBank}
+                         onChange={changeHandler}
+                         required />
                       </div>
                     </div>
                   </div>
@@ -261,34 +425,58 @@ const FinanceInventrySetting = () => {
               </fieldset>
               <fieldset>
                 <legend>Export Setting</legend>
-                <div class="row">
-                  <div class="col-12">
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5 text-end">IEC NO
+                <div className="row">
+                  <div className="col-12">
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5 text-end">IEC NO
                         :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input 
+                        type="text"
+                        className="form-control"
+                         name='IecNo'
+                         value={data.IecNo}
+                         onChange={changeHandler}
+                         required />
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5 text-end">EPCG Lic No
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5 text-end">EPCG Lic No
                         :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input
+                         type="text"
+                        className="form-control"
+                        name='EpcgLicNo'
+                        value={data.EpcgLicNo}
+                        onChange={changeHandler}
+                        required />
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5 text-end">LUT No
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5 text-end">LUT No
                         :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input 
+                        type="text"
+                         className="form-control"
+                         name='LutNo'
+                         value={data.LutNo}
+                         onChange={changeHandler}
+                         required />
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5 text-end">REX NO
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5 text-end">REX NO
                         :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input 
+                        type="text"
+                         className="form-control"
+                         name='RexNo'
+                         value={data.RexNo}
+                         onChange={changeHandler}
+                         required />
                       </div>
                     </div>
                   </div>
@@ -296,20 +484,32 @@ const FinanceInventrySetting = () => {
               </fieldset>
               <fieldset>
                 <legend>GST Refund</legend>
-                <div class="row">
-                  <div class="col-12">
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5  text-end">IGST Refund
+                <div className="row">
+                  <div className="col-12">
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5  text-end">IGST Refund
                         Ledger :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input 
+                        type="text"
+                         className="form-control"
+                         name='IgstRefundLedger'
+                         value={data.IgstRefundLedger}
+                         onChange={changeHandler}
+                         required />
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Export Invoice
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5  text-end">Export Invoice
                         :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <input type="text" class="form-control" required />
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <input 
+                        type="text"
+                         className="form-control"
+                         name='ExportInvoice'
+                         value={data.ExportInvoice}
+                         onChange={changeHandler}
+                         required />
                       </div>
                     </div>
                   </div>
@@ -317,27 +517,27 @@ const FinanceInventrySetting = () => {
               </fieldset>
               <fieldset>
                 <legend>WeightScale Setting</legend>
-                <div class="row">
-                  <div class="col-12">
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Get Weight
+                <div className="row">
+                  <div className="col-12">
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5  text-end">Get Weight
                         From WeightScale :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <select class="form-select form-select-sm" required aria-label="select example">
-                          <option value="">Select</option>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <select className="form-select form-select-sm" name='GetWeightFromWeightScale' value={data.GetWeightFromWeightScale}  onChange={changeHandler} required>
+                          <option>Select</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
                         </select>
                       </div>
                     </div>
-                    <div class="mb-3 row">
-                      <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Qty
+                    <div className="mb-3 row">
+                      <label className=" col-sm-8 col-form-label fs-5  text-end">Qty
                         Replace/Addition :</label>
-                      <div class="col-sm-4 d-flex align-items-center">
-                        <select class="form-select form-select-sm" required aria-label="select example">
-                          <option value="">Select</option>
-                          <option value="Yes">Replace</option>
-                          <option value="No">No Replace</option>
+                      <div className="col-sm-4 d-flex align-items-center">
+                        <select className="form-select form-select-sm" name='QtyReplaceAddition' value={data.QtyReplaceAddition}  onChange={changeHandler} required>
+                          <option>Select</option>
+                          <option value="Replace">Replace</option>
+                          <option value="No Replace"> No Replace</option>
                         </select>
                       </div>
                     </div>
@@ -346,37 +546,60 @@ const FinanceInventrySetting = () => {
               </fieldset>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 mt-3">
-              <div class="mb-3 row">
-                <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Dashboard
+          <div className="row">
+            <div className="col-md-6 mt-3">
+              <div className="mb-3 row">
+                <label className=" col-sm-8 col-form-label fs-5  text-end">Dashboard
                   Image :</label>
-                <div class="col-sm-4 d-flex flex-column align-items-center">
-                  <label htmlFor="img-file w-100" className='px-3 py-1 border'>BROWSE</label>
-                  <input id='img-file' type="file" class="form-control d-none" required />
+                <div className="col-sm-4 d-flex flex-column align-items-center">
+                  <label htmlFor="img" className='px-3 py-1 border'>BROWSE</label>
+                  <input
+                   id='img'
+                  type="file"
+                  className="form-control"
+                   hidden 
+                   name='DashboardImage'
+                   value={data.DashboardImage}
+                   onChange={changeHandler}
+                   required />
                 </div>
               </div>
-              <div class="mb-3 row">
-                <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Near Due Days Alert
+              <div className="mb-3 row">
+                <label className=" col-sm-8 col-form-label fs-5  text-end">Near Due Days Alert
                   :</label>
-                <div class="col-sm-4 d-flex align-items-center">
-                  <input type="text" class="form-control" required />
+                <div className="col-sm-4 d-flex align-items-center">
+                  <input 
+                  type="text"
+                  className="form-control"
+                  name='NearDueDaysAlert'
+                  value={data.NearDueDaysAlert}
+                  onChange={changeHandler}
+                  required />
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="mb-3 row">
-                <label for="" class=" col-sm-6 col-form-label fs-5  text-end">Select Path For DRG
+            <div className="col-md-6">
+              <div className="mb-3 row">
+                <label className=" col-sm-6 col-form-label fs-5  text-end">Select Path For DRG
                   Image :</label>
-                <div class="col-sm-4 d-flex align-items-center">
-                  <input type="file" class="form-control form-control-sm" required />
+                <div className="col-sm-4 d-flex align-items-center">
+                  <input 
+                  type="text" 
+                  className="form-control form-control-sm"
+                  name='SelectPathForDrgImage'
+                  value={data.SelectPathForDrgImage}
+                  onChange={changeHandler}
+                  required />
                 </div>
-                <div class="col-md-2 d-flex align-items-center">
+                <div className="col-md-2 d-flex align-items-center">
                   <h6 onClick={()=>alert()} className=''> Another Path</h6>
                 </div>
               </div>
-              <div class=" my-3 d-flex justify-content-end align-items-center">
-                <button type="submit" class="btn border-secondary btn-next py-1 fs-5 ">Next</button>
+              <div className=" my-3 d-flex justify-content-end align-items-center">
+                <button type="submit" className="btn border-secondary btn-next py-1 fs-5 ">Save</button>
+              </div>
+              <div className=" my-3 d-flex justify-content-end align-items-center">
+                <button type="button" className="btn border-secondary btn-next py-1 fs-5 ">Next</button>
               </div>
             </div>
           </div>
