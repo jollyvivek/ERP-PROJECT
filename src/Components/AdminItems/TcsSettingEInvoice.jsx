@@ -1,7 +1,86 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NavTabs from '../Navbar/NavTabs'
+import { toast } from 'react-toastify';
 
 const TcsSettingEInvoice = () => {
+
+    const[data,setData] = useState({
+        TcsApplicable :"",
+        TcsLedgerForSales :"",
+        TcsLedgerForPurchase :"",
+        TaxNo :"",
+        PanNoIfPresent :"",
+        PanNoIfNotPresent:"",
+        TcsCalculationOn :"",
+        ApplicationOnMoreThanTurnoverAmount :"",
+
+        DutyDrawBackLedger :"",
+
+        PurchaseScrapRequired :"",
+        AdjustmentLedger :"",
+        QualityPremiumAndSitePremiumRequired :"",
+
+        AddAutoScrapJobWork :"",
+
+        EInvoiceApplicable :"",
+        Url :"",
+        EWayBillParameterInEInvoice :"",
+        UserName :"",
+        Password :"",
+        SelectPathForExportEInvoiceJson :"",
+
+        EInvoiceType :"",
+        Key :"",
+        SubscriptionId :"",
+        GstNo :""
+
+    });
+
+    const handleChange = (event)=>{
+        const {name,value} = event.target;
+        setData({...data,[name]:value})
+    };
+
+    // useEffect(()=>console.log(data),[data])
+
+    const handleFormSubmit = async(event)=>{
+        event.preventDefault();
+        console.log(data);
+        setData({
+            TcsApplicable :"",
+            TcsLedgerForSales :"",
+            TcsLedgerForPurchase :"",
+            TaxNo :"",
+            PanNoIfPresent :"",
+            PanNoIfNotPresent:"",
+            TcsCalculationOn :"",
+            ApplicationOnMoreThanTurnoverAmount :"",
+    
+            DutyDrawBackLedger :"",
+    
+            PurchaseScrapRequired :"",
+            AdjustmentLedger :"",
+            QualityPremiumAndSitePremiumRequired :"",
+    
+            AddAutoScrapJobWork :"",
+    
+            EInvoiceApplicable :"",
+            Url :"",
+            EWayBillParameterInEInvoice :"",
+            UserName :"",
+            Password :"",
+            SelectPathForExportEInvoiceJson :"",
+    
+            EInvoiceType :"",
+            Key :"",
+            SubscriptionId :"",
+            GstNo :""
+    
+        });
+
+        toast.success("form Submit Successfully")
+    };
+
   return (
     <div className='container-fluid'>
       <div className='row'>
@@ -13,7 +92,7 @@ const TcsSettingEInvoice = () => {
 
       <div className="row">
             <div className="col-md-12 ">
-                <form action="" className="needs-validation" novalidate>
+                <form action="" className="" onSubmit={handleFormSubmit}>
                     <div className="row">
                         <div className="col-md-6">
                             <fieldset>
@@ -21,118 +100,166 @@ const TcsSettingEInvoice = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label for="" className="col-sm-8 col-form-label fs-5  text-end ">TCS Applicable
+                                            <label className="col-sm-6 col-form-label fs-5  text-end ">TCS Applicable
                                                 :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
-                                                <select className="form-select form-select-sm" required aria-label="select example">
-                                                    <option value=""> select</option>
+                                                <select className="form-select form-select-sm" name='TcsApplicable' value={data.TcsApplicable} onChange={handleChange} >
+                                                    <option> select</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-8 col-form-label fs-5  text-end">TCS Ledger
+                                            <label className=" col-sm-6 col-form-label fs-5  text-end">TCS Ledger
                                                 (For Sales) :</label>
-                                            <div className="col-sm-4 d-flex align-items-center">
-                                                <input type="text" className="form-control" required />
+                                            <div className="col-sm-6 d-flex align-items-center">
+                                                <input
+                                                 type="text"
+                                                className="form-control"
+                                                name='TcsLedgerForSales'
+                                                value={data.TcsLedgerForSales}
+                                                onChange={handleChange}
+                                                required />
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-8 col-form-label fs-5  text-end">TCS Ledger
+                                            <label className=" col-sm-6 col-form-label fs-5  text-end">TCS Ledger
                                                 (For Purchase) :</label>
-                                            <div className="col-sm-4 d-flex align-items-center">
-                                                <input type="text" className="form-control" required />
+                                            <div className="col-sm-6 d-flex align-items-center">
+                                                <input 
+                                                type="text"
+                                                className="form-control"
+                                                name='TcsLedgerForPurchase'
+                                                value={data.TcsLedgerForPurchase}
+                                                onChange={handleChange}
+                                                required />
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-5  text-end">TAX No
+                                            <label className=" col-sm-6 col-form-label fs-5  text-end">TAX No
                                                 :</label>
-                                            <div className="col-sm-5 d-flex align-items-center">
-                                                <input type="text" className="form-control" required />
+                                            <div className="col-sm-6 d-flex align-items-center">
+                                                <input 
+                                                type="text"
+                                                className="form-control"
+                                                name='TaxNo'
+                                                value={data.TaxNo}
+                                                onChange={handleChange}
+                                                required />
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-5  text-end">PAN No. (IF
+                                            <label className=" col-sm-6 col-form-label fs-5  text-end">PAN No. (IF
                                                 PRESENT) :</label>
-                                            <div className="col-sm-3 d-flex align-items-center">
-                                                <input type="number" className="form-control" required />
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <input 
+                                                type="number"
+                                                className="form-control"
+                                                name='PanNoIfPresent'
+                                                value={data.PanNoIfPresent}
+                                                onChange={handleChange}
+                                                required />
                                             </div>
                                             <div className="col-sm-2 d-flex align-items-center">
                                                 <span className="fs-5">%</span>
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label for="" className=" col-sm-7 col-form-label fs-5  text-end">PAN No. (IF
-                                                NOT PRESENT) :</label>
-                                            <div className="col-sm-3 d-flex align-items-center">
-                                                <input type="number" className="form-control" required />
+                                            <label className=" col-sm-6 col-form-label fs-5  text-end">PAN No. (IF
+                                                NOT PRESENT):</label>
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <input 
+                                                type="number"
+                                                className="form-control"
+                                                name='PanNoIfNotPresent'
+                                                value={data.PanNoIfNotPresent}
+                                                onChange={handleChange}                                                
+                                                required />
                                             </div>
                                             <div className="col-sm-2 d-flex align-items-center">
                                                 <span className="fs-5">%</span>
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-8 col-form-label fs-5  text-end ">TCS
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-6 col-form-label fs-5  text-end ">TCS
                                                 Calculation ON :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <select class="form-select form-select-sm" required aria-label="select example">
-                                                    <option value=""> select</option>
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <select className="form-select form-select-sm" name='TcsCalculationOn' value={data.TcsCalculationOn} onChange={handleChange} required >
+                                                    <option> select</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="" class=" col-sm-7 col-form-label fs-5  text-end">Application On
+                                        <div className="mb-3 row">
+                                            <label className=" col-sm-7 col-form-label fs-5  text-end">Application On
                                                 More Than Turnover Amount :</label>
-                                            <div class="col-sm-3 d-flex align-items-center">
-                                                <input type="number" class="form-control" required />
+                                            <div className="col-sm-3 d-flex align-items-center">
+                                                <input 
+                                                type="text"
+                                                className="form-control"
+                                                 name='ApplicationOnMoreThanTurnoverAmount'
+                                                 value={data.ApplicationOnMoreThanTurnoverAmount}
+                                                 onChange={handleChange}
+                                                 required />
                                             </div>
-                                            <div class="col-sm-2 d-flex align-items-center">
-                                                <span class="fs-5">(Rs.)</span>
+                                            <div className="col-sm-2 d-flex align-items-center text-start">
+                                                <span className="fs-6">(Rs.)</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </fieldset>
-                            <div class="mb-3 row mt-3">
-                                <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Duty DrawBack
+                            <div className="mb-3 row mt-3">
+                                <label className=" col-sm-6 col-form-label fs-5  text-end">Duty DrawBack
                                     Ledger :</label>
-                                <div class="col-sm-4 d-flex align-items-center">
-                                    <input type="text" class="form-control" required />
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input 
+                                    type="text"
+                                    className="form-control"
+                                    name='DutyDrawBackLedger'
+                                     value={data.DutyDrawBackLedger}
+                                     onChange={handleChange}
+                                     required />
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 ">
-                            <fieldset class="mb-3">
+                        <div className="col-md-6 ">
+                            <fieldset className="mb-3">
                                 <legend>Purchase Setting</legend>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-8 col-form-label fs-5  text-end ">Purchase Scrap
+                                <div className="row">
+                                    <div className="col-12">
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-9 col-form-label fs-5  text-end ">Purchase Scrap
                                                 Required :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <select class="form-select form-select-sm" required aria-label="select example">
-                                                    <option value=""> select</option>
+                                            <div className="col-sm-3 d-flex align-items-center">
+                                                <select className="form-select form-select-sm" name='PurchaseScrapRequired' value={data.PurchaseScrapRequired} onChange={handleChange} >
+                                                    <option> select</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="" class=" col-sm-8 col-form-label fs-5  text-end"> Adjustment
+                                        <div className="mb-3 row">
+                                            <label className=" col-sm-6 col-form-label fs-5  text-end"> Adjustment
                                                 Ledger :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <input type="text" class="form-control" required />
+                                            <div className="col-sm-6 d-flex align-items-center">
+                                                <input 
+                                                type="text"
+                                                className="form-control"
+                                                name='AdjustmentLedger'
+                                                value={data.AdjustmentLedger}
+                                                onChange={handleChange}
+                                                required />
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-8 col-form-label fs-5  text-end ">Quality
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-9 col-form-label fs-5  text-end ">Quality
                                                 Premium and Site Premium Required :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <select class="form-select form-select-sm" required aria-label="select example">
-                                                    <option value=""> select</option>
+                                            <div className="col-sm-3 d-flex align-items-center">
+                                                <select className="form-select form-select-sm" name='QualityPremiumAndSitePremiumRequired' value={data.QualityPremiumAndSitePremiumRequired} onChange={handleChange} required>
+                                                    <option> select</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                 </select>
@@ -141,12 +268,12 @@ const TcsSettingEInvoice = () => {
                                     </div>
                                 </div>
                             </fieldset>
-                            <div class="mt-5 row">
-                                <label for="" class="col-sm-8 col-form-label fs-5 text-end mt-5 ">Add
+                            <div className="mt-5 row">
+                                <label className="col-sm-9 col-form-label fs-5 text-end mt-5 ">Add
                                     Auto Scrap JobWork :</label>
-                                <div class="col-sm-4 d-flex align-items-center mt-5">
-                                    <select class="form-select form-select-sm" required aria-label="select example">
-                                        <option value=""> select</option>
+                                <div className="col-sm-3 d-flex align-items-center mt-5">
+                                    <select className="form-select form-select-sm" name='AddAutoScrapJobWork' value={data.AddAutoScrapJobWork} onChange={handleChange} required >
+                                        <option> select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                     </select>
@@ -154,91 +281,133 @@ const TcsSettingEInvoice = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
+                    <div className="row">
+                        <div className="col-md-12">
                             <fieldset>
                                 <legend>E-Invoice Setting</legend>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-8 col-form-label fs-5  text-end ">E-Invoice
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-8 col-form-label fs-5  text-end ">E-Invoice
                                                 Applicable :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <select class="form-select form-select-sm" required aria-label="select example">
-                                                    <option value=""> select</option>
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <select className="form-select form-select-sm" name='EInvoiceApplicable' value={data.EInvoiceApplicable} onChange={handleChange} required >
+                                                    <option> select</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="" class=" col-sm-8 col-form-label fs-5  text-end">URL :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <input type="text" class="form-control" required />
+                                        <div className="mb-3 row">
+                                            <label className=" col-sm-8 col-form-label fs-5  text-end">URL :</label>
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <input 
+                                                type="text"
+                                                className="form-control"
+                                                name='Url'
+                                                value={data.Url}
+                                                onChange={handleChange}
+                                                required />
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-8 col-form-label fs-5  text-end ">E-Way Bill
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-8 col-form-label fs-5  text-end ">E-Way Bill
                                                 Parameter In E-Invoice :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <select class="form-select form-select-sm" required aria-label="select example">
-                                                    <option value=""> select</option>
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <select className="form-select form-select-sm" name='EWayBillParameterInEInvoice' value={data.EWayBillParameterInEInvoice} onChange={handleChange} required >
+                                                    <option> select</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="" class=" col-sm-8 col-form-label fs-5  text-end">User Name
+                                        <div className="mb-3 row">
+                                            <label className=" col-sm-8 col-form-label fs-5  text-end">User Name
                                                 :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <input type="text" class="form-control" required />
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <input 
+                                                type="text"
+                                                className="form-control"
+                                                name='UserName'
+                                                value={data.UserName}
+                                                onChange={handleChange}
+                                                required />
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Password
+                                        <div className="mb-3 row">
+                                            <label className=" col-sm-8 col-form-label fs-5  text-end">Password
                                                 :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <input type="password" class="form-control" required />
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <input 
+                                                type="password"
+                                                className="form-control"
+                                                name='Password'
+                                                value={data.Password}
+                                                onChange={handleChange}
+                                                required />
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="" class=" col-sm-8 col-form-label fs-5  text-end">Select Path
+                                        <div className="mb-3 row">
+                                            <label className=" col-sm-8 col-form-label fs-5  text-end">Select Path
                                                 For Export E-Invoice Json :</label>
-                                            <div class="col-sm-4 d-flex flex-column align-items-center gap-3">
-                                                <input type="text" class="form-control" required />
-                                                <p class="fs-5">Another Path</p>
+                                            <div className="col-sm-4 d-flex flex-column align-items-center gap-3">
+                                                <input 
+                                                type="text" 
+                                                className="form-control"
+                                                name='SelectPathForExportEInvoiceJson'
+                                                value={data.SelectPathForExportEInvoiceJson}
+                                                onChange={handleChange}
+                                                required />
+                                                <p className="fs-5">Another Path</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-5 col-form-label fs-5  text-end ">E-Invoice Type
+                                    <div className="col-md-6">
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-5 col-form-label fs-5  text-end ">E-Invoice Type
                                                 :</label>
-                                            <div class="col-sm-7 d-flex align-items-center">
-                                                <select class="form-select form-select-sm" required aria-label="select example">
-                                                    <option value=""> select</option>
+                                            <div className="col-sm-7 d-flex align-items-center">
+                                                <select className="form-select form-select-sm" name='EInvoiceType' value={data.EInvoiceType} onChange={handleChange} required >
+                                                    <option> select</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="mb-3 row ">
-                                            <label for="" class=" col-sm-5 col-form-label fs-5  text-end">Key :</label>
-                                            <div class="col-sm-7 d-flex align-items-center">
-                                                <input type="text" class="form-control" required />
+                                        <div className="mb-3 row ">
+                                            <label className=" col-sm-5 col-form-label fs-5  text-end">Key :</label>
+                                            <div className="col-sm-7 d-flex align-items-center">
+                                                <input
+                                                 type="text"
+                                                className="form-control"
+                                                name='Key'
+                                                value={data.Key}
+                                                onChange={handleChange}
+                                                required />
                                             </div>
                                         </div>
-                                        <div class="mb-3 row ">
-                                            <label for="" class=" col-sm-5 col-form-label fs-5  text-end">Subscription ID :</label>
-                                            <div class="col-sm-7 d-flex align-items-center">
-                                                <input type="text" class="form-control" required />
+                                        <div className="mb-3 row ">
+                                            <label className=" col-sm-5 col-form-label fs-5  text-end">Subscription ID :</label>
+                                            <div className="col-sm-7 d-flex align-items-center">
+                                                <input 
+                                                type="text"
+                                                className="form-control"
+                                                name='SubscriptionId'
+                                                value={data.SubscriptionId}
+                                                onChange={handleChange}
+                                                required />
                                             </div>
                                         </div>
-                                        <div class="mb-3 row ">
-                                            <label for="" class=" col-sm-5 col-form-label fs-5  text-end">GST No :</label>
-                                            <div class="col-sm-7 d-flex align-items-center">
-                                                <input type="text" class="form-control" required />
+                                        <div className="mb-3 row ">
+                                            <label className=" col-sm-5 col-form-label fs-5  text-end">GST No :</label>
+                                            <div className="col-sm-7 d-flex align-items-center">
+                                                <input 
+                                                type="text"
+                                                className="form-control"
+                                                name='GstNo'
+                                                value={data.GstNo}
+                                                onChange={handleChange}
+                                                required />
                                             </div>
                                         </div>
                                     </div>
@@ -246,8 +415,11 @@ const TcsSettingEInvoice = () => {
                             </fieldset>
                         </div>
                     </div>
-                    <div class=" my-3 d-flex justify-content-end align-items-center">
-                        <button type="submit" class="btn border-secondary btn-next py-1 fs-5 ">Next</button>
+                    <div className=" my-3 d-flex justify-content-end align-items-center">
+                        <button type="submit" className="btn border-secondary btn-next py-1 fs-5 ">Save</button>
+                    </div>
+                    <div className=" my-3 d-flex justify-content-end align-items-center">
+                        <button type="button" className="btn border-secondary btn-next py-1 fs-5 ">Next</button>
                     </div>
                 </form>
             </div>
