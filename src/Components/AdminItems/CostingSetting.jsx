@@ -1,8 +1,56 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaInfoCircle } from "react-icons/fa";
 import NavTabs from '../Navbar/NavTabs'
+import { toast } from 'react-toastify';
 
 const CostingSetting = () => {
+    const[data,setData] = useState({
+        BasicScrap :"",
+        ExtrusionConversionRate :"",
+        Recovery:"",
+        Profit :"",
+        Freight :"",
+
+        ContractReview:"",
+
+        PackingStockAvaibility :"",
+
+        MultiplePcsRate:"",
+
+        RawMaterialsMrs:"",
+        QuotationWithMold :"",
+        QuotationWithMachine :""
+    });
+
+    const handlleChange = (event)=>{
+        const {name,value} = event.target;
+        setData({...data,[name]:value})
+    };
+
+    // useEffect(()=>console.log(data),[data])
+
+    const handleFormSubmit = (event)=>{
+        event.preventDefault();
+        console.log(data);
+        setData({
+            BasicScrap :"",
+            ExtrusionConversionRate :"",
+            Recovery:"",
+            Profit :"",
+            Freight :"",
+    
+            ContractReview:"",
+    
+            PackingStockAvaibility :"",
+    
+            MultiplePcsRate:"",
+    
+            RawMaterialsMrs:"",
+            QuotationWithMold :"",
+            QuotationWithMachine :""
+        });
+        toast.success("Form Submit Successfully")
+    }
   return (
     <div className='container-fluid'>
       <div className='row'>
@@ -12,81 +60,108 @@ const CostingSetting = () => {
         </div>
       </div>
 
-      <div class="row">
-            <div class="col-md-12">
-                <form action="" class="needs-validation" novalidate>
-                    <div class="row">
-                        <div class="col-md-6">
+      <div className="row">
+            <div className="col-md-12">
+                <form action="" className="" onSubmit={handleFormSubmit}>
+                    <div className="row">
+                        <div className="col-md-6">
                             <fieldset>
                                 <legend>Costing Setting</legend>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-6 col-form-label fs-5  text-end ">Basic Scrap
-                                                :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <input type="number" class="form-control" required />
+                                <div className="row">
+                                    <div className="col-12">
+                                        <div className="mb-3 row">
+                                            <label  className="col-sm-6 col-form-label fs-5  text-end ">Basic Scrap :</label>
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <input
+                                                    type="number"
+                                                    className="form-control"
+                                                    name='BasicScrap'
+                                                    value={data.BasicScrap}
+                                                    onChange={handlleChange}
+                                                    required />
                                             </div>
-                                            <div class="col-sm-2 d-flex align-items-center">
-                                                <span class="fs-5">(Rs.)</span>
+                                            <div className="col-sm-2 d-flex align-items-center">
+                                                <span className="fs-5">(Rs.)</span>
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-6 col-form-label fs-5  text-end ">Extrusion
+                                        <div className="mb-3 row">
+                                            <label  className="col-sm-6 col-form-label fs-5  text-end ">Extrusion
                                                 Conversion Rate :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <input type="number" class="form-control" required />
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <input 
+                                                    type="number"
+                                                    className="form-control"
+                                                    name='ExtrusionConversionRate'
+                                                    value={data.ExtrusionConversionRate}
+                                                    onChange={handlleChange}
+                                                    required 
+                                                />
                                             </div>
-                                            <div class="col-sm-2 d-flex align-items-center">
-                                                <span class="fs-5">(Rs.)</span>
+                                            <div className="col-sm-2 d-flex align-items-center">
+                                                <span className="fs-5">(Rs.)</span>
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-6 col-form-label fs-5 text-end"
-                                            data-toggle="tooltip">Recovery
-                                                :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <input type="number" class="form-control" required />
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-6 col-form-label fs-5 text-end"
+                                            data-toggle="tooltip">Recovery :</label>
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <input 
+                                                type="number"
+                                                className="form-control"
+                                                name='Recovery'
+                                                value={data.Recovery}
+                                                onChange={handlleChange}
+                                                required />
                                             </div>
-                                            <div class="col-sm-2 d-flex align-items-center gap-1">
-                                                <span class="fs-5">(Rs.)</span>
+                                            <div className="col-sm-2 d-flex align-items-center gap-1">
+                                                <span className="fs-5">(Rs.)</span>
                                                 <span className='fs-5 text-primary'><FaInfoCircle /></span>
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-6 col-form-label fs-5  text-end ">Profit
-                                                :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <input type="number" class="form-control" required />
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-6 col-form-label fs-5  text-end ">Profit :</label>
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <input 
+                                                type="number" 
+                                                className="form-control"
+                                                name='Profit'
+                                                value={data.Profit}
+                                                onChange={handlleChange}
+                                                required />
                                             </div>
-                                            <div class="col-sm-2 d-flex align-items-center">
-                                                <span class="fs-5">(Rs.)</span>
+                                            <div className="col-sm-2 d-flex align-items-center">
+                                                <span className="fs-5">(Rs.)</span>
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-6 col-form-label fs-5  text-end ">Freight
-                                                :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <input type="number" class="form-control" required />
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-6 col-form-label fs-5  text-end ">Freight :</label>
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <input 
+                                                type="number"
+                                                className="form-control"
+                                                name='Freight'
+                                                value={data.Freight}
+                                                onChange={handlleChange}
+                                                required />
                                             </div>
-                                            <div class="col-sm-2 d-flex align-items-center">
-                                                <span class="fs-5">(Rs.)</span>
+                                            <div className="col-sm-2 d-flex align-items-center">
+                                                <span className="fs-5">(Rs.)</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </fieldset>
-                            <fieldset class="mt-3">
+                            <fieldset className="mt-3">
                                 <legend>Contract Review Setting</legend>
-                                <div class="row ">
-                                    <div class="col-12">
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-8 col-form-label fs-5  text-end">Default
+                                <div className="row ">
+                                    <div className="col-12">
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-9 col-form-label fs-5  text-end">Default
                                                 Contract
                                                 Review Diolog On Save :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <select class="form-select form-select-sm" required aria-label="select example">
-                                                    <option value=""> select</option>
+                                            <div className="col-sm-3 d-flex align-items-center">
+                                                <select className="form-select form-select-sm" name='ContractReview' value={data.ContractReview} onChange={handlleChange} required >
+                                                    <option> select</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                 </select>
@@ -97,15 +172,15 @@ const CostingSetting = () => {
                             </fieldset>
                             <fieldset>
                                 <legend>Packing Setting</legend>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-8 col-form-label fs-5  text-end">Create
+                                <div className="row">
+                                    <div className="col-12">
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-9 col-form-label fs-5  text-end">Create
                                                 Packing
                                                 From Stock Avaibility :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <select class="form-select form-select-sm" required aria-label="select example">
-                                                    <option value=""> select</option>
+                                            <div className="col-sm-3 d-flex align-items-center">
+                                                <select className="form-select form-select-sm" name='PackingStockAvaibility' value={data.PackingStockAvaibility} onChange={handlleChange} required >
+                                                    <option> select</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                 </select>
@@ -116,15 +191,15 @@ const CostingSetting = () => {
                             </fieldset>
                             <fieldset>
                                 <legend>Multiple PCS Rate Setting</legend>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-8 col-form-label fs-5  text-end">Multiple
+                                <div className="row">
+                                    <div className="col-12">
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-9 col-form-label fs-5  text-end">Multiple
                                                 PCS
                                                 Rate In Quotation :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <select class="form-select form-select-sm" required aria-label="select example">
-                                                    <option value=""> select</option>
+                                            <div className="col-sm-3 d-flex align-items-center">
+                                                <select className="form-select form-select-sm" name='MultiplePcsRate' value={data.MultiplePcsRate} onChange={handlleChange}  required >
+                                                    <option> select</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                 </select>
@@ -134,18 +209,18 @@ const CostingSetting = () => {
                                 </div>
                             </fieldset>
                         </div>
-                        <div class="col-md-6 ">
+                        <div className="col-md-6 ">
                             <fieldset>
                                 <legend>Finance Setting</legend>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-8 col-form-label fs-5  text-end">Create
+                                <div className="row">
+                                    <div className="col-12">
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-9 col-form-label fs-5  text-end">Create
                                                 Raw
                                                 Materials MRS From Sales Order :</label>
-                                            <div class="col-sm-4 d-flex align-items-center gap-1">
-                                                <select class="form-select form-select-sm" required aria-label="select example">
-                                                    <option value=""> select</option>
+                                            <div className="col-sm-3 d-flex align-items-center gap-1">
+                                                <select className="form-select form-select-sm" name='RawMaterialsMrs' value={data.RawMaterialsMrs} onChange={handlleChange} required >
+                                                    <option> select</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                 </select>
@@ -157,27 +232,27 @@ const CostingSetting = () => {
                             </fieldset>
                             <fieldset>
                                 <legend>Quotation Setting</legend>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-8 col-form-label fs-5  text-end">Quotation
+                                <div className="row">
+                                    <div className="col-12">
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-8 col-form-label fs-5  text-end">Quotation
                                                 With
                                                 Mold :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <select class="form-select form-select-sm" required aria-label="select example">
-                                                    <option value=""> select</option>
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <select className="form-select form-select-sm" name='QuotationWithMold' value={data.QuotationWithMold} onChange={handlleChange} required >
+                                                    <option> select</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="mb-3 row">
-                                            <label for="" class="col-sm-8 col-form-label fs-5  text-end">Quotation
+                                        <div className="mb-3 row">
+                                            <label className="col-sm-8 col-form-label fs-5  text-end">Quotation
                                                 With
                                                 Machine :</label>
-                                            <div class="col-sm-4 d-flex align-items-center">
-                                                <select class="form-select form-select-sm" required aria-label="select example">
-                                                    <option value=""> select</option>
+                                            <div className="col-sm-4 d-flex align-items-center">
+                                                <select className="form-select form-select-sm" name='QuotationWithMachine' value={data.QuotationWithMachine} onChange={handlleChange} required >
+                                                    <option> select</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
                                                 </select>
@@ -188,8 +263,11 @@ const CostingSetting = () => {
                             </fieldset>  
                         </div>
                     </div>
-                    <div class=" my-3 d-flex justify-content-end align-items-center">
-                        <button type="submit" class="btn border-secondary btn-next py-1 fs-5 ">Next</button>
+                    <div className=" my-3 d-flex justify-content-end align-items-center">
+                        <button type="submit" className="btn border-secondary btn-next py-1 fs-5 ">Save</button>
+                    </div>
+                    <div className=" my-3 d-flex justify-content-end align-items-center">
+                        <button type="button" className="btn border-secondary btn-next py-1 fs-5 ">Next</button>
                     </div>
                 </form>
             </div>
