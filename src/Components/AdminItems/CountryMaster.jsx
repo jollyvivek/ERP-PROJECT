@@ -163,7 +163,7 @@ const CountryMaster = () => {
             style={{ display: 'block' }}
             id="countryMasterModal"
             data-bs-backdrop="static"
-            tabindex="-1"
+            tabIndex="-1"
             role="dialog"
             aria-labelledby="exampleModalCenterTitle"
             aria-hidden="true"
