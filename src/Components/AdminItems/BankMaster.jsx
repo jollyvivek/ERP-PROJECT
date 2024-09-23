@@ -95,8 +95,8 @@ const[bankRecords,setBankRecords]=useState([])
                         <button
                              className=" add-btn btn border-primary"
                              id="addnew-btn"
-                             data-bs-toggle="modal"
-                             data-bs-target="#bankMaster"
+                            //  data-bs-toggle="modal"
+                            //  data-bs-target="#bankMaster"
                              onClick={()=>setShowModal(true)}>ADD NEW
                         </button>
                     </div>
@@ -150,10 +150,10 @@ const[bankRecords,setBankRecords]=useState([])
         style={{ display: 'block' }}
         id="bankMaster" 
         data-bs-backdrop="static"
-        // tabindex="-1" 
+        tabIndex="-1" 
         role="dialog"
         aria-labelledby="exampleModalCenterTitle" 
-        aria-hidden="true"
+        // aria-hidden="true"
       >
         <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">

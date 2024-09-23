@@ -130,8 +130,8 @@ const CountryMaster = () => {
               <button
                 className=" add-btn btn border-primary"
                 id="addnew-btn"
-                data-bs-toggle="modal"
-                data-bs-target="#countryMasterModal"
+                // data-bs-toggle="modal"
+                // data-bs-target="#countryMasterModal"
                 onClick={() => setShowModal(true)}
               >
                 ADD NEW
@@ -166,7 +166,7 @@ const CountryMaster = () => {
             tabIndex="-1"
             role="dialog"
             aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true"
+            // aria-hidden="true"
           >
             <div className="modal-dialog modal-dialog-centered" role="document">
               <div className="modal-content">
@@ -212,7 +212,7 @@ const CountryMaster = () => {
                         <div className="col-sm-8 d-flex align-items-center">
                           <input
                             type="text"
-                            id="code"
+                            // id="code"
                             className="form-control"
                             name="code"
                             onChange={modelHandler}

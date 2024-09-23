@@ -97,8 +97,8 @@ const StateMaster = () => {
                     </div>
                     <div className="col-md-8 d-flex flex-column align-items-end justify-content-end">
                         <button className=" add-btn btn border-primary" id="addnew-btn" 
-                          data-bs-toggle="modal"
-                          data-bs-target="#stateMaster"
+                          // data-bs-toggle="modal"
+                          // data-bs-target="#stateMaster"
                           onClick={()=>setShowModal(true)}
                           >ADD NEW
                         </button>
@@ -146,10 +146,10 @@ const StateMaster = () => {
           style={{ display: 'block' }}
           id="stateMaster" 
           data-bs-backdrop="static"
-          // tabindex="-1"
+          tabIndex="-1"
            role="dialog"
           aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true"
+          // aria-hidden="true"
         >
             <div className="modal-dialog modal-dialog-centered" role="document">
                 <div className="modal-content">
