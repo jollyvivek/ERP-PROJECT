@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './LoginPopup.css'
 import { RxCross2 } from "react-icons/rx";
 import { toast } from 'react-toastify';
+import { StoreContext } from '../../Context/StoreContext';
+import axios from 'axios';
 const LoginPopup = ({setShowLogin}) => {
+  const {url,token,setToken} = useContext(StoreContext);
   const[currState,setCurrState] = useState("Login")
   const[data,setData]=useState({
     username:"",
@@ -17,11 +20,24 @@ const LoginPopup = ({setShowLogin}) => {
     setData((data)=>({...data,[name]:value}));
   };
 
-  // useEffect(()=>console.log(data),[data]);
 
-  const formSubmitHandler = (event)=>{
+  const formSubmitHandler = async(event)=>{
     event.preventDefault();
-    console.log(data);
+    let newUrl = url;
+    if(currState==="Login"){
+      newUrl +="/api/user/login"
+    }else{
+      newUrl +="/api/user/register"
+    };
+
+    const response = await axios.post(newUrl,data);
+    if(response.data.success){
+      setToken(response.data.token);
+      localStorage.setItem("token",response.data.token);
+      setShowLogin(false)
+    }else{
+      toast.success(response.data.message);
+    }
     setData({
       username:"",
       company:"",
@@ -29,10 +45,6 @@ const LoginPopup = ({setShowLogin}) => {
       email:"",
       password:""
     });
-    
-    setShowLogin(false)
-
-    toast.success("form submit successfully .");
   }
 
   return (

@@ -53,3 +53,21 @@
 .nav-cont-right p{
   padding-inline: 0.5em;
 }
+
+.nav-profile{
+  /* position: relative; */
+  /* border: 1px solid red; */
+  padding-top: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-profile .user-icon{
+  width: 20px;
+}
+
+.logout{
+  cursor: pointer;
+}
