@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Sidebar from "./Components/Sidebar/Sidebar";
@@ -13,11 +13,6 @@ const App = () => {
   const[showLogin,setShowLogin]=useState(false)
   const{token}= useContext(StoreContext)
   const[value,setValue]=useState(token)
-
-  // useEffect(()=>{
-  //   setValue(token);
-  //   console.log(value);
-  // },[value]);
  
 
   return <div>

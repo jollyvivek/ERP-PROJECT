@@ -41,7 +41,7 @@ const Sidebar = () => {
   const url = "http://localhost:4000";
 
   return (
-    <div className="sidebar container-fluid">
+    <div className="sidebar container-fluid ">
       <div className="row">
         <div className="col-md-3 left dashboard ">
         <div className="dashborad-cont">
@@ -68,7 +68,7 @@ const Sidebar = () => {
             
           </div>
         </div>
-        <div className="col-md-9 p-0">
+        <div className="col-md-9 p-0" >
         <Routes>
         <Route path="/basic_details" element={<BasicDetails/>}/>
         <Route path="/" element={<SidebarRight/>}/>
