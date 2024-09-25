@@ -1,17 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-// import '../node_modules/bootstrap/dist/js/bootstrap.bundle.js'
 import Sidebar from "./Components/Sidebar/Sidebar";
 import { ToastContainer } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
-import { Route, Routes } from "react-router-dom";
+// import { Route, Routes } from "react-router-dom";
 import LoginPopup from "./Components/LoginPopup/LoginPopup";
-// import Role from './Components/AdminItems/Role'
-// import CompanyDetail from "./Components/AdminItems/CompanyDetail";
+import { StoreContext } from "./Context/StoreContext";
+import ErpHome from "./Components/ErpHome/ErpHome";
 
 const App = () => {
   const[showLogin,setShowLogin]=useState(false)
+  const{token}= useContext(StoreContext)
+  const[value,setValue]=useState(token)
+
+  // useEffect(()=>{
+  //   setValue(token);
+  //   console.log(value);
+  // },[value]);
+ 
 
   return <div>
     {showLogin ?<LoginPopup setShowLogin={setShowLogin}/> :<></>}
@@ -19,14 +26,9 @@ const App = () => {
     <Navbar setShowLogin={setShowLogin}/>
     {/* <hr /> */}
     <div className="app-content">
-      <Sidebar/>
-      {/* <Routes> */}
-        {/* <Route path="/company" element={<CompanyDetail/>}/>
-        <Route path="/role" element={<Role/>}/> */}
-        {/* <Route/>
-        <Route/>
-        <Route/>
-      </Routes> */}
+    {value===token ? <ErpHome/> :<Sidebar/>}
+      
+     
     </div>
   </div>;
 };
