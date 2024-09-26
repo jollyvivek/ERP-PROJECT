@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 
 const BasicDetails = () => {
-
+  const [selectedData, setSelectedData]=useState()
   const url = "http://localhost:4000"
   const fileInputRef = useRef(null)
   const [logo,setLogo]=useState(false)
@@ -32,10 +32,23 @@ const BasicDetails = () => {
     setData((data) => ({ ...data, [name]: value }));
   };
 
-  // useEffect(()=>{
-  //   console.log(data);
-  //   console.log(logo)
-  // },[data,logo])
+  // companydata get
+
+  const companyList = async()=>{
+    const response = await axios.get(`${url}/api/company/list`);
+    if(response){
+      // console.log(response.data.data)
+      setSelectedData(response.data.data)
+    }else{
+      console.log("Error")
+    }
+  }
+
+  useEffect(()=>{
+    companyList();
+  },[]);
+
+//  setTimeout(()=>{ console.log(selectedData)},3000)
 
   const handleSubmit = async(e) => {
     e.preventDefault();
