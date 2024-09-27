@@ -38,15 +38,17 @@ const BasicDetails = () => {
     const response = await axios.get(`${url}/api/company/list`);
     if(response){
       // console.log(response.data.data)
-      setSelectedData(response.data.data[0])
+      setSelectedData(response.data.data[0]);
     }else{
       console.log("Error")
     }
   }
 
+
   useEffect(()=>{
     companyList();
   },[]);
+
 
 //  setTimeout(()=>{ console.log(selectedData)},3000)
 
@@ -125,7 +127,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="companyName"
-                          value={selectedData.companyName || data.companyName}
+                          value={ data.companyName || selectedData.companyName  }
                           required
                         />
                       </div>
@@ -140,7 +142,8 @@ const BasicDetails = () => {
                           type="file"
                           className="form-control"
                           ref={fileInputRef}
-                          onChange={(e)=>setLogo(e.target.files[0])}
+                          name='logo'
+                          onChange={ (e)=>setLogo(e.target.files[0] )}
                           required
                         />
                          <img className="mt-3 img-fluid" src={logo ? URL.createObjectURL(logo):""} alt="" />
@@ -156,7 +159,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="tagline"
-                          value={ selectedData.tagline  || data.tagline}
+                          value={ data.tagline || selectedData.tagline }
                           required
                         />
                       </div>
@@ -171,7 +174,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="website"
-                          value={ selectedData.website  || data.website}
+                          value={data.website || selectedData.website}
                           required
                         />
                       </div>
@@ -186,7 +189,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="email"
-                          value={ selectedData.email || data.email}
+                          value={data.email || selectedData.email}
                           required
                         />
                       </div>
@@ -201,7 +204,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="optionalEmail"
-                          value={selectedData.optionalEmail || data.optionalEmail}
+                          value={data.optionalEmail || selectedData.optionalEmail}
                           required
                         />
                       </div>
@@ -216,7 +219,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="aadhaarNo"
-                          value={selectedData.aadhaarNo || data.aadhaarNo}
+                          value={ data.aadhaarNo || selectedData.aadhaarNo}
                           required
                         />
                       </div>
@@ -231,7 +234,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="contactNo"
-                          value={ selectedData.contactNo || data.contactNo}
+                          value={data.contactNo || selectedData.contactNo}
                           required
                         />
                       </div>
@@ -249,7 +252,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="contactPerson"
-                          value={selectedData.contactPerson ||data.contactPerson}
+                          value={data.contactPerson || selectedData.contactPerson}
                           required
                         />
                       </div>
@@ -264,7 +267,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="personContactNo"
-                          value={selectedData.personContactNo || data.personContactNo}
+                          value={ data.personContactNo || selectedData.personContactNo}
                           required
                         />
                       </div>
@@ -278,7 +281,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="address"
-                          value={ selectedData.address||data.address}
+                          value={ data.address || selectedData.address}
                           required
                         ></textarea>
                       </div>
@@ -293,7 +296,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="country"
-                          value={selectedData.country ||data.country}
+                          value={data.country || selectedData.country}
                           required
                         />
                       </div>
@@ -308,7 +311,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="state"
-                          value={selectedData.state || data.state}
+                          value={ data.state || selectedData.state}
                           required
                         />
                       </div>
@@ -323,7 +326,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="city"
-                          value={selectedData.city || data.city}
+                          value={ data.city || selectedData.city}
                           required
                         />
                       </div>
@@ -338,7 +341,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="pincode"
-                          value={selectedData.pincode || data.pincode}
+                          value={ data.pincode || selectedData.pincode}
                           required
                         />
                       </div>
@@ -353,7 +356,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="note"
-                          value={ selectedData.note || data.note}
+                          value={ data.note || selectedData.note}
                           required
                         ></textarea>
                       </div>
