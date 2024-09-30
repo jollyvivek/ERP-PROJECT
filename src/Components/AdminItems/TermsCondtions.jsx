@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import NavTabs from '../Navbar/NavTabs'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { StoreContext } from '../../Context/StoreContext'
+import axios from 'axios'
 
 const TermsCondtions = () => {
+    const{url} = useContext(StoreContext);
     const navigate = useNavigate();
-  const[data,setData]= useState({
+    const[data,setData]= useState({
     salesOrder:"",
     sales:"",
     salesReturn:"",
@@ -16,7 +19,7 @@ const TermsCondtions = () => {
     debitNote:"",
     exportQuotation:"",
     inquiry:"",
-    import:"",
+    Import:"",
     salesOrderAbout:"",
     purchaseOrderAbout:"",
     quotationAbout:"",
@@ -33,7 +36,7 @@ const TermsCondtions = () => {
     debitNoteBillOfSupply:"",
     quotation:"",
     complaint:"",
-    export:"",
+    Export:"",
     exportSalesOrderAbout:"",
     importPurchaseOrderAbout:"",
     exportQuotationAbout:"",
@@ -52,46 +55,88 @@ const TermsCondtions = () => {
     });
   }
 
-const handleFormSubmit = (e)=>{
+const handleFormSubmit = async(e)=>{
   e.preventDefault();
-  console.log(data)
-  setData({
-    salesOrder:"",
-    sales:"",
-    salesReturn:"",
-    purchaseOrder:"",
-    purchase:"",
-    purchaseReturn:"",
-    creditNote:"",
-    debitNote:"",
-    exportQuotation:"",
-    inquiry:"",
-    import:"",
-    salesOrderAbout:"",
-    purchaseOrderAbout:"",
-    quotationAbout:"",
-    salesOrderSubject:"",
-    purchaseOrderSubject:"",
-    quotationSubject:"",
-    salesOrderBillOfSupply:"",
-    salesBillOfSupply:"",
-    salesReturnBillOfSupply:"",
-    purchaseOrderBillOfSupply:"",
-    purchaseBillOfSupply:"",
-    purchaseReturnBillOfSupply:"",
-    creditNoteBillOfSupply:"",
-    debitNoteBillOfSupply:"",
-    quotation:"",
-    complaint:"",
-    export:"",
-    exportSalesOrderAbout:"",
-    importPurchaseOrderAbout:"",
-    exportQuotationAbout:"",
-    exportSalesOrderSubject:"",
-    importPurchaseOrderSubject:"",
-    exportQuotationSubject:""
-  })
-  toast.success("form submit")
+    const payload ={
+    salesOrder:data.salesOrder ,
+    sales:data.sales,
+    salesReturn:data.salesReturn,
+    purchaseOrder:data.purchaseOrder,
+    purchase:data.purchase,
+    purchaseReturn:data.purchaseReturn,
+    creditNote:data.creditNote,
+    debitNote:data.debitNote,
+    exportQuotation:data.exportQuotation,
+    inquiry:data.inquiry,
+    Import:data.Import,
+    salesOrderAbout:data.salesOrderAbout,
+    purchaseOrderAbout:data.purchaseOrderAbout,
+    quotationAbout:data.quotationAbout,
+    salesOrderSubject:data.salesOrderSubject,
+    purchaseOrderSubject:data.purchaseOrderSubject,
+    quotationSubject:data.quotationSubject,
+    salesOrderBillOfSupply:data.salesOrderBillOfSupply,
+    salesBillOfSupply:data.salesBillOfSupply,
+    salesReturnBillOfSupply:data.salesReturnBillOfSupply,
+    purchaseOrderBillOfSupply:data.purchaseOrderBillOfSupply,
+    purchaseBillOfSupply:data.purchaseBillOfSupply,
+    purchaseReturnBillOfSupply:data.purchaseReturnBillOfSupply,
+    creditNoteBillOfSupply:data.creditNoteBillOfSupply,
+    debitNoteBillOfSupply:data.debitNoteBillOfSupply,
+    quotation:data.quotation,
+    complaint:data.complaint,
+    Export:data.Export,
+    exportSalesOrderAbout:data.exportSalesOrderAbout,
+    importPurchaseOrderAbout:data.importPurchaseOrderAbout,
+    exportQuotationAbout:data.exportQuotationAbout,
+    exportSalesOrderSubject:data.exportSalesOrderSubject,
+    importPurchaseOrderSubject:data.importPurchaseOrderSubject,
+    exportQuotationSubject:data.exportQuotationSubject
+    }
+
+    const response = await axios.post(`${url}/api/termcondtion/add`,payload);
+    if (response.data.success) {
+        setData({
+            salesOrder:"",
+            sales:"",
+            salesReturn:"",
+            purchaseOrder:"",
+            purchase:"",
+            purchaseReturn:"",
+            creditNote:"",
+            debitNote:"",
+            exportQuotation:"",
+            inquiry:"",
+            Import:"",
+            salesOrderAbout:"",
+            purchaseOrderAbout:"",
+            quotationAbout:"",
+            salesOrderSubject:"",
+            purchaseOrderSubject:"",
+            quotationSubject:"",
+            salesOrderBillOfSupply:"",
+            salesBillOfSupply:"",
+            salesReturnBillOfSupply:"",
+            purchaseOrderBillOfSupply:"",
+            purchaseBillOfSupply:"",
+            purchaseReturnBillOfSupply:"",
+            creditNoteBillOfSupply:"",
+            debitNoteBillOfSupply:"",
+            quotation:"",
+            complaint:"",
+            Export:"",
+            exportSalesOrderAbout:"",
+            importPurchaseOrderAbout:"",
+            exportQuotationAbout:"",
+            exportSalesOrderSubject:"",
+            importPurchaseOrderSubject:"",
+            exportQuotationSubject:""
+          });
+          toast.success(response.data.message)
+    } else {
+        console.log("error");
+        toast.error(response.data.message)
+    }
 }
 
 // useEffect(()=>{
@@ -174,7 +219,7 @@ const handleFormSubmit = (e)=>{
                                         </div>
                                         <div className="form-group mb-1">
                                             <label  className="col-form-label fs-5 mt-1">Import</label>
-                                            <input type="text" className="form-control" name='import' value={data.import} onChange={handleChange} required />
+                                            <input type="text" className="form-control" name='Import' value={data.Import} onChange={handleChange} required />
                                         </div>
                                         <div className="form-group mb-1">
                                             <label  className="col-form-label fs-5">Sales Order About</label>
@@ -264,7 +309,7 @@ const handleFormSubmit = (e)=>{
                                             <label  className="col-form-label fs-5">Export</label>
                                             <select className="form-select salesOrder-select"
                                                 //  multiple
-                                                aria-label="multiple select example" name='export' value={data.export} onChange={handleChange} required>
+                                                aria-label="multiple select example" name='Export' value={data.Export} onChange={handleChange} required>
                                                 <option >select one of the items</option>
                                                 <option value="Lorem ipsum dolor sit.">Lorem ipsum dolor sit.</option>
                                                 <option value="Lorem ipsum dolor sit amet.">Lorem ipsum dolor sit amet.</option>

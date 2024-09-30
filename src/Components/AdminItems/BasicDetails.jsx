@@ -38,7 +38,7 @@ const BasicDetails = () => {
     const response = await axios.get(`${url}/api/company/list`);
     if(response){
       // console.log(response.data.data)
-      setSelectedData(response.data.data[0]);
+      setSelectedData(response.data.data[14]);
     }else{
       console.log("Error")
     }
@@ -146,7 +146,7 @@ const BasicDetails = () => {
                           onChange={ (e)=>setLogo(e.target.files[0] )}
                           required
                         />
-                         <img className="mt-3 img-fluid" src={logo ? URL.createObjectURL(logo):""} alt="" />
+                         <img className="mt-3 img-fluid" src={logo ? URL.createObjectURL(logo):`${url}/images/` + selectedData.logo} alt="" />
                       </div>
                     </div>
                     <div className="mb-3 row">
