@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NavTabs from "../Navbar/NavTabs";
 import { toast } from "react-toastify";
+import { StoreContext } from "../../Context/StoreContext";
+import axios from "axios";
 
 const ReportHeadingTwo = () => {
-
-  const [data,setData] = useState({
+    const {url} = useContext(StoreContext)
+     const [data,setData] = useState({
     TaxOrderHeading :"",
     ProformaInvoice :"",
 
@@ -27,7 +29,7 @@ const ReportHeadingTwo = () => {
 
     ReturnRejectedHeading:"",
     ReturnRejectedReportHeading:""
-  })
+    })
 
   const changeHandler = (event)=>{
     const {name,value}= event.target;
@@ -39,32 +41,63 @@ const ReportHeadingTwo = () => {
 
   const formSubmitHandler = async(event)=>{
     event.preventDefault();
-    console.log(data)
-    toast.success("form submit successfully.")
-    setData({
-      TaxOrderHeading :"",
-      ProformaInvoice :"",
-  
-      ExportTaxOrderHeading:"",
-      ExportTaxOrderSubheading :"",
-      ExportBillOfSupplyOrderHeading:"",
-      ExportBillOfSupplyOrderSubheading:"", 
-  
-      ImportTaxOrderHeading:"",
-      ImportTaxOrderSubheading :"",
-      ImportBillOfSupplyOrderHeading:"",
-      ImportBillOfSupplyOrderSubheading:"",
-  
-      PurchaseTaxOrderHeading:"",
-      PurchaseBillOfSupplyOrderHeading:"",
-  
-      QuotationTaxHeading :"",
-      QuotationBillOfSupply:"",
-      ExportQuotation:"",
-  
-      ReturnRejectedHeading:"",
-      ReturnRejectedReportHeading:""
-    })
+    const payrole ={
+    TaxOrderHeading :data.TaxOrderHeading,
+    ProformaInvoice :data.ProformaInvoice,
+
+    ExportTaxOrderHeading :data.ExportTaxOrderHeading,
+    ExportTaxOrderSubheading :data.ExportTaxOrderSubheading,
+    ExportBillOfSupplyOrderHeading :data.ExportBillOfSupplyOrderHeading,
+    ExportBillOfSupplyOrderSubheading :data.ExportBillOfSupplyOrderSubheading, 
+
+    ImportTaxOrderHeading :data.ImportTaxOrderHeading,
+    ImportTaxOrderSubheading :data.ImportTaxOrderSubheading,
+    ImportBillOfSupplyOrderHeading :data.ImportBillOfSupplyOrderHeading,
+    ImportBillOfSupplyOrderSubheading :data.ImportBillOfSupplyOrderSubheading,
+
+    PurchaseTaxOrderHeading :data.PurchaseTaxOrderHeading,
+    PurchaseBillOfSupplyOrderHeading :data.PurchaseBillOfSupplyOrderHeading,
+
+    QuotationTaxHeading :data.QuotationTaxHeading,
+    QuotationBillOfSupply :data.QuotationBillOfSupply,
+    ExportQuotation :data.ExportQuotation,
+
+    ReturnRejectedHeading :data.ReturnRejectedHeading,
+    ReturnRejectedReportHeading :data.ReturnRejectedReportHeading
+    }
+
+    const response = await axios.post(`${url}/api/reportheadingtwo/add`,payrole)
+
+    if (response.data.success) {
+        setData({
+            TaxOrderHeading :"",
+            ProformaInvoice :"",
+        
+            ExportTaxOrderHeading:"",
+            ExportTaxOrderSubheading :"",
+            ExportBillOfSupplyOrderHeading:"",
+            ExportBillOfSupplyOrderSubheading:"", 
+        
+            ImportTaxOrderHeading:"",
+            ImportTaxOrderSubheading :"",
+            ImportBillOfSupplyOrderHeading:"",
+            ImportBillOfSupplyOrderSubheading:"",
+        
+            PurchaseTaxOrderHeading:"",
+            PurchaseBillOfSupplyOrderHeading:"",
+        
+            QuotationTaxHeading :"",
+            QuotationBillOfSupply:"",
+            ExportQuotation:"",
+        
+            ReturnRejectedHeading:"",
+            ReturnRejectedReportHeading:""
+          });
+          toast.success(response.data.message)
+    } else {
+        console.log("Error");
+        toast.error(response.data.message);
+    }
   }
 
   return (
