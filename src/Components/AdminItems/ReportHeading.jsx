@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import NavTabs from '../Navbar/NavTabs'
 import { toast } from 'react-toastify'
+import { StoreContext } from '../../Context/StoreContext'
+import axios from 'axios'
 
 const ReportHeading = () => {
-
+const {url} = useContext(StoreContext)
 const [data,setData] = useState({
     taxInvoiceHeading:"",
     taxStockTransfer:"",
@@ -49,44 +51,84 @@ const changeHandler = (event)=>{
 //     console.log(data)
 // },[data])
 
-const formSubmitHandler = (event)=>{
+const formSubmitHandler = async(event)=>{
     event.preventDefault();
+    const payload = {
+    taxInvoiceHeading:data.taxInvoiceHeading,
+    taxStockTransfer:data.taxStockTransfer,
+    billOfSupplyHeading:data.billOfSupplyHeading,
+    billOfSupplyStockTransfer:data.billOfSupplyStockTransfer,
+
+    purchaseTaxInvoiceHeading:data.purchaseTaxInvoiceHeading,
+    purchaseTaxStockTransfer:data.purchaseTaxStockTransfer,
+    purchaseBillOfSupplyHeading:data.purchaseBillOfSupplyHeading,
+    purchaseBillOfSupplyStockTransfer:data.purchaseBillOfSupplyStockTransfer,
+
+    exportTaxInvoiceHeading:data.exportTaxInvoiceHeading,
+    taxInvoiceSubHeading:data.taxInvoiceSubHeading,
+    exportBillOfSupplyHeading:data.exportBillOfSupplyHeading,
+    billOfSupplySubHeading:data.billOfSupplySubHeading,
+
+    salesDcHeading:data.salesDcHeading,
+    purchaseDcHeading:data.purchaseDcHeading,
+
+    taxInvoiceReturnHeading:data.taxInvoiceReturnHeading,
+    taxInvoiceReturnStockTransfer:data.taxInvoiceReturnStockTransfer,
+    billOfSupplyReturnHeading:data.billOfSupplyReturnHeading,
+    billOfSupplyReturnStockTransfer:data.billOfSupplyReturnStockTransfer,
+
+    purchaseTaxInvoiceReturnHeading:data.purchaseTaxInvoiceReturnHeading,
+    purchaseTaxInvoiceReturnStockTransfer:data.purchaseTaxInvoiceReturnStockTransfer,
+    purchaseBillOfSupplyReturnHeading:data.purchaseBillOfSupplyReturnHeading,
+    purchaseBillOfSupplyReturnStockTransfer:data.purchaseBillOfSupplyReturnStockTransfer,
+
+    taxImportInvoiceHeading:data.taxImportInvoiceHeading,
+    taxImportInvoiceSubHeading:data.taxImportInvoiceSubHeading,
+    billOfSupplyInvoiceHeading:data.billOfSupplyInvoiceHeading,
+    billOfSupplyInvoiceSubHeading:data.billOfSupplyInvoiceSubHeading
+    }
+    const response = await axios.post(`${url}/api/reportheading/add`,payload);
+    if (response.data.success) {
+        setData({
+            taxInvoiceHeading:"",
+            taxStockTransfer:"",
+            billOfSupplyHeading:"",
+            billOfSupplyStockTransfer:"",
+        
+            purchaseTaxInvoiceHeading:"",
+            purchaseTaxStockTransfer:"",
+            purchaseBillOfSupplyHeading:"",
+            purchaseBillOfSupplyStockTransfer:"",
+        
+            exportTaxInvoiceHeading:"",
+            taxInvoiceSubHeading:"",
+            exportBillOfSupplyHeading:"",
+            billOfSupplySubHeading:"",
+        
+            salesDcHeading:"",
+            purchaseDcHeading:"",
+        
+            taxInvoiceReturnHeading:"",
+            taxInvoiceReturnStockTransfer:"",
+            billOfSupplyReturnHeading:"",
+            billOfSupplyReturnStockTransfer:"",
+        
+            purchaseTaxInvoiceReturnHeading:"",
+            purchaseTaxInvoiceReturnStockTransfer:"",
+            purchaseBillOfSupplyReturnHeading:"",
+            purchaseBillOfSupplyReturnStockTransfer:"",
+        
+            taxImportInvoiceHeading:"",
+            taxImportInvoiceSubHeading:"",
+            billOfSupplyInvoiceHeading:"",
+            billOfSupplyInvoiceSubHeading:""
+        });
+        toast.success(response.data.message)
+    } else {
+        console.log("Error");
+        toast.error(response.data.message)
+    }
     console.log(data)
-    toast.success("Form submit")
-    setData({
-        taxInvoiceHeading:"",
-        taxStockTransfer:"",
-        billOfSupplyHeading:"",
-        billOfSupplyStockTransfer:"",
-    
-        purchaseTaxInvoiceHeading:"",
-        purchaseTaxStockTransfer:"",
-        purchaseBillOfSupplyHeading:"",
-        purchaseBillOfSupplyStockTransfer:"",
-    
-        exportTaxInvoiceHeading:"",
-        taxInvoiceSubHeading:"",
-        exportBillOfSupplyHeading:"",
-        billOfSupplySubHeading:"",
-    
-        salesDcHeading:"",
-        purchaseDcHeading:"",
-    
-        taxInvoiceReturnHeading:"",
-        taxInvoiceReturnStockTransfer:"",
-        billOfSupplyReturnHeading:"",
-        billOfSupplyReturnStockTransfer:"",
-    
-        purchaseTaxInvoiceReturnHeading:"",
-        purchaseTaxInvoiceReturnStockTransfer:"",
-        purchaseBillOfSupplyReturnHeading:"",
-        purchaseBillOfSupplyReturnStockTransfer:"",
-    
-        taxImportInvoiceHeading:"",
-        taxImportInvoiceSubHeading:"",
-        billOfSupplyInvoiceHeading:"",
-        billOfSupplyInvoiceSubHeading:""
-    })
 }
 
   return (
