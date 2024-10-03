@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import NavTabs from '../Navbar/NavTabs'
 import { toast } from 'react-toastify'
+import { useContext } from 'react'
+import { StoreContext } from '../../Context/StoreContext'
+import axios from 'axios'
 
 const OtherSetting = () => {
+    const {url} = useContext(StoreContext);
+    
   const [data,setData] = useState({
     QtyRoundOf :"",
     ValueRoundOf :"",
@@ -50,53 +55,102 @@ const OtherSetting = () => {
     setData({...data,[name]:value})
   }
 
-  // useEffect(()=>console.log(data),[data]);
   
   const handleFormSubmit = async(event)=>{
     event.preventDefault();
-    console.log(data);
-    toast.success("Form Submit Successfully");
-    setData({
-      QtyRoundOf :"",
-      ValueRoundOf :"",
-      LedgerName :"",
-  
-      LedgerCodeAutoGenerate :"",
-      ProductCodeAutoGenerate :"",
-      InvoiceGenerateUsingGRN_GIN :"",
-      BarcodeGenerateInItemMaster :"",
-      PrintInvoiceInLetterHead_Footer :"",
-      SendingSms :"",
-      MailSending :"",
-      ApprovedRequired :"",
-      Import_Export :"",
-      Import_ExportValueRoundOf :"",
-      EffectOnAccount_InventryWhileCancelInvoice :"",
-      Term_ConditionBasedOnMaster :"",
-      ItemNameDuplicationAllowed:"",
-  
-      Commision :"",
-      CommisionLedger :"",
-  
-      Tds :"",
-      TdsLedger :"",
-  
-      PurchaseAccount :"",
-      SalesAccount :"",
-  
-      DefaultCurrency :"",
-      DefaultOutStandingsPupup :"",
-      ProductSerialNumber :"",
-  
-      Cgst :"",
-      Sgst_Utgst :"",
-      Igst :"",
-      CustomDuty :"",
-      Cess :"",
-  
-      MergePdfSystemPath :"",
-      SelectPathForEuDeclarationPath :""
-    })
+
+    const payload = {
+        QtyRoundOf :data.QtyRoundOf,
+        ValueRoundOf :data.ValueRoundOf,
+        LedgerName :data.LedgerName,
+    
+        LedgerCodeAutoGenerate :data.LedgerCodeAutoGenerate,
+        ProductCodeAutoGenerate :data.ProductCodeAutoGenerate,
+        InvoiceGenerateUsingGRN_GIN :data.InvoiceGenerateUsingGRN_GIN,
+        BarcodeGenerateInItemMaster :data.BarcodeGenerateInItemMaster,
+        PrintInvoiceInLetterHead_Footer :data.PrintInvoiceInLetterHead_Footer,
+        SendingSms :data.SendingSms,
+        MailSending :data.MailSending,
+        ApprovedRequired :data.ApprovedRequired,
+        Import_Export :data.Import_Export,
+        Import_ExportValueRoundOf :data.Import_ExportValueRoundOf,
+        EffectOnAccount_InventryWhileCancelInvoice :data.EffectOnAccount_InventryWhileCancelInvoice,
+        Term_ConditionBasedOnMaster :data.Term_ConditionBasedOnMaster,
+        ItemNameDuplicationAllowed :data.ItemNameDuplicationAllowed,
+    
+        Commision :data.Commision,
+        CommisionLedger :data.CommisionLedger,
+    
+        Tds :data.Tds,
+        TdsLedger :data.TdsLedger,
+    
+        PurchaseAccount :data.PurchaseAccount,
+        SalesAccount :data.SalesAccount,
+    
+        DefaultCurrency :data.DefaultCurrency,
+        DefaultOutStandingsPupup :data.DefaultOutStandingsPupup,
+        ProductSerialNumber :data.ProductSerialNumber,
+    
+        Cgst :data.Cgst,
+        Sgst_Utgst :data.Sgst_Utgst,
+        Igst :data.Igst,
+        CustomDuty :data.CustomDuty,
+        Cess :data.Cess,
+    
+        MergePdfSystemPath :data.MergePdfSystemPath,
+        SelectPathForEuDeclarationPath :data.SelectPathForEuDeclarationPath
+    }
+
+    const response = await axios.post(`${url}/api/othersetting/add`,payload);
+
+    if (response.data.success) {
+        setData({
+            QtyRoundOf :"",
+            ValueRoundOf :"",
+            LedgerName :"",
+        
+            LedgerCodeAutoGenerate :"",
+            ProductCodeAutoGenerate :"",
+            InvoiceGenerateUsingGRN_GIN :"",
+            BarcodeGenerateInItemMaster :"",
+            PrintInvoiceInLetterHead_Footer :"",
+            SendingSms :"",
+            MailSending :"",
+            ApprovedRequired :"",
+            Import_Export :"",
+            Import_ExportValueRoundOf :"",
+            EffectOnAccount_InventryWhileCancelInvoice :"",
+            Term_ConditionBasedOnMaster :"",
+            ItemNameDuplicationAllowed:"",
+        
+            Commision :"",
+            CommisionLedger :"",
+        
+            Tds :"",
+            TdsLedger :"",
+        
+            PurchaseAccount :"",
+            SalesAccount :"",
+        
+            DefaultCurrency :"",
+            DefaultOutStandingsPupup :"",
+            ProductSerialNumber :"",
+        
+            Cgst :"",
+            Sgst_Utgst :"",
+            Igst :"",
+            CustomDuty :"",
+            Cess :"",
+        
+            MergePdfSystemPath :"",
+            SelectPathForEuDeclarationPath :""
+          });
+          toast.success(response.data.message);
+    } else {
+        console.log("Error");
+        toast.error(response.data.message);
+    }
+    // console.log(data);
   }
 
   return (
@@ -556,12 +610,13 @@ const OtherSetting = () => {
                                 <label className=" col-sm-7 col-form-label fs-5 text-end"> Merge PDF System Path :</label>
                                 <div className="col-sm-4 d-flex align-items-center">
                                     <input 
-                                    type="text"
+                                    type="url"
                                      className="form-control"
                                      name='MergePdfSystemPath'
                                      value={data.MergePdfSystemPath}
                                      onChange={changeHandler}
-                                     required />
+                                     required 
+                                    />
                                 </div>
                                 <button type='button' className='col-sm-1 border-0 bg-transparent text-left'>R</button>
                             </div>
@@ -569,12 +624,13 @@ const OtherSetting = () => {
                                 <label className=" col-sm-7 text-end col-form-label fs-5"> Select Path For EU Declaration Path :</label>
                                 <div className="col-sm-4 d-flex align-items-center">
                                     <input 
-                                    type="text"
+                                    type="url"
                                     className="form-control"
                                     name='SelectPathForEuDeclarationPath'
                                     value={data.SelectPathForEuDeclarationPath}
                                     onChange={changeHandler}
-                                    required />
+                                    required 
+                                    />
                                 </div>
                                 <div className="col-sm-1">
                                     <button type='button' className='fs-6 border-0 bg-transparent'>Another Path</button>
