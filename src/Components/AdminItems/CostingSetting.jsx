@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FaInfoCircle } from "react-icons/fa";
 import NavTabs from '../Navbar/NavTabs'
 import { toast } from 'react-toastify';
+import axios from 'axios';
+import { StoreContext } from '../../Context/StoreContext';
 
 const CostingSetting = () => {
+    const {url} = useContext(StoreContext)
     const[data,setData] = useState({
         BasicScrap :"",
         ExtrusionConversionRate :"",
@@ -27,29 +30,50 @@ const CostingSetting = () => {
         setData({...data,[name]:value})
     };
 
-    // useEffect(()=>console.log(data),[data])
-
-    const handleFormSubmit = (event)=>{
+    const handleFormSubmit = async(event)=>{
         event.preventDefault();
-        console.log(data);
-        setData({
-            BasicScrap :"",
-            ExtrusionConversionRate :"",
-            Recovery:"",
-            Profit :"",
-            Freight :"",
-    
-            ContractReview:"",
-    
-            PackingStockAvaibility :"",
-    
-            MultiplePcsRate:"",
-    
-            RawMaterialsMrs:"",
-            QuotationWithMold :"",
-            QuotationWithMachine :""
-        });
-        toast.success("Form Submit Successfully")
+        let payload ={
+        BasicScrap :Number(data.BasicScrap),
+        ExtrusionConversionRate :Number(data.ExtrusionConversionRate),
+        Recovery:Number(data.Recovery),
+        Profit :Number(data.Profit),
+        Freight :Number(data.Freight),
+
+        ContractReview:data.ContractReview,
+
+        PackingStockAvaibility :data.PackingStockAvaibility,
+
+        MultiplePcsRate:data.MultiplePcsRate,
+
+        RawMaterialsMrs:data.RawMaterialsMrs,
+        QuotationWithMold :data.QuotationWithMold,
+        QuotationWithMachine :data.QuotationWithMachine
+        }
+
+        const response = await axios.post(`${url}/api/costingsetting/add`,payload);
+
+        if (response.data.success) {
+            setData({
+                BasicScrap :"",
+                ExtrusionConversionRate :"",
+                Recovery:"",
+                Profit :"",
+                Freight :"",
+        
+                ContractReview:"",
+        
+                PackingStockAvaibility :"",
+        
+                MultiplePcsRate:"",
+        
+                RawMaterialsMrs:"",
+                QuotationWithMold :"",
+                QuotationWithMachine :""
+            });
+            toast.success(response.data.message)
+        } else {
+            toast.error(response.data.message)
+        } 
     }
   return (
     <div className='container-fluid'>
