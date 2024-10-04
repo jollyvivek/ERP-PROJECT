@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import NavTabs from '../Navbar/NavTabs'
 import { toast } from 'react-toastify';
-
+import { StoreContext } from '../../Context/StoreContext';
+import axios from 'axios';
 const CrmHrSetting = () => {
+    const {url} = useContext(StoreContext)
   const [data,setData] =useState({
     InquiryStatus :"",
     ConvertedStatus :"",
@@ -46,48 +48,89 @@ const CrmHrSetting = () => {
       setData({...data,[name]:value})
   }
 
-  // useEffect(()=>console.log(data),[data])
-
   const handleFormSubmit = async(event)=>{
     event.preventDefault();
-    console.log(data)
-    setData({
-      InquiryStatus :"",
-      ConvertedStatus :"",
-      InquiryLostStatus :"",
-      InquiryType :"",
-      Source :"",
-      IndustryType :"",
-      ContactGroup :"",
-      ContactType :"",
-      ComplaintStatus :"",
-      ComplaintClosedStatus :"",
-      TaskStatus :"",
-      CloseWonStage :"",
-      CloseLostStage :"",
-      Stage :"",
-      EventType :"",
-      CallType :"",
-      SearchPathForAttachedFile :"",
-      ManuallyAddItemInInquiry :"",
-  
-      OverTime :"",
-      Lwp :"",
-      Shift:"",
-      MinimumOutdoorDays :"",
-      AppraisalDuration :"",
-      PunchIn_OutAccordingTo:"",
-      PerDaySalaryCirculation :"",
-      SalaryBasedOn :"",
-      MinimumDiffrenceBetweenTwoPunchIns :"",
-      SalaryLedger :"",
-      GroupForSalary :"",
-      DefaultCtc :"",
-      OtFormula :"",
-      QuotationAsPerInputInPrint :"",
-      BriefQuotation :""
-    });
-    toast.success("form submit");
+    const payload ={
+        InquiryStatus :data.InquiryStatus,
+        ConvertedStatus :data.ConvertedStatus,
+        InquiryLostStatus :data.InquiryLostStatus,
+        InquiryType :data.InquiryType,
+        Source :data.Source,
+        IndustryType :data.IndustryType,
+        ContactGroup :data.ContactGroup,
+        ContactType :data.ContactType,
+        ComplaintStatus :data.ComplaintStatus,
+        ComplaintClosedStatus :data.ComplaintClosedStatus,
+        TaskStatus :data.TaskStatus,
+        CloseWonStage :data.CloseWonStage,
+        CloseLostStage :data.CloseLostStage,
+        Stage :data.Stage,
+        EventType :data.EventType,
+        CallType :data.CallType,
+        SearchPathForAttachedFile :data.SearchPathForAttachedFile,
+        ManuallyAddItemInInquiry :data.ManuallyAddItemInInquiry,
+    
+        OverTime :data.OverTime,
+        Lwp :data.Lwp,
+        Shift:data.Shift,
+        MinimumOutdoorDays :Number(data.MinimumOutdoorDays),
+        AppraisalDuration :data.AppraisalDuration,
+        PunchIn_OutAccordingTo:data.PunchIn_OutAccordingTo,
+        PerDaySalaryCirculation :data.PerDaySalaryCirculation,
+        SalaryBasedOn :data.SalaryBasedOn,
+        MinimumDiffrenceBetweenTwoPunchIns :Number(data.MinimumDiffrenceBetweenTwoPunchIns),
+        SalaryLedger :data.SalaryLedger,
+        GroupForSalary :data.GroupForSalary,
+        DefaultCtc :data.DefaultCtc,
+        OtFormula :data.OtFormula,
+        QuotationAsPerInputInPrint :data.QuotationAsPerInputInPrint,
+        BriefQuotation :data.BriefQuotation
+    }
+
+    const response = await axios.post(`${url}/api/crmhrsetting/add`,payload);
+    if (response.data.success) {
+        setData({
+            InquiryStatus :"",
+            ConvertedStatus :"",
+            InquiryLostStatus :"",
+            InquiryType :"",
+            Source :"",
+            IndustryType :"",
+            ContactGroup :"",
+            ContactType :"",
+            ComplaintStatus :"",
+            ComplaintClosedStatus :"",
+            TaskStatus :"",
+            CloseWonStage :"",
+            CloseLostStage :"",
+            Stage :"",
+            EventType :"",
+            CallType :"",
+            SearchPathForAttachedFile :"",
+            ManuallyAddItemInInquiry :"",
+        
+            OverTime :"",
+            Lwp :"",
+            Shift:"",
+            MinimumOutdoorDays :"",
+            AppraisalDuration :"",
+            PunchIn_OutAccordingTo:"",
+            PerDaySalaryCirculation :"",
+            SalaryBasedOn :"",
+            MinimumDiffrenceBetweenTwoPunchIns :"",
+            SalaryLedger :"",
+            GroupForSalary :"",
+            DefaultCtc :"",
+            OtFormula :"",
+            QuotationAsPerInputInPrint :"",
+            BriefQuotation :""
+          });
+        toast.success(response.data.message);
+    } else {
+        console.log("Error");
+        toast.error(response.data.message);
+    }
+    // console.log(data);   
   }
 
   return (
@@ -422,7 +465,7 @@ const CrmHrSetting = () => {
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='PerDaySalaryCirculation' value={data.PerDaySalaryCirculation} onChange={changeHandler} required>
                                                     <option>Select</option>
-                                                    <option value="Daily">Work Days</option>
+                                                    <option value="Work Days">Work Days</option>
                                                 </select>
                                             </div>
                                         </div>
