@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import NavTabs from '../Navbar/NavTabs'
 import { toast } from 'react-toastify';
+import {StoreContext} from '../../Context/StoreContext'
+import axios from 'axios';
 
 const FinanceInventrySetting = () => {
+  const {url} = useContext(StoreContext)
   const [data,setdata] = useState({
     SecondUnitCalculationAuto :"",
     StockAcceptance:"",
@@ -57,52 +60,103 @@ const FinanceInventrySetting = () => {
 
   const handleFormSubmit = async(event)=>{
     event.preventDefault();
-    console.log(data)
-    setdata({
-      SecondUnitCalculationAuto :"",
-      StockAcceptance:"",
-      TheItemNameInTheInvoice :"",
-      Qc_QaRequired:"",
-      DefaultReturnItem :"",
-      RequiredSchedule:"",
-      PriceListApplicable :"",
-      AdditionalChargesGstTaxation:"",
-      WorkInProgress :"",
-      UnitForSize :"",
-      UnitForWeight :"",
-      BatchNoTextName :"",
+
+    const payload = {
+      SecondUnitCalculationAuto :data.SecondUnitCalculationAuto,
+      StockAcceptance :data.StockAcceptance,
+      TheItemNameInTheInvoice :data.TheItemNameInTheInvoice,
+      Qc_QaRequired :data.Qc_QaRequired,
+      DefaultReturnItem :data.DefaultReturnItem,
+      RequiredSchedule :data.RequiredSchedule,
+      PriceListApplicable :data.PriceListApplicable,
+      AdditionalChargesGstTaxation :data.AdditionalChargesGstTaxation,
+      WorkInProgress :data.WorkInProgress,
+      UnitForSize :data.UnitForSize,
+      UnitForWeight :data.UnitForWeight,
+      BatchNoTextName :data.BatchNoTextName,
   
-      TallyHost :"",
-      TallyCompany :"",
-      CustomerItemDetailSend :"",
+      TallyHost :data.TallyHost,
+      TallyCompany :data.TallyCompany,
+      CustomerItemDetailSend :data.CustomerItemDetailSend,
   
-      ToleranceFirstValue :"",
-      ToleranceSecondValue :"",
+      ToleranceFirstValue :Number(data.ToleranceFirstValue),
+      ToleranceSecondValue :Number(data.ToleranceSecondValue),
   
-      SalesOrderInvoice:"",
-      SheetSize:"",
-      SalesOrder :"",
-      MultipleSalesOrder:"",
-      DomasticBank :"",
-      ExportBank :"",
+      SalesOrderInvoice :data.SalesOrderInvoice,
+      SheetSize :data.SheetSize,
+      SalesOrder :data.SalesOrder,
+      MultipleSalesOrder :data.MultipleSalesOrder,
+      DomasticBank :Number(data.DomasticBank),
+      ExportBank :Number(data.ExportBank),
   
-      IecNo :"",
-      EpcgLicNo :"",
-      LutNo :"",
-      RexNo :"",
+      IecNo :Number(data.IecNo),
+      EpcgLicNo :data.EpcgLicNo,
+      LutNo :data.LutNo,
+      RexNo :data.RexNo,
   
-      IgstRefundLedger :"",
-      ExportInvoice :"",
+      IgstRefundLedger :data.IgstRefundLedger,
+      ExportInvoice :data.ExportInvoice,
   
-      GetWeightFromWeightScale :"",
-      QtyReplaceAddition :"",
+      GetWeightFromWeightScale :data.GetWeightFromWeightScale,
+      QtyReplaceAddition :data.QtyReplaceAddition,
   
-      DashboardImage :"",
-      NearDueDaysAlert :"",
-      SelectPathForDrgImage :""
-  
-    });
-    toast.success("form submit")
+      DashboardImage :data.DashboardImage,
+      NearDueDaysAlert :Number(data.NearDueDaysAlert),
+      SelectPathForDrgImage :data.SelectPathForDrgImage
+    }
+
+    const response = await axios.post(`${url}/api/financeinventry/add`,payload);
+    if (response.data.success) {
+      setdata({
+        SecondUnitCalculationAuto :"",
+        StockAcceptance:"",
+        TheItemNameInTheInvoice :"",
+        Qc_QaRequired:"",
+        DefaultReturnItem :"",
+        RequiredSchedule:"",
+        PriceListApplicable :"",
+        AdditionalChargesGstTaxation:"",
+        WorkInProgress :"",
+        UnitForSize :"",
+        UnitForWeight :"",
+        BatchNoTextName :"",
+    
+        TallyHost :"",
+        TallyCompany :"",
+        CustomerItemDetailSend :"",
+    
+        ToleranceFirstValue :"",
+        ToleranceSecondValue :"",
+    
+        SalesOrderInvoice:"",
+        SheetSize:"",
+        SalesOrder :"",
+        MultipleSalesOrder:"",
+        DomasticBank :"",
+        ExportBank :"",
+    
+        IecNo :"",
+        EpcgLicNo :"",
+        LutNo :"",
+        RexNo :"",
+    
+        IgstRefundLedger :"",
+        ExportInvoice :"",
+    
+        GetWeightFromWeightScale :"",
+        QtyReplaceAddition :"",
+    
+        DashboardImage :"",
+        NearDueDaysAlert :"",
+        SelectPathForDrgImage :""
+    
+      });
+      toast.success(response.data.message)
+    } else {
+      console.log("Error");
+      toast.error(response.data.message)
+    }
+    // console.log(data);
   }
 
   return (
@@ -317,7 +371,7 @@ const FinanceInventrySetting = () => {
                       <div className="col-sm-4 d-flex align-items-center gap-3">
                         <span className="fs-5">+</span>
                         <input 
-                        type="text" 
+                        type="number" 
                         className="form-control"
                         name='ToleranceFirstValue'
                         value={data.ToleranceFirstValue}
@@ -328,7 +382,7 @@ const FinanceInventrySetting = () => {
                       <div className="col-sm-4 d-flex align-items-center gap-3">
                         <span className="fs-5">-</span>
                         <input 
-                        type="text"
+                        type="number"
                         className="form-control"
                         name='ToleranceSecondValue'
                         value={data.ToleranceSecondValue}
@@ -399,7 +453,7 @@ const FinanceInventrySetting = () => {
                         :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input
-                         type="text"
+                         type="number"
                         className="form-control"
                         name='DomasticBank'
                         value={data.DomasticBank}
@@ -412,7 +466,7 @@ const FinanceInventrySetting = () => {
                         :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input 
-                        type="text"
+                        type="number"
                          className="form-control"
                          name='ExportBank'
                          value={data.ExportBank}
@@ -432,7 +486,7 @@ const FinanceInventrySetting = () => {
                         :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input 
-                        type="text"
+                        type="number"
                         className="form-control"
                          name='IecNo'
                          value={data.IecNo}
@@ -552,16 +606,16 @@ const FinanceInventrySetting = () => {
                 <label className=" col-sm-8 col-form-label fs-5  text-end">Dashboard
                   Image :</label>
                 <div className="col-sm-4 d-flex flex-column align-items-center">
-                  <label htmlFor="img" className='px-3 py-1 border'>BROWSE</label>
+                  <label htmlFor="img" className='px-3 py-1 my-2 cursor-pointer border'>BROWSE</label>
                   <input
-                   id='img'
+                  //  id='img'
                   type="file"
                   className="form-control"
                    hidden 
                    name='DashboardImage'
                    value={data.DashboardImage}
                    onChange={changeHandler}
-                   required />
+                    />
                 </div>
               </div>
               <div className="mb-3 row">
@@ -569,7 +623,7 @@ const FinanceInventrySetting = () => {
                   :</label>
                 <div className="col-sm-4 d-flex align-items-center">
                   <input 
-                  type="text"
+                  type="number"
                   className="form-control"
                   name='NearDueDaysAlert'
                   value={data.NearDueDaysAlert}
@@ -585,14 +639,14 @@ const FinanceInventrySetting = () => {
                 <div className="col-sm-4 d-flex align-items-center">
                   <input 
                   type="text" 
-                  className="form-control form-control-sm"
+                  className="form-control"
                   name='SelectPathForDrgImage'
                   value={data.SelectPathForDrgImage}
                   onChange={changeHandler}
                   required />
                 </div>
                 <div className="col-md-2 d-flex align-items-center">
-                  <h6 onClick={()=>alert()} className=''> Another Path</h6>
+                  <h6 onClick={()=>alert()} className='cursor-pointer'> Another Path</h6>
                 </div>
               </div>
               <div className=" my-3 d-flex justify-content-end align-items-center">
