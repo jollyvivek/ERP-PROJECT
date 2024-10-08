@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import NavTabs from '../Navbar/NavTabs'
 import { toast } from 'react-toastify';
+import { StoreContext } from '../../Context/StoreContext';
+import axios from 'axios';
 
 const TcsSettingEInvoice = () => {
 
+    const {url} = useContext(StoreContext)
     const[data,setData] = useState({
         TcsApplicable :"",
         TcsLedgerForSales :"",
         TcsLedgerForPurchase :"",
-        TaxNo :"",
+        TanNo :"",
         PanNoIfPresent :"",
         PanNoIfNotPresent:"",
         TcsCalculationOn :"",
@@ -41,44 +44,83 @@ const TcsSettingEInvoice = () => {
         setData({...data,[name]:value})
     };
 
-    // useEffect(()=>console.log(data),[data])
-
     const handleFormSubmit = async(event)=>{
         event.preventDefault();
-        console.log(data);
-        setData({
-            TcsApplicable :"",
-            TcsLedgerForSales :"",
-            TcsLedgerForPurchase :"",
-            TaxNo :"",
-            PanNoIfPresent :"",
-            PanNoIfNotPresent:"",
-            TcsCalculationOn :"",
-            ApplicationOnMoreThanTurnoverAmount :"",
-    
-            DutyDrawBackLedger :"",
-    
-            PurchaseScrapRequired :"",
-            AdjustmentLedger :"",
-            QualityPremiumAndSitePremiumRequired :"",
-    
-            AddAutoScrapJobWork :"",
-    
-            EInvoiceApplicable :"",
-            Url :"",
-            EWayBillParameterInEInvoice :"",
-            UserName :"",
-            Password :"",
-            SelectPathForExportEInvoiceJson :"",
-    
-            EInvoiceType :"",
-            Key :"",
-            SubscriptionId :"",
-            GstNo :""
-    
-        });
 
-        toast.success("form Submit Successfully")
+        const payload ={
+            TcsApplicable :data.TcsApplicable,
+            TcsLedgerForSales :data.TcsLedgerForSales,
+            TcsLedgerForPurchase :data.TcsLedgerForPurchase,
+            TanNo :data.TanNo,
+            PanNoIfPresent :Number(data.PanNoIfPresent),
+            PanNoIfNotPresent :Number(data.PanNoIfNotPresent),
+            TcsCalculationOn :data.TcsCalculationOn,
+            ApplicationOnMoreThanTurnoverAmount :Number(data.ApplicationOnMoreThanTurnoverAmount),
+    
+            DutyDrawBackLedger :data.DutyDrawBackLedger,
+    
+            PurchaseScrapRequired :data.PurchaseScrapRequired,
+            AdjustmentLedger :data.AdjustmentLedger,
+            QualityPremiumAndSitePremiumRequired :data.QualityPremiumAndSitePremiumRequired,
+    
+            AddAutoScrapJobWork :data.AddAutoScrapJobWork,
+    
+            EInvoiceApplicable :data.EInvoiceApplicable,
+            Url :data.Url,
+            EWayBillParameterInEInvoice :data.EWayBillParameterInEInvoice,
+            UserName :data.UserName,
+            Password :data.Password,
+            SelectPathForExportEInvoiceJson :data.SelectPathForExportEInvoiceJson,
+    
+            EInvoiceType :data.EInvoiceType,
+            Key :data.Key,
+            SubscriptionId :data.SubscriptionId,
+            GstNo :data.GstNo
+        }
+
+        const response = await axios.post(`${url}/api/tcseinvoicesetting/add`,payload);
+
+        if (response.data.success) {
+            setData({
+                TcsApplicable :"",
+                TcsLedgerForSales :"",
+                TcsLedgerForPurchase :"",
+                TanNo :"",
+                PanNoIfPresent :"",
+                PanNoIfNotPresent:"",
+                TcsCalculationOn :"",
+                ApplicationOnMoreThanTurnoverAmount :"",
+        
+                DutyDrawBackLedger :"",
+        
+                PurchaseScrapRequired :"",
+                AdjustmentLedger :"",
+                QualityPremiumAndSitePremiumRequired :"",
+        
+                AddAutoScrapJobWork :"",
+        
+                EInvoiceApplicable :"",
+                Url :"",
+                EWayBillParameterInEInvoice :"",
+                UserName :"",
+                Password :"",
+                SelectPathForExportEInvoiceJson :"",
+        
+                EInvoiceType :"",
+                Key :"",
+                SubscriptionId :"",
+                GstNo :""
+        
+            });
+    
+            toast.success(response.data.message)
+        } else {
+            console.log("Error");
+            toast.error(response.data.message)
+        }
+
+        // console.log(data);
+       
     };
 
   return (
@@ -137,14 +179,14 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">TAX No
+                                            <label className=" col-sm-6 col-form-label fs-5  text-end">TAN No
                                                 :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input 
                                                 type="text"
                                                 className="form-control"
-                                                name='TaxNo'
-                                                value={data.TaxNo}
+                                                name='TanNo'
+                                                value={data.TanNo}
                                                 onChange={handleChange}
                                                 required />
                                             </div>
@@ -187,7 +229,7 @@ const TcsSettingEInvoice = () => {
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='TcsCalculationOn' value={data.TcsCalculationOn} onChange={handleChange} required >
                                                     <option> select</option>
-                                                    <option value="Yes">Yes</option>
+                                                    <option value="Taxable Total">Taxable Total </option>
                                                     <option value="No">No</option>
                                                 </select>
                                             </div>
@@ -251,7 +293,7 @@ const TcsSettingEInvoice = () => {
                                                 name='AdjustmentLedger'
                                                 value={data.AdjustmentLedger}
                                                 onChange={handleChange}
-                                                required />
+                                                 />
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
@@ -369,7 +411,7 @@ const TcsSettingEInvoice = () => {
                                             <div className="col-sm-7 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='EInvoiceType' value={data.EInvoiceType} onChange={handleChange} required >
                                                     <option> select</option>
-                                                    <option value="Yes">Yes</option>
+                                                    <option value="Direct Api & Json Both">Direct Api & Json Both </option>
                                                     <option value="No">No</option>
                                                 </select>
                                             </div>
