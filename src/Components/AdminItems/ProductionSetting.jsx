@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaInfo, FaInfoCircle } from "react-icons/fa";
 
 import NavTabs from "../Navbar/NavTabs";
 import { toast } from "react-toastify";
+import { StoreContext } from "../../Context/StoreContext";
+import axios from "axios";
 
 const ProductionSetting = () => {
+  const {url} = useContext(StoreContext)
   const [data, setData] = useState({
     MachineBasedProduction: "",
     RecordInMRSFromBOM: "",
@@ -53,12 +56,56 @@ const ProductionSetting = () => {
     setData({ ...data, [name]: value });
   };
 
-//   useEffect(() => console.log(data), [data]);
+
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log(data);
-    setData({
+    const payload ={
+      MachineBasedProduction: data.MachineBasedProduction,
+      RecordInMRSFromBOM: data.RecordInMRSFromBOM,
+      RecordInGrnFromProductionReport: data.RecordInGrnFromProductionReport,
+      ProductionUsingMis: data.ProductionUsingMis,
+      MaterialConsumptionRequirdOnOperationGroup: data.MaterialConsumptionRequirdOnOperationGroup,
+      TransferStockFromGroupInMis: data.TransferStockFromGroupInMis,
+      OperationQcQa: data.OperationQcQa,
+      GatePassFromFinshedGoods: data.GatePassFromFinshedGoods,
+      ScrapDetailsRequired: data.ScrapDetailsRequired,
+      AutoMaterialConsumption: data.AutoMaterialConsumption,
+      RequiredMaterialConsumption: data.RequiredMaterialConsumption,
+      ShowGrossWeight: data.ShowGrossWeight,
+      ShowClientName: data.ShowClientName,
+      QcTestingByLoginUser: data.QcTestingByLoginUser,
+      QuantityCalculateBasedOnAltQty: data.QuantityCalculateBasedOnAltQty,
+      SalesAndPurchaseShow: data.SalesAndPurchaseShow,
+      ProductionNotMoreThenPreviousOperation: data.ProductionNotMoreThenPreviousOperation,
+      ProductionReportAltQtyCalculation: data.ProductionReportAltQtyCalculation,
+      ProductionPlaningRequired: data.ProductionPlaningRequired,
+      WeightCalculateInProductionNoPcs: data.WeightCalculateInProductionNoPcs,
+      ProductionWeight: Number(data.ProductionWeight),
+  
+      ToleranceFirstValue :Number(data.ToleranceFirstValue),
+      ToleranceSecondValue  :Number(data.ToleranceSecondValue),
+  
+      StartTime :data.StartTime,
+      EndTime :data.EndTime,
+      IntervalTime :Number(data.IntervalTime),
+  
+      PackListGenerateByPackDept :data.PackListGenerateByPackDept,
+      MaterialConsumptionInPacking :data.MaterialConsumptionInPacking,
+  
+      OperationWiseProductionStock  :data.OperationWiseProductionStock,
+      OperationWiseStockMovementAuto  :data.OperationWiseStockMovementAuto,
+      InProcessQcRequirdForOperation  :data.InProcessQcRequirdForOperation,
+      PreviousStockShowBasedOnInProcessQc :data.PreviousStockShowBasedOnInProcessQc,
+      ProductionReportBatchNoSystemWithBatchTracking  :data.ProductionReportBatchNoSystemWithBatchTracking,
+  
+      JobWorkDefaultMachine :data.JobWorkDefaultMachine,
+      FoundaryMachineCategory :data.FoundaryMachineCategory,
+    }
+
+    const response = await axios.post(`${url}/api/productionsetting/add`,payload);
+    if (response.data.success) {
+      setData({
         MachineBasedProduction: "",
         RecordInMRSFromBOM: "",
         RecordInGrnFromProductionReport: "",
@@ -101,7 +148,13 @@ const ProductionSetting = () => {
         FoundaryMachineCategory: "",
       });
 
-      toast.success("form update successfully");
+      toast.success(response.data.message);
+    } else {
+      console.log("Error");
+      toast.error(response.data.message)
+    }
+    // console.log(data);
+    
   };
 
   return (
@@ -527,7 +580,7 @@ const ProductionSetting = () => {
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
                           <input
-                            type="text"
+                            type="number"
                             className="form-control"
                             name="ProductionWeight"
                             value={data.ProductionWeight}
@@ -552,7 +605,7 @@ const ProductionSetting = () => {
                         <div className="col-sm-4 d-flex align-items-center gap-2">
                           <span className="fs-5">+</span>
                           <input
-                            type="text"
+                            type="number"
                             className="form-control"
                             name="ToleranceFirstValue"
                             value={data.ToleranceFirstValue}
@@ -564,7 +617,7 @@ const ProductionSetting = () => {
                         <div className="col-sm-4 d-flex align-items-center gap-2">
                           <span className="fs-5">-</span>
                           <input
-                            type="text"
+                            type="number"
                             className="form-control"
                             name="ToleranceSecondValue"
                             value={data.ToleranceSecondValue}
@@ -711,7 +764,7 @@ const ProductionSetting = () => {
                             name="OperationWiseStockMovementAuto"
                             value={data.OperationWiseStockMovementAuto}
                             onChange={changeHandler}
-                            required                            
+                                                        
                           >
                             <option> select</option>
                             <option value="Yes">Yes</option>
