@@ -118,7 +118,7 @@ const BasicDetails = () => {
                 <div className="row ">
                   <div className="col-md-6 mt-3 ">
                     <div className="mb-3 row ">
-                      <label className="col-sm-5 col-form-label fs-5">
+                      <label className="col-sm-5 col-form-label">
                         Company Name
                       </label>
                       <div className="col-sm-7">
@@ -133,7 +133,7 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label">
                         Company Logo
                        
                       </label>
@@ -150,7 +150,7 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label">
                         Tag Line
                       </label>
                       <div className="col-sm-7">
@@ -165,7 +165,7 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label ">
                         Website
                       </label>
                       <div className="col-sm-7">
@@ -180,7 +180,7 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label ">
                         Email Id
                       </label>
                       <div className="col-sm-7">
@@ -195,7 +195,7 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label ">
                         Optional Email Id
                       </label>
                       <div className="col-sm-7">
@@ -210,7 +210,7 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label ">
                         Aadhaar No
                       </label>
                       <div className="col-sm-7">
@@ -225,7 +225,7 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label ">
                         Contact No
                       </label>
                       <div className="col-sm-7">
@@ -243,7 +243,7 @@ const BasicDetails = () => {
                   <div className="col-md-6 mt-3 ps-3">
 
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label ">
                         Contact Person
                       </label>
                       <div className="col-sm-7">
@@ -258,7 +258,7 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label ">
                         Person Contact No
                       </label>
                       <div className="col-sm-7">
@@ -273,7 +273,7 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label ">
                         Address
                       </label>
                       <div className="col-sm-7">
@@ -287,7 +287,7 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label ">
                         Country
                       </label>
                       <div className="col-sm-7">
@@ -302,7 +302,7 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label ">
                         State
                       </label>
                       <div className="col-sm-7">
@@ -317,7 +317,7 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label ">
                         City
                       </label>
                       <div className="col-sm-7">
@@ -332,7 +332,7 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label ">
                         Pincode
                       </label>
                       <div className="col-sm-7">
@@ -347,7 +347,7 @@ const BasicDetails = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-5 col-form-label  fs-5">
+                      <label className="col-sm-5 col-form-label ">
                         Note
                       </label>
                       <div className="col-sm-7">
@@ -365,7 +365,7 @@ const BasicDetails = () => {
                       <div className="col-sm-12 d-flex justify-content-end align-items-center">
                         <button
                           type="submit"
-                          className=" py-1 rounded-1 btn-next border-secondary bg-transparent fs-5"
+                          className=" py-1 rounded-1 btn-next border-secondary bg-transparent"
                         >
                           Next
                         </button>

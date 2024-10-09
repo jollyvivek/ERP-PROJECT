@@ -6,7 +6,7 @@ const NavTabs = () => {
 
   const NavLinkCss = ({isActive}) =>{
     return{
-      border:isActive ? "2px solid grey" :""
+      borderBottom:isActive ? "3px solid grey" :""
     }
 
   }

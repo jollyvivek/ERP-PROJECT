@@ -23,8 +23,8 @@ hr{
 .navLink{
   text-decoration: none;
   color: black;
-  padding: 5px;
-  border-radius: 5px;
+  padding-bottom: 5px;
+  /* border-radius: 5px; */
 }
 .app-content{
   display: flex;
@@ -51,7 +51,7 @@ fieldset {
 
 legend {
   margin-left: 1em;
-  font-size: 1.2em;
+  font-size: 1.3em;
   float: none;
   width: auto;
 }
@@ -63,4 +63,8 @@ legend {
 .btn-next{
   width: 100%;
   max-width: 5em;
+}
+
+form label{
+  font-size: 1.2rem !important;
 }

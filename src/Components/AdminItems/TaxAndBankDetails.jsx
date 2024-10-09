@@ -127,7 +127,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                         <fieldset className="px-3">
                             <legend>Texition Details</legend>
                             <div className="mb-3 row">
-                                <label  className="col-sm-5 col-form-label fs-5 ">Pan No :</label>
+                                <label  className="col-sm-5 col-form-label  ">Pan No :</label>
                                 <div className="col-sm-7">
                                     <input 
                                     type="text"
@@ -140,7 +140,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                                 </div>
                             </div>
                             <div className="mb-3 row">
-                                <label  className="col-sm-5 col-form-label fs-5">GST No :</label>
+                                <label  className="col-sm-5 col-form-label ">GST No :</label>
                                 <div className="col-sm-7">
                                     <input 
                                     type="text" 
@@ -153,7 +153,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                                 </div>
                             </div>
                             <div className="mb-3 row">
-                                <label  className="col-sm-5 col-form-label fs-5">GSTDate :</label>
+                                <label  className="col-sm-5 col-form-label ">GSTDate :</label>
                                 <div className="col-sm-7">
                                     <input 
                                     type="date"
@@ -171,7 +171,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                         <fieldset className="px-3">
                             <legend >Authorised Signature</legend>
                             <div className="mb-3 py-1 row">
-                                <label  className="col-sm-6 col-form-label fs-5">Signature :</label>
+                                <label  className="col-sm-6 col-form-label">Signature :</label>
                                 <div className="col-sm-6">
                                 <select 
                                   className="form-select"
@@ -186,7 +186,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                                 </div>
                             </div>
                             <div className="mb-3 py-2 row">
-                                <label className="col-sm-6 col-form-label fs-5">Signature Image :</label>
+                                <label className="col-sm-6 col-form-label">Signature Image :</label>
                                 <div className="col-sm-6 text-center d-flex flex-column justify-content-center gap-3">
                                     <img src={signImage ? URL.createObjectURL(signImage):""} className='w-75 m-auto' alt="" />
                                     {/* <label htmlFor="signature-image" className='p-1 w-50 m-auto border'>BROWSE</label> */}
@@ -211,7 +211,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                         <fieldset>
                             <legend>Bank Details</legend>
                             <div className="mb-3 row">
-                                <label  className="col-sm-5 col-form-label fs-5 ">Bank Name :</label>
+                                <label  className="col-sm-5 col-form-label  ">Bank Name :</label>
                                 <div className="col-sm-7">
                                     <input
                                      type="text"
@@ -224,7 +224,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                                 </div>
                             </div>
                             <div className="mb-3 row">
-                                <label  className="col-sm-5 col-form-label fs-5 ">Branch Name :</label>
+                                <label  className="col-sm-5 col-form-label  ">Branch Name :</label>
                                 <div className="col-sm-7">
                                     <input 
                                       type="text" 
@@ -237,7 +237,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                                 </div>
                             </div>
                             <div className="mb-3 row">
-                                <label  className="col-sm-5 col-form-label fs-5 ">IFSC Code :</label>
+                                <label  className="col-sm-5 col-form-label  ">IFSC Code :</label>
                                 <div className="col-sm-7">
                                     <input 
                                       type="text"
@@ -250,7 +250,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                                 </div>
                             </div>
                             <div className="mb-3 row">
-                                <label  className="col-sm-5 col-form-label fs-5 ">Micro Code :</label>
+                                <label  className="col-sm-5 col-form-label  ">Micro Code :</label>
                                 <div className="col-sm-7">
                                     <input 
                                     type="text"
@@ -263,7 +263,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                                 </div>
                             </div>
                             <div className="mb-3 row">
-                                <label  className="col-sm-5 col-form-label fs-5 ">Account Name :</label>
+                                <label  className="col-sm-5 col-form-label  ">Account Name :</label>
                                 <div className="col-sm-7">
                                     <input 
                                       type="text"
@@ -276,7 +276,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                                 </div>
                             </div>
                             <div className="mb-3 row">
-                                <label className="col-sm-5 col-form-label fs-5 ">Account No :</label>
+                                <label className="col-sm-5 col-form-label  ">Account No :</label>
                                 <div className="col-sm-7">
                                     <input 
                                     type="number"
@@ -294,7 +294,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                         <fieldset>
                             <legend>Send Mail Configure</legend>
                             <div className="mb-3 row">
-                                <label  className="col-sm-5 col-form-label fs-5">Sender Mail Id :</label>
+                                <label  className="col-sm-5 col-form-label ">Sender Mail Id :</label>
                                 <div className="col-sm-7">
                                     <input 
                                     type="email"
@@ -307,7 +307,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                                 </div>
                             </div>
                             <div className="mb-3 row">
-                                <label  className="col-sm-5 col-form-label fs-5 ">Sender Password :</label>
+                                <label  className="col-sm-5 col-form-label  ">Sender Password :</label>
                                 <div className="col-sm-7">
                                     <input
                                      type="password"
@@ -321,7 +321,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                                 </div>
                             </div>
                             <div className="mb-3 row">
-                                <label className="col-sm-5 col-form-label fs-5 ">SMTP Port :</label>
+                                <label className="col-sm-5 col-form-label  ">SMTP Port :</label>
                                 <div className="col-sm-7">
                                     <input
                                      type="text"
@@ -334,7 +334,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                                 </div>
                             </div>
                             <div className="mb-3 row">
-                                <label className="col-sm-5 col-form-label fs-5 ">SMTP Host :</label>
+                                <label className="col-sm-5 col-form-label  ">SMTP Host :</label>
                                 <div className="col-sm-7">
                                     <input 
                                     type="text"
@@ -347,7 +347,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                                 </div>
                             </div>
                             <div className="mb-3 row">
-                                <label  className="col-sm-5 col-form-label fs-5 ">CC Mail Id :</label>
+                                <label  className="col-sm-5 col-form-label  ">CC Mail Id :</label>
                                 <div className="col-sm-7">
                                     <input
                                      type="email"
@@ -360,7 +360,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                                 </div>
                             </div>
                             <div className="mb-3 row">
-                                <label  className="col-sm-5 col-form-label fs-5 ">Enable SSL :</label>
+                                <label  className="col-sm-5 col-form-label  ">Enable SSL :</label>
                                 <div className="col-sm-7">
                                     <select className="form-select"
                                      name='enableSSL'
@@ -374,7 +374,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
                                 </div>
                             </div>
                             <div className="mb-3 row">
-                                <label  className="col-sm-5 col-form-label fs-5 ">Send Mail Form :</label>
+                                <label  className="col-sm-5 col-form-label  ">Send Mail Form :</label>
                                 <div className="col-sm-7">
                                     <select 
                                     className="form-select"
