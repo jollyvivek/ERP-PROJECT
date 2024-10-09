@@ -179,7 +179,7 @@ const FinanceInventrySetting = () => {
                 <div className="row">
                   <div className="col-12">
                     <div className="mb-3 row">
-                      <label className="col-sm-8 col-form-label fs-5 text-end ">Second Unit
+                      <label className="col-sm-8 col-form-label text-end ">Second Unit
                         Calculation Auto :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <select className="form-select form-select-sm" name='SecondUnitCalculationAuto' value={data.SecondUnitCalculationAuto} onChange={changeHandler}  required>
@@ -190,7 +190,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-8 col-form-label fs-5  text-end ">Stock
+                      <label className="col-sm-8 col-form-label  text-end ">Stock
                         Acceptance (Negative) :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <select className="form-select form-select-sm" name='StockAcceptance' value={data.StockAcceptance} onChange={changeHandler} required >
@@ -201,7 +201,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-8 col-form-label fs-5 text-end ">Show the
+                      <label className="col-sm-8 col-form-label text-end ">Show the
                         Description of the place of the Item Name in the Invoice :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <select className="form-select form-select-sm" name='TheItemNameInTheInvoice' value={data.TheItemNameInTheInvoice} onChange={changeHandler} required >
@@ -212,7 +212,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-8 col-form-label fs-5 text-end ">QC/QA
+                      <label className="col-sm-8 col-form-label text-end ">QC/QA
                         Required:</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <select className="form-select form-select-sm" name='Qc_QaRequired' value={data.Qc_QaRequired} onChange={changeHandler} required >
@@ -223,7 +223,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-8 col-form-label fs-5 text-end ">Default Return
+                      <label className="col-sm-8 col-form-label text-end ">Default Return
                         Item :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <select className="form-select form-select-sm" required name='DefaultReturnItem' value={data.DefaultReturnItem} onChange={changeHandler}>
@@ -234,7 +234,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-8 col-form-label fs-5 text-end ">Required
+                      <label className="col-sm-8 col-form-label text-end ">Required
                         Schedule:</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <select className="form-select form-select-sm" name='RequiredSchedule' value={data.RequiredSchedule} onChange={changeHandler} required >
@@ -245,7 +245,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-8 col-form-label fs-5 text-end ">PriceList
+                      <label className="col-sm-8 col-form-label text-end ">PriceList
                         Applicable :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <select className="form-select form-select-sm" name='PriceListApplicable' value={data.PriceListApplicable} onChange={changeHandler} required >
@@ -256,7 +256,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className="col-sm-8 col-form-label fs-5 text-end ">Additional
+                      <label className="col-sm-8 col-form-label text-end ">Additional
                         Charges GST Taxation Based in Item:</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <select className="form-select form-select-sm" name='AdditionalChargesGstTaxation' value={data.AdditionalChargesGstTaxation} onChange={changeHandler} required >
@@ -267,7 +267,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5  text-end">Work in
+                      <label className=" col-sm-8 col-form-label  text-end">Work in
                         Progress :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input 
@@ -280,7 +280,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5  text-end">Unit For Size :</label>
+                      <label className=" col-sm-8 col-form-label text-end">Unit For Size :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input 
                         type="text"
@@ -292,7 +292,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5  text-end">Unit For
+                      <label className=" col-sm-8 col-form-label text-end">Unit For
                         Weight :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input 
@@ -305,7 +305,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5  text-end">Batch No. Text
+                      <label className=" col-sm-8 col-form-label text-end">Batch No. Text
                         Name :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input 
@@ -325,7 +325,7 @@ const FinanceInventrySetting = () => {
                 <div className="row ">
                   <div className="col-12">
                     <div className="mb-3 row">
-                      <label className="col-sm-8 col-form-label fs-5  text-end">Tally Host :</label>
+                      <label className="col-sm-8 col-form-label  text-end">Tally Host :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input 
                         type="text" 
@@ -337,7 +337,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5  text-end ">Tally Company :</label>
+                      <label className=" col-sm-8 col-form-label  text-end ">Tally Company :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input
                          type="text"
@@ -349,7 +349,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5  text-end ">Customer Item
+                      <label className=" col-sm-8 col-form-label  text-end ">Customer Item
                         Detail Send :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <select className="form-select form-select-sm" name='CustomerItemDetailSend' value={data.CustomerItemDetailSend} onChange={changeHandler} required >
@@ -367,7 +367,7 @@ const FinanceInventrySetting = () => {
                 <div className="row">
                   <div className="col-12">
                     <div className="mb-3 row">
-                      <label className=" col-sm-4 col-form-label fs-5  text-end">Tolerance :</label>
+                      <label className=" col-sm-4 col-form-label text-end">Tolerance :</label>
                       <div className="col-sm-4 d-flex align-items-center gap-3">
                         <span className="fs-5">+</span>
                         <input 
@@ -401,7 +401,7 @@ const FinanceInventrySetting = () => {
                 <div className="row">
                   <div className="col-12">
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5 text-end">Sales
+                      <label className=" col-sm-8 col-form-label text-end">Sales
                         Order/Invoice
                         Based On :</label>
                       <div className="col-sm-4 d-flex align-items-center">
@@ -413,7 +413,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5 text-end">Sheet Size
+                      <label className=" col-sm-8 col-form-label text-end">Sheet Size
                         Options
                         Required :</label>
                       <div className="col-sm-4 d-flex align-items-center">
@@ -425,7 +425,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5  text-end">Sales Order :</label>
+                      <label className=" col-sm-8 col-form-label  text-end">Sales Order :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input 
                         type="text"
@@ -437,7 +437,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5 text-end">Multiple Sales
+                      <label className=" col-sm-8 col-form-label text-end">Multiple Sales
                         Order To
                         Invoice :</label>
                       <div className="col-sm-4 d-flex align-items-center">
@@ -449,7 +449,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5  text-end">Domastic Bank
+                      <label className=" col-sm-8 col-form-label  text-end">Domastic Bank
                         :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input
@@ -462,7 +462,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5  text-end">Export Bank
+                      <label className=" col-sm-8 col-form-label  text-end">Export Bank
                         :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input 
@@ -482,7 +482,7 @@ const FinanceInventrySetting = () => {
                 <div className="row">
                   <div className="col-12">
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5 text-end">IEC NO
+                      <label className=" col-sm-8 col-form-label text-end">IEC NO
                         :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input 
@@ -495,7 +495,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5 text-end">EPCG Lic No
+                      <label className=" col-sm-8 col-form-label text-end">EPCG Lic No
                         :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input
@@ -508,7 +508,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5 text-end">LUT No
+                      <label className=" col-sm-8 col-form-label text-end">LUT No
                         :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input 
@@ -521,7 +521,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5 text-end">REX NO
+                      <label className=" col-sm-8 col-form-label text-end">REX NO
                         :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input 
@@ -541,7 +541,7 @@ const FinanceInventrySetting = () => {
                 <div className="row">
                   <div className="col-12">
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5  text-end">IGST Refund
+                      <label className=" col-sm-8 col-form-label text-end">IGST Refund
                         Ledger :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input 
@@ -554,7 +554,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5  text-end">Export Invoice
+                      <label className=" col-sm-8 col-form-label text-end">Export Invoice
                         :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <input 
@@ -574,7 +574,7 @@ const FinanceInventrySetting = () => {
                 <div className="row">
                   <div className="col-12">
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5  text-end">Get Weight
+                      <label className=" col-sm-8 col-form-label text-end">Get Weight
                         From WeightScale :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <select className="form-select form-select-sm" name='GetWeightFromWeightScale' value={data.GetWeightFromWeightScale}  onChange={changeHandler} required>
@@ -585,7 +585,7 @@ const FinanceInventrySetting = () => {
                       </div>
                     </div>
                     <div className="mb-3 row">
-                      <label className=" col-sm-8 col-form-label fs-5  text-end">Qty
+                      <label className=" col-sm-8 col-form-label text-end">Qty
                         Replace/Addition :</label>
                       <div className="col-sm-4 d-flex align-items-center">
                         <select className="form-select form-select-sm" name='QtyReplaceAddition' value={data.QtyReplaceAddition}  onChange={changeHandler} required>
@@ -603,7 +603,7 @@ const FinanceInventrySetting = () => {
           <div className="row">
             <div className="col-md-6 mt-3">
               <div className="mb-3 row">
-                <label className=" col-sm-8 col-form-label fs-5  text-end">Dashboard
+                <label className=" col-sm-8 col-form-label text-end">Dashboard
                   Image :</label>
                 <div className="col-sm-4 d-flex flex-column align-items-center">
                   <label htmlFor="img" className='px-3 py-1 my-2 cursor-pointer border'>BROWSE</label>
@@ -619,7 +619,7 @@ const FinanceInventrySetting = () => {
                 </div>
               </div>
               <div className="mb-3 row">
-                <label className=" col-sm-8 col-form-label fs-5  text-end">Near Due Days Alert
+                <label className=" col-sm-8 col-form-label text-end">Near Due Days Alert
                   :</label>
                 <div className="col-sm-4 d-flex align-items-center">
                   <input 
@@ -634,7 +634,7 @@ const FinanceInventrySetting = () => {
             </div>
             <div className="col-md-6">
               <div className="mb-3 row">
-                <label className=" col-sm-6 col-form-label fs-5  text-end">Select Path For DRG
+                <label className=" col-sm-6 col-form-label text-end">Select Path For DRG
                   Image :</label>
                 <div className="col-sm-4 d-flex align-items-center">
                   <input 

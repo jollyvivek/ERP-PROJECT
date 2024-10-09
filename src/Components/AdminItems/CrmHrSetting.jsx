@@ -152,7 +152,7 @@ const CrmHrSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label  className="col-sm-6 col-form-label fs-5  text-end ">Inquiry
+                                            <label  className="col-sm-6 col-form-label  text-end ">Inquiry
                                                 Status :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input 
@@ -165,7 +165,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">Converted
+                                            <label className=" col-sm-6 col-form-label  text-end">Converted
                                                 Status :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input 
@@ -178,7 +178,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">Inquiry Lost
+                                            <label className=" col-sm-6 col-form-label  text-end">Inquiry Lost
                                                 Status :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input
@@ -191,7 +191,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">Inquiry Type
+                                            <label className=" col-sm-6 col-form-label text-end">Inquiry Type
                                                 :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input
@@ -204,7 +204,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">Source
+                                            <label className=" col-sm-6 col-form-label text-end">Source
                                                 :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input
@@ -217,7 +217,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">Industry Type
+                                            <label className=" col-sm-6 col-form-label text-end">Industry Type
                                                 :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input
@@ -230,7 +230,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">Contact Group
+                                            <label className=" col-sm-6 col-form-label   text-end">Contact Group
                                                 :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input 
@@ -243,7 +243,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">Contact Type
+                                            <label className=" col-sm-6 col-form-label   text-end">Contact Type
                                                 :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input 
@@ -256,7 +256,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">Complaint
+                                            <label className=" col-sm-6 col-form-label   text-end">Complaint
                                                 Status :</label>
                                             <div className="col-sm-6 ">
                                                 <input 
@@ -269,7 +269,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5 text-end px-0">Complaint
+                                            <label className=" col-sm-6 col-form-label text-end px-0">Complaint
                                                 Closed Status :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input 
@@ -282,7 +282,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">Task Status
+                                            <label className=" col-sm-6 col-form-label  text-end">Task Status
                                                 :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input
@@ -295,7 +295,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end"> Close Won
+                                            <label className=" col-sm-6 col-form-label  text-end"> Close Won
                                                 Stage :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input 
@@ -308,7 +308,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end"> Close Lost
+                                            <label className=" col-sm-6 col-form-label  text-end"> Close Lost
                                                 Stage :</label>
                                             <div className="col-sm-6 ">
                                                 <input
@@ -321,7 +321,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end"> Stage
+                                            <label className=" col-sm-6 col-form-label  text-end"> Stage
                                                 :</label>
                                             <div className="col-sm-6 ">
                                                 <input
@@ -334,7 +334,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end"> Event Type
+                                            <label className=" col-sm-6 col-form-label  text-end"> Event Type
                                                 :</label>
                                             <div className="col-sm-6 ">
                                                 <input
@@ -347,7 +347,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-2  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end"> Call Type
+                                            <label className=" col-sm-6 col-form-label  text-end"> Call Type
                                                 :</label>
                                             <div className="col-sm-6 ">
                                                 <input 
@@ -360,7 +360,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-center">Search Path
+                                            <label className=" col-sm-6 col-form-label  text-center">Search Path
                                                 For Attached File :</label>
                                             <div className="col-sm-6 mt-2 d-flex flex-column align-items-center ">
                                                 <input 
@@ -370,12 +370,12 @@ const CrmHrSetting = () => {
                                                  value={data.SearchPathForAttachedFile}
                                                  onChange={changeHandler}
                                                  required />
-                                                <p className='text-end px-3 py-2'> <span className=' border-bottom'>Seach Path</span></p>
+                                                <p className='text-end px-3 py-2'> <span className='border-bottom'>Seach Path</span></p>
                                             </div>
                                         </div>
                                         <div className="mb-3  row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-center">Manually
-                                                Add Item in Inquiry :</label>
+                                            <label className=" col-sm-6 col-form-label  text-center">Manually
+                                                Add Item in Inquiry:</label>
                                             <div className="col-sm-6 ">
                                                 <select className="form-select form-select-sm"
                                                 name='ManuallyAddItemInInquiry'
@@ -398,7 +398,7 @@ const CrmHrSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5 text-end">Over Time
+                                            <label className=" col-sm-6 col-form-label text-end">Over Time
                                                 :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='OverTime' value={data.OverTime} onChange={changeHandler} required >
@@ -409,13 +409,13 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">LWP :</label>
+                                            <label className=" col-sm-6 col-form-label  text-end">LWP :</label>
                                             <div className="col-sm-6 ">
                                                 <input type="text" className="form-control" name='Lwp' value={data.Lwp} onChange={changeHandler} required />
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">Shift
+                                            <label className=" col-sm-6 col-form-label  text-end">Shift
                                                 :</label>
                                             <div className="col-sm-6 ">
                                                 <select className="form-select form-select-sm" name='Shift' value={data.Shift} onChange={changeHandler} required >
@@ -426,7 +426,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end ">Minimum
+                                            <label className=" col-sm-6 col-form-label  text-end ">Minimum
                                                 Outdoor Days :</label>
                                             <div className="col-sm-6 ">
                                                 <input 
@@ -439,7 +439,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5 text-end">Appraisal
+                                            <label className=" col-sm-6 col-form-label text-end">Appraisal
                                                 Duration :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='AppraisalDuration' value={data.AppraisalDuration} onChange={changeHandler}  required>
@@ -450,7 +450,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5 text-end">Punch In/OUT
+                                            <label className=" col-sm-6 col-form-label text-end">Punch In/OUT
                                                 According To:</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='PunchIn_OutAccordingTo' value={data.PunchIn_OutAccordingTo} onChange={changeHandler}  required>
@@ -460,7 +460,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5 text-end">Per Day Salary
+                                            <label className=" col-sm-6 col-form-label text-end">Per Day Salary
                                                 Circulation :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='PerDaySalaryCirculation' value={data.PerDaySalaryCirculation} onChange={changeHandler} required>
@@ -470,7 +470,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5 text-end">Salary Based On
+                                            <label className=" col-sm-6 col-form-label text-end">Salary Based On
                                                 :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='SalaryBasedOn' value={data.SalaryBasedOn} onChange={changeHandler} required>
@@ -481,7 +481,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5 text-end">Minimum
+                                            <label className=" col-sm-6 col-form-label text-end">Minimum
                                                 Diffrence Between Two Punch in's :</label>
                                             <div className="col-sm-3 d-flex align-items-center">
                                                 <input 
@@ -497,7 +497,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">Salary Ledger
+                                            <label className=" col-sm-6 col-form-label text-end">Salary Ledger
                                                 :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input 
@@ -510,7 +510,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">Group For
+                                            <label className=" col-sm-6 col-form-label text-end">Group For
                                                 Salary :</label>
                                             <div className="col-sm-6">
                                                 <input 
@@ -523,7 +523,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">Default CTC
+                                            <label className=" col-sm-6 col-form-label text-end">Default CTC
                                                 :</label>
                                             <div className="col-sm-6">
                                                 <input 
@@ -536,7 +536,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">OT Formula
+                                            <label className=" col-sm-6 col-form-label  text-end">OT Formula
                                                 :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input 
@@ -549,7 +549,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5 text-end">Quotation As
+                                            <label className=" col-sm-6 col-form-label text-end">Quotation As
                                                 Per Input In Print
                                                 :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
@@ -561,7 +561,7 @@ const CrmHrSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5 text-end">Brief Quotation
+                                            <label className=" col-sm-6 col-form-label text-end">Brief Quotation
                                                 :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='BriefQuotation' value={data.BriefQuotation} onChange={changeHandler} required>
