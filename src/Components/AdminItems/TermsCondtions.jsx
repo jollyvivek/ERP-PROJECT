@@ -161,7 +161,7 @@ const handleFormSubmit = async(e)=>{
                                 <div className="row">
                                     <div className="col-md-6">
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Sales Order</label>
+                                            <label  className="col-form-label ">Sales Order</label>
                                             <select className="form-select form-control" 
                                                 aria-label="multiple select example" name='salesOrder' value={data.salesOrder} onChange={handleChange} required>
                                                 <option >select one of the items</option>
@@ -173,16 +173,16 @@ const handleFormSubmit = async(e)=>{
                                             </select>
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Sales</label>
+                                            <label  className="col-form-label ">Sales</label>
                                             <input type="text" className="form-control" name='sales' value={data.sales} onChange={handleChange} required />
                                             
                                         </div>
                                         <div className="form-group  mb-1">
-                                            <label  className="col-form-label fs-5">Sales Return</label>
+                                            <label  className="col-form-label ">Sales Return</label>
                                             <input type="text" className="form-control" name='salesReturn' value={data.salesReturn} onChange={handleChange} required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Purchase Order</label>
+                                            <label  className="col-form-label ">Purchase Order</label>
                                             <select className="form-select salesOrder-select" 
                                                 aria-label="multiple select example" name='purchaseOrder' value={data.purchaseOrder} onChange={handleChange} required>
                                                 <option >select one of the items</option>
@@ -194,35 +194,35 @@ const handleFormSubmit = async(e)=>{
                                             </select>
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5"> Purchase </label>
+                                            <label  className="col-form-label "> Purchase </label>
                                             <input type="text" className="form-control" name='purchase' value={data.purchase} onChange={handleChange} required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Purchase Return</label>
+                                            <label  className="col-form-label ">Purchase Return</label>
                                             <input type="text" className="form-control" name='purchaseReturn' value={data.purchaseReturn} onChange={handleChange} required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Credit Note</label>
+                                            <label  className="col-form-label ">Credit Note</label>
                                             <input type="text" className="form-control" name='creditNote' value={data.creditNote}onChange={handleChange} required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Debit Note</label>
+                                            <label  className="col-form-label ">Debit Note</label>
                                             <input type="text" className="form-control" name='debitNote' value={data.debitNote} onChange={handleChange} required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Export Quotation</label>
+                                            <label  className="col-form-label ">Export Quotation</label>
                                             <textarea name="exportQuotation" value={data.exportQuotation} onChange={handleChange}  className="form-control"  required></textarea>
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Inquiry</label>
+                                            <label  className="col-form-label ">Inquiry</label>
                                             <input type="text" className="form-control" name='inquiry'value={data.inquiry} onChange={handleChange} required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5 mt-1">Import</label>
+                                            <label  className="col-form-label  mt-1">Import</label>
                                             <input type="text" className="form-control" name='Import' value={data.Import} onChange={handleChange} required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Sales Order About</label>
+                                            <label  className="col-form-label ">Sales Order About</label>
                                             <select className="form-select salesOrder-select"
                                                 aria-label="multiple select example" name='salesOrderAbout' value={data.salesOrderAbout} onChange={handleChange} required>
                                                 <option >select one of the items</option>
@@ -234,11 +234,11 @@ const handleFormSubmit = async(e)=>{
                                             </select>
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label className="col-form-label fs-5">Purchase Order About </label>
+                                            <label className="col-form-label ">Purchase Order About </label>
                                             <input type="text" className="form-control" name='purchaseOrderAbout' value={data.purchaseOrderAbout} onChange={handleChange} required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label className="col-form-label fs-5">Quotation About</label>
+                                            <label className="col-form-label ">Quotation About</label>
                                             <select className="form-select salesOrder-select"
                                                 aria-label="multiple select example" name='quotationAbout' value={data.quotationAbout} onChange={handleChange} required>
                                                 <option >select one of the items</option>
@@ -251,62 +251,62 @@ const handleFormSubmit = async(e)=>{
                                            
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Sales Order Subject </label>
+                                            <label  className="col-form-label ">Sales Order Subject </label>
                                             <input type="text" className="form-control" name='salesOrderSubject' value={data.salesOrderSubject} onChange={handleChange} required />
                                         </div>
                                         <div className=" form-group mb-1">
-                                            <label  className="col-form-label fs-5">Purchase Order Subject
+                                            <label  className="col-form-label ">Purchase Order Subject
                                             </label>
                                             <input type="text" className="form-control" name='purchaseOrderSubject' value={data.purchaseOrderSubject} onChange={handleChange}  required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label className="col-form-label fs-5">Quotation Subject </label>
+                                            <label className="col-form-label ">Quotation Subject </label>
                                             <input type="text" className="form-control" name='quotationSubject' value={data.quotationSubject} onChange={handleChange}  required />
                                         </div>
                                     </div>
                                     <div className="col-md-6">
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5 mt-1">Sales Order Bill Of Supply</label>
+                                            <label  className="col-form-label  mt-1">Sales Order Bill Of Supply</label>
                                             <input type="text" className="form-control" name='salesOrderBillOfSupply' value={data.salesOrderBillOfSupply} onChange={handleChange}  required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5 mt-1">Sales Bill Of Supply</label>
+                                            <label  className="col-form-label  mt-1">Sales Bill Of Supply</label>
                                             <input type="text" className="form-control" name='salesBillOfSupply' value={data.salesBillOfSupply} onChange={handleChange}  required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5 mt-1">Sales Return Bill of Supply</label>
+                                            <label  className="col-form-label  mt-1">Sales Return Bill of Supply</label>
                                             <input type="text" className="form-control" name='salesReturnBillOfSupply' value={data.salesReturnBillOfSupply} onChange={handleChange}  required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5 mt-1">Purchase Order Bill of Supply</label>
+                                            <label  className="col-form-label  mt-1">Purchase Order Bill of Supply</label>
                                             <input type="text" className="form-control" name='purchaseOrderBillOfSupply' value={data.purchaseOrderBillOfSupply} onChange={handleChange}  required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5 mt-1">Purchase Bill of Supply</label>
+                                            <label  className="col-form-label  mt-1">Purchase Bill of Supply</label>
                                             <input type="text" className="form-control" name='purchaseBillOfSupply' value={data.purchaseBillOfSupply} onChange={handleChange}  required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Purchase Return Bill of Supply</label>
+                                            <label  className="col-form-label ">Purchase Return Bill of Supply</label>
                                             <input type="text" className="form-control" name='purchaseReturnBillOfSupply' value={data.purchaseReturnBillOfSupply} onChange={handleChange} required />
                                         </div>
                                         <div className="form-group  mb-1">
-                                            <label  className="col-form-label fs-5">Credit Note Bill of Supply</label>
+                                            <label  className="col-form-label ">Credit Note Bill of Supply</label>
                                             <input type="text" className="form-control" name='creditNoteBillOfSupply' value={data.creditNoteBillOfSupply} onChange={handleChange}  required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label className="col-form-label fs-5">Debit Note Bill of Supply</label>
+                                            <label className="col-form-label ">Debit Note Bill of Supply</label>
                                             <input type="text" className="form-control" name='debitNoteBillOfSupply' value={data.debitNoteBillOfSupply} onChange={handleChange} required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Quotation</label>
+                                            <label  className="col-form-label ">Quotation</label>
                                             <textarea name="quotation" value={data.quotation} onChange={handleChange} className="form-control"  required></textarea>
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Complaint</label>
+                                            <label  className="col-form-label ">Complaint</label>
                                             <input type="text" className="form-control" name='complaint' value={data.complaint} onChange={handleChange} required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Export</label>
+                                            <label  className="col-form-label ">Export</label>
                                             <select className="form-select salesOrder-select"
                                                 //  multiple
                                                 aria-label="multiple select example" name='Export' value={data.Export} onChange={handleChange} required>
@@ -319,15 +319,15 @@ const handleFormSubmit = async(e)=>{
                                             </select>
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Export Sales Order About</label>
+                                            <label  className="col-form-label ">Export Sales Order About</label>
                                             <input type="text" className="form-control" name='exportSalesOrderAbout' value={data.exportSalesOrderAbout} onChange={handleChange} required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Import Purchase Order About</label>
+                                            <label  className="col-form-label ">Import Purchase Order About</label>
                                             <input type="text" className="form-control" name='importPurchaseOrderAbout' value={data.importPurchaseOrderAbout} onChange={handleChange} required />
                                         </div>
                                         <div className="form-group mb-1">
-                                            <label  className="col-form-label fs-5">Export Quotation About</label>
+                                            <label  className="col-form-label ">Export Quotation About</label>
                                             <select className="form-select salesOrder-select"
                                                 //  multiple
                                                 aria-label="multiple select example" name='exportQuotationAbout' value={data.exportQuotationAbout} onChange={handleChange} required>
@@ -340,15 +340,15 @@ const handleFormSubmit = async(e)=>{
                                             </select>
                                         </div>
                                         <div className="form-group mt-3">
-                                            <label  className="form-label fs-5">Export Sales Order Subject</label>
+                                            <label  className="form-label ">Export Sales Order Subject</label>
                                             <input type="text" className="form-control " name='exportSalesOrderSubject' value={data.exportSalesOrderSubject} onChange={handleChange}  required />
                                         </div>
                                         <div className="form-group mt-2">
-                                            <label  className="form-label fs-5">Import Purchase Order Subject</label>
+                                            <label  className="form-label ">Import Purchase Order Subject</label>
                                             <input type="text" className="form-control" name='importPurchaseOrderSubject' value={data.importPurchaseOrderSubject} onChange={handleChange}  required />
                                         </div>
                                         <div className="form-group mt-2">
-                                            <label className="form-label fs-5">Export Quotation Subject</label>
+                                            <label className="form-label ">Export Quotation Subject</label>
                                             <input type="text" className="form-control " name='exportQuotationSubject' value={data.exportQuotationSubject} onChange={handleChange} required />
                                         </div>
                                     </div>
