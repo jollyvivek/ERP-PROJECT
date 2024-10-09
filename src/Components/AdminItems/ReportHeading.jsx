@@ -375,7 +375,7 @@ const formSubmitHandler = async(event)=>{
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-7 col-form-label  text-end">Tax Invoice
+                                            <label className=" col-sm-7 col-form-label text-end">Tax Invoice
                                                 Return Stock Transfer :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input 
@@ -402,8 +402,7 @@ const formSubmitHandler = async(event)=>{
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-7 col-form-label  text-end ">Bill of
-                                                Supply
+                                            <label className=" col-sm-7 col-form-label text-end ">Bill of Supply
                                                 Return Stock Transfer :</label>
                                             <div className="col-sm-5 d-flex align-items-center">
                                                 <input 

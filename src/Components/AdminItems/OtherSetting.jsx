@@ -172,7 +172,7 @@ const OtherSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="form-group mb-3 row">
-                                            <label  className="col-sm-8 col-form-label fs-5 text-end">Qty Round
+                                            <label  className="col-sm-8 col-form-label text-end">Qty Round
                                                 of :</label>
                                             <div className="col-sm-4">
                                                 <select className="form-select form-select-sm"
@@ -185,7 +185,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="form-group mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end">Value Round
+                                            <label className=" col-sm-8 col-form-label text-end">Value Round
                                                 of :</label>
                                             <div className="col-sm-4">
                                                 <select className="form-select form-select-sm"
@@ -198,7 +198,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="form-group mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5 text-end">Ledger
+                                            <label className="col-sm-8 col-form-label text-end">Ledger
                                                 Name :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
@@ -218,7 +218,7 @@ const OtherSetting = () => {
                                 <div className="row ">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5 text-end">Ledger Code
+                                            <label className="col-sm-8 col-form-label text-end">Ledger Code
                                                 Auto Generate :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm"
@@ -230,7 +230,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5 text-end">Product Code
+                                            <label className="col-sm-8 col-form-label text-end">Product Code
                                                 Auto Generate :</label>
                                             <div className="col-sm-4">
                                                 <select className="form-select form-select-sm" 
@@ -242,7 +242,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5 text-end">Invoice Generate
+                                            <label className="col-sm-8 col-form-label text-end">Invoice Generate
                                                 Using GRN/GIN :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm"
@@ -254,7 +254,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5 text-end">Barcode
+                                            <label className="col-sm-8 col-form-label text-end">Barcode
                                                 Generate in Item Master :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm"
@@ -266,7 +266,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5 text-end">Print
+                                            <label className="col-sm-8 col-form-label text-end">Print
                                                 Invoice in Letter Head/Footer :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm"
@@ -278,7 +278,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5 text-end">Sending
+                                            <label className="col-sm-8 col-form-label text-end">Sending
                                                 SMS :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" 
@@ -290,7 +290,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5 text-end">Mail
+                                            <label className="col-sm-8 col-form-label text-end">Mail
                                                 Sending :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm"
@@ -302,7 +302,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5 text-end">Approved
+                                            <label className="col-sm-8 col-form-label text-end">Approved
                                                 Required :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm"
@@ -314,7 +314,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5 text-end">Import/Export
+                                            <label className="col-sm-8 col-form-label text-end">Import/Export
                                                 :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm"
@@ -326,7 +326,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5 text-end">Import/Export
+                                            <label className="col-sm-8 col-form-label text-end">Import/Export
                                                 Value Round of :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" 
@@ -338,7 +338,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5 text-end">Effect On
+                                            <label className="col-sm-8 col-form-label text-end">Effect On
                                                 Account/Inventry
                                                 while Cancel Invoice :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
@@ -353,7 +353,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5 text-end">Term & Condition
+                                            <label className="col-sm-8 col-form-label text-end">Term & Condition
                                                 Based
                                                 On Master :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
@@ -366,7 +366,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5 text-end">Item Name
+                                            <label className="col-sm-8 col-form-label text-end">Item Name
                                                 Duplication Allowed :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" 
@@ -387,7 +387,7 @@ const OtherSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end"> Commision
+                                            <label className=" col-sm-8 col-form-label text-end"> Commision
                                                 :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='Commision' value={data.Commision} onChange={changeHandler}>
@@ -398,7 +398,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end">Commision
+                                            <label className=" col-sm-8 col-form-label text-end">Commision
                                                 Ledger :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input type="text"
@@ -418,7 +418,7 @@ const OtherSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end"> TDS :</label>
+                                            <label className=" col-sm-8 col-form-label text-end"> TDS :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='Tds' value={data.Tds} onChange={changeHandler} >
                                                     <option>select</option>
@@ -428,7 +428,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end">TDS
+                                            <label className=" col-sm-8 col-form-label text-end">TDS
                                                 Ledger :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
@@ -448,7 +448,7 @@ const OtherSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end"> Purchase
+                                            <label className=" col-sm-8 col-form-label text-end"> Purchase
                                                 Account :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
@@ -462,7 +462,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end">Sales
+                                            <label className=" col-sm-8 col-form-label text-end">Sales
                                                 Account :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
@@ -483,7 +483,7 @@ const OtherSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end">Default Currency :</label>
+                                            <label className=" col-sm-8 col-form-label text-end">Default Currency :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
                                                 type="text" 
@@ -503,7 +503,7 @@ const OtherSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end">Default OutStandings Pupup :</label>
+                                            <label className=" col-sm-8 col-form-label text-end">Default OutStandings Pupup :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm"
                                                  name='DefaultOutStandingsPupup' value={data.DefaultOutStandingsPupup} onChange={changeHandler} >
@@ -511,7 +511,7 @@ const OtherSetting = () => {
                                                     <option value="One">One</option>
                                                     <option value="Both">Both</option>
                                                 </select>                                           
-                                               </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -521,7 +521,7 @@ const OtherSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end">Product Serial Number :</label>
+                                            <label className=" col-sm-8 col-form-label text-end">Product Serial Number :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" 
                                                 name='ProductSerialNumber' value={data.ProductSerialNumber} onChange={changeHandler}>
@@ -539,7 +539,7 @@ const OtherSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end"> CGST :</label>
+                                            <label className=" col-sm-8 col-form-label text-end"> CGST :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                               <input 
                                                 type="text"
@@ -552,7 +552,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end">SGST/UTGST :</label>
+                                            <label className=" col-sm-8 col-form-label text-end">SGST/UTGST :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
                                                   type="text"
@@ -564,7 +564,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end">IGST :</label>
+                                            <label className=" col-sm-8 col-form-label text-end">IGST :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
                                                 type="text"
@@ -576,7 +576,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end">Custom Duty :</label>
+                                            <label className=" col-sm-8 col-form-label text-end">Custom Duty :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
                                                 type="text"
@@ -588,7 +588,7 @@ const OtherSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5 text-end">CESS :</label>
+                                            <label className=" col-sm-8 col-form-label text-end">CESS :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
                                                 type="text" 
@@ -607,7 +607,7 @@ const OtherSetting = () => {
                     <div className="row">
                         <div className="col-6 mt-3">
                             <div className="mb-3 row">
-                                <label className=" col-sm-7 col-form-label fs-5 text-end"> Merge PDF System Path :</label>
+                                <label className=" col-sm-7 col-form-label text-end"> Merge PDF System Path :</label>
                                 <div className="col-sm-4 d-flex align-items-center">
                                     <input 
                                     type="url"
@@ -621,7 +621,7 @@ const OtherSetting = () => {
                                 <button type='button' className='col-sm-1 border-0 bg-transparent text-left'>R</button>
                             </div>
                             <div className="mb-3 row d-flex align-items-center">
-                                <label className=" col-sm-7 text-end col-form-label fs-5"> Select Path For EU Declaration Path :</label>
+                                <label className=" col-sm-7 text-end col-form-label"> Select Path For EU Declaration Path :</label>
                                 <div className="col-sm-4 d-flex align-items-center">
                                     <input 
                                     type="url"
