@@ -180,7 +180,7 @@ const ProductionSetting = () => {
                   <div className="row ">
                     <div className="col-12">
                       <div className=" row mb-1">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Machine Based Production :
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -198,7 +198,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1 ">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Direct Insert Record in MRS From BOM :
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -216,7 +216,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1 ">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Direct Insert Record in GRN From Production Report :
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -239,7 +239,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1 ">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Production Using MIS:
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -262,7 +262,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1 ">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Material Consumption Requird on Operation Group :
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -287,7 +287,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row  mb-1">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Transfer Stock From Group In MIS :
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -305,7 +305,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1 ">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Operation QC/QA Requird :
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -323,7 +323,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1 ">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Direct Insert Record in Gate Pass From Finshed Goods :
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -341,8 +341,8 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1 ">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
-                          Scrap Details Required on Last Operation Only :
+                        <label className="col-sm-8 col-form-label text-end ">
+                          Scrap Details Required on Last Operation Only:
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
                           <select
@@ -359,8 +359,8 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
-                          Auto Material Consumption On First Operation :
+                        <label className="col-sm-8 col-form-label text-end ">
+                          Auto Material Consumption On First Operation:
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
                           <select
@@ -382,7 +382,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Required Material Consumption On First Operation :
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -405,7 +405,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Show Gross Weight In Packing List :
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -423,7 +423,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Show Client Name When work Order Close In Packing List
                           :
                         </label>
@@ -442,7 +442,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           {" "}
                           QC Testing By Login User :
                         </label>
@@ -461,7 +461,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Quantity Calculate Based On AltQty :
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -479,7 +479,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Sales and Purchase Show customer and Vendor Both :
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -497,8 +497,8 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
-                          Production Not More Then Previous Operation :
+                        <label className="col-sm-8 col-form-label text-end ">
+                          Production Not More Then Previous Operation:
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
                           <select
@@ -515,7 +515,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Production Report Alt Qty Calculation Based BOM
                           Operation Weight :
                         </label>
@@ -539,7 +539,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Production Planing Required :
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -557,7 +557,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className=" row mb-1">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Weight Calculate In Production No Pcs :
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -575,7 +575,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className="mb-3 row">
-                        <label className=" col-sm-8 col-form-label fs-6  text-end">
+                        <label className=" col-sm-8 col-form-label text-end">
                           Production Weight :
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -599,7 +599,7 @@ const ProductionSetting = () => {
                   <div className="row">
                     <div className="col-12">
                       <div className="row py-2">
-                        <label className=" col-sm-4 col-form-label fs-6  text-end">
+                        <label className=" col-sm-4 col-form-label text-end">
                           Tolerance :
                         </label>
                         <div className="col-sm-4 d-flex align-items-center gap-2">
@@ -635,7 +635,7 @@ const ProductionSetting = () => {
                   <div className="row">
                     <div className="col-12">
                       <div className="mb-1 row">
-                        <label className=" col-sm-5 col-form-label fs-6 text-center  ">
+                        <label className=" col-sm-5 col-form-label text-center  ">
                           Start Time :
                         </label>
                         <div className="col-sm-5 d-flex align-items-center">
@@ -650,7 +650,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className="row">
-                        <label className=" col-sm-5 col-form-label fs-6 text-center  ">
+                        <label className=" col-sm-5 col-form-label text-center  ">
                           End Time :
                         </label>
                         <div className="col-sm-5 d-flex align-items-center">
@@ -665,7 +665,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className="my-1 row">
-                        <label className=" col-sm-5 col-form-label fs-6 text-center">
+                        <label className=" col-sm-5 col-form-label text-center">
                           Interval Time:
                         </label>
                         <div className="col-sm-3 d-flex align-items-center">
@@ -690,7 +690,7 @@ const ProductionSetting = () => {
                   <div className="row">
                     <div className="col-12">
                       <div className="mb-3 row">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Pack List Generate By Pack Dept :
                         </label>
                         <div className="col-sm-4 d-flex align-items-center">
@@ -708,7 +708,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className="mb-3 mt-3 row">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Material Consumption In Packing :
                         </label>
                         <div className="col-sm-4 d-flex align-items-center">
@@ -734,7 +734,7 @@ const ProductionSetting = () => {
                   <div className="row">
                     <div className="col-12">
                       <div className="mb-2 row">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Operation Wise Production Stock:
                         </label>
                         <div className="col-sm-4 d-flex gap-1 align-items-center">
@@ -755,7 +755,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className="mb-2 row">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Operation Wise Stock Movement Auto:
                         </label>
                         <div className="col-sm-4 d-flex align-items-center gap-1">
@@ -776,7 +776,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className="mb-2 row">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           In Process QC Requird For Operation :
                         </label>
                         <div className="col-sm-4 d-flex align-items-center gap-1">
@@ -797,7 +797,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className="mb-1 row">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Previous Stock Show Based On In Process QC :
                         </label>
                         <div className="col-sm-4 d-flex align-items-center gap-1">
@@ -818,7 +818,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className="mb-1 row">
-                        <label className="col-sm-8 col-form-label fs-6  text-end ">
+                        <label className="col-sm-8 col-form-label text-end ">
                           Production Report Batch No System With Batch Tracking
                           :
                         </label>
@@ -847,7 +847,7 @@ const ProductionSetting = () => {
                   <div className="row">
                     <div className="col-12">
                       <div className="mb-2 row">
-                        <label className=" col-sm-7 col-form-label fs-6  text-end">
+                        <label className=" col-sm-7 col-form-label text-end">
                           Job Work Default Machine:
                         </label>
                         <div className="col-sm-5 d-flex align-items-center">
@@ -862,7 +862,7 @@ const ProductionSetting = () => {
                         </div>
                       </div>
                       <div className="mb-2 row">
-                        <label className=" col-sm-7 col-form-label fs-6  text-end">
+                        <label className=" col-sm-7 col-form-label text-end">
                           Foundary Machine Category:
                         </label>
                         <div className="col-sm-5 d-flex align-items-center">

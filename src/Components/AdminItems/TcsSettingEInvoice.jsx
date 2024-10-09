@@ -142,7 +142,7 @@ const TcsSettingEInvoice = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className="col-sm-6 col-form-label fs-5  text-end ">TCS Applicable
+                                            <label className="col-sm-6 col-form-label text-end ">TCS Applicable
                                                 :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='TcsApplicable' value={data.TcsApplicable} onChange={handleChange} >
@@ -153,7 +153,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">TCS Ledger
+                                            <label className=" col-sm-6 col-form-label text-end">TCS Ledger
                                                 (For Sales) :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input
@@ -166,7 +166,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">TCS Ledger
+                                            <label className=" col-sm-6 col-form-label text-end">TCS Ledger
                                                 (For Purchase) :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input 
@@ -179,7 +179,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">TAN No
+                                            <label className=" col-sm-6 col-form-label text-end">TAN No
                                                 :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input 
@@ -192,7 +192,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">PAN No. (IF
+                                            <label className=" col-sm-6 col-form-label   text-end">PAN No. (IF
                                                 PRESENT) :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
@@ -208,7 +208,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end">PAN No. (IF
+                                            <label className=" col-sm-6 col-form-label   text-end">PAN No. (IF
                                                 NOT PRESENT):</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
@@ -224,7 +224,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-6 col-form-label fs-5  text-end ">TCS
+                                            <label className="col-sm-6 col-form-label   text-end ">TCS
                                                 Calculation ON :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='TcsCalculationOn' value={data.TcsCalculationOn} onChange={handleChange} required >
@@ -235,7 +235,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-7 col-form-label fs-5  text-end">Application On
+                                            <label className=" col-sm-7 col-form-label   text-end">Application On
                                                 More Than Turnover Amount :</label>
                                             <div className="col-sm-3 d-flex align-items-center">
                                                 <input 
@@ -247,14 +247,14 @@ const TcsSettingEInvoice = () => {
                                                  required />
                                             </div>
                                             <div className="col-sm-2 d-flex align-items-center text-start">
-                                                <span className="fs-6">(Rs.)</span>
+                                                <span className="fs-5">(Rs.)</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </fieldset>
                             <div className="mb-3 row mt-3">
-                                <label className=" col-sm-6 col-form-label fs-5  text-end">Duty DrawBack
+                                <label className=" col-sm-6 col-form-label text-end">Duty DrawBack
                                     Ledger :</label>
                                 <div className="col-sm-6 d-flex align-items-center">
                                     <input 
@@ -273,7 +273,7 @@ const TcsSettingEInvoice = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className="col-sm-9 col-form-label fs-5  text-end ">Purchase Scrap
+                                            <label className="col-sm-9 col-form-label text-end ">Purchase Scrap
                                                 Required :</label>
                                             <div className="col-sm-3 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='PurchaseScrapRequired' value={data.PurchaseScrapRequired} onChange={handleChange} >
@@ -284,7 +284,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-6 col-form-label fs-5  text-end"> Adjustment
+                                            <label className=" col-sm-6 col-form-label text-end"> Adjustment
                                                 Ledger :</label>
                                             <div className="col-sm-6 d-flex align-items-center">
                                                 <input 
@@ -297,8 +297,8 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-9 col-form-label fs-5  text-end ">Quality
-                                                Premium and Site Premium Required :</label>
+                                            <label className="col-sm-9 col-form-label text-end ">Quality
+                                                Premium and Site Premium Required:</label>
                                             <div className="col-sm-3 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='QualityPremiumAndSitePremiumRequired' value={data.QualityPremiumAndSitePremiumRequired} onChange={handleChange} required>
                                                     <option> select</option>
@@ -311,7 +311,7 @@ const TcsSettingEInvoice = () => {
                                 </div>
                             </fieldset>
                             <div className="mt-5 row">
-                                <label className="col-sm-9 col-form-label fs-5 text-end mt-5 ">Add
+                                <label className="col-sm-9 col-form-label text-end mt-5 ">Add
                                     Auto Scrap JobWork :</label>
                                 <div className="col-sm-3 d-flex align-items-center mt-5">
                                     <select className="form-select form-select-sm" name='AddAutoScrapJobWork' value={data.AddAutoScrapJobWork} onChange={handleChange} required >
@@ -330,7 +330,7 @@ const TcsSettingEInvoice = () => {
                                 <div className="row">
                                     <div className="col-md-6">
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5  text-end ">E-Invoice
+                                            <label className="col-sm-8 col-form-label text-end ">E-Invoice
                                                 Applicable :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='EInvoiceApplicable' value={data.EInvoiceApplicable} onChange={handleChange} required >
@@ -341,7 +341,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5  text-end">URL :</label>
+                                            <label className=" col-sm-8 col-form-label text-end">URL :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
                                                 type="text"
@@ -353,7 +353,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5  text-end ">E-Way Bill
+                                            <label className="col-sm-8 col-form-label text-end ">E-Way Bill
                                                 Parameter In E-Invoice :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='EWayBillParameterInEInvoice' value={data.EWayBillParameterInEInvoice} onChange={handleChange} required >
@@ -364,7 +364,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5  text-end">User Name
+                                            <label className=" col-sm-8 col-form-label text-end">User Name
                                                 :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
@@ -377,7 +377,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5  text-end">Password
+                                            <label className=" col-sm-8 col-form-label text-end">Password
                                                 :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
@@ -390,7 +390,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className=" col-sm-8 col-form-label fs-5  text-end">Select Path
+                                            <label className=" col-sm-8 col-form-label text-end">Select Path
                                                 For Export E-Invoice Json :</label>
                                             <div className="col-sm-4 d-flex flex-column align-items-center gap-3">
                                                 <input 
@@ -406,7 +406,7 @@ const TcsSettingEInvoice = () => {
                                     </div>
                                     <div className="col-md-6">
                                         <div className="mb-3 row">
-                                            <label className="col-sm-5 col-form-label fs-5  text-end ">E-Invoice Type
+                                            <label className="col-sm-5 col-form-label text-end ">E-Invoice Type
                                                 :</label>
                                             <div className="col-sm-7 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" name='EInvoiceType' value={data.EInvoiceType} onChange={handleChange} required >
@@ -417,7 +417,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row ">
-                                            <label className=" col-sm-5 col-form-label fs-5  text-end">Key :</label>
+                                            <label className=" col-sm-5 col-form-label text-end">Key :</label>
                                             <div className="col-sm-7 d-flex align-items-center">
                                                 <input
                                                  type="text"
@@ -429,7 +429,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row ">
-                                            <label className=" col-sm-5 col-form-label fs-5  text-end">Subscription ID :</label>
+                                            <label className=" col-sm-5 col-form-label text-end">Subscription ID :</label>
                                             <div className="col-sm-7 d-flex align-items-center">
                                                 <input 
                                                 type="text"
@@ -441,7 +441,7 @@ const TcsSettingEInvoice = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row ">
-                                            <label className=" col-sm-5 col-form-label fs-5  text-end">GST No :</label>
+                                            <label className=" col-sm-5 col-form-label text-end">GST No :</label>
                                             <div className="col-sm-7 d-flex align-items-center">
                                                 <input 
                                                 type="text"

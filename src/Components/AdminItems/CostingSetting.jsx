@@ -94,7 +94,7 @@ const CostingSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label  className="col-sm-6 col-form-label fs-5  text-end ">Basic Scrap :</label>
+                                            <label  className="col-sm-6 col-form-label  text-end ">Basic Scrap :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input
                                                     type="number"
@@ -109,7 +109,7 @@ const CostingSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label  className="col-sm-6 col-form-label fs-5  text-end ">Extrusion
+                                            <label  className="col-sm-6 col-form-label  text-end ">Extrusion
                                                 Conversion Rate :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
@@ -126,7 +126,7 @@ const CostingSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-6 col-form-label fs-5 text-end"
+                                            <label className="col-sm-6 col-form-label text-end"
                                             data-toggle="tooltip">Recovery :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
@@ -143,7 +143,7 @@ const CostingSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-6 col-form-label fs-5  text-end ">Profit :</label>
+                                            <label className="col-sm-6 col-form-label text-end ">Profit :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
                                                 type="number" 
@@ -158,7 +158,7 @@ const CostingSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-6 col-form-label fs-5  text-end ">Freight :</label>
+                                            <label className="col-sm-6 col-form-label text-end ">Freight :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <input 
                                                 type="number"
@@ -180,7 +180,7 @@ const CostingSetting = () => {
                                 <div className="row ">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className="col-sm-9 col-form-label fs-5  text-end">Default
+                                            <label className="col-sm-9 col-form-label text-end">Default
                                                 Contract
                                                 Review Diolog On Save :</label>
                                             <div className="col-sm-3 d-flex align-items-center">
@@ -199,7 +199,7 @@ const CostingSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className="col-sm-9 col-form-label fs-5  text-end">Create
+                                            <label className="col-sm-9 col-form-label text-end">Create
                                                 Packing
                                                 From Stock Avaibility :</label>
                                             <div className="col-sm-3 d-flex align-items-center">
@@ -218,7 +218,7 @@ const CostingSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className="col-sm-9 col-form-label fs-5  text-end">Multiple
+                                            <label className="col-sm-9 col-form-label text-end">Multiple
                                                 PCS
                                                 Rate In Quotation :</label>
                                             <div className="col-sm-3 d-flex align-items-center">
@@ -239,9 +239,9 @@ const CostingSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className="col-sm-9 col-form-label fs-5  text-end">Create
+                                            <label className="col-sm-9 col-form-label text-end">Create
                                                 Raw
-                                                Materials MRS From Sales Order :</label>
+                                                Materials MRS From Sales Order:</label>
                                             <div className="col-sm-3 d-flex align-items-center gap-1">
                                                 <select className="form-select form-select-sm" name='RawMaterialsMrs' value={data.RawMaterialsMrs} onChange={handlleChange} required >
                                                     <option> select</option>
@@ -259,7 +259,7 @@ const CostingSetting = () => {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5  text-end">Quotation
+                                            <label className="col-sm-8 col-form-label text-end">Quotation
                                                 With
                                                 Mold :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
@@ -271,7 +271,7 @@ const CostingSetting = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3 row">
-                                            <label className="col-sm-8 col-form-label fs-5  text-end">Quotation
+                                            <label className="col-sm-8 col-form-label text-end">Quotation
                                                 With
                                                 Machine :</label>
                                             <div className="col-sm-4 d-flex align-items-center">
