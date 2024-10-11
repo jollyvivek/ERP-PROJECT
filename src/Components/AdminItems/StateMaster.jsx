@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { BiEdit } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 import { toast } from 'react-toastify';
 
@@ -26,6 +27,12 @@ const StateMaster = () => {
   useEffect(()=>{
     stateFetchRecords();
   },[]);
+
+  const updateState = (stateId,item)=>{
+    setShowModal(true);
+    setData({ StateCode:item.StateCode, StateName:item.StateName, Country:item.Country })
+    // console.log(stateId,item)
+  }
 
   const removeState = async(stateId)=>{
     const response = await axios.post(`${url}/api/state/remove`,{id:stateId});
@@ -118,18 +125,25 @@ const StateMaster = () => {
                                     <th className="fs-5 fw-normal">State Code</th>
                                     <th className="fs-5 fw-normal">State Name</th>
                                     <th className="fs-5 fw-normal">Country Name</th>
-                                    <th className='fs-5 fw-normal'>Action</th>
+                                    <th className='fs-5 fw-normal'>Modify</th>
+                                     <th className='fs-5 fw-normal'>Delete</th>
                                 </tr>
                             </thead>
                             <tbody >
-                                {stateRecords.map((item,index)=>{
+                                {stateRecords.map((item,index,itemArray)=>{
                                   return(
                                     <tr className='text-center' key={index}>
                                     <td>0{item.StateCode}</td>
                                     <td>{item.StateName}</td>
                                     <td>{item.Country}</td>
+                                    <td className='fs-5' style={{cursor:"pointer"}} 
+                                       onClick={()=>updateState(item._id,item)}>
+                                       <BiEdit/>
+                                    </td>
                                     <td className='text-danger fs-5' onClick={()=>removeState(item._id)}
-                                      style={{cursor:"pointer"}}><MdDelete/></td>
+                                      style={{cursor:"pointer"}}><MdDelete/>
+                                    </td>
+                                    
                                 </tr>
                                   )
                                 })}

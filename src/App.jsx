@@ -3,7 +3,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Sidebar from "./Components/Sidebar/Sidebar";
 import { ToastContainer } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 // import { Route, Routes } from "react-router-dom";
 import LoginPopup from "./Components/LoginPopup/LoginPopup";
 import { StoreContext } from "./Context/StoreContext";
