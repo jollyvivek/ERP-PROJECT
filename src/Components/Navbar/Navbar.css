@@ -1,10 +1,11 @@
 .nav-cont{
   /* border: 2px solid blue; */
-  padding-inline: 2% !important;
+  padding-inline: 1% !important;
   position: sticky;
   top: 0;
   z-index: 100;
   /* background:#988f87; */
+  background: white;
 }
 
 .nav-cont-left{

@@ -38,7 +38,7 @@ const BasicDetails = () => {
     const response = await axios.get(`${url}/api/company/list`);
     if(response){
       // console.log(response.data.data)
-      setSelectedData(response.data.data[14]);
+      setSelectedData(response.data.data[5]);
     }else{
       console.log("Error")
     }
