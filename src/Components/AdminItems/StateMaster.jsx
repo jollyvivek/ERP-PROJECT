@@ -53,24 +53,24 @@ const StateMaster = () => {
     //   Country:data.Country});
 
     try {
-      const respone = await axios.post(`${url}/api/state/update`,
+      const response = await axios.post(`${url}/api/state/update`,
         {id:stateId,StateCode:Number(data.StateCode),
         StateName:data.StateName,
         Country:data.Country});
 
-      if(respone.data.success){
+      if(response.data.success){
         setIsUpdate(false)
         setShowModal(false);
         setData({ StateCode:"", StateName:"", Country:"" })
-        toast.success(respone.data.message)
+        toast.success(response.data.message)
         stateFetchRecords();
-        console.log(payload)
+        // console.log(respone.data.data)
       }else{
         toast.error("Error");
       }
     } catch (error) {
       console.log(error);
-      toast.error(respone.data.message)
+      toast.error(response.data.message)
     }
 
   }

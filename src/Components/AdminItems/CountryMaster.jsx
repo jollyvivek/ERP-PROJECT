@@ -1,17 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import '../../Styles/AdminMaster.css'
 import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import axios from "axios";
 import { toast } from "react-toastify";
 import DataTable from "react-data-table-component";
+import { BiEdit } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 import { MdOutlineSecurityUpdateGood } from "react-icons/md";
+import { data } from "jquery";
+import { StoreContext } from "../../Context/StoreContext";
 
 const CountryMaster = () => {
 
- const url = "http://localhost:4000";
+const {url} = useContext(StoreContext)
+
  const [codeList,setCodeList]=useState([])
  const [showModal, setShowModal] = useState(false);
+ const [isUpdate,setIsUpdate] =useState(false)
+ const [codeId,setCodeId]=useState("")
 
  const [data,setData]= useState({
   code: "",
@@ -23,11 +29,12 @@ const CountryMaster = () => {
  const columns = [
   {name:"Country Code", selector:row=>row.code, sortable:true},
   {name:"Country Name", selector:row=>row.countryName,sortable:true},
-  // {name:"Id",selector:row=>row._id},
-  {name:"Action",selecto:row=>row._id ,cell: row=>(
+  {name:"Modify",selector:row=>row._id,cell:row=>(
+    <button className="btn text-center fs-4" onClick={()=>updateCode(row._id,row.code,row.countryName)}><BiEdit/></button>
+  )},
+  {name:"Delete",selecto:row=>row._id ,cell: row=>(
     <button className=" btn text-danger text-center fs-4"
      onClick={()=>removeCode(row._id)}
-    //  style={{textDecoration:"none"}}
      ><MdDelete/></button>
   )
 
@@ -50,10 +57,6 @@ const CountryMaster = () => {
    
   }
 
-  // useEffect(()=>{
-  //   console.log(codeList)
-  // },[])
-
 
  const codeFetchList = async()=>{
   const response = await axios.get(`${url}/api/code/list`);
@@ -71,8 +74,35 @@ const CountryMaster = () => {
   codeFetchList();
  },[]);
 
+// update code functionality
 
+const updateCode =(codeId,code,countryName)=>{
+  setShowModal(true)
+  setIsUpdate(true)
+  setCodeId(codeId);
+  setData({code:code,countryName:countryName})
+};
 
+const updateHandler = async(codeId,data)=>{
+  try {
+    const response = await axios.post(`${url}/api/code/update`,{id:codeId,code: Number(data.code),
+      countryName:data.countryName});
+      if (response.data.success) {
+        setShowModal(false)
+        setIsUpdate(false)
+        setData({code: "",countryName:""})
+        toast.success(response.data.message)
+        codeFetchList();
+        // console.log(data)
+      } else {
+        toast.error(response.data.message)
+      }
+  } catch (error) {
+    console.log("Error");
+    toast.error(response.data.message);
+  }
+ 
+}
 
 //  remove code functionality
 
@@ -84,7 +114,6 @@ const CountryMaster = () => {
 
 //  model handler
 
-
  const modelHandler = (event)=>{
   const name =event.target.name;
   const value = event.target.value;
@@ -93,9 +122,7 @@ const CountryMaster = () => {
 
 //  model from submit
 
-  const handleModelFormSubmit = async(event)=>{
-    event.preventDefault();
-
+  const handleModelFormSubmit = async()=>{
     let payload = {
       code: Number(data.code) || '',
       countryName: data.countryName || ''
@@ -198,7 +225,9 @@ const CountryMaster = () => {
                   ></button>
                   </div>
                 </div>
-                <form action="" className="" onSubmit={handleModelFormSubmit} >
+                <form action="" className="" 
+                // onSubmit={handleModelFormSubmit}
+                 >
                   <div className="modal-body">
                     <fieldset>
                       <legend>Country Details</legend>
@@ -246,14 +275,16 @@ const CountryMaster = () => {
                     <button type="button" className="btn btn-secondary d-none ">
                       New
                     </button>
-                    <button type="submit" className="btn btn-primary">
-                      Save
+                    <button type="button" className="btn btn-primary"
+                    onClick={isUpdate ? ()=>updateHandler(codeId,data) :handleModelFormSubmit}
+                    >
+                     {isUpdate ? "Update":"Save"}
                     </button>
                     <button type="button" className="btn btn-secondary d-none  ">
                       Update
                     </button>
-                    <button type="reset" className="btn btn-danger  ">
-                      Delete
+                    <button type="button" className="btn bg-secondary text-white" onClick={()=>setShowModal(false)}>
+                      Close
                     </button>
                     {/* <button type="button" className="btn btn-secondary fs-4 " data-bs-dismiss="modal">Close</button> */}
                   </div>
