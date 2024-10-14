@@ -1,13 +1,15 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { BiEdit } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 import { toast } from 'react-toastify';
+import { StoreContext } from '../../Context/StoreContext';
 
 
 const StateMaster = () => {
-
-  const url = "http://localhost:4000";
+  const {url} = useContext(StoreContext)
+  const [isUpdate,setIsUpdate]= useState(false)
+  const [stateId,setStateId] = useState("")
   const [stateRecords,setStateRecords]= useState([])
   const [showModal, setShowModal] = useState(false);
   const [data,setData]=useState({ StateCode:"", StateName:"", Country:"" });
@@ -28,12 +30,52 @@ const StateMaster = () => {
     stateFetchRecords();
   },[]);
 
-  const updateState = (stateId,item)=>{
+  // modify and update
+
+  const updateState = (id,item)=>{
     setShowModal(true);
+    setIsUpdate(true);
+    setStateId(id)
     setData({ StateCode:item.StateCode, StateName:item.StateName, Country:item.Country })
     // console.log(stateId,item)
   }
 
+  const updateStateHandler = async(stateId,data,setData,setIsUpdate)=>{
+    // let payload = {
+    //   StateCode:Number(data.StateCode),
+    //   StateName:data.StateName,
+    //   Country:data.Country
+    // }
+
+    // const respone = await axios.post(`${url}/api/state/update`,
+    //   {id:stateId,StateCode:Number(data.StateCode),
+    //   StateName:data.StateName,
+    //   Country:data.Country});
+
+    try {
+      const respone = await axios.post(`${url}/api/state/update`,
+        {id:stateId,StateCode:Number(data.StateCode),
+        StateName:data.StateName,
+        Country:data.Country});
+
+      if(respone.data.success){
+        setIsUpdate(false)
+        setShowModal(false);
+        setData({ StateCode:"", StateName:"", Country:"" })
+        toast.success(respone.data.message)
+        stateFetchRecords();
+        console.log(payload)
+      }else{
+        toast.error("Error");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(respone.data.message)
+    }
+
+  }
+
+// remove and delete
   const removeState = async(stateId)=>{
     const response = await axios.post(`${url}/api/state/remove`,{id:stateId});
     await stateFetchRecords();
@@ -47,6 +89,7 @@ const StateMaster = () => {
     setData((data) => ({ ...data, [name]: value }));
    }
   
+  //  model submit functionality
 
   const stateFormSubmitHandler = async(event)=>{
     event.preventDefault();
@@ -68,6 +111,8 @@ const StateMaster = () => {
     setShowModal(false);
     stateFetchRecords();
   };
+
+ 
 
   // import code search functionality
 
@@ -177,7 +222,9 @@ const StateMaster = () => {
                       >
                     </button>
                 </div>
-                <form  className="needs-validation" onSubmit={stateFormSubmitHandler}>
+                <form  className="needs-validation" 
+                // onSubmit={ isUpdate ? ()=>alert("update call") : stateFormSubmitHandler}
+                >
                     <div className="modal-body">
                         <fieldset>
                             <legend>State Details</legend>
@@ -225,7 +272,12 @@ const StateMaster = () => {
                         </fieldset>
                     </div>
                     <div className="modal-footer d-flex justify-content-center gap-1">
-                        <button type="submit" className="btn btn-primary fs-5">Save</button>
+                        <button type="button" className="btn btn-primary fs-5"
+                          onClick={isUpdate ? ()=>updateStateHandler(stateId,data,setData,setIsUpdate) : stateFormSubmitHandler}
+                        >
+                           {isUpdate ? "Update" : "Save"} 
+                          
+                          </button>
                         <button type="button"
                          className="btn btn-secondary fs-5 " 
                          data-bs-dismiss="modal" 
