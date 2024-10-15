@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Sidebar.css";
 import { FaBuilding } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
@@ -33,15 +33,19 @@ import ProductionSetting from "../AdminItems/ProductionSetting";
 import CountryMaster from "../AdminItems/CountryMaster";
 import StateMaster from "../AdminItems/StateMaster";
 import BankMaster from "../AdminItems/BankMaster";
+import RoleModel from "../AdminItems/RoleModel";
 
 
 
 const Sidebar = () => {
 
   const url = "http://localhost:4000";
-
+  const [isRoleModel,setIsRoleModel]= useState(false)
   return (
-    <div className="sidebar container-fluid ">
+    <>
+    
+    <div className="sidebar container-fluid p-0 ">
+      { isRoleModel ? <RoleModel RoleModel={setIsRoleModel} /> : <></>}
       <div className="row">
         <div className="col-md-3 left dashboard ">
         <div className="dashborad-cont">
@@ -83,16 +87,18 @@ const Sidebar = () => {
         <Route path="/tcs_einvoice" element={<TcsSettingEInvoice/>}/>
         <Route path ='/costing_setting' element={<CostingSetting/>}/>
         <Route path="/production_setting" element={<ProductionSetting/>}/>
-        <Route path="/role" element={<Role/>}/>
+        <Route path="/role" element={<Role RoleModel={setIsRoleModel}/>}/>
+        <Route path="/rolemodel" element={<RoleModel  />}/>
         <Route path="manageuser" element={<ManageUser/>}/>
-        <Route path="/countrymaster" element={<CountryMaster url={url}/>}/>
-        <Route path="/statemaster" element={<StateMaster url={url}/>}/>
+        <Route path="/countrymaster" element={<CountryMaster url={url} />}/>
+        <Route path="/statemaster" element={<StateMaster url={url} />}/>
         <Route path="/bankmaster" element={<BankMaster url={url}/> } />
        
       </Routes>
         </div>
       </div>
     </div>
+    </>
   );
 };
 

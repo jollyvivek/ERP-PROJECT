@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import LoginPopup from "./Components/LoginPopup/LoginPopup";
 import { StoreContext } from "./Context/StoreContext";
 import ErpHome from "./Components/ErpHome/ErpHome";
+import RoleModel from "./Pages/RoleModel";
 
 const App = () => {
   const[showLogin,setShowLogin]=useState(false)
@@ -15,17 +16,19 @@ const App = () => {
   const[value,setValue]=useState(token)
  
 
-  return <div>
+  return (
+    <>
+  <div>
     {showLogin ?<LoginPopup setShowLogin={setShowLogin}/> :<></>}
     <ToastContainer/>
     <Navbar setShowLogin={setShowLogin}/>
     {/* <hr /> */}
     <div className="app-content">
     {value===token ? <ErpHome/> :<Sidebar/>}
-      
-     
     </div>
-  </div>;
+  </div>
+    </>
+  );
 };
 
 export default App;
