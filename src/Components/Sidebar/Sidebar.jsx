@@ -88,7 +88,7 @@ const Sidebar = () => {
         <Route path ='/costing_setting' element={<CostingSetting/>}/>
         <Route path="/production_setting" element={<ProductionSetting/>}/>
         <Route path="/role" element={<Role RoleModel={setIsRoleModel}/>}/>
-        <Route path="/rolemodel" element={<RoleModel  />}/>
+        {/* <Route path="/rolemodel" element={<RoleModel  />}/> */}
         <Route path="manageuser" element={<ManageUser/>}/>
         <Route path="/countrymaster" element={<CountryMaster url={url} />}/>
         <Route path="/statemaster" element={<StateMaster url={url} />}/>
