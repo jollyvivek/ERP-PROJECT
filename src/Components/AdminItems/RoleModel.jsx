@@ -44,14 +44,14 @@ const RoleModel = ({RoleModel}) => {
                 <div className="col-md-12">
                   <p className="fs-5 m-0">Select Company :</p>
                   <div className="row border border-secondary m-0">
-                    <p className="col-12 px-2 fs-5 border m-0">Company Names</p>
-                    <div className="row p-0 m-0 bg-danger">
+                    <p className="col-12 px-2 fs-5 m-0">Company Names</p>
+                    <div className="row p-0 m-0">
                       <div className="col-sm-12 d-flex align-items-center gap-2 ">
                         <input id="bfox" type="checkbox" className="form-check-input px-2" name="" />
                         <label htmlFor="bfox" className="col-form-label" >Bfox Pvt Lmt </label>
                       </div>
                     </div>
-                    <div className="row p-0 m-0 bg-secondary">
+                    <div className="row p-0 m-0">
                       <div className="col-sm-12 d-flex align-items-center gap-2">
                         <input id="googles" type="checkbox" className="form-check-input px-2 m-0" name="" />
                         <label htmlFor="googles" className="col-form-label" >Googles Infotech </label>
@@ -62,7 +62,7 @@ const RoleModel = ({RoleModel}) => {
                 </div>
               </div>
               <div className="d-flex justify-content-center gap-2 border-secondary">
-                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary">New</button>
+                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={()=>confirm("Do you really want to New Entry ?")}>New</button>
                 <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={formSubmitHandler}> Save</button>
                 <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary">Updare</button>
                 <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" >Delete</button>
@@ -70,7 +70,7 @@ const RoleModel = ({RoleModel}) => {
             </form>
           </fieldset>
         </div>
-        <div className="col-md-8 p-2 border border-primary">
+        <div className="col-md-8 p-2 border border-secondary">
           <div className="row">
             <div className="col-md-2"><p className="fw-bold">Menu Name</p></div>
             <div className="col-md-1 text-center"><p className="fw-bold">Read</p></div>
@@ -208,29 +208,84 @@ const RoleModel = ({RoleModel}) => {
               <p className="m-0 p-0">Vendor Survey</p>
               <p className="m-0 p-0">Vendor Master</p>
               <p className="m-0 p-0">Vendor Record</p>
+              <p className="m-0 p-0">Inventry Report</p>
+              <p className="m-0 p-0">Pending Bills</p>
+              <p className="m-0 p-0">Stock Assign</p>
+              <p className="m-0 p-0">Logistic History</p>
+              <p className="m-0 p-0">Finished Goods</p>
+              <p className="m-0 p-0">Return Rejected</p>
+              <p className="m-0 p-0">Rejected Report</p>
+              <p className="m-0 p-0">Packing Master</p>
+              <p className="m-0 p-0">EU Declaration</p>
+              <p className="m-0 p-0">Contract Review</p>
+              <p className="m-0 p-0">Job Work Balance</p>
+              <p className="m-0 p-0">Add BOM Master</p>
+              <p className="m-0 p-0">Batch Serial Setting</p>
+              <p className="m-0 p-0">Service Requisition</p>
+              <p className="m-0 p-0">Specific Details</p>
             </div>
               <div className="col-md-1 mt-4 text-center">
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+
+              </div>
+              <div className="col-md-1 mt-4 text-center">
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name=""  /></div>
 
 
 
@@ -239,27 +294,29 @@ const RoleModel = ({RoleModel}) => {
 
               </div>
               <div className="col-md-1 mt-4 text-center">
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""  /></div>
+                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name=""  /></div>
+                
 
 
 
@@ -267,56 +324,28 @@ const RoleModel = ({RoleModel}) => {
 
               </div>
               <div className="col-md-1 mt-4 text-center">
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-
-
-
-
-
-
-              </div>
-              <div className="col-md-1 mt-4 text-center">
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name=""  /></div>
 
 
 
@@ -382,22 +411,34 @@ const RoleModel = ({RoleModel}) => {
                 </div>
               </div>
               <div className="col-md-2 text-center mt-4">
-                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2"  style={{visibility:"hidden"}} name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div ><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-                <div ><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name=""/></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name="" /></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""/></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""/></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""/></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""/></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""/></div>
+                <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name=""/></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""/></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""/></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""/></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""/></div>
+                <div><input type="checkbox" className="form-check-input p-2" name=""/></div>
+
 
 
 

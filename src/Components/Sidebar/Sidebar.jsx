@@ -47,7 +47,7 @@ const Sidebar = () => {
     <div className="sidebar container-fluid p-0 ">
       { isRoleModel ? <RoleModel RoleModel={setIsRoleModel} /> : <></>}
       <div className="row">
-        <div className="col-md-3 left dashboard ">
+        <div className="col-md-3 left dashboard ps-4 ">
         <div className="dashborad-cont">
             <span className="fs-3"><FaBuilding/></span>
             <span className="dashboard-title ">ERP BUSSINESS</span>

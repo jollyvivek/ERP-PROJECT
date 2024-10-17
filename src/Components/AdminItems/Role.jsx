@@ -5,14 +5,16 @@ import { useNavigate } from 'react-router-dom'
 const Role = ({RoleModel}) => {
   const navigate = useNavigate()
   const dataList =[
-    {RoleName :"Web Developer", Description:"Frontend"},
-    {RoleName :"Mern Stack", Description:"Full Stack"},
-    {RoleName :"UX Developer", Description:"Designer"}
+    {RoleName :"Web Developer", Description:"Gautam"},
+    {RoleName :"Mern Stack", Description:"Vivek"},
+    {RoleName :"UX Developer", Description:"Priya"},
+    {RoleName :"Testing", Description:"Ajay"}
   ]
   const columns =[
-    {name:"Role Name",selector:row=>row.RoleName},
-    {name:"Description",selector:row=>row.Description}
+    {name:"Role Name",selector:row=>row.RoleName,sortable:true},
+    {name:"Description",selector:row=>row.Description,sortable:true}
   ]
+
 
   const customStyles = {
     rows: {
@@ -36,9 +38,7 @@ const Role = ({RoleModel}) => {
     },
     };
 
-    // const addNewHandler =()=>{
-    //   RoleModel(true);
-    // }
+  
 
 
   return (
@@ -51,6 +51,11 @@ const Role = ({RoleModel}) => {
           <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5' onClick={()=>RoleModel(true)}>Add New</button>
           </div> 
           <div>
+          <div className='mt-3 '>
+              <input type="text" className='form-control '
+              //  onChange={handleFilter} 
+               placeholder='Search Here'  />
+            </div>
           <DataTable
             columns={columns}
             data={dataList}
