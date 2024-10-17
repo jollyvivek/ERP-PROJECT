@@ -4,7 +4,10 @@ import ModuleMenuCommon from './ModuleMenuCommon'
 
 const UserModel = ({addModelHandler}) => {
   return (
-    <div className="container-fluid px-3 position-absolute h-100  z-1 "style={{background:"lightGrey", overflowY:"scroll" }}>
+    <div className="container-fluid px-3 position-absolute h-100  z-1 "
+    style={{background:"lightGrey", 
+    overflowY:"scroll"
+     }}>
       <div className='row'>
       <h4>Add User</h4>
       <div className="col-md-4">

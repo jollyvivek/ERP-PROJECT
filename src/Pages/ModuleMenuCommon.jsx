@@ -284,8 +284,8 @@ const ModuleMenuCommon = () => {
 
 
               </div>
-              <div className="col-md-4 mt-4  d-flex justify-content-between bg-danger">
-                <div className="bg-primary w-50 text-center">
+              <div className="col-md-4 mt-4  d-flex justify-content-between ">
+                <div className=" w-50 text-center">
                   <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" id="" /></div>
                   <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" id="" /></div>
                   <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
@@ -303,7 +303,7 @@ const ModuleMenuCommon = () => {
                   <div ><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
                   <div ><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
                 </div>
-                <div className="bg-secondary w-50 text-center">
+                <div className=" w-50 text-center">
                   <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" id="" /></div>
                   <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" id="" /></div>
                   <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
@@ -322,7 +322,7 @@ const ModuleMenuCommon = () => {
                   <div ><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
 
                 </div>
-                <div className="bg-primary w-50 text-center">
+                <div className=" w-50 text-center">
                   <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" id="" /></div>
                   <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" id="" /></div>
                   <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
