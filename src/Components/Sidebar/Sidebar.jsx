@@ -34,6 +34,7 @@ import CountryMaster from "../AdminItems/CountryMaster";
 import StateMaster from "../AdminItems/StateMaster";
 import BankMaster from "../AdminItems/BankMaster";
 import RoleModel from "../AdminItems/RoleModel";
+import UserModel from "../../Pages/UserModel";
 
 
 
@@ -41,11 +42,13 @@ const Sidebar = () => {
 
   const url = "http://localhost:4000";
   const [isRoleModel,setIsRoleModel]= useState(false)
+  const [isUserModel,setIsUserModel] = useState(false)
   return (
     <>
     
     <div className="sidebar container-fluid p-0 ">
       { isRoleModel ? <RoleModel RoleModel={setIsRoleModel} /> : <></>}
+      { isUserModel ?<UserModel addModelHandler={setIsUserModel} />:<></>}
       <div className="row">
         <div className="col-md-3 left dashboard ps-4 ">
         <div className="dashborad-cont">
@@ -89,7 +92,7 @@ const Sidebar = () => {
         <Route path="/production_setting" element={<ProductionSetting/>}/>
         <Route path="/role" element={<Role RoleModel={setIsRoleModel}/>}/>
         {/* <Route path="/rolemodel" element={<RoleModel  />}/> */}
-        <Route path="manageuser" element={<ManageUser/>}/>
+        <Route path="manageuser" element={<ManageUser addModelHandler={setIsUserModel} />}/>
         <Route path="/countrymaster" element={<CountryMaster url={url} />}/>
         <Route path="/statemaster" element={<StateMaster url={url} />}/>
         <Route path="/bankmaster" element={<BankMaster url={url}/> } />

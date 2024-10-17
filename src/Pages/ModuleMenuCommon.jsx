@@ -1,79 +1,9 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import ModuleMenuCommon from "../../Pages/ModuleMenuCommon";
+import React from 'react'
 
-const RoleModel = ({RoleModel}) => {
-  const navigate = useNavigate()
-
-  const formSubmitHandler =()=>{
-    RoleModel(false);
-  };
-
+const ModuleMenuCommon = () => {
   return (
-    <div className="container-fluid px-3 position-absolute h-100  z-1 " style={{background:"lightGrey",overflowY:"scroll"}}>
-      <div className="row">
-        <h4>Role Details</h4>
-        <div className="col-md-4">
-          <fieldset className="py-2">
-            <legend>Role Details</legend>
-            <form action="">
-              <div className="mb-2 row">
-                <label htmlFor="" className=" col-sm-5 col-form-label fs-5  text-end" >
-                  Role Name :
-                </label>
-                <div className="col-sm-7 d-flex align-items-center">
-                  <input type="text" className="form-control bg-body-secondary"  name="RoleName"  />
-                </div>
-              </div>
-              <div className="mb-2 row">
-                <label htmlFor="" className=" col-sm-5 col-form-label fs-5  text-end" >
-                  Description :
-                </label>
-                <div className="col-sm-7 d-flex align-items-center">
-                  <textarea className="form-control bg-body-secondary" name="" rows="3"></textarea>
-                </div>
-              </div>
-              <div className=" row">
-                <label htmlFor="" className=" col-sm-5 col-form-label fs-5  text-end" >
-                  Select All :
-                </label>
-                <div className="col-sm-7 d-flex align-items-center">
-                  <input type="checkbox" className="form-check-input p-2" />
-                </div>
-              </div>
-              <div className="mb-3 p-2 row">
-                <div className="col-md-12">
-                  <p className="fs-5 m-0">Select Company :</p>
-                  <div className="row border border-secondary m-0">
-                    <p className="col-12 px-2 fs-5 m-0">Company Names</p>
-                    <div className="row p-0 m-0">
-                      <div className="col-sm-12 d-flex align-items-center gap-2 ">
-                        <input id="bfox" type="checkbox" className="form-check-input px-2" name="" />
-                        <label htmlFor="bfox" className="col-form-label" >Bfox Pvt Lmt </label>
-                      </div>
-                    </div>
-                    <div className="row p-0 m-0">
-                      <div className="col-sm-12 d-flex align-items-center gap-2">
-                        <input id="googles" type="checkbox" className="form-check-input px-2 m-0" name="" />
-                        <label htmlFor="googles" className="col-form-label" >Googles Infotech </label>
-                      </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-              <div className="d-flex justify-content-center gap-2 border-secondary">
-                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={()=>confirm("Do you really want to New Entry ?")}>New</button>
-                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={formSubmitHandler}> Save</button>
-                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary">Updare</button>
-                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" >Delete</button>
-              </div>
-            </form>
-          </fieldset>
-        </div>
-        <div className="col-md-8">
-          <ModuleMenuCommon/>
-          {/* <div className="row">
+    <div className='container-fluid p-2 border border-secondary mt-3'>
+       <div className="row">
             <div className="col-md-2"><p className="fw-bold">Menu Name</p></div>
             <div className="col-md-1 text-center"><p className="fw-bold">Read</p></div>
             <div className="col-md-1 text-center "><p className="fw-bold">Write</p></div>
@@ -85,9 +15,9 @@ const RoleModel = ({RoleModel}) => {
               <p className="fw-bold">Approved-3</p>
             </div>
             <div className="col-md-2"><p className="fw-bold">Report and Export</p></div>
-          </div> */}
+          </div>
           {/* Admin */}
-          {/* <div className="row">
+          <div className="row">
             <div className="col-md-2">
               <h4 className=" m-0">Admin</h4>
               <p className="m-0 p-0">Company</p>
@@ -165,7 +95,7 @@ const RoleModel = ({RoleModel}) => {
                 <div><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               </div>
               <div className="col-md-4">
-               
+                {/* <p>Lorem ipsum dolor sit amet.</p> */}
               </div>
               <div className="col-md-2 text-center mt-4">
                 <div><input type="checkbox" className="form-check-input p-2" style={{visibility:"hidden"}} name="" id="" /></div>
@@ -184,9 +114,9 @@ const RoleModel = ({RoleModel}) => {
                 <div ><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               </div>
 
-          </div> */}
+          </div>
           {/* Inventry */}
-          {/* <div className="row mt-2">
+          <div className="row mt-2">
             <div className="col-md-2">
               <h4 className=" m-0">Inventry</h4>
               <p className="m-0 p-0">Inventry Group</p>
@@ -445,11 +375,28 @@ const RoleModel = ({RoleModel}) => {
 
 
               </div>
-          </div> */}
-        </div>
-      </div>
-    </div>
-  );
-};
+          </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  </div>
+  )
+}
 
-export default RoleModel;
+export default ModuleMenuCommon
