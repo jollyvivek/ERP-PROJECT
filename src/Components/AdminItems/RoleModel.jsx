@@ -1,12 +1,32 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ModuleMenuCommon from "../../Pages/ModuleMenuCommon";
 import { BsFillPatchQuestionFill } from "react-icons/bs";
+import { StoreContext } from "../../Context/StoreContext";
+import axios from "axios";
+
 
 const RoleModel = ({RoleModel}) => {
   const [isconfirmModel,setIsConfirmModel] = useState(false)
+  const [companyData,setCompanyData] =useState([])
+  const {url} = useContext(StoreContext)
   const navigate = useNavigate()
 
+  const CompanyList= async()=>{
+    try {
+      const response = await axios.get(`${url}/api/company/list`);
+      if (response.data.success) {
+        setCompanyData(response.data.data);
+        console.log(response.data.data)
+      } else {
+        console.log(response.data.message)
+      }
+    } catch (error) {
+      console.log(response.data.message)
+    }
+  };
+
+  useEffect(()=>{ CompanyList() },[])
   const formSubmitHandler =()=>{
     RoleModel(false);
   };
@@ -52,18 +72,24 @@ const RoleModel = ({RoleModel}) => {
                   <p className="fs-5 m-0">Select Company :</p>
                   <div className="row border border-secondary m-0">
                     <p className="col-12 px-2 fs-5 m-0">Company Names</p>
-                    <div className="row p-0 m-0">
-                      <div className="col-sm-12 d-flex align-items-center gap-2 ">
-                        <input id="bfox" type="checkbox" className="form-check-input px-2" name="" />
-                        <label htmlFor="bfox" className="col-form-label" >Bfox Pvt Lmt </label>
-                      </div>
-                    </div>
-                    <div className="row p-0 m-0">
+                      {companyData.map((item,index)=>{
+                        return(
+                          <>
+                           <div className="row p-0 m-0" >
+                            <div className="col-sm-12 d-flex align-items-center gap-2 " key={item._id}>
+                               <input id={item._id} type="checkbox" className="form-check-input px-2" name="" />
+                               <label htmlFor={item._id} className="col-form-label" >{item.companyName} </label>
+                            </div>
+                          </div>
+                          </>
+                        )
+                      })}
+                    {/* <div className="row p-0 m-0">
                       <div className="col-sm-12 d-flex align-items-center gap-2">
                         <input id="googles" type="checkbox" className="form-check-input px-2 m-0" name="" />
                         <label htmlFor="googles" className="col-form-label" >Googles Infotech </label>
                       </div>
-                    </div>
+                    </div> */}
                     
                   </div>
                 </div>
