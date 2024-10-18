@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ModuleMenuCommon from './ModuleMenuCommon'
 
 
 const UserModel = ({addModelHandler}) => {
+
+  const [testMail,setTestMail]= useState(false)
+
   return (
     <div className="container-fluid px-3 position-absolute h-100  z-1 "
     style={{background:"lightGrey", 
@@ -101,14 +104,18 @@ const UserModel = ({addModelHandler}) => {
                 <div className="col-sm-7 d-flex align-items-center gap-3">
                   {/* <div className='row'> */}
                     {/* <div className='col-md-7'> */}
-                    <select class="form-select form-select-sm w-75" aria-label="Default select example">
-                           <option selected> select menu</option>
+                    <select className="form-select form-select-sm w-75" aria-label="Default select example">
+                           <option> select menu</option>
                            <option value="True">True</option>
                            <option value="False">False</option>
                     </select>
                     {/* </div> */}
                     {/* <div className='col-md-5 d-flex align-items-center bg-danger m-0 '> */}
-                        <button type="button" className='border-primary p-2 rounded-2 w-50'>Test Mail</button>
+                        <button type="button" 
+                        className='border-primary p-2 rounded-2 w-50' onClick={()=>setTestMail(true)}
+                          //  data-bs-toggle="modal"
+                          // data-bs-target="#staticBackdrop"
+                          >Test Mail</button>
                     {/* </div> */}
 
                   {/* </div> */}
@@ -119,15 +126,13 @@ const UserModel = ({addModelHandler}) => {
                   Digital Sign :
                 </label>
                 <div className="col-sm-4 d-flex align-items-center">
-                <select class="form-select form-select-sm" aria-label="Default select example">
-                           <option selected> select menu</option>
+                <select className="form-select form-select-sm" aria-label="Default select example">
+                           <option> select menu</option>
                            <option value="Yes">Yes</option>
                            <option value="Yes">No</option>
                   </select>
                 </div>
               </div>
-
-
 
               <div className="mb-3 p-2 row">
                 <div className="col-md-12">
@@ -163,7 +168,75 @@ const UserModel = ({addModelHandler}) => {
         <ModuleMenuCommon/>
       </div>
 
-
+{/* <!-- Modal --> */}
+{testMail && (
+<div className="modal show fade"
+   style={{ display: 'block' }} 
+    id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+     tabIndex="-1" aria-labelledby="staticBackdropLabel" 
+    //  aria-hidden="true"
+     >
+  <div  className="modal-dialog modal-dialog-centered">
+    <div  className="modal-content">
+      <div  className="modal-header">
+        <h5  className="modal-title" id="staticBackdropLabel">Test Mail</h5>
+        <button type="button"  className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={()=>setTestMail(false)}></button>
+      </div>
+      <div  className="modal-body">
+        <div className='container-fluid'>
+          <fieldset>
+            <legend>Mail Details</legend>
+            <div className="row ">
+                <label htmlFor="" className=" col-sm-4 col-form-label fs-5  text-end" >
+                  From :
+                </label>
+                <div className="col-sm-8 d-flex align-items-center">
+                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="From"  />
+                </div>
+            </div>
+            <div className="row ">
+                <label htmlFor="" className=" col-sm-4 col-form-label fs-5  text-end" >
+                  To :
+                </label>
+                <div className="col-sm-8 d-flex align-items-center">
+                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="To"  />
+                </div>
+            </div>
+            <div className="row ">
+                <label htmlFor="" className=" col-sm-4 col-form-label fs-5  text-end" >
+                  Cc :
+                </label>
+                <div className="col-sm-8 d-flex align-items-center">
+                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="Cc"  />
+                </div>
+            </div>
+            <div className="row ">
+                <label htmlFor="" className=" col-sm-4 col-form-label fs-5  text-end" >
+                  Subject :
+                </label>
+                <div className="col-sm-8 d-flex align-items-center">
+                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="RoleName"  />
+                </div>
+            </div>
+            <div className="row ">
+                <label htmlFor="" className=" col-sm-4 col-form-label fs-5  text-end" >
+                  Message :
+                </label>
+                <div className="col-sm-8 d-flex align-items-center">
+                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="RoleName"  />
+                </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div  className="modal-footer">
+        <button type="button"  className="btn btn-primary">Send</button>
+        <button type="button"  className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setTestMail(false)}>Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+)}
 
       </div>       
           
