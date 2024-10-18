@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ModuleMenuCommon from "../../Pages/ModuleMenuCommon";
+import { BsFillPatchQuestionFill } from "react-icons/bs";
 
 const RoleModel = ({RoleModel}) => {
+  const [isconfirmModel,setIsConfirmModel] = useState(false)
   const navigate = useNavigate()
 
   const formSubmitHandler =()=>{
@@ -34,7 +36,7 @@ const RoleModel = ({RoleModel}) => {
                   Description :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center">
-                  <textarea className="form-control bg-body-secondary" name="" rows="3"></textarea>
+                  <textarea className="form-control bg-body-secondary" name="Description" rows="3"></textarea>
                 </div>
               </div>
               <div className=" row">
@@ -67,7 +69,7 @@ const RoleModel = ({RoleModel}) => {
                 </div>
               </div>
               <div className="d-flex justify-content-center gap-2 border-secondary">
-                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={()=>confirm("Do you really want to New Entry ?")}>New</button>
+                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={()=>setIsConfirmModel(true)}>New</button>
                 <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={formSubmitHandler}> Save</button>
                 <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary">Updare</button>
                 <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" >Delete</button>
@@ -452,6 +454,37 @@ const RoleModel = ({RoleModel}) => {
           </div> */}
         </div>
       </div>
+        
+      {/* Confirm Modal*/}
+{isconfirmModel &&(
+<div className="modal show fade" 
+  style={{ display: 'block' }}
+  tabIndex="-1" 
+  aria-labelledby="exampleModalLabel"
+  //  aria-hidden="true"
+   >
+  <div className="modal-dialog  modal-dialog-centered">
+    <div className="modal-content ">
+      <div className="modal-header border-0">
+        <h5 className="modal-title" id="exampleModalLabel">Confirmation</h5>
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={()=>setIsConfirmModel(false)}></button>
+      </div>
+      <div className="modal-body">
+        <div>
+          <p className=' d-flex gap-3 px-3 fs-4'> <span className='text-primary'><BsFillPatchQuestionFill /></span> <span>Do you really want to new entry ?</span></p>
+        </div>
+      </div>
+      <div className="modal-footer border-0">
+      <button type="button" className="btn btn-primary">Yes</button>
+      <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setIsConfirmModel(false)}>No</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+)}
+
+
     </div>
   );
 };
