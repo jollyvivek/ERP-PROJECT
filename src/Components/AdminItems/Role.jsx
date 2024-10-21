@@ -3,6 +3,9 @@ import DataTable from 'react-data-table-component'
 import { useNavigate } from 'react-router-dom'
 import { StoreContext } from '../../Context/StoreContext'
 import axios from 'axios'
+import { BiEdit } from "react-icons/bi";
+import { MdDelete } from "react-icons/md";
+import { toast } from 'react-toastify'
 
 const Role = ({RoleModel}) => {
   const {url}= useContext(StoreContext);
@@ -17,7 +20,15 @@ const Role = ({RoleModel}) => {
 
   const columns =[
     {name:"Role Name",selector:row=>row.RoleName,sortable:true},
-    {name:"Description",selector:row=>row.Description,sortable:true}
+    {name:"Description",selector:row=>row.Description,sortable:true},
+    {name:"Modify",selector:row=>row._id,cell:row=>(
+      <button className="btn text-center fs-4" onClick={()=>alert()}><BiEdit/></button>
+    )},
+    {name:"Delete",selecto:row=>row._id ,cell: row=>(
+      <button className=" btn text-danger text-center fs-4"
+       onClick={()=>removeRole(row._id)}
+       ><MdDelete/></button>
+    )}
   ]
 
 
@@ -58,6 +69,19 @@ const Role = ({RoleModel}) => {
     }
   useEffect(()=>{RoleFetchList()},[]);
 
+    const removeRole = async(id)=>{
+      try {
+        const response = await axios.post(`${url}/api/role/remove`,{id:id});
+        if (response) {
+          RoleFetchList();
+          toast.success(response.data.message)
+        } else {
+          toast.error(response.data.message)
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
 
   return (
     <>
@@ -90,4 +114,4 @@ const Role = ({RoleModel}) => {
   )
 }
 
-export default Role
+export default Role;

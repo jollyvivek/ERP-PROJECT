@@ -17,6 +17,7 @@ const RoleModel = ({RoleModel}) => {
   const [companyData,setCompanyData] =useState([])
   const {url} = useContext(StoreContext)
   const navigate = useNavigate()
+  
 
   const CompanyList= async()=>{
     try {
