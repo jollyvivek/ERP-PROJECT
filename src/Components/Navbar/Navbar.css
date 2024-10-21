@@ -72,3 +72,11 @@
 .logout{
   cursor: pointer;
 }
+
+/* .nav-btns .basic{
+  color: blue;
+} */
+
+.nav-btns .navLink:hover{
+  color: blue;
+}
