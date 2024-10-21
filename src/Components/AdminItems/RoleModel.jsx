@@ -4,9 +4,15 @@ import ModuleMenuCommon from "../../Pages/ModuleMenuCommon";
 import { BsFillPatchQuestionFill } from "react-icons/bs";
 import { StoreContext } from "../../Context/StoreContext";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 
 const RoleModel = ({RoleModel}) => {
+
+  const [data,setData]= useState({
+    RoleName:"",
+    Description:""
+  });
   const [isconfirmModel,setIsConfirmModel] = useState(false)
   const [companyData,setCompanyData] =useState([])
   const {url} = useContext(StoreContext)
@@ -17,7 +23,7 @@ const RoleModel = ({RoleModel}) => {
       const response = await axios.get(`${url}/api/company/list`);
       if (response.data.success) {
         setCompanyData(response.data.data);
-        console.log(response.data.data)
+        // console.log(response.data.data)
       } else {
         console.log(response.data.message)
       }
@@ -26,29 +32,55 @@ const RoleModel = ({RoleModel}) => {
     }
   };
 
-  useEffect(()=>{ CompanyList() },[])
-  const formSubmitHandler =()=>{
-    RoleModel(false);
+  useEffect(()=>{ CompanyList() },[]);
+
+  const handleChange= (event)=>{
+    const{name,value}=event.target;
+    setData((data)=>({...data,[name]:value}))
+  };
+
+  const formSubmitHandler =async(event)=>{
+    event.preventDefault();
+    let payload ={
+      RoleName:data.RoleName,
+      Description:data.Description
+    }
+    try {
+      const response = await axios.post(`${url}/api/role/add`,payload);
+      if (response.data.success) {
+        setData({ RoleName:"", Description:""  });
+        RoleModel(false);
+        toast.success(response.data.message)
+        navigate('/role')
+      } else {
+        toast.error(response.data.message)
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(response.data.message)
+    }
+    
   };
 
   return (
-    <div className="container-fluid px-3 position-absolute h-100  z-1 " 
+    <div className="container-fluid px-3 position-absolute  z-1 " 
     style={
       {background:"lightGrey",
-      overflowY:"scroll"
+      // overflowY:"scroll"
       }}>
       <div className="row">
         <h4>Role Details</h4>
         <div className="col-md-4">
           <fieldset className="py-2">
             <legend>Role Details</legend>
-            <form action="">
+            <form action="" onSubmit={formSubmitHandler}>
               <div className="mb-2 row">
                 <label htmlFor="" className=" col-sm-5 col-form-label fs-5  text-end" >
                   Role Name :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center">
-                  <input type="text" className="form-control bg-body-secondary"  name="RoleName"  />
+                  <input type="text" className="form-control bg-body-secondary"  name="RoleName"
+                   value={data.RoleName} onChange={handleChange} autoComplete="off" required  />
                 </div>
               </div>
               <div className="mb-2 row">
@@ -56,7 +88,8 @@ const RoleModel = ({RoleModel}) => {
                   Description :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center">
-                  <textarea className="form-control bg-body-secondary" name="Description" rows="3"></textarea>
+                  <input type="text" className="form-control bg-body-secondary" name="Description"
+                   value={data.Description} onChange={handleChange} autoComplete="off" required />
                 </div>
               </div>
               <div className=" row">
@@ -74,15 +107,13 @@ const RoleModel = ({RoleModel}) => {
                     <p className="col-12 px-2 fs-5 m-0">Company Names</p>
                       {companyData.map((item,index)=>{
                         return(
-                          <>
-                           <div className="row p-0 m-0" >
+                           <div className="row p-0 m-0" key={index}>
                             <div className="col-sm-12 d-flex align-items-center gap-2 " key={item._id}>
                                <input id={item._id} type="checkbox" className="form-check-input px-2" name="" />
                                <label htmlFor={item._id} className="col-form-label" >{item.companyName} </label>
                             </div>
                           </div>
-                          </>
-                        )
+                        );
                       })}
                     {/* <div className="row p-0 m-0">
                       <div className="col-sm-12 d-flex align-items-center gap-2">
@@ -95,8 +126,9 @@ const RoleModel = ({RoleModel}) => {
                 </div>
               </div>
               <div className="d-flex justify-content-center gap-2 border-secondary">
-                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={()=>setIsConfirmModel(true)}>New</button>
-                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={formSubmitHandler}> Save</button>
+                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary"
+                 onClick={()=>setIsConfirmModel(true)}>New</button>
+                <button type="submit" className="px-3 py-1 border-1 rounded-1 border-primary"> Save</button>
                 <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary">Updare</button>
                 <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" >Delete</button>
               </div>

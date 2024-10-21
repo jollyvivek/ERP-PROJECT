@@ -1,15 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import { useNavigate } from 'react-router-dom'
+import { StoreContext } from '../../Context/StoreContext'
+import axios from 'axios'
 
 const Role = ({RoleModel}) => {
+  const {url}= useContext(StoreContext);
+  const [dataList,setDataList]= useState([])
   const navigate = useNavigate()
-  const dataList =[
-    {RoleName :"Web Developer", Description:"Gautam"},
-    {RoleName :"Mern Stack", Description:"Vivek"},
-    {RoleName :"UX Developer", Description:"Priya"},
-    {RoleName :"Testing", Description:"Ajay"}
-  ]
+  // const dataList =[
+  //   {RoleName :"Web Developer", Description:"Gautam"},
+  //   {RoleName :"Mern Stack", Description:"Vivek"},
+  //   {RoleName :"UX Developer", Description:"Priya"},
+  //   {RoleName :"Testing", Description:"Ajay"}
+  // ];
+
   const columns =[
     {name:"Role Name",selector:row=>row.RoleName,sortable:true},
     {name:"Description",selector:row=>row.Description,sortable:true}
@@ -38,7 +43,20 @@ const Role = ({RoleModel}) => {
     },
     };
 
-  
+    const RoleFetchList =  async()=>{
+        try {
+          const response = await axios.get(`${url}/api/role/list`);
+          if (response.data.success) {
+            setDataList(response.data.data);
+            // console.log(response.data.data)
+          } else {
+            console.log(response.data.message)
+          }
+        } catch (error) {
+          console.log(error)
+        }
+    }
+  useEffect(()=>{RoleFetchList()},[]);
 
 
   return (

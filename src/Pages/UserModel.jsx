@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ModuleMenuCommon from './ModuleMenuCommon'
 import { BsFillPatchQuestionFill } from "react-icons/bs";
 
@@ -6,24 +6,69 @@ const UserModel = ({addModelHandler}) => {
 
   const [testMail,setTestMail]= useState(false)
   const [isconfirmModel,setIsConfirmModel] = useState(false)
+  const [data,setData] = useState({
+    Name:"",
+    Role:"",
+    UserName:"",
+    Password:"",
+    MobileNo:"",
+    Email:"",
+    EmailPassword:"",
+    SmtpPort:"",
+    SmtpHost:"",
+    PopPort:"",
+    EnableSsl:"",
+    DigitalSign:""
+  });
+
+  const handleChange = (event)=>{
+    const {name,value} = event.target;
+    setData((data)=>({...data,[name]:value}))
+  };
+
+  // useEffect(()=>console.log(data),[data])
+
+  const userFormHandler = (event)=>{
+    event.preventDefault();
+    // console.log(data);
+    addModelHandler(false);
+    setData({
+      Name:"",
+      Role:"",
+      UserName:"",
+      Password:"",
+      MobileNo:"",
+      Email:"",
+      EmailPassword:"",
+      SmtpPort:"",
+      SmtpHost:"",
+      PopPort:"",
+      EnableSsl:"",
+      digitalSign:""
+    })
+
+  }
+
+  
 
   return (
-    <div className="container-fluid px-3 position-absolute h-100  z-1 "
+    <div className="container-fluid px-3 position-absolute z-1 "
     style={{background:"lightGrey", 
-    overflowY:"scroll"
+    // overflowY:"scroll"
      }}>
-      <div className='row'>
+      <div className='row mx-0'>
       <h4>Add User</h4>
       <div className="col-md-4">
           <fieldset className="py-2">
             <legend>User Details</legend>
-            <form action="">
+            <form action="" onSubmit={userFormHandler}>
               <div className="row ">
                 <label htmlFor="" className=" col-sm-5 col-form-label fs-5  text-end" >
                   Name :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center">
-                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="Name"  />
+                  <input type="text" className="form-control form-control-sm bg-body-secondary" 
+                  name="Name" value={data.Name} onChange={handleChange} required  />
                 </div>
               </div>
               <div className="row">
@@ -31,7 +76,8 @@ const UserModel = ({addModelHandler}) => {
                   Role :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center">
-                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="Role"  />
+                  <input type="text" className="form-control form-control-sm bg-body-secondary"
+                    name="Role" value={data.Role} onChange={handleChange}  required />
                 </div>
               </div>
               <div className="row">
@@ -39,7 +85,8 @@ const UserModel = ({addModelHandler}) => {
                  User Name :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center">
-                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="UserName"  />
+                  <input type="text" className="form-control form-control-sm bg-body-secondary"
+                   name="UserName" value={data.UserName} onChange={handleChange}  required  />
                 </div>
               </div>
               <div className="row">
@@ -47,7 +94,8 @@ const UserModel = ({addModelHandler}) => {
                   Password :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center">
-                  <input type="password" className="form-control form-control-sm bg-body-secondary"  name="Password"  />
+                  <input type="password" className="form-control form-control-sm bg-body-secondary"
+                    name="Password" value={data.Password} onChange={handleChange}  required  />
                 </div>
               </div>
               <div className="row">
@@ -55,7 +103,8 @@ const UserModel = ({addModelHandler}) => {
                   Mobile No :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center">
-                  <input type="number" className="form-control form-control-sm bg-body-secondary"  name="MobileNo"  />
+                  <input type="number" className="form-control form-control-sm bg-body-secondary"
+                    name="MobileNo" value={data.MobileNo} onChange={handleChange}  required  />
                 </div>
               </div>
               <div className="row">
@@ -63,7 +112,8 @@ const UserModel = ({addModelHandler}) => {
                   Email Id :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center">
-                  <input type="email" className="form-control form-control-sm bg-body-secondary"  name="EmailId"  />
+                  <input type="email" className="form-control form-control-sm bg-body-secondary" 
+                   name="Email" value={data.Email} onChange={handleChange}  required  />
                 </div>
               </div>
               <div className="row">
@@ -71,7 +121,8 @@ const UserModel = ({addModelHandler}) => {
                   Email Password :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center">
-                  <input type="password" className="form-control form-control-sm bg-body-secondary"  name="EmailPassword"  />
+                  <input type="password" className="form-control form-control-sm bg-body-secondary"
+                    name="EmailPassword" value={data.EmailPassword} onChange={handleChange}  required  />
                 </div>
               </div>
               <div className="row">
@@ -79,7 +130,8 @@ const UserModel = ({addModelHandler}) => {
                   SMTP Port :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center">
-                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="SmtpPort"  />
+                  <input type="text" className="form-control form-control-sm bg-body-secondary"
+                    name="SmtpPort" value={data.SmtpPort} onChange={handleChange}  required  />
                 </div>
               </div>
               <div className="row">
@@ -87,7 +139,8 @@ const UserModel = ({addModelHandler}) => {
                   SMTP Host :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center">
-                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="SmtpHost"  />
+                  <input type="text" className="form-control form-control-sm bg-body-secondary"
+                    name="SmtpHost" value={data.SmtpHost} onChange={handleChange}  required  />
                 </div>
               </div>
               <div className="row">
@@ -95,7 +148,8 @@ const UserModel = ({addModelHandler}) => {
                   POP Port :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center">
-                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="PopPort"  />
+                  <input type="text" className="form-control form-control-sm bg-body-secondary"
+                    name="PopPort" value={data.PopPort} onChange={handleChange}  required  />
                 </div>
               </div>
               <div className="row ">
@@ -103,17 +157,13 @@ const UserModel = ({addModelHandler}) => {
                   Enable SSL :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center gap-3">
-                    <select className="form-select form-select-sm w-75" name='EnableSsl' aria-label="Default select example">
+                    <select className="form-select form-select-sm w-75" 
+                    name='EnableSsl' value={data.EnableSsl} onChange={handleChange}  required aria-label="Default select example">
                            <option> select menu</option>
                            <option value="True">True</option>
                            <option value="False">False</option>
                     </select>
-                      <button type="button" 
-                        className='border-primary p-2 rounded-2 w-50' onClick={()=>setTestMail(true)}
-                          //  data-bs-toggle="modal"
-                          // data-bs-target="#staticBackdrop"
-                          >Test Mail
-                      </button>
+                      <button type="button" className='border-primary p-2 rounded-2 w-50' onClick={()=>setTestMail(true)}>Test Mail</button>
                 </div>
               </div>
               <div className="row">
@@ -121,7 +171,8 @@ const UserModel = ({addModelHandler}) => {
                   Digital Sign :
                 </label>
                 <div className="col-sm-4 d-flex align-items-center">
-                <select className="form-select form-select-sm" name='DigitalSign' aria-label="Default select example">
+                <select className="form-select form-select-sm" 
+                  name='DigitalSign' value={data.DigitalSign} onChange={handleChange}  required aria-label="Default select example">
                            <option> select menu</option>
                            <option value="Yes">Yes</option>
                            <option value="Yes">No</option>
@@ -155,7 +206,7 @@ const UserModel = ({addModelHandler}) => {
                 // data-bs-toggle="modal" data-bs-target="#exampleModal"
                  onClick={()=>setIsConfirmModel(true)}
                  >New</button>
-                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={()=>addModelHandler(false)}> Save</button>
+                <button type="submit" className="px-3 py-1 border-1 rounded-1 border-primary" > Save</button>
                 <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary">Updare</button>
                 <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" >Delete</button>
               </div>
