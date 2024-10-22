@@ -52,7 +52,6 @@ const RoleModel = ({RoleModel}) => {
         setData({ RoleName:"", Description:""  });
         RoleModel(false);
         toast.success(response.data.message)
-        navigate('/role')
       } else {
         toast.error(response.data.message)
       }
@@ -130,7 +129,7 @@ const RoleModel = ({RoleModel}) => {
                 <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary"
                  onClick={()=>setIsConfirmModel(true)}>New</button>
                 <button type="submit" className="px-3 py-1 border-1 rounded-1 border-primary"> Save</button>
-                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary">Updare</button>
+                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={()=>RoleModel(false)}>Update</button>
                 <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" >Delete</button>
               </div>
             </form>

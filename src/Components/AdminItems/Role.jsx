@@ -6,10 +6,12 @@ import axios from 'axios'
 import { BiEdit } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 import { toast } from 'react-toastify'
+import { RoleFetchList } from '../../Utils/HandleApi'
 
 const Role = ({RoleModel}) => {
   const {url}= useContext(StoreContext);
   const [dataList,setDataList]= useState([])
+  const [roleId,setRoleId] = useState("")
   const navigate = useNavigate()
   // const dataList =[
   //   {RoleName :"Web Developer", Description:"Gautam"},
@@ -22,7 +24,7 @@ const Role = ({RoleModel}) => {
     {name:"Role Name",selector:row=>row.RoleName,sortable:true},
     {name:"Description",selector:row=>row.Description,sortable:true},
     {name:"Modify",selector:row=>row._id,cell:row=>(
-      <button className="btn text-center fs-4" onClick={()=>alert()}><BiEdit/></button>
+      <button className="btn text-center fs-4" onClick={()=>updateRole(row._id,RoleModel,row.RoleName,row.Description)}><BiEdit/></button>
     )},
     {name:"Delete",selecto:row=>row._id ,cell: row=>(
       <button className=" btn text-danger text-center fs-4"
@@ -54,26 +56,28 @@ const Role = ({RoleModel}) => {
     },
     };
 
-    const RoleFetchList =  async()=>{
-        try {
-          const response = await axios.get(`${url}/api/role/list`);
-          if (response.data.success) {
-            setDataList(response.data.data);
-            // console.log(response.data.data)
-          } else {
-            console.log(response.data.message)
-          }
-        } catch (error) {
-          console.log(error)
-        }
-    }
-  useEffect(()=>{RoleFetchList()},[]);
+    // const RoleFetchList =  async()=>{
+    //     try {
+    //       const response = await axios.get(`${url}/api/role/list`);
+    //       if (response.data.success) {
+    //         setDataList(response.data.data);
+    //         // console.log(response.data.data)
+    //       } else {
+    //         console.log(response.data.message)
+    //       }
+    //     } catch (error) {
+    //       console.log(error)
+    //     }
+    // }
+  useEffect(()=>{
+    RoleFetchList(setDataList);
+  },[]);
 
     const removeRole = async(id)=>{
       try {
         const response = await axios.post(`${url}/api/role/remove`,{id:id});
         if (response) {
-          RoleFetchList();
+          RoleFetchList(setDataList);
           toast.success(response.data.message)
         } else {
           toast.error(response.data.message)
@@ -81,6 +85,13 @@ const Role = ({RoleModel}) => {
       } catch (error) {
         console.log(error)
       }
+    }
+
+    const updateRole = (id,RoleModel,RoleName,Description)=>{
+      RoleModel(true)
+      // setRoleId(id)
+      // setDataList({RoleName:RoleName,Description:Description})
+      // alert(`${RoleName} ${Description}`);
     }
 
   return (
