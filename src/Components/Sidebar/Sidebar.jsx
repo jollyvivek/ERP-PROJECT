@@ -35,12 +35,14 @@ import StateMaster from "../AdminItems/StateMaster";
 import BankMaster from "../AdminItems/BankMaster";
 import RoleModel from "../AdminItems/RoleModel";
 import UserModel from "../../Pages/UserModel";
+import { useContext } from "react";
+import { StoreContext } from "../../Context/StoreContext";
 
 
 
 const Sidebar = () => {
-
-  const url = "http://localhost:4000";
+  const {url}= useContext(StoreContext)
+  // const url = "http://localhost:4000";
   const [isRoleModel,setIsRoleModel]= useState(false)
   const [isUserModel,setIsUserModel] = useState(false)
   return (

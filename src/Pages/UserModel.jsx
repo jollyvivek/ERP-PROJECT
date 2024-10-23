@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ModuleMenuCommon from './ModuleMenuCommon'
 import { BsFillPatchQuestionFill } from "react-icons/bs";
+import { StoreContext } from '../Context/StoreContext';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const UserModel = ({addModelHandler}) => {
-
+  const {url} = useContext(StoreContext)
   const [testMail,setTestMail]= useState(false)
   const [isconfirmModel,setIsConfirmModel] = useState(false)
   const [data,setData] = useState({
@@ -20,6 +23,14 @@ const UserModel = ({addModelHandler}) => {
     EnableSsl:"",
     DigitalSign:""
   });
+
+  const [emailData,setEmailData] = useState({
+    // From:"",
+    To:"",
+    Cc:"",
+    Subject:"",
+    Message:""
+  })
 
   const handleChange = (event)=>{
     const {name,value} = event.target;
@@ -47,6 +58,40 @@ const UserModel = ({addModelHandler}) => {
       digitalSign:""
     })
 
+  }
+  // sendMailHandler
+
+  const EmailChangeHandler=(event)=>{
+    const {name,value}= event.target;
+    setEmailData((data)=>({...data,[name]:value}))
+  }
+
+  const sendMailHandler = async(event)=>{
+    event.preventDefault();
+    const payload ={
+      // From:emailData.From,
+      To:emailData.To,
+      Cc:emailData.Cc,
+      Subject:emailData.Subject,
+      Message:emailData.Message
+    }
+    try {
+      const response = await axios.post(`${url}/api/email/add`,payload);
+      if(response.data.success){
+        setTestMail(false);
+        setEmailData({
+          From:"",
+          To:"",
+          Cc:"",
+          Subject:"",
+          Message:""
+        });
+        toast.success(response.data.message)
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error(response.data.message)
+    }
   }
 
   
@@ -227,28 +272,32 @@ const UserModel = ({addModelHandler}) => {
      >
   <div  className="modal-dialog modal-dialog-centered">
     <div  className="modal-content">
-      <div  className="modal-header">
+      <div  className="modal-header border-bottom-0">
         <h5  className="modal-title" id="staticBackdropLabel">Test Mail</h5>
         <button type="button"  className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={()=>setTestMail(false)}></button>
       </div>
-      <div  className="modal-body">
+      <div  className="modal-body" >
         <div className='container-fluid'>
-          <fieldset>
+          
+          <fieldset className='pb-3'>
             <legend>Mail Details</legend>
-            <div className="row ">
+            <form action="" onSubmit={sendMailHandler}>
+            {/* <div className="row ">
                 <label htmlFor="" className=" col-sm-4 col-form-label fs-5  text-end" >
                   From :
                 </label>
                 <div className="col-sm-8 d-flex align-items-center">
-                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="From"  />
+                  <input type="email" className="form-control form-control-sm bg-body-secondary"
+                   name="From" value={emailData.From} onChange={EmailChangeHandler} required  />
                 </div>
-            </div>
+            </div> */}
             <div className="row ">
                 <label htmlFor="" className=" col-sm-4 col-form-label fs-5  text-end" >
                   To :
                 </label>
                 <div className="col-sm-8 d-flex align-items-center">
-                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="To"  />
+                  <input type="email" className="form-control form-control-sm bg-body-secondary"
+                    name="To"  value={emailData.To} onChange={EmailChangeHandler} required />
                 </div>
             </div>
             <div className="row ">
@@ -256,7 +305,8 @@ const UserModel = ({addModelHandler}) => {
                   Cc :
                 </label>
                 <div className="col-sm-8 d-flex align-items-center">
-                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="Cc"  />
+                  <input type="email" className="form-control form-control-sm bg-body-secondary"
+                    name="Cc" value={emailData.Cc} onChange={EmailChangeHandler} required  />
                 </div>
             </div>
             <div className="row ">
@@ -264,7 +314,8 @@ const UserModel = ({addModelHandler}) => {
                   Subject :
                 </label>
                 <div className="col-sm-8 d-flex align-items-center">
-                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="RoleName"  />
+                  <input type="text" className="form-control form-control-sm bg-body-secondary"
+                    name="Subject" value={emailData.Subject} onChange={EmailChangeHandler} required  />
                 </div>
             </div>
             <div className="row ">
@@ -272,16 +323,24 @@ const UserModel = ({addModelHandler}) => {
                   Message :
                 </label>
                 <div className="col-sm-8 d-flex align-items-center">
-                  <input type="text" className="form-control form-control-sm bg-body-secondary"  name="RoleName"  />
+                  {/* <input type="text" className="form-control form-control-sm bg-body-secondary"
+                    name="Message" value={emailData.message} onChange={EmailChangeHandler}  /> */}
+                    <textarea className="form-control form-control-sm bg-body-secondary" 
+                      name="Message" value={emailData.Message} onChange={EmailChangeHandler} required></textarea>
                 </div>
             </div>
+            <div  className="row">
+              <div className='col-sm-12 d-flex justify-content-center gap-3 mt-3'>
+              <button type="submit"  className="btn btn-primary" >Send</button>
+              <button type="button"  className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setTestMail(false)}>Close</button>
+              </div>
+            </div>
+            </form>
           </fieldset>
+          
         </div>
       </div>
-      <div  className="modal-footer">
-        <button type="button"  className="btn btn-primary">Send</button>
-        <button type="button"  className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setTestMail(false)}>Close</button>
-      </div>
+      
     </div>
   </div>
 </div>
