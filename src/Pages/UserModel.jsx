@@ -80,7 +80,7 @@ const UserModel = ({addModelHandler}) => {
       if(response.data.success){
         setTestMail(false);
         setEmailData({
-          From:"",
+          // From:"",
           To:"",
           Cc:"",
           Subject:"",
@@ -197,28 +197,28 @@ const UserModel = ({addModelHandler}) => {
                     name="PopPort" value={data.PopPort} onChange={handleChange}  required  />
                 </div>
               </div>
-              <div className="row ">
+              <div className="row mb-1 ">
                 <label htmlFor="" className=" col-sm-5 col-form-label fs-5  text-end" >
                   Enable SSL :
                 </label>
                 <div className="col-sm-7 d-flex align-items-center gap-3">
                     <select className="form-select form-select-sm w-75" 
                     name='EnableSsl' value={data.EnableSsl} onChange={handleChange}  required aria-label="Default select example">
-                           <option> select menu</option>
+                           <option> select</option>
                            <option value="True">True</option>
                            <option value="False">False</option>
                     </select>
-                      <button type="button" className='border-primary p-2 rounded-2 w-50' onClick={()=>setTestMail(true)}>Test Mail</button>
+                      <button type="button" className='border-primary p-1 rounded-2 w-50' onClick={()=>setTestMail(true)}>Test Mail</button>
                 </div>
               </div>
               <div className="row">
                 <label htmlFor="" className=" col-sm-5 col-form-label fs-5  text-end" >
                   Digital Sign :
                 </label>
-                <div className="col-sm-4 d-flex align-items-center">
-                <select className="form-select form-select-sm" 
+                <div className="col-sm-5 fs-5 d-flex align-items-center">
+                <select className="form-select form-select-sm w-75" 
                   name='DigitalSign' value={data.DigitalSign} onChange={handleChange}  required aria-label="Default select example">
-                           <option> select menu</option>
+                           <option> select</option>
                            <option value="Yes">Yes</option>
                            <option value="Yes">No</option>
                 </select>
@@ -248,11 +248,10 @@ const UserModel = ({addModelHandler}) => {
               </div>
               <div className="d-flex justify-content-center gap-2 border-secondary">
                 <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary"
-                // data-bs-toggle="modal" data-bs-target="#exampleModal"
                  onClick={()=>setIsConfirmModel(true)}
                  >New</button>
                 <button type="submit" className="px-3 py-1 border-1 rounded-1 border-primary" > Save</button>
-                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={()=>addModelHandler(false)}>Updare</button>
+                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={()=>addModelHandler(false)}>Update</button>
                 <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" >Delete</button>
               </div>
             </form>
@@ -272,17 +271,17 @@ const UserModel = ({addModelHandler}) => {
      >
   <div  className="modal-dialog modal-dialog-centered">
     <div  className="modal-content">
-      <div  className="modal-header border-bottom-0">
+      <div  className="modal-header border-bottom-0 ">
         <h5  className="modal-title" id="staticBackdropLabel">Test Mail</h5>
         <button type="button"  className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={()=>setTestMail(false)}></button>
       </div>
-      <div  className="modal-body" >
+      <div  className="modal-body mb-4" >
         <div className='container-fluid'>
           
-          <fieldset className='pb-3'>
+          <fieldset className='pb-1 '>
             <legend>Mail Details</legend>
             <form action="" onSubmit={sendMailHandler}>
-            {/* <div className="row ">
+             {/* <div className="row ">
                 <label htmlFor="" className=" col-sm-4 col-form-label fs-5  text-end" >
                   From :
                 </label>
@@ -290,7 +289,7 @@ const UserModel = ({addModelHandler}) => {
                   <input type="email" className="form-control form-control-sm bg-body-secondary"
                    name="From" value={emailData.From} onChange={EmailChangeHandler} required  />
                 </div>
-            </div> */}
+            </div>  */}
             <div className="row ">
                 <label htmlFor="" className=" col-sm-4 col-form-label fs-5  text-end" >
                   To :
@@ -330,7 +329,7 @@ const UserModel = ({addModelHandler}) => {
                 </div>
             </div>
             <div  className="row">
-              <div className='col-sm-12 d-flex justify-content-center gap-3 mt-3'>
+              <div className='col-sm-12 d-flex justify-content-center gap-3 my-3'>
               <button type="submit"  className="btn btn-primary" >Send</button>
               <button type="button"  className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setTestMail(false)}>Close</button>
               </div>
