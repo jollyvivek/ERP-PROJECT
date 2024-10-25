@@ -109,7 +109,7 @@ const Admin = () => {
                   <span onClick={()=>navigate('/approvalsetting')}>Approval Setting </span>
                 </li>
                 <li>
-                  <span>Order Serial Setting</span>
+                  <span onClick={()=>navigate('/orderserialsetting')}>Order Serial Setting</span>
                 </li>
               </ul>
             ) : null}

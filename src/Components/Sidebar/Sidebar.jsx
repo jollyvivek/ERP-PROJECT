@@ -39,6 +39,7 @@ import { useContext } from "react";
 import { StoreContext } from "../../Context/StoreContext";
 import SerialSetting from "../AdminSetting/SerialSetting";
 import ApprovalSetting from "../AdminSetting/ApprovalSetting";
+import OrderSerialSetting from "../AdminSetting/OrderSerialSetting";
 
 
 
@@ -102,6 +103,7 @@ const Sidebar = () => {
         <Route path="/bankmaster" element={<BankMaster url={url}/> } />
         <Route path="/serialsetting" element={<SerialSetting/>}/>
         <Route path="/approvalsetting" element={<ApprovalSetting/>}/>
+        <Route path="/orderserialsetting" element={<OrderSerialSetting/>}/>
        
       </Routes>
         </div>

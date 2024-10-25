@@ -1,23 +1,23 @@
 import React, { useState } from 'react'
 import DataTable from 'react-data-table-component'
 
-
-const SerialSetting = () => {
+const OrderSerialSetting = () => {
   const[settingForm,setSettingForm]= useState(false)
   const [settingModel,setSettingModel] = useState(false)
+
   const dataList =[
-    {Name :"Gautam", Email:"gautam@gmail.com",MobileNo:"9876543210",AutoGenerate:"Yes"},
-    {Name :"Vivek", Email:"vivek@gmail.com",MobileNo:"7854239610",AutoGenerate:"Yes"},
-    {Name :"Priya", Email:"priya@gmail.com",MobileNo:"999998888",AutoGenerate:"Yes"},
-    {Name :"Ajay", Email:"ajay@gmail.com",MobileNo:"88888999999",AutoGenerate:"Yes"}
+    { Type:"Sales", Name :"Sales", Email:"gautam@gmail.com",MobileNo:"9876543210",AutoGenerate:"Yes"},
+    { Type:"Purchase",Name :"Purchase", Email:"vivek@gmail.com",MobileNo:"7854239610",AutoGenerate:"Yes"},
+    { Type:"Export",Name :"Export", Email:"priya@gmail.com",MobileNo:"999998888",AutoGenerate:"Yes"},
+    { Type:"Job Work",Name :"Job Work", Email:"ajay@gmail.com",MobileNo:"88888999999",AutoGenerate:"Yes"}
   ]
   const columns =[
-    {name:"Form Name",selector:row=>row.Name,sortable:true},
+    {name:"Type",selector:row=>row.Type,sortable:true},
+    {name:"Name",selector:row=>row.Name,sortable:true},
     {name:"Prefix",selector:row=>row.Email,sortable:true},
     {name:"Postfix",selector:row=>row.MobileNo},
     {name:"Auto Generate",selector:row=>row.AutoGenerate}
   ]
-
   const customStyles = {
     rows: {
         style: {
@@ -45,35 +45,33 @@ const SerialSetting = () => {
     },
     };
 
-
-
-
   return (
     <div className='container-fluid'>
-        <div className='row'>
-          <div className='col-md-12'>
-              <div className='d-flex justify-content-between mt-3'>
-                <h4>Setting Record</h4>
+      <div className='row'>
+        <div className='col-md-12'>
+          <div className='d-flex justify-content-between mt-3'>
+                <h4>Order Serial Setting Record</h4>
                 <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5'
                    onClick={()=>setSettingModel(true)}
-                  //  data-bs-toggle="modal" data-bs-target="#exampleModal"
                    >Add New</button>
-              </div>
-              <div className='mt-3 '>
+          </div>
+          <div className='mt-3 '>
                <input type="text" className='form-control '
                 //  onChange={handleFilter} 
                 placeholder='Search Here'  />
-              </div>
-              <DataTable
+          </div>
+          <DataTable
                 columns={columns}
                 data={dataList}
                 customStyles={customStyles}
-              />
-          </div>
+            />
+
+
         </div>
+      </div>
 
 
-{/* <!-- Setting Modal --> */}
+      {/* <!-- Setting Modal --> */}
 {settingModel && (
 <div className="modal show  fade"  style={{ display: 'block' }}
     tabIndex="-1" aria-labelledby="exampleModalLabel"
@@ -82,18 +80,33 @@ const SerialSetting = () => {
   <div className="modal-dialog  modal-dialog-centered">
     <div className="modal-content">
       <div className="modal-header border-0">
-        <h5 className="modal-title ">Setting</h5>
+        <h5 className="modal-title ">Order Serial Setting</h5>
         <button type="button" className="btn-close" onClick={()=>setSettingModel(false)}></button>
       </div>
       <div className="modal-body border  border-secondary mx-2">
-        <div className='container'>
+        <div className='container-fluid'>
           <div className='row'>
             <div className='col-md-12'>
               <form action="">
                 <div className="mb-2 row ">
-                  <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Form Name :</label>             
+                  <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Type :</label>             
                 <div className="col-sm-7 d-flex align-items-center">
-                    <input type="text" className="form-control bg-body-secondary"  name="FormName"
+                  <select className="form-select form-select-sm bg-body-secondary" 
+                        name='Type' required aria-label="Default select example">
+                           <option> select</option>
+                           <option value="Sales Order">Sales Order</option>
+                           <option value="Sales Order">Export Sales Order</option>
+                           <option value="Work Order">Work Order</option>
+                           <option value="Export Work Order">Export Work Order</option>
+                           <option value="Purchase Order">Purchase Order</option>
+                           <option value="Job Work">Job Work</option>
+                    </select>
+                </div>
+                </div>
+                <div className="mb-2 row ">
+                  <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Name :</label>             
+                <div className="col-sm-7 d-flex align-items-center">
+                    <input type="text" className="form-control bg-body-secondary"  name="Name"
                       // value={updateData.RoleName} onChange={updateHandler}
                       autoComplete="off" required  />
                 </div>
@@ -130,10 +143,6 @@ const SerialSetting = () => {
                       autoComplete="off" required  />
                 </div>
                 </div>
-                  <div className=' mb-2 row '>
-                    <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Example :</label>  
-                    <label className='col-sm-7 col-form-label fs-5 '> CHLN-01/22/23</label>
-                  </div>
                   <div className="mb-2 row">
                    <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Auto Generate :</label>             
                    <div className="col-sm-5 d-flex align-items-center">
@@ -144,7 +153,11 @@ const SerialSetting = () => {
                            <option value="No">No</option>
                     </select>
                     </div>
-                </div>
+                  </div>
+                  <div className=' mb-2 row '>
+                    <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Example :</label>  
+                    <label className='col-sm-7 col-form-label fs-5 '>01</label>
+                  </div>
               </form>
             </div>
           </div>
@@ -159,8 +172,9 @@ const SerialSetting = () => {
   </div>
 </div>
 )}
+      
     </div>
   )
 }
 
-export default SerialSetting
+export default OrderSerialSetting
