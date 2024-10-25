@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DataTable from 'react-data-table-component'
 
 
 const SerialSetting = () => {
-
+  const[settingForm,setSettingForm]= useState(false)
+  const [settingModel,setSettingModel] = useState(false)
   const dataList =[
     {Name :"Gautam", Email:"gautam@gmail.com",MobileNo:"9876543210",AutoGenerate:"Yes"},
     {Name :"Vivek", Email:"vivek@gmail.com",MobileNo:"7854239610",AutoGenerate:"Yes"},
@@ -54,7 +55,9 @@ const SerialSetting = () => {
               <div className='d-flex justify-content-between mt-3'>
                 <h4>Setting Record</h4>
                 <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5'
-                   onClick={()=>alert("click")}>Add New</button>
+                   onClick={()=>setSettingModel(true)}
+                  //  data-bs-toggle="modal" data-bs-target="#exampleModal"
+                   >Add New</button>
               </div>
               <div className='mt-3 '>
                <input type="text" className='form-control '
@@ -68,6 +71,94 @@ const SerialSetting = () => {
               />
           </div>
         </div>
+
+
+{/* <!-- Setting Modal --> */}
+{settingModel && (
+<div className="modal show  fade"  style={{ display: 'block' }}
+    tabIndex="-1" aria-labelledby="exampleModalLabel"
+    //  aria-hidden="true"
+    >
+  <div className="modal-dialog  modal-dialog-centered">
+    <div className="modal-content">
+      <div className="modal-header border-0">
+        <h5 className="modal-title ">Setting</h5>
+        <button type="button" className="btn-close" onClick={()=>setSettingModel(false)}></button>
+      </div>
+      <div className="modal-body border  border-secondary mx-2">
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-12'>
+              <form action="">
+                <div className="mb-2 row ">
+                  <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Form Name :</label>             
+                <div className="col-sm-7 d-flex align-items-center">
+                    <input type="text" className="form-control bg-body-secondary"  name="FormName"
+                      // value={updateData.RoleName} onChange={updateHandler}
+                      autoComplete="off" required  />
+                </div>
+                </div>
+                <div className="mb-2 row ">
+                  <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Prefix :</label>             
+                <div className="col-sm-7 d-flex align-items-center">
+                    <input type="text" className="form-control bg-body-secondary"  name="Prefix"
+                      // value={updateData.RoleName} onChange={updateHandler}
+                      autoComplete="off" required  />
+                </div>
+                </div>
+                <div className="mb-2 row ">
+                  <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Post Fix :</label>             
+                <div className="col-sm-7 d-flex align-items-center">
+                    <input type="text" className="form-control bg-body-secondary"  name="Postfix"
+                      // value={updateData.RoleName} onChange={updateHandler}
+                      autoComplete="off" required  />
+                </div>
+                </div>
+                <div className="mb-2 row ">
+                  <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >No Of Digit :</label>             
+                <div className="col-sm-7 d-flex align-items-center">
+                    <input type="number" className="form-control bg-body-secondary"  name="NoOfDigit"
+                      // value={updateData.RoleName} onChange={updateHandler}
+                      autoComplete="off" required  />
+                </div>
+                </div>
+                <div className="mb-2 row ">
+                  <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Start Form :</label>             
+                <div className="col-sm-7 d-flex align-items-center">
+                    <input type="number" className="form-control bg-body-secondary"  name="FormName"
+                      // value={updateData.RoleName} onChange={updateHandler}
+                      autoComplete="off" required  />
+                </div>
+                </div>
+                  <div className=' mb-2 row '>
+                    <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Example :</label>  
+                    <label className='col-sm-7 col-form-label fs-5 '> CHLN-01/22/23</label>
+                  </div>
+                  <div className="mb-2 row">
+                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Auto Generate :</label>             
+                   <div className="col-sm-5 d-flex align-items-center">
+                   <select className="form-select form-select-sm bg-body-secondary" 
+                        name='AutoGenerate' required aria-label="Default select example">
+                           <option> select</option>
+                           <option value="Yes">Yes</option>
+                           <option value="No">No</option>
+                    </select>
+                    </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div className="modal-footer border-0">
+        <button type="button" className="btn btn-primary">{settingForm ? "Update" :"Save"}</button>
+        <button type="button" className="btn btn-secondary" onClick={()=>setSettingModel(false)}>Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+)}
     </div>
   )
 }

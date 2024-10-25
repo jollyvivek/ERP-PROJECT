@@ -169,7 +169,7 @@ const Role = ({RoleModel}) => {
                     value={updateData.RoleName} onChange={updateHandler}
                     autoComplete="off" required  />
                 </div>
-              </div>
+                </div>
               <div className="mb-2 row">
                 <label htmlFor="" className=" col-sm-5 col-form-label fs-5  text-end" >
                   Description :
