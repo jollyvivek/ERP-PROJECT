@@ -38,6 +38,7 @@ import UserModel from "../../Pages/UserModel";
 import { useContext } from "react";
 import { StoreContext } from "../../Context/StoreContext";
 import SerialSetting from "../AdminSetting/SerialSetting";
+import ApprovalSetting from "../AdminSetting/ApprovalSetting";
 
 
 
@@ -100,6 +101,7 @@ const Sidebar = () => {
         <Route path="/statemaster" element={<StateMaster url={url} />}/>
         <Route path="/bankmaster" element={<BankMaster url={url}/> } />
         <Route path="/serialsetting" element={<SerialSetting/>}/>
+        <Route path="/approvalsetting" element={<ApprovalSetting/>}/>
        
       </Routes>
         </div>

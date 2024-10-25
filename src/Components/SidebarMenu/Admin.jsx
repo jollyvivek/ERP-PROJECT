@@ -106,7 +106,7 @@ const Admin = () => {
                   <span onClick={()=>navigate('/serialsetting')}> Serial Setting </span>
                 </li>
                 <li>
-                  <span>Approval Setting </span>
+                  <span onClick={()=>navigate('/approvalsetting')}>Approval Setting </span>
                 </li>
                 <li>
                   <span>Order Serial Setting</span>
