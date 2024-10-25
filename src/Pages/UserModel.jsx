@@ -329,7 +329,7 @@ const UserModel = ({addModelHandler}) => {
                 </div>
             </div>
             <div  className="row">
-              <div className='col-sm-12 d-flex justify-content-center gap-3 my-3'>
+              <div className='col-sm-12 d-flex justify-content-end gap-3 my-3'>
               <button type="submit"  className="btn btn-primary" >Send</button>
               <button type="button"  className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setTestMail(false)}>Close</button>
               </div>

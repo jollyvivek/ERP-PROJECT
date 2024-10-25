@@ -37,6 +37,7 @@ import RoleModel from "../AdminItems/RoleModel";
 import UserModel from "../../Pages/UserModel";
 import { useContext } from "react";
 import { StoreContext } from "../../Context/StoreContext";
+import SerialSetting from "../AdminSetting/SerialSetting";
 
 
 
@@ -98,6 +99,7 @@ const Sidebar = () => {
         <Route path="/countrymaster" element={<CountryMaster url={url} />}/>
         <Route path="/statemaster" element={<StateMaster url={url} />}/>
         <Route path="/bankmaster" element={<BankMaster url={url}/> } />
+        <Route path="/serialsetting" element={<SerialSetting/>}/>
        
       </Routes>
         </div>

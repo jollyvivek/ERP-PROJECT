@@ -103,7 +103,7 @@ const Admin = () => {
             {settingItems ? (
               <ul className="setting-items mb-3">
                 <li>
-                  <span> Serial Setting </span>
+                  <span onClick={()=>navigate('/serialsetting')}> Serial Setting </span>
                 </li>
                 <li>
                   <span>Approval Setting </span>

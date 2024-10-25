@@ -52,7 +52,7 @@ const ManageUser = ({addModelHandler}) => {
               <input type="text" className='form-control '
               //  onChange={handleFilter} 
                placeholder='Search Here'  />
-            </div>
+          </div>
           <DataTable
             columns={columns}
             data={dataList}
