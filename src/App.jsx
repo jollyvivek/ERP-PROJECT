@@ -12,19 +12,20 @@ import RoleModel from "./Pages/RoleModel";
 
 const App = () => {
   const[showLogin,setShowLogin]=useState(false)
+  const [userData,setUserData] = useState()
   const{token}= useContext(StoreContext)
   const[value,setValue]=useState(token)
  
-
+// console.log(userData)
   return (
     <>
   <div>
-    {showLogin ?<LoginPopup setShowLogin={setShowLogin}/> :<></>}
+    {showLogin ?<LoginPopup setShowLogin={setShowLogin} setUserData = {setUserData}/> :<></>}
     <ToastContainer/>
     <Navbar setShowLogin={setShowLogin}/>
     {/* <hr /> */}
     <div className="app-content">
-    {value===token ? <ErpHome/> :<Sidebar/>}
+    {value===token ? <ErpHome/> :<Sidebar userData={userData}/>}
     </div>
   </div>
     </>

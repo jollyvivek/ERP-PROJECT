@@ -4,7 +4,7 @@ import { RxCross2 } from "react-icons/rx";
 import { toast } from 'react-toastify';
 import { StoreContext } from '../../Context/StoreContext';
 import axios from 'axios';
-const LoginPopup = ({setShowLogin}) => {
+const LoginPopup = ({setShowLogin,setUserData}) => {
   const {url,token,setToken} = useContext(StoreContext);
   const[currState,setCurrState] = useState("Login")
   const[data,setData]=useState({
@@ -33,6 +33,7 @@ const LoginPopup = ({setShowLogin}) => {
     const response = await axios.post(newUrl,data);
     if(response.data.success){
       setToken(response.data.token);
+      setUserData(response.data.user)
       localStorage.setItem("token",response.data.token);
       setShowLogin(false)
     }else{

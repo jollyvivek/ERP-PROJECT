@@ -43,11 +43,20 @@ import OrderSerialSetting from "../AdminSetting/OrderSerialSetting";
 
 
 
-const Sidebar = () => {
+const Sidebar = ({userData}) => {
   const {url}= useContext(StoreContext)
   // const url = "http://localhost:4000";
   const [isRoleModel,setIsRoleModel]= useState(false)
   const [isUserModel,setIsUserModel] = useState(false)
+  const [isPassModel,setIsPassModel] = useState(false)
+  const [userUpdate,setUserUpdate] =useState({
+    company:"",
+    username:"",
+    email:"",
+    password:"",
+    phone:""
+  })
+  console.log(userData)
   return (
     <>
     
@@ -65,7 +74,7 @@ const Sidebar = () => {
             <span className="dashboard-title ">Dashboard</span>
           </div>
           <div className="item1">
-            <Admin/>
+            <Admin userData={userData} setIsPassModel ={setIsPassModel}/>
             <Inventry/>
             <Purchase/>
             <Finance/>
@@ -108,6 +117,72 @@ const Sidebar = () => {
       </Routes>
         </div>
       </div>
+
+     
+
+ {/* passwordChange model start  */}
+{/* <!-- Modal --> */}
+
+{isPassModel && (
+<div className="modal show fade"  style={{ display: 'block' }} 
+   tabIndex="-1" aria-labelledby="exampleModalLabel"
+    // aria-hidden="true"
+    >
+  <div className="modal-dialog modal-dialog-centered">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title" id="exampleModalLabel">Change Password</h5>
+        <button type="button" className="btn-close" aria-label="Close" onClick={()=>setIsPassModel(false)}></button>
+      </div>
+      <div className="modal-body container-fluid m-0">
+        <div className="row">
+          <div className="col-md-12">
+            <form action="">
+            <div className="mb-3 row">
+                <label  htmlFor=""   className=" col-sm-4 col-form-label fs-5  text-end" >  UserName : </label>
+              <div className="col-sm-8 d-flex align-items-center">
+                  <input  type="text" className="form-control"   name="" required  />
+               </div>
+            </div>
+            <div className="mb-3 row">
+                <label  htmlFor=""   className=" col-sm-4 col-form-label fs-5  text-end" >  Company : </label>
+              <div className="col-sm-8 d-flex align-items-center">
+                  <input  type="text" className="form-control"   name="" required  />
+               </div>
+            </div>
+            <div className="mb-3 row">
+                <label className=" col-sm-4 col-form-label fs-5  text-end" >Phone : </label>
+              <div className="col-sm-8 d-flex align-items-center">
+                  <input  type="text" className="form-control"   name="" required  />
+               </div>
+            </div>
+            <div className="mb-3 row">
+                <label  className=" col-sm-4 col-form-label fs-5  text-end" > Email : </label>
+              <div className="col-sm-8 d-flex align-items-center">
+                  <input  type="email" className="form-control"   name=""    required   />
+               </div>
+            </div>
+            <div className="mb-3 row">
+                <label  htmlFor=""   className=" col-sm-4 col-form-label fs-5  text-end" >Password : </label>
+              <div className="col-sm-8 d-flex align-items-center">
+                  <input  type="text" className="form-control"   name="" required />
+               </div>
+            </div>
+            </form>
+          </div>
+        </div>      
+       
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn border-primary">Change Passowrd</button>
+        <button type="button" className="btn btn-secondary" onClick={()=>setIsPassModel(false)}>Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+)}
+{/* passwordChange model start  */}
+
     </div>
     </>
   );

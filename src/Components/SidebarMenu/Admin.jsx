@@ -5,7 +5,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { useState } from "react";
 // import $ from 'jquery'
 import { Link, NavLink, useNavigate } from "react-router-dom";
-const Admin = () => {
+const Admin = ({userData,setIsPassModel}) => {
   const [adminItems, setAdminItem] = useState(false);
   const [profileItem, setProfileItem] = useState(false);
   const [masterItems, setMasterItems] = useState(false);
@@ -114,7 +114,7 @@ const Admin = () => {
               </ul>
             ) : null}
             <li className="title">
-              <span>Change Password</span>
+              <span onClick={()=>setIsPassModel(true)}>Change Password</span>
             </li>
             <li className="d-flex justify-content-between align-items-center">
               <span>Import Excel</span>
