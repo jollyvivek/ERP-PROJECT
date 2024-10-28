@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import DataTable from 'react-data-table-component'
-
+import { BiEdit } from "react-icons/bi";
 const ApprovalSetting = () => {
 
   const[settingForm,setSettingForm]= useState(false)
@@ -16,7 +16,10 @@ const ApprovalSetting = () => {
     {name:"Form Name",selector:row=>row.FormName,sortable:true},
     {name:"Approval 1",selector:row=>row.ap1,sortable:true},
     {name:"Approval 2",selector:row=>row.ap2},
-    {name:"Approval 3",selector:row=>row.ap3}
+    {name:"Approval 3",selector:row=>row.ap3},
+    {name:"Modify",selector:row=>row,cell:row=>(
+      <button className="btn text-center fs-4" onClick={()=>alert("click")}><BiEdit/></button>
+    )},
   ]
 
   const customStyles = {
@@ -49,7 +52,7 @@ const ApprovalSetting = () => {
   return (
     <div className='container-fluid'>
       <div className='row'>
-        <div className='col-md-12 '>
+        <div className='col-md-12 px-3'>
            <div className='d-flex justify-content-between mt-3'>
                 <h4>Approval Setting Record</h4>
                 <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5'
