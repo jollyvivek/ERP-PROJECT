@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Sidebar.css";
 import { FaBuilding } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
 import Admin from "../SidebarMenu/Admin";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import CompanyDetail from '../../Components/AdminItems/CompanyDetail'
 import Role from '../../Components/AdminItems/Role'
 import ManageUser from "../AdminItems/ManageUser";
@@ -40,12 +40,14 @@ import { StoreContext } from "../../Context/StoreContext";
 import SerialSetting from "../AdminSetting/SerialSetting";
 import ApprovalSetting from "../AdminSetting/ApprovalSetting";
 import OrderSerialSetting from "../AdminSetting/OrderSerialSetting";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 
 
 const Sidebar = ({userData}) => {
-  const {url}= useContext(StoreContext)
-  // const url = "http://localhost:4000";
+  const {url,token,setToken}= useContext(StoreContext)
+  const navigate = useNavigate()
   const [isRoleModel,setIsRoleModel]= useState(false)
   const [isUserModel,setIsUserModel] = useState(false)
   const [isPassModel,setIsPassModel] = useState(false)
@@ -56,7 +58,48 @@ const Sidebar = ({userData}) => {
     password:"",
     phone:""
   })
-  console.log(userData)
+
+  const handleChange = (event)=>{
+    const {name,value} = event.target;
+    setUserUpdate((data)=>({...data,[name]:value}))
+  };
+
+  useEffect(()=>{
+    setUserUpdate(userData)
+  },[]);
+
+  const userUpdateSubmit = async(userData)=>{
+    // event.preventDefault();
+    const payload ={
+      id:userData._id,
+      company:userUpdate.company,
+      username:userUpdate.username,
+      phone:Number(userUpdate.phone),
+      email:userUpdate.email,
+      password:userUpdate.password
+    }
+    try {
+      const response = await axios.post(`${url}/api/user/update`,payload);
+      if(response.data.success){
+        console.log(userUpdate);
+        setUserUpdate({ company:"", username:"",  email:"", password:"",   phone:""})
+        setIsPassModel(false)
+        localStorage.removeItem("token");
+        setToken("");
+        navigate("/")
+        toast.success(response.data.message)
+      }else {
+        toast.error(response.data.message)
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(response.data.message)
+    }
+
+    
+  }
+
+  // console.log(userData)
   return (
     <>
     
@@ -141,31 +184,31 @@ const Sidebar = ({userData}) => {
             <div className="mb-3 row">
                 <label  htmlFor=""   className=" col-sm-4 col-form-label fs-5  text-end" >  UserName : </label>
               <div className="col-sm-8 d-flex align-items-center">
-                  <input  type="text" className="form-control"   name="" required  />
+                  <input  type="text" className="form-control"  name="username" value={userUpdate.username} onChange={handleChange} required  />
                </div>
             </div>
             <div className="mb-3 row">
                 <label  htmlFor=""   className=" col-sm-4 col-form-label fs-5  text-end" >  Company : </label>
               <div className="col-sm-8 d-flex align-items-center">
-                  <input  type="text" className="form-control"   name="" required  />
+                  <input  type="text" className="form-control" name="company" value={userUpdate.company} onChange={handleChange} required  />
                </div>
             </div>
             <div className="mb-3 row">
                 <label className=" col-sm-4 col-form-label fs-5  text-end" >Phone : </label>
               <div className="col-sm-8 d-flex align-items-center">
-                  <input  type="text" className="form-control"   name="" required  />
+                  <input  type="number" className="form-control" name="phone" value={userUpdate.phone} onChange={handleChange} required  />
                </div>
             </div>
             <div className="mb-3 row">
                 <label  className=" col-sm-4 col-form-label fs-5  text-end" > Email : </label>
               <div className="col-sm-8 d-flex align-items-center">
-                  <input  type="email" className="form-control"   name=""    required   />
+                  <input  type="email" className="form-control"   name="email" value={userUpdate.email} onChange={handleChange}    required   />
                </div>
             </div>
             <div className="mb-3 row">
-                <label  htmlFor=""   className=" col-sm-4 col-form-label fs-5  text-end" >Password : </label>
+                <label className=" col-sm-4 col-form-label fs-5  text-end" >Password : </label>
               <div className="col-sm-8 d-flex align-items-center">
-                  <input  type="text" className="form-control"   name="" required />
+                  <input  type="password" className="form-control" name="password" value={userUpdate.password} onChange={handleChange} required />
                </div>
             </div>
             </form>
@@ -174,7 +217,7 @@ const Sidebar = ({userData}) => {
        
       </div>
       <div className="modal-footer">
-        <button type="button" className="btn border-primary">Change Passowrd</button>
+        <button type="button" className="btn border-primary" onClick={()=>userUpdateSubmit(userData)}>Change Passowrd</button>
         <button type="button" className="btn btn-secondary" onClick={()=>setIsPassModel(false)}>Close</button>
       </div>
     </div>
