@@ -19,7 +19,7 @@ const OrderSerialSetting = () => {
     {name:"Postfix",selector:row=>row.MobileNo},
     {name:"Auto Generate",selector:row=>row.AutoGenerate},
     {name:"Modify",selector:row=>row,cell:row=>(
-      <button className="btn text-center fs-4" onClick={()=>alert("click")}><BiEdit/></button>
+      <button className="btn text-center fs-4" onClick={()=>setSettingModel(true)}><BiEdit/></button>
     )},
   ]
   const customStyles = {

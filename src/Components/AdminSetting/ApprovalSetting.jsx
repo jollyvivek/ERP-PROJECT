@@ -18,7 +18,7 @@ const ApprovalSetting = () => {
     {name:"Approval 2",selector:row=>row.ap2},
     {name:"Approval 3",selector:row=>row.ap3},
     {name:"Modify",selector:row=>row,cell:row=>(
-      <button className="btn text-center fs-4" onClick={()=>alert("click")}><BiEdit/></button>
+      <button className="btn text-center fs-4" onClick={()=>setSettingModel(true)}><BiEdit/></button>
     )},
   ]
 
@@ -55,7 +55,7 @@ const ApprovalSetting = () => {
         <div className='col-md-12 px-3'>
            <div className='d-flex justify-content-between mt-3'>
                 <h4>Approval Setting Record</h4>
-                <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5'
+                <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5 d-none'
                    onClick={()=>setSettingModel(true)}
                   //  data-bs-toggle="modal" data-bs-target="#exampleModal"
                    >Add New</button>

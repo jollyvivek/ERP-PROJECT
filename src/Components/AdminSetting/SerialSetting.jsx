@@ -17,7 +17,7 @@ const SerialSetting = () => {
     {name:"Postfix",selector:row=>row.MobileNo},
     {name:"Auto Generate",selector:row=>row.AutoGenerate},
     {name:"Modify",selector:row=>row,cell:row=>(
-      <button className="btn text-center fs-4" onClick={()=>alert("click")}><BiEdit/></button>
+      <button className="btn text-center fs-4" onClick={()=>setSettingModel(true)}><BiEdit/></button>
     )},
   ]
 
@@ -53,7 +53,7 @@ const SerialSetting = () => {
           <div className='col-md-12 px-3'>
               <div className='d-flex justify-content-between mt-3'>
                 <h4>Setting Record</h4>
-                <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5'
+                <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5 d-none'
                    onClick={()=>setSettingModel(true)}
                   //  data-bs-toggle="modal" data-bs-target="#exampleModal"
                    >Add New</button>
