@@ -70,6 +70,22 @@ const Role = ({RoleModel}) => {
     RoleFetchList();
   },[]);
 
+  // handleFilter
+
+  const handleFilter =(event)=>{
+    const searchText = event.target.value.toLowerCase();
+    const filteredData = dataList.filter(row =>{
+      return row.Description.toLowerCase().includes(searchText)
+    });
+    if(searchText){
+      setDataList(filteredData);
+     }else{
+      setDataList(()=>{
+        RoleFetchList();
+      })
+     }
+  }
+
     const removeRole = async(id)=>{
       try {
         const response = await axios.post(`${url}/api/role/remove`,{id:id});
@@ -127,7 +143,7 @@ const Role = ({RoleModel}) => {
           <div>
           <div className='mt-3 '>
               <input type="text" className='form-control '
-              //  onChange={handleFilter} 
+               onChange={handleFilter} 
                placeholder='Search Here'  />
             </div>
           <DataTable
