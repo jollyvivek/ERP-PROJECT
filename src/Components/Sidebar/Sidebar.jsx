@@ -45,6 +45,7 @@ import { toast } from "react-toastify";
 import ImportInstrument from "../AdminImportExcel/ImportInstrument";
 import ImportItem from "../AdminImportExcel/ImportItem";
 import ImportItemOpening from "../AdminImportExcel/ImportItemOpening";
+import ExportExcel from "../AdminItems/ExportExcel";
 
 
 
@@ -162,6 +163,9 @@ const Sidebar = ({userData}) => {
         <Route path="/importinstrument" element ={<ImportInstrument/>}/>
         <Route path="/importitem" element = {<ImportItem/>} />
         <Route path="/importitemopening" element={<ImportItemOpening/>}/>
+
+
+        <Route path="/exportexcel" element = {<ExportExcel/>} />
       </Routes>
         </div>
       </div>

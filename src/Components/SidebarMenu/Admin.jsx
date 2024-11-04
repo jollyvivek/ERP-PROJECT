@@ -198,7 +198,7 @@ const Admin = ({userData,setIsPassModel}) => {
               </ul>
             ) : null}
             <li className="title">
-              <span>Export Excel</span>
+              <span onClick={()=>navigate('/exportexcel')}>Export Excel</span>
             </li>
             <li className="d-flex justify-content-between align-items-center">
               <span>Financial Year Setting</span>
