@@ -126,7 +126,7 @@ const Admin = ({userData,setIsPassModel}) => {
               <ul className="import-excel-items">
                 <li>
                   {" "}
-                  <span> Import Instrument </span>
+                  <span onClick={()=>navigate('/importinstrument')}> Import Instrument </span>
                 </li>
                 <li>
                   <span> Import Item </span>
