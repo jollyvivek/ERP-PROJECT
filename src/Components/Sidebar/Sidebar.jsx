@@ -46,6 +46,8 @@ import ImportInstrument from "../AdminImportExcel/ImportInstrument";
 import ImportItem from "../AdminImportExcel/ImportItem";
 import ImportItemOpening from "../AdminImportExcel/ImportItemOpening";
 import ExportExcel from "../AdminItems/ExportExcel";
+import InventrySetting from "../AdminItems/InventrySetting";
+import FinanceSetting from "../AdminItems/FinanceSetting";
 
 
 
@@ -166,6 +168,8 @@ const Sidebar = ({userData}) => {
 
 
         <Route path="/exportexcel" element = {<ExportExcel/>} />
+        <Route path="/inventrysetting" element = {<InventrySetting/>}/>
+        <Route  path="/financesetting" element ={<FinanceSetting/>}/>
       </Routes>
         </div>
       </div>
