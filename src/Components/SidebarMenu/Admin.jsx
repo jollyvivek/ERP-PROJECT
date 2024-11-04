@@ -129,11 +129,11 @@ const Admin = ({userData,setIsPassModel}) => {
                   <span onClick={()=>navigate('/importinstrument')}> Import Instrument </span>
                 </li>
                 <li>
-                  <span> Import Item </span>
+                  <span onClick={()=>navigate('/importitem')}> Import Item </span>
                 </li>
                 <li>
                   {" "}
-                  <span>Import Item Opening Balance Group Wise</span>
+                  <span onClick={()=>navigate('/importitemopening')}>Import Item Opening Balance Group Wise</span>
                 </li>
                 <li>
                   <span> Import BOM </span>

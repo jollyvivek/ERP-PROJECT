@@ -43,6 +43,8 @@ import OrderSerialSetting from "../AdminSetting/OrderSerialSetting";
 import axios from "axios";
 import { toast } from "react-toastify";
 import ImportInstrument from "../AdminImportExcel/ImportInstrument";
+import ImportItem from "../AdminImportExcel/ImportItem";
+import ImportItemOpening from "../AdminImportExcel/ImportItemOpening";
 
 
 
@@ -158,6 +160,8 @@ const Sidebar = ({userData}) => {
         <Route path="/approvalsetting" element={<ApprovalSetting/>}/>
         <Route path="/orderserialsetting" element={<OrderSerialSetting/>}/>
         <Route path="/importinstrument" element ={<ImportInstrument/>}/>
+        <Route path="/importitem" element = {<ImportItem/>} />
+        <Route path="/importitemopening" element={<ImportItemOpening/>}/>
       </Routes>
         </div>
       </div>
