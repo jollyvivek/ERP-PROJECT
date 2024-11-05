@@ -136,14 +136,14 @@ const Admin = ({userData,setIsPassModel}) => {
                 <li onClick={()=>navigate('/importqctesting')}><span>Import QC Testing Master</span></li>
                 <li onClick={()=>navigate('/importledger')}><span> Import Ledger </span></li>
                 <li onClick={()=>navigate('/importpackinginstruction')}><span>Packing Instruction </span></li>
-                <li><span>Import Internal Test Certificate Details </span></li>
+                <li onClick={()=>navigate('/testcertificate')}><span>Import Internal Test Certificate Details </span></li>
                 <li><span>Import EU Declartion Into Item</span></li>
                 <li><span>Import Export Description Into Item</span></li>
                 <li><span>Import Rev. No. Into Item</span></li>
                 <li><span>Import NetWeight in Operation</span></li>
                 <li><span>Import NetWeight In Item</span></li>
-                <li><span>Import BatchSerial In Item</span></li>
-                <li><span>Import Chemical Master</span></li>
+                <li onClick={()=>navigate('/batchserial')}><span>Import BatchSerial In Item</span></li>
+                <li onClick={()=>navigate('/chemicalmaster')}><span>Import Chemical Master</span></li>
                 <li onClick={()=>navigate('/mechanicalmaster')}><span>Import Mechanical Master</span></li>
               </ul>
             ) : null}

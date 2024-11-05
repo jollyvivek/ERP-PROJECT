@@ -56,6 +56,9 @@ import ImportQcTesting from "../AdminImportExcel/ImportQcTesting";
 import ImportLedger from "../AdminImportExcel/ImportLedger";
 import ImportPackingInstruction from "../AdminImportExcel/ImportPackingInstruction";
 import ImportMechanicalMaster from "../AdminImportExcel/ImportMechanicalMaster";
+import ChemicalMaster from "../AdminImportExcel/ChemicalMaster";
+import BatchSerialSetting from "../AdminImportExcel/BatchSerialSetting";
+import InternalTestCertificate from "../AdminImportExcel/InternalTestCertificate";
 
 
 
@@ -180,8 +183,12 @@ const Sidebar = ({userData}) => {
         <Route path="/importqctesting" element={<ImportQcTesting/>}/>
         <Route path="/importledger" element={<ImportLedger/>}/>
         <Route path="/importpackinginstruction" element={<ImportPackingInstruction/>} />
+        <Route path="/testcertificate" element={<InternalTestCertificate/>}/>
+
+        <Route path="/batchserial" element={<BatchSerialSetting/>}/>
+        <Route path="/chemicalmaster" element={<ChemicalMaster/>}/>
         <Route path="/mechanicalmaster" element={<ImportMechanicalMaster/>}/>
-        
+
 
         <Route path="/exportexcel" element = {<ExportExcel/>} />
         <Route path="/inventrysetting" element = {<InventrySetting/>}/>
