@@ -131,59 +131,20 @@ const Admin = ({userData,setIsPassModel}) => {
                 <li><span onClick={()=>navigate('/importitemopening')}>Import Item Opening Balance Group Wise</span></li>
                 <li onClick={()=>navigate('/importbom')}><span> Import BOM </span></li>
                 <li onClick={()=>navigate('/importoperation')}><span>Import Operatipon</span></li>
-                <li>
-                  {" "}
-                  <span>Import Packing BOM</span>
-                </li>
-                <li>
-                  {" "}
-                  <span>Import Price List </span>
-                </li>
-                <li>
-                  {" "}
-                  <span>Import QC Testing Master</span>{" "}
-                </li>
-                <li>
-                  <span> Import Ledger </span>
-                </li>
-                <li>
-                  {" "}
-                  <span>Packing Instruction </span>
-                </li>
-                <li>
-                  {" "}
-                  <span>Import Internal Test Certificate Details </span>
-                </li>
-                <li>
-                  {" "}
-                  <span>Import EU Declartion Into Item</span>{" "}
-                </li>
-                <li>
-                  <span>Import Export Description Into Item</span>
-                </li>
-                <li>
-                  <span>Import Rev. No. Into Item</span>
-                </li>
-                <li>
-                  {" "}
-                  <span>Import NetWeight in Operation</span>
-                </li>
-                <li>
-                  {" "}
-                  <span>Import NetWeight In Item</span>{" "}
-                </li>
-                <li>
-                  {" "}
-                  <span>Import BatchSerial In Item</span>
-                </li>
-                <li>
-                  {" "}
-                  <span>Import Chemical Master</span>{" "}
-                </li>
-                <li>
-                  {" "}
-                  <span>Import Mechanical Master</span>
-                </li>
+                <li onClick={()=>navigate('/importpackingbom')}><span>Import Packing BOM</span></li>
+                <li onClick={()=>navigate('/importpricelist')}><span>Import Price List </span></li>
+                <li onClick={()=>navigate('/importqctesting')}><span>Import QC Testing Master</span></li>
+                <li><span> Import Ledger </span></li>
+                <li><span>Packing Instruction </span></li>
+                <li><span>Import Internal Test Certificate Details </span></li>
+                <li><span>Import EU Declartion Into Item</span></li>
+                <li><span>Import Export Description Into Item</span></li>
+                <li><span>Import Rev. No. Into Item</span></li>
+                <li><span>Import NetWeight in Operation</span></li>
+                <li><span>Import NetWeight In Item</span></li>
+                <li><span>Import BatchSerial In Item</span></li>
+                <li><span>Import Chemical Master</span></li>
+                <li><span>Import Mechanical Master</span></li>
               </ul>
             ) : null}
             <li className="title">

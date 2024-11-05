@@ -50,6 +50,9 @@ import InventrySetting from "../AdminItems/InventrySetting";
 import FinanceSetting from "../AdminItems/FinanceSetting";
 import ImportBOM from "../AdminImportExcel/ImportBOM";
 import ImportOperation from "../AdminImportExcel/ImportOperation";
+import ImportPackingBom from "../AdminImportExcel/ImportPackingBom";
+import ImportPriceList from "../AdminImportExcel/ImportPriceList";
+import ImportQcTesting from "../AdminImportExcel/ImportQcTesting";
 
 
 
@@ -169,6 +172,10 @@ const Sidebar = ({userData}) => {
         <Route path="/importitemopening" element={<ImportItemOpening/>}/>
         <Route path="importbom" element={<ImportBOM/>}/>
         <Route path="/importoperation" element={<ImportOperation/>}/>
+        <Route path="/importpackingbom" element={<ImportPackingBom/>}/>
+        <Route path="/importpricelist" element={<ImportPriceList/>}/>
+        <Route path="/importqctesting" element={<ImportQcTesting/>}/>
+        
 
         <Route path="/exportexcel" element = {<ExportExcel/>} />
         <Route path="/inventrysetting" element = {<InventrySetting/>}/>
