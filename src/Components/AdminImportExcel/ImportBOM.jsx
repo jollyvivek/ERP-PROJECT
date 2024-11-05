@@ -1,13 +1,12 @@
 import React from 'react'
-import './ImportExcell.css'
 
-const ImportInstrument = () => {
+const ImportBOM = () => {
   return (
     <div className='container-fluid'>
-      <div className='row'>
+       <div className='row'>
 		<div className='col-md-12 px-3'>
 			<div className=' mt-3 d-flex justify-content-between'>
-			<h5>Import Instrument Details</h5>
+			<h5>Import BOM Details</h5>
 			<div><input type="text" className='form-control' /></div>
 			</div>
 			<div className='row mt-3'>
@@ -53,10 +52,8 @@ const ImportInstrument = () => {
       
       
       
-      
-      
-      </div>
-  )
+    </div>
+  );
 }
 
-export default ImportInstrument
+export default ImportBOM

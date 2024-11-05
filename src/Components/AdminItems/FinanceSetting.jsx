@@ -17,6 +17,29 @@ const FinanceSetting = () => {
         {name:"BalanceStatus",selector:row=>row.BalanceStatus},      
         
       ];
+      const customStyles = {
+        rows: {
+            style: {
+              cursor:"pointer",
+                // minHeight: '72px', // override the row height
+            },
+        },
+        headCells: {
+            style: {
+                paddingLeft: '8px', // padding for header cells
+                paddingRight: '8px',
+                fontSize:"16px"
+            },
+        },
+        cells: {
+            style: {
+                paddingLeft: '8px', // padding for body cells
+                paddingRight: '8px',
+                fontSize:"14px",
+                text:"center"
+            },
+        },
+        };
   return (
     <div className='container-fluid'>
         <div className='row'>
@@ -30,7 +53,7 @@ const FinanceSetting = () => {
                     <DataTable
                         columns={columns}
                         data={dataList}
-                        // customStyles={customStyles}
+                        customStyles={customStyles}
                     />
                     </div>
                 </div>

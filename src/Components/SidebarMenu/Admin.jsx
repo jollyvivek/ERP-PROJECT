@@ -124,24 +124,13 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {importExcelItem ? (
               <ul className="import-excel-items">
-                <li>
-                  {" "}
-                  <span onClick={()=>navigate('/importinstrument')}> Import Instrument </span>
-                </li>
+                <li> <span onClick={()=>navigate('/importinstrument')}> Import Instrument </span></li>
                 <li>
                   <span onClick={()=>navigate('/importitem')}> Import Item </span>
                 </li>
-                <li>
-                  {" "}
-                  <span onClick={()=>navigate('/importitemopening')}>Import Item Opening Balance Group Wise</span>
-                </li>
-                <li>
-                  <span> Import BOM </span>
-                </li>
-                <li>
-                  {" "}
-                  <span>Import Operatipon </span>
-                </li>
+                <li><span onClick={()=>navigate('/importitemopening')}>Import Item Opening Balance Group Wise</span></li>
+                <li onClick={()=>navigate('/importbom')}><span> Import BOM </span></li>
+                <li onClick={()=>navigate('/importoperation')}><span>Import Operatipon</span></li>
                 <li>
                   {" "}
                   <span>Import Packing BOM</span>
