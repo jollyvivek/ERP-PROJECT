@@ -53,6 +53,9 @@ import ImportOperation from "../AdminImportExcel/ImportOperation";
 import ImportPackingBom from "../AdminImportExcel/ImportPackingBom";
 import ImportPriceList from "../AdminImportExcel/ImportPriceList";
 import ImportQcTesting from "../AdminImportExcel/ImportQcTesting";
+import ImportLedger from "../AdminImportExcel/ImportLedger";
+import ImportPackingInstruction from "../AdminImportExcel/ImportPackingInstruction";
+import ImportMechanicalMaster from "../AdminImportExcel/ImportMechanicalMaster";
 
 
 
@@ -175,6 +178,9 @@ const Sidebar = ({userData}) => {
         <Route path="/importpackingbom" element={<ImportPackingBom/>}/>
         <Route path="/importpricelist" element={<ImportPriceList/>}/>
         <Route path="/importqctesting" element={<ImportQcTesting/>}/>
+        <Route path="/importledger" element={<ImportLedger/>}/>
+        <Route path="/importpackinginstruction" element={<ImportPackingInstruction/>} />
+        <Route path="/mechanicalmaster" element={<ImportMechanicalMaster/>}/>
         
 
         <Route path="/exportexcel" element = {<ExportExcel/>} />

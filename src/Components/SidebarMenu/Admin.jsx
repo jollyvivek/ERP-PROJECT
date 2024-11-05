@@ -134,8 +134,8 @@ const Admin = ({userData,setIsPassModel}) => {
                 <li onClick={()=>navigate('/importpackingbom')}><span>Import Packing BOM</span></li>
                 <li onClick={()=>navigate('/importpricelist')}><span>Import Price List </span></li>
                 <li onClick={()=>navigate('/importqctesting')}><span>Import QC Testing Master</span></li>
-                <li><span> Import Ledger </span></li>
-                <li><span>Packing Instruction </span></li>
+                <li onClick={()=>navigate('/importledger')}><span> Import Ledger </span></li>
+                <li onClick={()=>navigate('/importpackinginstruction')}><span>Packing Instruction </span></li>
                 <li><span>Import Internal Test Certificate Details </span></li>
                 <li><span>Import EU Declartion Into Item</span></li>
                 <li><span>Import Export Description Into Item</span></li>
@@ -144,7 +144,7 @@ const Admin = ({userData,setIsPassModel}) => {
                 <li><span>Import NetWeight In Item</span></li>
                 <li><span>Import BatchSerial In Item</span></li>
                 <li><span>Import Chemical Master</span></li>
-                <li><span>Import Mechanical Master</span></li>
+                <li onClick={()=>navigate('/mechanicalmaster')}><span>Import Mechanical Master</span></li>
               </ul>
             ) : null}
             <li className="title">
