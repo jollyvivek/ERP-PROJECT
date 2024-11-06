@@ -60,6 +60,7 @@ import ChemicalMaster from "../AdminImportExcel/ChemicalMaster";
 import BatchSerialSetting from "../AdminImportExcel/BatchSerialSetting";
 import InternalTestCertificate from "../AdminImportExcel/InternalTestCertificate";
 import CreateYear from "../AdminItems/CreateYear";
+import MasterReport from "../AdminItems/MasterReport";
 
 
 
@@ -69,6 +70,7 @@ const Sidebar = ({userData}) => {
   const [isRoleModel,setIsRoleModel]= useState(false)
   const [isUserModel,setIsUserModel] = useState(false)
   const [isPassModel,setIsPassModel] = useState(false)
+  // const [isMasterReport,setIsMasterReport] =useState(false)
   const [userUpdate,setUserUpdate] =useState({
     company:"",
     username:"",
@@ -125,6 +127,8 @@ const Sidebar = ({userData}) => {
       { isRoleModel ? <RoleModel RoleModel={setIsRoleModel} /> : <></>}
       { isUserModel ?<UserModel addModelHandler={setIsUserModel} />:<></>}
       <div className="row">
+        {/* { <div className="position-absolute z-1 p-0 h-100"><MasterReport/></div> } */}
+
         <div className="col-md-3 left dashboard ps-2 ">
         <div className="dashborad-cont">
             <span className="fs-3"><FaBuilding/></span>
@@ -194,7 +198,8 @@ const Sidebar = ({userData}) => {
         <Route path="/exportexcel" element = {<ExportExcel/>} />
         <Route path="/createyear" element={<CreateYear/>}/>
         <Route path="/inventrysetting" element = {<InventrySetting/>}/>
-        <Route  path="/financesetting" element ={<FinanceSetting/>}/>
+        <Route path="/financesetting" element ={<FinanceSetting/>}/>
+        <Route path="/masterreport" element={<MasterReport/>}/>
       </Routes>
         </div>
       </div>

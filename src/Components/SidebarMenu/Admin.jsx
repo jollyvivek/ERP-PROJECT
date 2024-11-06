@@ -5,7 +5,10 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { useState } from "react";
 // import $ from 'jquery'
 import { Link, NavLink, useNavigate } from "react-router-dom";
+
+
 const Admin = ({userData,setIsPassModel}) => {
+
   const [adminItems, setAdminItem] = useState(false);
   const [profileItem, setProfileItem] = useState(false);
   const [masterItems, setMasterItems] = useState(false);
@@ -162,7 +165,7 @@ const Admin = ({userData,setIsPassModel}) => {
               </ul>
               ):null}
 
-            <li className=" title">
+            <li className=" title" onClick={()=>navigate('/masterreport')}>
               <span>Master Report</span>
             </li>
             <li className=" title">
