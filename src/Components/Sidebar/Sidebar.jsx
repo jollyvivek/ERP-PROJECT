@@ -59,6 +59,7 @@ import ImportMechanicalMaster from "../AdminImportExcel/ImportMechanicalMaster";
 import ChemicalMaster from "../AdminImportExcel/ChemicalMaster";
 import BatchSerialSetting from "../AdminImportExcel/BatchSerialSetting";
 import InternalTestCertificate from "../AdminImportExcel/InternalTestCertificate";
+import CreateYear from "../AdminItems/CreateYear";
 
 
 
@@ -191,6 +192,7 @@ const Sidebar = ({userData}) => {
 
 
         <Route path="/exportexcel" element = {<ExportExcel/>} />
+        <Route path="/createyear" element={<CreateYear/>}/>
         <Route path="/inventrysetting" element = {<InventrySetting/>}/>
         <Route  path="/financesetting" element ={<FinanceSetting/>}/>
       </Routes>

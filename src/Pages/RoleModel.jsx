@@ -9,7 +9,7 @@ const RoleModel = (props) => {
     alert();
   }
   return (
-    <div className="container-fluid px-0 position-absolute h-100 z-1 " style={{background:"lightGrey"}}>
+    <div className="container-fluid px-0 position-absolute  h-100 z-1 " style={{background:"lightGrey"}}>
       <div className="row px-0">
         <h4>Role Details</h4>
         <div className="col-md-4">

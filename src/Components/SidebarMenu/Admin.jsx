@@ -156,7 +156,7 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {financialYearItem ?(
             <ul className="finance-year-items">
-                <li className="title"> <span>Create Year </span></li>
+                <li className="title" onClick={()=>navigate('/createyear')}> <span>Create Year </span></li>
                 <li className="title" onClick={()=>navigate("/inventrysetting")}> <span>Inventry Setting </span></li>
                 <li className="title" onClick={()=>navigate('/financesetting')}> <span>Financial Setting </span></li>
               </ul>
