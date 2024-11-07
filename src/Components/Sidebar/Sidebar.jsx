@@ -61,6 +61,7 @@ import BatchSerialSetting from "../AdminImportExcel/BatchSerialSetting";
 import InternalTestCertificate from "../AdminImportExcel/InternalTestCertificate";
 import CreateYear from "../AdminItems/CreateYear";
 import MasterReport from "../AdminItems/MasterReport";
+import MailHistory from "../AdminItems/MailHistory";
 
 
 
@@ -200,6 +201,10 @@ const Sidebar = ({userData}) => {
         <Route path="/inventrysetting" element = {<InventrySetting/>}/>
         <Route path="/financesetting" element ={<FinanceSetting/>}/>
         <Route path="/masterreport" element={<MasterReport/>}/>
+        <Route path="/mailhistory" element={<MailHistory/>}/>
+        <Route/>
+        <Route/>
+        <Route/>
       </Routes>
         </div>
       </div>
