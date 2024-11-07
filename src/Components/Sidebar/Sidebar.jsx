@@ -62,6 +62,7 @@ import InternalTestCertificate from "../AdminImportExcel/InternalTestCertificate
 import CreateYear from "../AdminItems/CreateYear";
 import MasterReport from "../AdminItems/MasterReport";
 import MailHistory from "../AdminItems/MailHistory";
+import BatchTracking from "../AdminItems/BatchTracking";
 
 
 
@@ -203,9 +204,9 @@ const Sidebar = ({userData}) => {
         <Route path="/masterreport" element={<MasterReport/>}/>
         <Route path="/mailhistory" element={<MailHistory/>}/>
         <Route/>
+        <Route path="/batchtracking" element={<BatchTracking/>}/>
         <Route/>
-        <Route/>
-      </Routes>
+        </Routes>
         </div>
       </div>
 
