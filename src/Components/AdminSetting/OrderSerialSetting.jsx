@@ -60,11 +60,7 @@ const OrderSerialSetting = () => {
                 //  onChange={handleFilter} 
                 placeholder='Search Here'  />
           </div>
-          <DataTable
-                columns={columns}
-                data={dataList}
-                customStyles={customStyles}
-            />
+          <DataTable  columns={columns}  data={dataList}    customStyles={customStyles}  />
 
 
         </div>

@@ -3,8 +3,11 @@ import '../../Styles/SidebarCommon.css'
 import { FaBox, FaLessThanEqual } from "react-icons/fa";
 import { RiArrowDropDownLine } from 'react-icons/ri'
 import { FaBedPulse } from 'react-icons/fa6';
+import { useNavigate } from 'react-router-dom';
 
 const Inventry = () => {
+ 
+const navigate = useNavigate()
 const [inventryItem,setInventryItem] = useState(false)
 const [masterItem,setMasterItem] = useState(false)
 const [vendorItem,setVendorItem] = useState(false)
@@ -64,9 +67,9 @@ const reportsTwoDropdown = () =>{
           </li>
           {masterItem ?(
           <ul className='master-items'>
-                <li> <span>Group</span></li>
-                <li> <span>Category</span></li>
-                <li> <span>HSN/SAC</span></li>
+                <li onClick={()=>navigate('/inventrygroup')}><span>Group</span></li>
+                <li><span>Category</span></li>
+                <li><span>HSN/SAC</span></li>
                 <li><span>Unit</span></li>
                 <li><span>Item</span></li>
                 <li><span>Price List</span></li>

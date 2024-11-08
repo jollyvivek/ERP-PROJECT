@@ -63,6 +63,7 @@ import CreateYear from "../AdminItems/CreateYear";
 import MasterReport from "../AdminItems/MasterReport";
 import MailHistory from "../AdminItems/MailHistory";
 import BatchTracking from "../AdminItems/BatchTracking";
+import Group from "../InventryMasters/Group";
 
 
 
@@ -158,6 +159,7 @@ const Sidebar = ({userData}) => {
         </div>
         <div className="col-md-9 p-0" >
         <Routes>
+        {/* admin */}
         <Route path="/basic_details" element={<BasicDetails/>}/>
         <Route path="/" element={<SidebarRight/>}/>
         <Route path="/company/*" element={<CompanyDetail/>}/>
@@ -205,6 +207,10 @@ const Sidebar = ({userData}) => {
         <Route path="/mailhistory" element={<MailHistory/>}/>
         <Route/>
         <Route path="/batchtracking" element={<BatchTracking/>}/>
+        {/* Inventry */}
+        <Route path="/inventrygroup" element={<Group/>}/>
+        <Route/>
+        <Route/>
         <Route/>
         </Routes>
         </div>
