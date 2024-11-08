@@ -65,6 +65,7 @@ import MailHistory from "../AdminItems/MailHistory";
 import BatchTracking from "../AdminItems/BatchTracking";
 import Group from "../InventryMasters/Group";
 import Category from "../InventryMasters/Category";
+import ManagementLog from "../AdminItems/ManagementLog";
 
 
 
@@ -206,7 +207,7 @@ const Sidebar = ({userData}) => {
         <Route path="/financesetting" element ={<FinanceSetting/>}/>
         <Route path="/masterreport" element={<MasterReport/>}/>
         <Route path="/mailhistory" element={<MailHistory/>}/>
-        <Route/>
+        <Route path="/managementlog" element={<ManagementLog/>}/>
         <Route path="/batchtracking" element={<BatchTracking/>}/>
         {/* Inventry */}
         <Route path="/inventrygroup" element={<Group/>}/>

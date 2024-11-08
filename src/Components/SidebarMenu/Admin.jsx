@@ -167,7 +167,7 @@ const Admin = ({userData,setIsPassModel}) => {
 
             <li className=" title" onClick={()=>navigate('/masterreport')}><span>Master Report</span></li>
             <li className="title" onClick={()=>navigate('/mailhistory')}><span>Mail History</span></li>
-            <li className=" title"><span>Managemeny Log</span></li>
+            <li className=" title" onClick={()=>navigate('/managementlog')}><span>Managemeny Log</span></li>
             <li className="title" onClick={()=>navigate('/batchtracking')}><span>Batch Tracking</span></li>
           </ul>
         </div>
