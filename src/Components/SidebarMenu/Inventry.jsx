@@ -68,7 +68,7 @@ const reportsTwoDropdown = () =>{
           {masterItem ?(
           <ul className='master-items'>
                 <li onClick={()=>navigate('/inventrygroup')}><span>Group</span></li>
-                <li><span>Category</span></li>
+                <li onClick={()=>navigate('/inventrycategory')}><span>Category</span></li>
                 <li><span>HSN/SAC</span></li>
                 <li><span>Unit</span></li>
                 <li><span>Item</span></li>

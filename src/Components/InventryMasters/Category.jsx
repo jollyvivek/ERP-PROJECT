@@ -1,21 +1,20 @@
 import React from 'react'
-import DataTable from 'react-data-table-component'
+import DataTable from 'react-data-table-component';
 
-const Group = () => {
+
+const Category = () => {
 
     const dataList =[
-        { GroupName:"Book Bag", Description :"Book Bag", ProductionUnit:"Production Unit-I"},
-        { GroupName:"Notebook", Description :"Notebook", ProductionUnit:"Production Unit-II"},
-        { GroupName:"Plastic", Description :"Plastic", ProductionUnit:"Production Unit-III"},
-        { GroupName:"ABCDE", Description :"ABCDE", ProductionUnit:"Production Unit-IV"},
-        { GroupName:"Casting", Description :"Casting", ProductionUnit:"Production Unit-V"}
+        { CategoryName:"Book Bag", ParentCategoryName :"Book Bag"},
+        { CategoryName:"Notebook", ParentCategoryName :"Notebook"},
+        { CategoryName:"Plastic", ParentCategoryName :"Plastic"},
+        { CategoryName:"ABCDE", ParentCategoryName :"ABCDE"},
+        { CategoryName:"Casting", ParentCategoryName :"Casting"}
       ]
       const columns =[
-        {name:"Group Name",selector:row=>row.GroupName,sortable:true},
-        {name:"Description",selector:row=>row.Description,sortable:true},
-        {name:"Production Unit",selector:row=>row.ProductionUnit,sortable:true},
+        {name:"Category Name",selector:row=>row.CategoryName,sortable:true},
+        {name:"Parent Category Name",selector:row=>row.ParentCategoryName,sortable:true},
       ];
-
       const customStyles = {
         rows: {
             style: {
@@ -42,11 +41,11 @@ const Group = () => {
   return (
     <div className='container-fluid'>
         <div className='row'>
-            <div className='col-md-12'>
+        <div className='col-md-12'>
                 <div className='d-flex justify-content-between mt-3'>
-                    <h5> Group Record</h5>
+                    <h5> Category Record</h5>
                     <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5'
-                        data-bs-toggle="modal" data-bs-target="#GroupModal">Add New
+                        data-bs-toggle="modal" data-bs-target="#CategoryModal">Add New
                     </button>
                 </div>
             </div>
@@ -56,19 +55,17 @@ const Group = () => {
                 //  onChange={handleFilter} 
                 placeholder='Search Here'  />
             </div>
-          <DataTable  columns={columns}  data={dataList}  customStyles={customStyles} />
+            <DataTable  columns={columns}  data={dataList}  customStyles={customStyles} />
+
         </div>
-        {/* Group model */}
 
-{/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#GroupModal">
-  Launch demo modal
-</button> */}
+        {/* category model */}
 
-<div className="modal fade" id="GroupModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="CategoryModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div className="modal-dialog modal-dialog-centered">
     <div className="modal-content">
       <div className="modal-header">
-        <h5 className="modal-title" id="exampleModalLabel">Group Master</h5>
+        <h5 className="modal-title" id="exampleModalLabel">Category Master</h5>
         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div className="modal-body">
@@ -76,33 +73,23 @@ const Group = () => {
             <div className='row'>
                 <div className='col-md-12 px-0'>
                     <fieldset>
-                        <legend>Group</legend>
+                        <legend>Category</legend>
                         <div className="mb-2 row">
                             <label htmlFor="" className=" col-sm-4 col-form-label fs-6  text-end" >
-                                 Group Name :
+                                 Category Name :
                             </label>
                         <div className="col-sm-8 d-flex align-items-center">
-                            <input type="text" className="form-control"  name="currentYear"
+                            <input type="text" className="form-control"  name="CategoryName"
                                 // value={data.currentYear} onChange={handleChange}
                                 autoComplete="off" required  />
                         </div>
                         </div>
                         <div className="mb-2 row">
                             <label htmlFor="" className=" col-sm-4 col-form-label fs-6  text-end" >
-                                 Production Unit :
+                                 Parent Category :
                             </label>
                         <div className="col-sm-8 d-flex align-items-center">
-                            <input type="text" className="form-control"  name="currentYear"
-                                // value={data.currentYear} onChange={handleChange}
-                                autoComplete="off" required  />
-                        </div>
-                        </div>
-                        <div className="mb-2 row">
-                            <label htmlFor="" className=" col-sm-4 col-form-label fs-6  text-end" >
-                                 Description :
-                            </label>
-                        <div className="col-sm-8 d-flex align-items-center">
-                            <input type="text" className="form-control"  name="currentYear"
+                            <input type="text" className="form-control"  name="ParentCategory"
                                 // value={data.currentYear} onChange={handleChange}
                                 autoComplete="off" required  />
                         </div>
@@ -118,10 +105,10 @@ const Group = () => {
       </div>
     </div>
   </div>
-</div>
+        </div>
 
-     </div>
+    </div>
   )
 }
 
-export default Group
+export default Category
