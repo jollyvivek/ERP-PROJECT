@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 const MailHistory = () => {
     const navigate = useNavigate()
   return (
+    <>
     <div className='container-fluid'>
         <div className='row'>
             <div className='col-md-12'>
@@ -17,46 +18,22 @@ const MailHistory = () => {
                
             </div>
         </div>
-        <div className='row mt-3'>
-            <div className='col-md-12 bg-info h-75 border'>
-               <p className=''> Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae modi magnam unde? Repellendus,
-                nisi fuga voluptate autem provident animi assumenda cum commodi facere officia accusantium aliquam
-                illum tempora vitae esse possimus voluptates excepturi deleniti reprehenderit eius natus. Eaque magni 
-                cum quos nobis unde, quibusdam commodi architecto reiciendis iste beatae perferendis atque veritatis, 
-                sint exercitationem aperiam harum, dicta deserunt sapiente! Iste necessitatibus excepturi nisi error,
-                eligendi asperiores a qui, dolorem natus provident blanditiis, ab tempora dignissimos tempore? Quam,
-                quibusdam officia repellendus non sed animi consequuntur in error illum eius sequi quidem laborum dolor
-                expedita optio, qui, ad reiciendis est ipsa beatae.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae modi magnam unde? Repellendus,
-                nisi fuga voluptate autem provident animi assumenda cum commodi facere officia accusantium aliquam
-                illum tempora vitae esse possimus voluptates excepturi deleniti reprehenderit eius natus. Eaque magni 
-                cum quos nobis unde, quibusdam commodi architecto reiciendis iste beatae perferendis atque veritatis, 
-                sint exercitationem aperiam harum, dicta deserunt sapiente! Iste necessitatibus excepturi nisi error,
-                eligendi asperiores a qui, dolorem natus provident blanditiis, ab tempora dignissimos tempore? Quam,
-                quibusdam officia repellendus non sed animi consequuntur in error illum eius sequi quidem laborum dolor
-                expedita optio, qui, ad reiciendis est ipsa beatae.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae modi magnam unde? Repellendus,
-                nisi fuga voluptate autem provident animi assumenda cum commodi facere officia accusantium aliquam
-                illum tempora vitae esse possimus voluptates excepturi deleniti reprehenderit eius natus. Eaque magni 
-                cum quos nobis unde, quibusdam commodi architecto reiciendis iste beatae perferendis atque veritatis, 
-                sint exercitationem aperiam harum, dicta deserunt sapiente! Iste necessitatibus excepturi nisi error,
-                eligendi asperiores a qui, dolorem natus provident blanditiis, ab tempora dignissimos tempore? Quam,
-                quibusdam officia repellendus non sed animi consequuntur in error illum eius sequi quidem laborum dolor
-                expedita optio, qui, ad reiciendis est ipsa beatae.
-                </p>
-            </div>
+    </div>
+    {/* empty box */}
+        <div className='bg-info mt-1' style={{height:"450px"}}>
         </div>
-        <div className='row mt-3'>
+    {/*bottom button  */}
+        <div className='container-fluid'>
+        <div className='row mt-2'>
             <div className='col-md-12 d-flex justify-content-end gap-2'>
                 <button className='btn border-secondary' onClick={()=>alert("View Report Call")} >View Report</button>
                 <button className='btn border-secondary' onClick={()=>alert("Export Excel Call")} >Export Excel</button>
                 <button type='button' className='btn border-secondary' onClick={()=>navigate('/')}>Cancel</button>
             </div>
         </div>
+        </div>
+    </>
 
-
-
-    </div>
   )
 }
 
