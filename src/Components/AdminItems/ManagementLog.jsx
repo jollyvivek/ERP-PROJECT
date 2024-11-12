@@ -2,8 +2,37 @@ import React, { useState } from 'react'
 import DataTable from 'react-data-table-component'
 
 const ManagementLog = () => {
-    const [managementLogModel,setManagementLogModel] = useState(false)
-    const [ownerModel,setOwnerModel] = useState(false)
+    const[managementLogModel,setManagementLogModel] = useState(false)
+    const[ownerModel,setOwnerModel] = useState(false)
+    const[AddEmployeeModel,setAddEmployeeModel]=useState(false)
+    const[personalDetails,setPersonalDetails]=useState(false)
+    const[officialDetails,setOfficialDetails]=useState(false)
+    const[qualification,setQualification]=useState(false)
+
+    const addEmployeeHandler = ()=>{
+        setAddEmployeeModel(true)
+        setPersonalDetails(true)
+        setOfficialDetails(false)
+        setQualification(false)
+    };
+
+    const PersonalDetailsHandler = ()=>{
+        setPersonalDetails(true)
+        setOfficialDetails(false)
+        setQualification(false)
+    }
+
+    const officialDetailsHandler = ()=>{
+        setOfficialDetails(true)
+        setPersonalDetails(false)
+        setQualification(false)
+    }
+
+    const QualificationHandler = ()=>{
+        setQualification(true)
+        setPersonalDetails(false)
+        setOfficialDetails(false)
+    }
 
   return (
     <>
@@ -39,10 +68,10 @@ const ManagementLog = () => {
         </div>
     </div>
 
-{/* all model of Management log */}
+{/* all model of Management Log */}
 
 {managementLogModel && (
-<div className="modal show fade" style={{ display: 'block' }}  tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div className="modal show fade" style={{ display: 'block' }}  tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
   <div className="modal-dialog modal-dialog-centered modal-xl">
     <div className="modal-content">
       <div className="modal-header border-0">
@@ -163,27 +192,26 @@ const ManagementLog = () => {
 )}
 
 {/* owner model */}
-{/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button> */}
 {ownerModel && (
 <div className="modal show fade" style={{ display: 'block' }} aria-hidden="false">
-  <div className="modal-dialog modal-dialog-centered">
+  <div className="modal-dialog modal-dialog-centered modal-sm">
     <div className="modal-content">
       <div className="modal-header border-0">
-        <h5 className="modal-title">Select Employee</h5>
+        <h5 className="modal-title fs-6">Select Employee</h5>
         <button type="button" className="btn-close" onClick={()=>setOwnerModel(false)} ></button>
       </div>
-      <div className="modal-body ">
+      <div className="modal-body p-0">
         <div className='container-fluid'>
             <div className='row'>
-                <div className='col-md-12 text-end'>
+                <div className='col-md-12 text-end p-1'>
                     {/* <h5 className='fs-5'>Select Employee</h5> */}
-                    <button className='border px-2 rounded-2 bg-transparent border-primary'>Add Employee</button>
+                    <button className='border px-2 rounded-2 bg-transparent border-primary' 
+                        onClick={addEmployeeHandler}>Add Employee
+                    </button>
                 </div>
-                <div className='row mt-2 p-0'>
+                <div className='row p-0 m-0'>
                     <div className='col-md-12 p-0'>
-                    <table class="table table-hover border">
+                    <table className="table table-hover table-bordered ">
                         <thead>
                             <tr>
                                  <th scope="col">Employee Code</th>
@@ -191,17 +219,25 @@ const ManagementLog = () => {
                             </tr>
                          </thead>
                         <tbody>
-                             <tr className=''>
-                                <td>Mark</td>
-                                <td>Otto</td>
+                             <tr >
+                                <td>Ajay</td>
+                                <td>Mr. Ajay</td>
                             </tr>
                             <tr>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
+                                <td>Vijay</td>
+                                <td>Mr. Vijay</td>
                             </tr>
                             <tr>
-                                <td>Larry the Bird</td>
-                                <td>@twitter</td>
+                                <td>Pankaj</td>
+                                <td>Mr. Pankaj</td>
+                            </tr>
+                            <tr>
+                                <td>Pooja</td>
+                                <td>Miss. Pooja</td>
+                            </tr>
+                            <tr>
+                                <td>Simran</td>
+                                <td>Miss. Simran</td>
                             </tr>
                         </tbody>
                     </table>
@@ -216,6 +252,151 @@ const ManagementLog = () => {
   </div>
 </div>
 )}
+
+{/*Add Employee model  */}
+
+{AddEmployeeModel && (
+<div className="modal show fade" style={{ display: 'block' }} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+  <div className="modal-dialog  modal-fullscreen">
+    <div className="modal-content">
+      <div className="modal-header px-4">
+        <h5 className="modal-title fs-6">Employee Master</h5>
+        <button type="button" className="btn-close" onClick={()=>setAddEmployeeModel(false)}></button>
+      </div>
+      <div className="modal-body">
+        <div className='container-fluid'>
+            <div className='row'>
+                <div className='col-md-12'>
+                    <div className='row'>
+                        <div className='d-flex gap-1 fs-6'>
+                            <button className='em-btn border px-1 border-secondary rounded-2' onClick={PersonalDetailsHandler}>Personal Details</button>
+                            <button className='em-btn border px-1 border-secondary rounded-2' onClick={officialDetailsHandler}>Official Details </button>
+                            <button className='em-btn border px-1 border-secondary rounded-2' onClick={QualificationHandler}>Qualification</button>
+                            <button className='em-btn border px-1 border-secondary rounded-2'>Work Experiance </button>
+                            <button className='em-btn border px-1 border-secondary rounded-2'>Bank Details </button>
+                            <button className='em-btn border px-1 border-secondary rounded-2'>Document & Insurance </button>
+                            <button className='em-btn border px-1 border-secondary rounded-2'>Dependent Details and Assests </button>
+                            <button className='em-btn border px-1 border-secondary rounded-2'>Line Management Rating Head </button>
+                            <button className='em-btn border px-1 border-secondary rounded-2'>CTC </button>
+                        </div>
+                    </div>
+                    {/* Personal Details */}
+                    {personalDetails && (
+                    <div className='row mt-3 border rounded-2 m-1'>
+                        <div className='col-md-6'>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Employee Code: </label>
+                            <div className="col-sm-6 d-flex align-items-center">
+                                <input type="text" className="form-control form-control-sm"  name="EmployeeCode" autoComplete="off" required  />
+                            </div>
+
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" > Category: </label>
+                            <div className="col-sm-6 d-flex align-items-center">
+                                <input type="text" className="form-control form-control-sm"  name="Category" autoComplete="off" required  />
+                            </div>
+
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Name: </label>
+                            <div className="col-sm-6 d-flex align-items-center">
+                                <input type="text" className="form-control form-control-sm"  name="Name" autoComplete="off" required  />
+                            </div>
+
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >DOB: </label>
+                            <div className="col-sm-4 d-flex align-items-center">
+                                <input type="date" className="form-control form-control-sm"  name="DateOfBirth" autoComplete="off" required  />
+                            </div>
+
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Age: </label>
+                            <div className="col-sm-6 d-flex align-items-center">
+                                <input type="text" className="form-control form-control-sm"  name="Age" autoComplete="off" required  />
+                            </div>
+
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Religion: </label>
+                            <div className="col-sm-6 d-flex align-items-center">
+                                <input type="text" className="form-control form-control-sm"  name="Religion" autoComplete="off" required  />
+                            </div>
+
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Cast: </label>
+                            <div className="col-sm-6 d-flex align-items-center">
+                                <input type="text" className="form-control form-control-sm"  name="Cast" autoComplete="off" required  />
+                            </div>
+
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Blood Group: </label>
+                            <div className="col-sm-5 d-flex align-items-center">
+                                <select className=" form-control form-control-sm  form-select-sm py-0 fs-6" aria-label=".form-select-sm example">
+                                    <option>select one of Blood-Groups</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+
+                            </div>
+                            <div className="row"> 
+                                <label className=" col-sm-6 col-form-label fs-6 text-end" >Gender: </label>
+                            <div className="col-sm-6 d-flex align-items-center">
+                                <div className="form-check">
+                                    <input id='male' className="form-check-input" type="radio" name="Gender" />
+                                    <label htmlFor='male' className="form-check-label">Male </label>
+                                </div>
+                                <div className="form-check mx-2">
+                                    <input id='female' className="form-check-input" type="radio" name="Gender"/>
+                                    <label htmlFor='female' className="form-check-label">Female</label>
+                                </div>
+
+                            </div>
+
+                            </div>
+                            
+                        </div>
+                        <div className='col-md-6'>
+                            <h3> Personal Details</h3>
+                        </div>
+                    </div>
+                    )}
+                    {/* Officials Details */}
+                    {officialDetails && (
+                    <div className='row'>
+                        <div className='col-md-12'>
+                            <h3>Officail Details</h3>
+                        </div>
+                    </div>
+                    )}
+                    {/*Qualification  */}
+                    {qualification && (
+                    <div className='row'>
+                        <div className='col-md-12'>
+                            <h3>Qualification Details</h3>
+                        </div>
+                    </div>
+                    )}
+                    {/*  */}
+                </div>
+            </div>
+        </div>
+      </div>
+      <div className="modal-footer mx-3">
+        <button type="button" className="btn border-primary">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+)}
+
+
     </>
   )
 }
