@@ -3,6 +3,8 @@ import DataTable from 'react-data-table-component'
 
 const ManagementLog = () => {
     const [managementLogModel,setManagementLogModel] = useState(false)
+    const [ownerModel,setOwnerModel] = useState(false)
+
   return (
     <>
     <div className='container-fluid'>
@@ -73,7 +75,7 @@ const ManagementLog = () => {
                                 <label htmlFor="" className=" col-sm-6 col-form-label text-end" >Owner :</label>             
                                 <div className="col-sm-6 d-flex align-items-center">
                                     <input type="text" className="form-control form-control-sm"  name="Owner"
-                                    autoComplete="off" required  />
+                                     onClick={()=>setOwnerModel(true)}  autoComplete="off"  />
                                 </div>
                                 </div>
                                 <div className="row ">
@@ -154,6 +156,61 @@ const ManagementLog = () => {
         <button type="button" className="btn border-secondary disabled">UPDATE</button>
         <button type="button" className="btn border-secondary disabled">DELETE</button>
         <button type="button" className="btn btn-secondary d-none" onClick={()=>setManagementLogModel(false)}>Close</button>  
+      </div>
+    </div>
+  </div>
+</div>
+)}
+
+{/* owner model */}
+{/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> */}
+{ownerModel && (
+<div className="modal show fade" style={{ display: 'block' }} aria-hidden="false">
+  <div className="modal-dialog modal-dialog-centered">
+    <div className="modal-content">
+      <div className="modal-header border-0">
+        <h5 className="modal-title">Select Employee</h5>
+        <button type="button" className="btn-close" onClick={()=>setOwnerModel(false)} ></button>
+      </div>
+      <div className="modal-body ">
+        <div className='container-fluid'>
+            <div className='row'>
+                <div className='col-md-12 text-end'>
+                    {/* <h5 className='fs-5'>Select Employee</h5> */}
+                    <button className='border px-2 rounded-2 bg-transparent border-primary'>Add Employee</button>
+                </div>
+                <div className='row mt-2 p-0'>
+                    <div className='col-md-12 p-0'>
+                    <table class="table table-hover border">
+                        <thead>
+                            <tr>
+                                 <th scope="col">Employee Code</th>
+                                 <th scope="col">Employee Name</th>
+                            </tr>
+                         </thead>
+                        <tbody>
+                             <tr className=''>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                            </tr>
+                            <tr>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <td>Larry the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div className="modal-footer border-0">
       </div>
     </div>
   </div>
