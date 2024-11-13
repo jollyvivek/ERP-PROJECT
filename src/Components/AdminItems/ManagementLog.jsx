@@ -257,18 +257,18 @@ const ManagementLog = () => {
 
 {AddEmployeeModel && (
 <div className="modal show fade" style={{ display: 'block' }} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
-  <div className="modal-dialog  modal-fullscreen">
+  <div className="modal-dialog modal-dialog-scrollable  modal-fullscreen">
     <div className="modal-content">
-      <div className="modal-header px-4">
+      <div className="modal-header border-0 px-4">
         <h5 className="modal-title fs-6">Employee Master</h5>
         <button type="button" className="btn-close" onClick={()=>setAddEmployeeModel(false)}></button>
       </div>
-      <div className="modal-body">
+      <div className="modal-body p-0">
         <div className='container-fluid'>
             <div className='row'>
                 <div className='col-md-12'>
                     <div className='row'>
-                        <div className='d-flex gap-1 fs-6'>
+                        <div className='col-md-12 d-flex gap-1 fs-6'>
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={PersonalDetailsHandler}>Personal Details</button>
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={officialDetailsHandler}>Official Details </button>
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={QualificationHandler}>Qualification</button>
@@ -282,7 +282,7 @@ const ManagementLog = () => {
                     </div>
                     {/* Personal Details */}
                     {personalDetails && (
-                    <div className='row mt-3 border rounded-2 m-1'>
+                    <div className='row m-2 border rounded-2'>
                         <div className='col-md-6'>
                             <div className="row"> 
                                 <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Employee Code : </label>
@@ -455,9 +455,196 @@ const ManagementLog = () => {
                     )}
                     {/* Officials Details */}
                     {officialDetails && (
-                    <div className='row'>
-                        <div className='col-md-12'>
-                            <h3>Officail Details</h3>
+                    <div className='row m-2 border rounded-2'>
+                        <div className='col-md-6'>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Interview Date: </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="date" className="form-control form-control-sm"  name="InterviewDate" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" > Date Of Joining : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="date" className="form-control form-control-sm"  name="DateOfJoining" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" > Location : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="Location" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Shift : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="shift" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Department : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="Department" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Position Title : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="PositionTitle" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Salary Category : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="SalaryCategory" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Monthly CTC : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="MonthlyCtc" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >CTC In Words : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="CtcInWords" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Monthly Gross Salary : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="MonthlyGrossSalary" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >SalaryInWords : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="SalaryInWords" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Official Mail Id : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="OfficialMailId" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Aadhar Card No : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="AadharCardNo" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div className='col-md-6'>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Official Mobile No : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="OfficialMobileNo" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Mobile Serial No : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="MobileSerialNo" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >PB Application : </label>
+                                 <div className="col-sm-6 d-flex align-items-center">
+                                        <select className="form-control form-select-sm fs-6" name='PbApplication' aria-label=".form-select-sm example">
+                                            <option>Select</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Resignation : </label>
+                                 <div className="col-sm-6 d-flex align-items-center">
+                                        <select className="form-control form-select-sm fs-6" name='Resignation' aria-label=".form-select-sm example">
+                                            <option>Select</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                            </div>
+                             <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Resignation Notice Date : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="date" className="form-control form-control-sm"  name="ResignationNoticeDate" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Reason of  Resignation : </label>
+                                <div className="col-sm-6 d-flex align-items-center mt-1">
+                                    <textarea class="form-control" rows="2"></textarea>                               
+                                     </div>
+                            </div>
+                             <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Resignation Date : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="date" className="form-control form-control-sm"  name="ResignationNoticeDate" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Pay Salary : </label>
+                                 <div className="col-sm-6 d-flex align-items-center">
+                                        <select className="form-control form-select-sm fs-6" name='PaySalary' aria-label=".form-select-sm example">
+                                            <option>Select</option>
+                                            <option value="Monthly">Monthly</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Salary Calculation : </label>
+                                 <div className="col-sm-6 d-flex align-items-center">
+                                        <select className="form-control form-select-sm fs-6" name='Resignation' aria-label=".form-select-sm example">
+                                            <option>Select</option>
+                                            <option value="Work Days">Work Days</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Per Days : </label>
+                                <div className="col-sm-4 d-flex align-items-center p-0">
+                                    <input type="text" className="form-control form-control-sm"  name="PerDays" autoComplete="off" required  />
+                                </div>
+                                <span className='col-md-2 pt-2 p-1'>(Amt)</span>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Salary Based On : </label>
+                                 <div className="col-sm-6 d-flex align-items-center">
+                                        <select className="form-control form-select-sm fs-6" name='SalaryBasedOn' aria-label=".form-select-sm example">
+                                            <option>Select</option>
+                                            <option value="Daily">Daily</option>
+                                            <option value="Weekly">Weekly</option>
+                                        </select>
+                                    </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >OT Application : </label>
+                                 <div className="col-sm-6 d-flex align-items-center">
+                                        <select className="form-control form-select-sm fs-6" name='OtApplication' aria-label=".form-select-sm example">
+                                            <option>Select</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >OT Based On : </label>
+                                 <div className="col-sm-6 d-flex align-items-center">
+                                        <select className="form-control form-select-sm fs-6" name='OtBasedOn' aria-label=".form-select-sm example">
+                                            <option>Select</option>
+                                            <option value="Daily">Daily</option>
+                                            <option value="Weekly">Weekly</option>
+                                        </select>
+                                    </div>
+                            </div>
                         </div>
                     </div>
                     )}
