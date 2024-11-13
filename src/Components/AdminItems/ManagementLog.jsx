@@ -285,86 +285,172 @@ const ManagementLog = () => {
                     <div className='row mt-3 border rounded-2 m-1'>
                         <div className='col-md-6'>
                             <div className="row"> 
-                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Employee Code: </label>
-                            <div className="col-sm-6 d-flex align-items-center">
-                                <input type="text" className="form-control form-control-sm"  name="EmployeeCode" autoComplete="off" required  />
-                            </div>
-
-                            </div>
-                            <div className="row"> 
-                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" > Category: </label>
-                            <div className="col-sm-6 d-flex align-items-center">
-                                <input type="text" className="form-control form-control-sm"  name="Category" autoComplete="off" required  />
-                            </div>
-
-                            </div>
-                            <div className="row"> 
-                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Name: </label>
-                            <div className="col-sm-6 d-flex align-items-center">
-                                <input type="text" className="form-control form-control-sm"  name="Name" autoComplete="off" required  />
-                            </div>
-
-                            </div>
-                            <div className="row"> 
-                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >DOB: </label>
-                            <div className="col-sm-4 d-flex align-items-center">
-                                <input type="date" className="form-control form-control-sm"  name="DateOfBirth" autoComplete="off" required  />
-                            </div>
-
-                            </div>
-                            <div className="row"> 
-                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Age: </label>
-                            <div className="col-sm-6 d-flex align-items-center">
-                                <input type="text" className="form-control form-control-sm"  name="Age" autoComplete="off" required  />
-                            </div>
-
-                            </div>
-                            <div className="row"> 
-                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Religion: </label>
-                            <div className="col-sm-6 d-flex align-items-center">
-                                <input type="text" className="form-control form-control-sm"  name="Religion" autoComplete="off" required  />
-                            </div>
-
-                            </div>
-                            <div className="row"> 
-                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Cast: </label>
-                            <div className="col-sm-6 d-flex align-items-center">
-                                <input type="text" className="form-control form-control-sm"  name="Cast" autoComplete="off" required  />
-                            </div>
-
-                            </div>
-                            <div className="row"> 
-                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Blood Group: </label>
-                            <div className="col-sm-5 d-flex align-items-center">
-                                <select className=" form-control form-control-sm  form-select-sm py-0 fs-6" aria-label=".form-select-sm example">
-                                    <option>select one of Blood-Groups</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
-
-                            </div>
-                            <div className="row"> 
-                                <label className=" col-sm-6 col-form-label fs-6 text-end" >Gender: </label>
-                            <div className="col-sm-6 d-flex align-items-center">
-                                <div className="form-check">
-                                    <input id='male' className="form-check-input" type="radio" name="Gender" />
-                                    <label htmlFor='male' className="form-check-label">Male </label>
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Employee Code : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="EmployeeCode" autoComplete="off" required  />
                                 </div>
-                                <div className="form-check mx-2">
-                                    <input id='female' className="form-check-input" type="radio" name="Gender"/>
-                                    <label htmlFor='female' className="form-check-label">Female</label>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" > Category : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="Category" autoComplete="off" required  />
                                 </div>
 
                             </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Name : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="Name" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >DOB : </label>
+                                <div className="col-sm-4 d-flex align-items-center">
+                                    <input type="date" className="form-control form-control-sm"  name="DateOfBirth" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Age : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="Age" autoComplete="off" required  />
+                                </div>
 
                             </div>
-                            
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Religion : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="Religion" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Cast : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="Cast" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Blood Group : </label>
+                                 <div className="col-sm-5 d-flex align-items-center">
+                                        <select className=" form-control form-control-sm  form-select-sm py-0 fs-6" aria-label=".form-select-sm example">
+                                            <option>Select One Of Blood-Groups</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                            </div>
+                            <div className="row"> 
+                                <label className=" col-sm-6 col-form-label fs-6 text-end" >Gender : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <div className="form-check">
+                                         <input id='male' className="form-check-input" type="radio" name="Gender" />
+                                        <label htmlFor='male' className="form-check-label">Male </label>
+                                    </div>
+                                     <div className="form-check mx-2">
+                                        <input id='female' className="form-check-input" type="radio" name="Gender"/>
+                                        <label htmlFor='female' className="form-check-label">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Contact No : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="ContactNo" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Email : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="email" className="form-control form-control-sm"  name="ContactNo" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Disability/Allergy : </label>
+                                <div className="col-sm-6 d-flex align-items-center">
+                                    <input type="text" className="form-control form-control-sm"  name="ContactNo" autoComplete="off" required  />
+                                </div>
+                            </div> 
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Present Address : </label>
+                                <div className="col-sm-6 d-flex align-items-center mt-1">
+                                    <textarea class="form-control" rows="2"></textarea>                               
+                                     </div>
+                            </div> 
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Employee Type : </label>
+                                 <div className="col-sm-5 d-flex align-items-center">
+                                        <select className="form-control form-select-sm fs-6" aria-label=".form-select-sm example">
+                                            <option>Select</option>
+                                            <option value="Official">Official</option>
+                                            <option value="Normal">Normal</option>
+                                        </select>
+                                    </div>
+                            </div>                          
                         </div>
                         <div className='col-md-6'>
-                            <h3> Personal Details</h3>
-                        </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Photo : </label>
+                                <div className="col-sm-6 d-flex align-items-center mt-1">
+                                    <input type="file" className="form-control form-control-sm"  name="Photo" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Permanent Address : </label>
+                                <div className="col-sm-6 d-flex align-items-center mt-1">
+                                    <textarea class="form-control" rows="2"></textarea>                               
+                                     </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >DL No : </label>
+                                <div className="col-sm-6 d-flex align-items-center mt-1">
+                                    <input type="text" className="form-control form-control-sm"  name="Photo" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Valid For : </label>
+                                <div className="col-sm-6 d-flex align-items-center mt-1">
+                                    <input type="text" className="form-control form-control-sm"  name="Photo" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >DL Expire Date : </label>
+                                <div className="col-sm-6 d-flex align-items-center mt-1">
+                                    <input type="date" className="form-control form-control-sm"  name="DlExpireDate" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >PF : </label>
+                                <div className="col-sm-6 d-flex align-items-center mt-1">
+                                    <input type="text" className="form-control form-control-sm"  name="Pf" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >PF UAN No : </label>
+                                <div className="col-sm-6 d-flex align-items-center mt-1">
+                                    <input type="text" className="form-control form-control-sm"  name="PfUanNo" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Emergency Contact No : </label>
+                                <div className="col-sm-6 d-flex align-items-center mt-1">
+                                    <input type="text" className="form-control form-control-sm"  name="EmergencyContactNo" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Emergency Contact Name : </label>
+                                <div className="col-sm-6 d-flex align-items-center mt-1">
+                                    <input type="text" className="form-control form-control-sm"  name="EmergencyContactName" autoComplete="off" required  />
+                                </div>
+                            </div>
+                            <div className="row"> 
+                                <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Device Code : </label>
+                                <div className="col-sm-6 d-flex align-items-center mt-1">
+                                    <input type="text" className="form-control form-control-sm"  name="DeviceCode" autoComplete="off" required  />
+                                </div>
+                            </div>
+
+                         </div>
+                            
                     </div>
                     )}
                     {/* Officials Details */}
