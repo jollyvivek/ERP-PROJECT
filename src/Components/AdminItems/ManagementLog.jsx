@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
 import DataTable from 'react-data-table-component'
+import faviconImg from '../../assets/favicon.ico'
 
 const ManagementLog = () => {
     const[managementLogModel,setManagementLogModel] = useState(false)
     const[ownerModel,setOwnerModel] = useState(false)
+    const[categoryModel,setCategoryModel] = useState(false)
     const[AddEmployeeModel,setAddEmployeeModel]=useState(false)
     const[personalDetails,setPersonalDetails]=useState(false)
     const[officialDetails,setOfficialDetails]=useState(false)
     const[qualification,setQualification]=useState(false)
+
+    // const CategoryHandler = ()=>{
+    //     alert()
+    // }
 
     const addEmployeeHandler = ()=>{
         setAddEmployeeModel(true)
@@ -253,6 +259,68 @@ const ManagementLog = () => {
 </div>
 )}
 
+{/* categoryModel */}
+
+{/* {categoryModel && (
+<div className="modal show fade" style={{ display: 'block' }} aria-hidden="false">
+  <div className="modal-dialog modal-dialog-centered modal-sm">
+    <div className="modal-content">
+      <div className="modal-header border-0">
+        <h5 className="modal-title fs-6">Select Employee</h5>
+        <button type="button" className="btn-close" onClick={()=>setCategoryModel(false)} ></button>
+      </div>
+      <div className="modal-body p-0">
+        <div className='container-fluid'>
+            <div className='row'>
+                <div className='col-md-12 text-end p-1'>
+                    <button className='border px-2 rounded-2 bg-transparent border-primary' 
+                        onClick={()=>alert()}>Add Employee
+                    </button>
+                </div>
+                <div className='row p-0 m-0'>
+                    <div className='col-md-12 p-0'>
+                    <table className="table table-hover table-bordered ">
+                        <thead>
+                            <tr>
+                                 <th scope="col">Employee Code</th>
+                                 <th scope="col">Employee Name</th>
+                            </tr>
+                         </thead>
+                        <tbody>
+                             <tr >
+                                <td>Ajay</td>
+                                <td>Mr. Ajay</td>
+                            </tr>
+                            <tr>
+                                <td>Vijay</td>
+                                <td>Mr. Vijay</td>
+                            </tr>
+                            <tr>
+                                <td>Pankaj</td>
+                                <td>Mr. Pankaj</td>
+                            </tr>
+                            <tr>
+                                <td>Pooja</td>
+                                <td>Miss. Pooja</td>
+                            </tr>
+                            <tr>
+                                <td>Simran</td>
+                                <td>Miss. Simran</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div className="modal-footer border-0">
+      </div>
+    </div>
+  </div>
+</div>
+)} */}
+
 {/*Add Employee model  */}
 
 {AddEmployeeModel && (
@@ -277,7 +345,7 @@ const ManagementLog = () => {
                             <button className='em-btn border px-1 border-secondary rounded-2'>Document & Insurance </button>
                             <button className='em-btn border px-1 border-secondary rounded-2'>Dependent Details and Assests </button>
                             <button className='em-btn border px-1 border-secondary rounded-2'>Line Management Rating Head </button>
-                            <button className='em-btn border px-1 border-secondary rounded-2'>CTC </button>
+                            <button className='em-btn border px-1 border-secondary rounded-2' onClick={()=>setCategoryModel(true)}>CTC </button>
                         </div>
                     </div>
                     {/* Personal Details */}
@@ -293,7 +361,8 @@ const ManagementLog = () => {
                             <div className="row"> 
                                 <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" > Category : </label>
                                 <div className="col-sm-6 d-flex align-items-center">
-                                    <input type="text" className="form-control form-control-sm"  name="Category" autoComplete="off" required  />
+                                    <input type="text" className="form-control form-control-sm"
+                                      onClick={()=>setCategoryModel(true)}  name="Category" autoComplete="off"  />
                                 </div>
 
                             </div>
@@ -373,7 +442,7 @@ const ManagementLog = () => {
                             <div className="row"> 
                                 <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Present Address : </label>
                                 <div className="col-sm-6 d-flex align-items-center mt-1">
-                                    <textarea class="form-control" rows="2"></textarea>                               
+                                    <textarea className="form-control" rows="2"></textarea>                               
                                      </div>
                             </div> 
                             <div className="row"> 
@@ -397,7 +466,7 @@ const ManagementLog = () => {
                             <div className="row"> 
                                 <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Permanent Address : </label>
                                 <div className="col-sm-6 d-flex align-items-center mt-1">
-                                    <textarea class="form-control" rows="2"></textarea>                               
+                                    <textarea className="form-control" rows="2"></textarea>                               
                                      </div>
                             </div>
                             <div className="row"> 
@@ -579,7 +648,7 @@ const ManagementLog = () => {
                             <div className="row"> 
                                 <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Reason of  Resignation : </label>
                                 <div className="col-sm-6 d-flex align-items-center mt-1">
-                                    <textarea class="form-control" rows="2"></textarea>                               
+                                    <textarea className="form-control" rows="2"></textarea>                               
                                      </div>
                             </div>
                              <div className="row"> 
@@ -659,6 +728,49 @@ const ManagementLog = () => {
                     {/*  */}
                 </div>
             </div>
+            {/* category */}
+            {categoryModel && (
+            <div className="modal show fade" style={{ display: 'block' }} aria-hidden="false">
+  <div className="modal-dialog modal-dialog-centered">
+    <div className="modal-content border border-secondary rounded-3">
+      <div className="modal-header px-2 border-0">
+        <h5 className="modal-title fs-6 d-flex gap-2"><span><img src={faviconImg} style={{width:"25px"}} /></span><span>Category Popup</span></h5>
+        <button type="button" className="btn-close" onClick={()=>setCategoryModel(false)} ></button>
+      </div>
+      <div className="modal-body p-0">
+        <div className='container-fluid'>
+            <div className='row'>
+                <div className='col-md-12 text-end px-2 mb-2 d-flex justify-content-between'>
+                    <h6> Select Employee Category</h6>
+                    <button className='border px-2 rounded-2 bg-transparent border-primary' 
+                        onClick={()=>alert()}>Add Category
+                    </button>
+                </div>
+                <div className='row p-0 m-0'>
+                    <div className='col-md-12 p-0'>
+                    <table className="table table-hover table-bordered ">
+                        <thead>
+                            <tr><th scope="col">Category Name</th></tr>
+                         </thead>
+                        <tbody>
+                             <tr ><td>Test</td></tr>
+                            <tr><td>It Service</td></tr>
+                            <tr><td>Packing</td></tr>
+                            <tr><td>QC</td></tr>
+                            <tr><td>Management</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div className="modal-footer border-0">
+      </div>
+    </div>
+  </div>
+            </div>
+            )}
         </div>
       </div>
       <div className="modal-footer mx-3">
