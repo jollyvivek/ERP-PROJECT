@@ -10,6 +10,10 @@ const ManagementLog = () => {
     const[AddEmployeeModel,setAddEmployeeModel]=useState(false)
     const[personalDetails,setPersonalDetails]=useState(false)
     const[officialDetails,setOfficialDetails]=useState(false)
+    const[shiftModel,setShiftModel]= useState(false)
+    const[departmentModel,setDepartmentModel]=useState(false)
+    const[departmentMasterModel,setDepartmentMasetrModel]= useState(false)
+
     const[qualification,setQualification]=useState(false)
 
     // const CategoryHandler = ()=>{
@@ -486,13 +490,15 @@ const ManagementLog = () => {
                             <div className="row"> 
                                 <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Shift : </label>
                                 <div className="col-sm-6 d-flex align-items-center">
-                                    <input type="text" className="form-control form-control-sm"  name="shift" autoComplete="off" required  />
+                                    <input type="text" className="form-control form-control-sm"  name="shift" autoComplete="off"
+                                     onClick={()=>setShiftModel(true)} required  />
                                 </div>
                             </div>
                             <div className="row"> 
                                 <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Department : </label>
                                 <div className="col-sm-6 d-flex align-items-center">
-                                    <input type="text" className="form-control form-control-sm"  name="Department" autoComplete="off" required  />
+                                    <input type="text" className="form-control form-control-sm"  name="Department" autoComplete="off"
+                                    onClick={()=>setDepartmentModel(true)} required  />
                                 </div>
                             </div>
                             <div className="row"> 
@@ -778,7 +784,194 @@ const ManagementLog = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+                </div>
+            )}
+            {/* shift popup */}
+            {shiftModel && (
+             <div className="modal show fade" style={{ display: 'block' }} aria-hidden="false">
+  <div className="modal-dialog modal-dialog-centered">
+    <div className="modal-content border border-secondary rounded-3">
+      <div className="modal-header px-2 border-0">
+        <h5 className="modal-title fs-6 d-flex gap-2">
+            <span><img src={faviconImg} style={{width:"25px"}} /></span>
+            <span>Shift Popup</span>
+        </h5>
+        <button type="button" className="btn-close" onClick={()=>setShiftModel(false)} ></button>
+      </div>
+      <div className="modal-body p-0">
+        <div className='container-fluid'>
+            <div className='row'>
+                <div className='col-md-12 text-end px-2 mb-2 d-flex justify-content-between'>
+                    <h6 className=''> Select Shift</h6>
+                    <button className='border px-2 rounded-2 bg-transparent border-primary' 
+                        // onClick={()=>setCategoryMaster(true)}
+                        >Add Shift
+                    </button>
+                </div>
+                <div className='row p-0 m-0'>
+                    <div className='col-md-12 p-0'>
+                    <table className="table table-hover table-bordered ">
+                        <thead>
+                            <tr>
+                            <th scope="col" className='fw-normal'>Shift Name</th>
+                            <th scope="col" className='fw-normal'>Shift Code</th>
+                            </tr>
+                            
+                         </thead>
+                        <tbody>
+                             <tr >
+                                <td>Day Shift 1</td>
+                                <td>Day Shift 2</td>
+                             </tr>
+                             <tr>
+                                <td>Morning</td>
+                                <td>Morning</td>
+                             </tr>
+                            <tr>
+                                <td>Afternoon</td>
+                                <td>Afternoon</td>
+                            </tr>
+                            <tr>
+                                <td>Night</td>
+                                <td>Night</td>
+                            </tr>
+                            <tr>
+                                <td>General Shift</td>
+                                <td>General Shift</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div className="modal-footer border-0">
+      </div>
+    </div>
+  </div>
+            </div>
+            
+            
+            )}
+            {/*  */}
+            {/* department popup */}
+            {departmentModel && (
+            <div className="modal show fade" style={{ display: 'block' }} aria-hidden="false">
+  <div className="modal-dialog modal-dialog-centered">
+    <div className="modal-content border border-secondary rounded-3">
+      <div className="modal-header px-2 border-0">
+        <h5 className="modal-title fs-6 d-flex gap-2">
+            <span><img src={faviconImg} style={{width:"25px"}} /></span>
+            <span>Department Popup</span>
+        </h5>
+        <button type="button" className="btn-close" onClick={()=>setDepartmentModel(false)} ></button>
+      </div>
+      <div className="modal-body p-0">
+        <div className='container-fluid'>
+            <div className='row'>
+                <div className='col-md-12 text-end px-2 mb-2 d-flex justify-content-between'>
+                    <h6 className=''> Select Department</h6>
+                    <button className='border px-2 rounded-2 bg-transparent border-primary' 
+                        onClick={()=>setDepartmentMasetrModel(true)}
+                        >Add Department
+                    </button>
+                </div>
+                <div className='row p-0 m-0'>
+                    <div className='col-md-12 p-0'>
+                    <table className="table table-hover table-bordered ">
+                        <thead>
+                            <tr><th scope="col" className='fw-normal'>Department Name</th></tr>
+                         </thead>
+                        <tbody>
+                            <tr ><td>ABCDE</td></tr>
+                            <tr><td>Service Department</td></tr>
+                            <tr><td>Conclusion</td></tr>
+                            <tr><td>Stores Assembly</td></tr>
+                            <tr><td>Quality Assurance</td></tr>
+                            <tr><td>Marketing</td></tr>
+                            <tr><td>Purchase</td></tr>
+                            <tr><td>Production</td></tr>
+                            <tr><td>M.R.</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div className="modal-footer border-0">
+      </div>
+    </div>
+  </div>
+            </div>
+            )}
+            {/* deparment Master model */}
+            {departmentMasterModel && (
+                 <div
+                className="modal show fade"
+                style={{ display: 'block' }}
+                id="exampleModal"
+                tabIndex="-1"
+                aria-labelledby="exampleModalLabel"
+                // aria-hidden="true"
+              >
+                <div className="modal-dialog  modal-dialog-centered">
+                  <div className="modal-content border border-secondary rounded-3">
+                    <div className="modal-header">
+                      <h6 className="modal-title fw-normal d-flex gap-2">
+                        <span><img src={faviconImg} style={{width:"25px"}} /></span>
+                         <span>Department Master</span>  
+                        </h6>
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        onClick={()=>setDepartmentMasetrModel(false)}
+                      ></button>
+                    </div>
+                    <div className="modal-body mx-1 my-0 rounded-3 ">
+                        <h5 className="fs-5">Department Master </h5>
+                        <fieldset className='rounded-2'>
+                            <legend className='fs-6 fw-bold'>Department</legend>
+                            <div className="mb-2 row">
+                        <label htmlFor="" className=" col-sm-5 col-form-label fs-6  text-end" >
+                          Department Code :
+                        </label>
+                        <div className="col-sm-7 d-flex align-items-center">
+                          <input type="text" className="form-control"  name="DepartmentCode"
+                            // value={data.currentYear} onChange={handleChange}
+                            autoComplete="off" required  />
+                        </div>
+                    </div>
+                    <div className="mb-2 row">
+                        <label htmlFor="" className=" col-sm-5 col-form-label fs-6  text-end" >
+                          Department Name :
+                        </label>
+                        <div className="col-sm-7 d-flex align-items-center">
+                          <input type="text" className="form-control"  name="DepartmentName"
+                            // value={data.createYear} onChange={handleChange}
+                            autoComplete="off" required  />
+                        </div>
+                    </div>
+                    <div className="mb-2 row">
+                        <label htmlFor="" className=" col-sm-5 col-form-label fs-6  text-end" >
+                          Description :
+                        </label>
+                        <div className="col-sm-7 d-flex align-items-center">
+                            <textarea name="Description" className='form-control'></textarea>
+                        </div>
+                    </div>
+                        </fieldset>
+                    </div>
+                    <div className="modal-footer border-0 p-0 mx-2 my-1">
+                        <button type="button" className="btn btn-primary" >SAVE</button>
+                        <button type="button" className="btn btn-secondary" onClick={()=>setDepartmentMasetrModel(false)} > CLOSE </button>
+                    </div>
+                  </div>
+                </div>
+                </div>
             )}
         </div>
       </div>
