@@ -13,6 +13,9 @@ const ManagementLog = () => {
     const[shiftModel,setShiftModel]= useState(false)
     const[departmentModel,setDepartmentModel]=useState(false)
     const[departmentMasterModel,setDepartmentMasetrModel]= useState(false)
+    const[positionModel,setPositionModel]=useState(false)
+    const[positionMaster,setPositionMaster]= useState(false)
+    const[salaryCategoryPopup,setSalaryCategoryPopup]= useState(false)
 
     const[qualification,setQualification]=useState(false)
 
@@ -504,13 +507,15 @@ const ManagementLog = () => {
                             <div className="row"> 
                                 <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Position Title : </label>
                                 <div className="col-sm-6 d-flex align-items-center">
-                                    <input type="text" className="form-control form-control-sm"  name="PositionTitle" autoComplete="off" required  />
+                                    <input type="text" className="form-control form-control-sm"  name="PositionTitle" autoComplete="off"
+                                     onClick={()=>setPositionModel(true)} required  />
                                 </div>
                             </div>
                             <div className="row"> 
                                 <label htmlFor="" className=" col-sm-6 col-form-label fs-6 text-end" >Salary Category : </label>
                                 <div className="col-sm-6 d-flex align-items-center">
-                                    <input type="text" className="form-control form-control-sm"  name="SalaryCategory" autoComplete="off" required  />
+                                    <input type="text" className="form-control form-control-sm"  name="SalaryCategory" autoComplete="off"
+                                     onClick={()=>setSalaryCategoryPopup(true)} required  />
                                 </div>
                             </div>
                             <div className="row"> 
@@ -971,6 +976,173 @@ const ManagementLog = () => {
                     </div>
                   </div>
                 </div>
+                </div>
+            )}
+            {/* position popup */}
+            {positionModel && (
+                <div className="modal show fade" style={{ display: 'block' }} aria-hidden="false">
+  <div className="modal-dialog modal-dialog-centered">
+    <div className="modal-content border border-secondary rounded-3 ">
+      <div className="modal-header px-2 border-0">
+        <h5 className="modal-title fs-6 d-flex gap-2">
+            <span><img src={faviconImg} style={{width:"25px"}} /></span>
+            <span>Position Popup</span>
+        </h5>
+        <button type="button" className="btn-close" onClick={()=>setPositionModel(false)} ></button>
+      </div>
+      <div className="modal-body p-0">
+        <div className='container-fluid'>
+            <div className='row'>
+                <div className='col-md-12 text-end px-2 mb-2 d-flex justify-content-between'>
+                    <h6 className=''> Select Position</h6>
+                    <button className='border px-2 rounded-2 bg-transparent border-primary' 
+                        onClick={()=>setPositionMaster(true)}
+                        >Add Position
+                    </button>
+                </div>
+                <div className='row p-0 m-0'>
+                    <div className='col-md-12 p-0'>
+                    <table className="table table-hover table-bordered ">
+                        <thead>
+                            <tr><th scope="col" className='fw-normal'>Position Name</th></tr>
+                         </thead>
+                        <tbody>
+                             <tr ><td>Erp Implementer</td></tr>
+                            <tr><td>Manager</td></tr>
+                            <tr><td>Position</td></tr>
+                            <tr><td>MD</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div className="modal-footer border-0">
+      </div>
+    </div>
+  </div>
+                </div>
+            )}
+            {/* postion master model */}
+            {positionMaster && (
+                <div
+                className="modal show fade"
+                style={{ display: 'block' }}
+                id="exampleModal"
+                tabIndex="-1"
+                aria-labelledby="exampleModalLabel"
+                // aria-hidden="true"
+              >
+                <div className="modal-dialog  modal-dialog-centered">
+                  <div className="modal-content border border-secondary rounded-3">
+                    <div className="modal-header">
+                      <h6 className="modal-title fw-normal d-flex gap-2">
+                        <span><img src={faviconImg} style={{width:"25px"}} /></span>
+                         <span>Position Master</span>  
+                        </h6>
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        onClick={()=>setPositionMaster(false)}
+                      ></button>
+                    </div>
+                    <div className="modal-body mx-1 my-0 rounded-3 ">
+                        <h5 className="fs-5">Position Master </h5>
+                        <fieldset className='rounded-2'>
+                            <legend className='fs-6 fw-bold'>Position</legend>
+                            <div className="mb-2 row">
+                        <label htmlFor="" className=" col-sm-5 col-form-label fs-6  text-end" >
+                          Position Code :
+                        </label>
+                        <div className="col-sm-7 d-flex align-items-center">
+                          <input type="text" className="form-control"  name="PositionCode"
+                            // value={data.currentYear} onChange={handleChange}
+                            autoComplete="off" required  />
+                        </div>
+                            </div>
+                            <div className="mb-2 row">
+                        <label htmlFor="" className=" col-sm-5 col-form-label fs-6  text-end" >
+                          Department Name :
+                        </label>
+                        <div className="col-sm-7 d-flex align-items-center">
+                          <input type="text" className="form-control"  name="DepartmentName"
+                            // value={data.createYear} onChange={handleChange}
+                            autoComplete="off" required  />
+                        </div>
+                            </div>
+                            <div className="mb-2 row">
+                        <label htmlFor="" className=" col-sm-5 col-form-label fs-6  text-end" >
+                          Position Name :
+                        </label>
+                        <div className="col-sm-7 d-flex align-items-center">
+                          <input type="text" className="form-control"  name="PositionName"
+                            // value={data.createYear} onChange={handleChange}
+                            autoComplete="off" required  />
+                        </div>
+                            </div>
+                            <div className="mb-2 row">
+                        <label htmlFor="" className=" col-sm-5 col-form-label fs-6  text-end" >
+                          Description :
+                        </label>
+                        <div className="col-sm-7 d-flex align-items-center">
+                            <textarea name="Description" className='form-control'></textarea>
+                        </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div className="modal-footer border-0 p-0 mx-2 my-1">
+                        <button type="button" className="btn btn-primary" >SAVE</button>
+                        <button type="button" className="btn btn-secondary" onClick={()=>setPositionMaster(false)} > CLOSE </button>
+                    </div>
+                  </div>
+                </div>
+                </div>
+            )}
+            {/* Salary CategoryPopup */}
+            {salaryCategoryPopup && (
+                <div className="modal show fade" style={{ display: 'block' }} aria-hidden="false">
+  <div className="modal-dialog modal-dialog-centered">
+    <div className="modal-content border border-secondary rounded-3 ">
+      <div className="modal-header px-2 border-0">
+        <h5 className="modal-title fs-6 d-flex gap-2">
+            <span><img src={faviconImg} style={{width:"25px"}} /></span>
+            <span>Salary CategoryPopup</span>
+        </h5>
+        <button type="button" className="btn-close" onClick={()=>setSalaryCategoryPopup(false)} ></button>
+      </div>
+      <div className="modal-body p-0">
+        <div className='container-fluid'>
+            <div className='row'>
+                <div className='col-md-12 text-end px-2 mb-2 d-flex justify-content-between'>
+                    <h6 className=''> Select Salary Category </h6>
+                    <button className='border px-2 rounded-2 bg-transparent border-primary' 
+                        onClick={()=>alert("Salary Category Call")}
+                        >Add Category
+                    </button>
+                </div>
+                <div className='row p-0 m-0'>
+                    <div className='col-md-12 p-0'>
+                    <table className="table table-hover table-bordered ">
+                        <thead>
+                            <tr><th scope="col" className='fw-normal'>Category Name</th></tr>
+                         </thead>
+                        <tbody>
+                             <tr ><td>Genaral</td></tr>
+                            <tr><td>SS</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div className="modal-footer border-0">
+      </div>
+    </div>
+  </div>
                 </div>
             )}
         </div>
