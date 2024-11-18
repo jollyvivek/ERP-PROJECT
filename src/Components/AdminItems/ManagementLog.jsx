@@ -6,6 +6,7 @@ const ManagementLog = () => {
     const[managementLogModel,setManagementLogModel] = useState(false)
     const[ownerModel,setOwnerModel] = useState(false)
     const[categoryModel,setCategoryModel] = useState(false)
+    const[categoryMaster,setCategoryMaster] = useState(false)
     const[AddEmployeeModel,setAddEmployeeModel]=useState(false)
     const[personalDetails,setPersonalDetails]=useState(false)
     const[officialDetails,setOfficialDetails]=useState(false)
@@ -259,73 +260,12 @@ const ManagementLog = () => {
 </div>
 )}
 
-{/* categoryModel */}
-
-{/* {categoryModel && (
-<div className="modal show fade" style={{ display: 'block' }} aria-hidden="false">
-  <div className="modal-dialog modal-dialog-centered modal-sm">
-    <div className="modal-content">
-      <div className="modal-header border-0">
-        <h5 className="modal-title fs-6">Select Employee</h5>
-        <button type="button" className="btn-close" onClick={()=>setCategoryModel(false)} ></button>
-      </div>
-      <div className="modal-body p-0">
-        <div className='container-fluid'>
-            <div className='row'>
-                <div className='col-md-12 text-end p-1'>
-                    <button className='border px-2 rounded-2 bg-transparent border-primary' 
-                        onClick={()=>alert()}>Add Employee
-                    </button>
-                </div>
-                <div className='row p-0 m-0'>
-                    <div className='col-md-12 p-0'>
-                    <table className="table table-hover table-bordered ">
-                        <thead>
-                            <tr>
-                                 <th scope="col">Employee Code</th>
-                                 <th scope="col">Employee Name</th>
-                            </tr>
-                         </thead>
-                        <tbody>
-                             <tr >
-                                <td>Ajay</td>
-                                <td>Mr. Ajay</td>
-                            </tr>
-                            <tr>
-                                <td>Vijay</td>
-                                <td>Mr. Vijay</td>
-                            </tr>
-                            <tr>
-                                <td>Pankaj</td>
-                                <td>Mr. Pankaj</td>
-                            </tr>
-                            <tr>
-                                <td>Pooja</td>
-                                <td>Miss. Pooja</td>
-                            </tr>
-                            <tr>
-                                <td>Simran</td>
-                                <td>Miss. Simran</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      <div className="modal-footer border-0">
-      </div>
-    </div>
-  </div>
-</div>
-)} */}
 
 {/*Add Employee model  */}
 
 {AddEmployeeModel && (
 <div className="modal show fade" style={{ display: 'block' }} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
-  <div className="modal-dialog modal-dialog-scrollable  modal-fullscreen">
+  <div className="modal-dialog modal-dialog-scrollable modal-fullscreen w-100">
     <div className="modal-content">
       <div className="modal-header border-0 px-4">
         <h5 className="modal-title fs-6">Employee Master</h5>
@@ -518,8 +458,7 @@ const ManagementLog = () => {
                                 </div>
                             </div>
 
-                         </div>
-                            
+                         </div>   
                     </div>
                     )}
                     {/* Officials Details */}
@@ -734,23 +673,26 @@ const ManagementLog = () => {
   <div className="modal-dialog modal-dialog-centered">
     <div className="modal-content border border-secondary rounded-3">
       <div className="modal-header px-2 border-0">
-        <h5 className="modal-title fs-6 d-flex gap-2"><span><img src={faviconImg} style={{width:"25px"}} /></span><span>Category Popup</span></h5>
+        <h5 className="modal-title fs-6 d-flex gap-2">
+            <span><img src={faviconImg} style={{width:"25px"}} /></span>
+            <span>Category Popup</span>
+        </h5>
         <button type="button" className="btn-close" onClick={()=>setCategoryModel(false)} ></button>
       </div>
       <div className="modal-body p-0">
         <div className='container-fluid'>
             <div className='row'>
                 <div className='col-md-12 text-end px-2 mb-2 d-flex justify-content-between'>
-                    <h6> Select Employee Category</h6>
+                    <h6 className=''> Select Employee Category</h6>
                     <button className='border px-2 rounded-2 bg-transparent border-primary' 
-                        onClick={()=>alert()}>Add Category
+                        onClick={()=>setCategoryMaster(true)}>Add Category
                     </button>
                 </div>
                 <div className='row p-0 m-0'>
                     <div className='col-md-12 p-0'>
                     <table className="table table-hover table-bordered ">
                         <thead>
-                            <tr><th scope="col">Category Name</th></tr>
+                            <tr><th scope="col" className='fw-normal'>Category Name</th></tr>
                          </thead>
                         <tbody>
                              <tr ><td>Test</td></tr>
@@ -770,6 +712,73 @@ const ManagementLog = () => {
     </div>
   </div>
             </div>
+            )}
+            {/* category Msater */}
+            {categoryMaster && (
+                <div
+                className="modal show fade"
+                style={{ display: 'block' }}
+                id="exampleModal"
+                tabIndex="-1"
+                aria-labelledby="exampleModalLabel"
+                // aria-hidden="true"
+              >
+                <div className="modal-dialog  modal-dialog-centered">
+                  <div className="modal-content border border-secondary rounded-3">
+                    <div className="modal-header">
+                      <h6 className="modal-title fw-normal d-flex gap-2">
+                        <span><img src={faviconImg} style={{width:"25px"}} /></span>
+                         <span>Employee Category Master</span>  
+                        </h6>
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        onClick={()=>setCategoryMaster(false)}
+                      ></button>
+                    </div>
+                    <div className="modal-body mx-1 my-2 ">
+                        <h6 className="fs-6">Employee Category Master </h6>
+                        <fieldset>
+                            <legend className='fs-6 fw-bold'>Category</legend>
+                            <div className="mb-2 row">
+                        <label htmlFor="" className=" col-sm-5 col-form-label fs-6  text-end" >
+                          Category Code :
+                        </label>
+                        <div className="col-sm-7 d-flex align-items-center">
+                          <input type="text" className="form-control"  name=" CategoryCode"
+                            // value={data.currentYear} onChange={handleChange}
+                            autoComplete="off" required  />
+                        </div>
+                    </div>
+                    <div className="mb-2 row">
+                        <label htmlFor="" className=" col-sm-5 col-form-label fs-6  text-end" >
+                          Category Name :
+                        </label>
+                        <div className="col-sm-7 d-flex align-items-center">
+                          <input type="text" className="form-control"  name="CategoryName"
+                            // value={data.createYear} onChange={handleChange}
+                            autoComplete="off" required  />
+                        </div>
+                    </div>
+                    <div className="mb-2 row">
+                        <label htmlFor="" className=" col-sm-5 col-form-label fs-6  text-end" >
+                          Description :
+                        </label>
+                        <div className="col-sm-7 d-flex align-items-center">
+                            <textarea name="Description" className='form-control'></textarea>
+                        </div>
+                    </div>
+                        </fieldset>
+                    </div>
+                    <div className="modal-footer border-0 p-0 mx-2 my-1">
+                        <button type="button" className="btn btn-primary" >SAVE</button>
+                        <button type="button" className="btn btn-secondary" onClick={()=>setCategoryMaster(false)} > CLOSE </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             )}
         </div>
       </div>
