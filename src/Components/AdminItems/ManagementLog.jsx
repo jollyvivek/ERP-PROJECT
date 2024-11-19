@@ -276,7 +276,9 @@ const ManagementLog = () => {
   <div className="modal-dialog modal-dialog-scrollable modal-fullscreen w-100">
     <div className="modal-content">
       <div className="modal-header border-0 px-4">
-        <h5 className="modal-title fs-6">Employee Master</h5>
+        <h5 className="modal-title fs-6 d-flex align-items-center gap-2"><span><img  src={faviconImg} style={{width:"30px"}} alt="iconImg" /></span> 
+            <span>Employee Master</span> 
+        </h5>
         <button type="button" className="btn-close" onClick={()=>setAddEmployeeModel(false)}></button>
       </div>
       <div className="modal-body p-0">
@@ -672,7 +674,85 @@ const ManagementLog = () => {
                     {qualification && (
                     <div className='row'>
                         <div className='col-md-12'>
-                            <h3>Qualification Details</h3>
+                            <fieldset className='rounded-1'>
+                                <legend>Qualification Details</legend>
+                                <div className='row'>
+                                    <div className='col-md-2'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">School/University</label>
+                                            <input type="text" className="form-control" placeholder="" />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-2'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Education Level</label>
+                                            <input type="text" className="form-control" placeholder="" />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-2'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">From Date</label>
+                                            <input type="date" className="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-2'>
+                                    <div className="mb-3">
+                                            <label className="form-label text-center w-100">To Date</label>
+                                            <input type="date" className="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-2'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Language</label>
+                                            <input type="text" className="form-control" placeholder="" />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-2'>
+                                    <div className="mb-3">
+                                            <label className="form-label text-center w-100">Degree</label>
+                                            <input type="text" className="form-control"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='row'>
+                                    <div className='col-md-4'>
+                                    <div className="mb-2 row">
+                                        <label htmlFor="" className=" col-sm-4 col-form-label fs-6  text-end" >Description :</label>
+                                        <div className="col-sm-8 d-flex align-items-center">
+                                        <textarea name="Description" className='form-control' style={{resize:"none"}}></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div className='row px-3'>
+                                    <div className='col-md-12 border rounded-2 my-2' style={{height:"250px"}}>
+                                    <table className="table ">
+                                        <thead>
+                                            <tr className='fw-normal'>
+                                                <th className='fw-normal' scope="col">School/University</th>
+                                                <th className='fw-normal' scope="col">Education Level</th>
+                                                <th className='fw-normal' scope="col">From Date</th>
+                                                <th className='fw-normal' scope="col">To Date</th>
+                                                <th className='fw-normal' scope="col">Language</th>
+                                                <th className='fw-normal' scope="col">Degree</th>
+                                                <th className='fw-normal' scope="col">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             <tr className='d-none'>
+                                                <td>Chandigarh University</td>
+                                                <td>MCA</td>
+                                                <td>20-5-2021</td>
+                                                <td>1-6-2024</td>
+                                                <td>English</td>
+                                                <td>Post Grauation</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </fieldset>
                         </div>
                     </div>
                     )}
