@@ -84,6 +84,10 @@ const ManagementLog = () => {
 
     const documentHandler = ()=>{
         setDocument(true);
+        setPersonalDetails(false)
+        setOfficialDetails(false)
+        setQualification(false)
+        setWorkExperience(false);
         setBankDetails(false);
     }
 
