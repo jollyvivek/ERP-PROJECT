@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import DataTable from 'react-data-table-component'
 import faviconImg from '../../assets/favicon.ico'
+import { FaPlus } from "react-icons/fa";
+import { FaMinus } from "react-icons/fa";
 
 const ManagementLog = () => {
     const[managementLogModel,setManagementLogModel] = useState(false)
@@ -17,8 +19,10 @@ const ManagementLog = () => {
     const[positionMaster,setPositionMaster]= useState(false)
     const[salaryCategoryPopup,setSalaryCategoryPopup]= useState(false)
     const[salaryCategoryModel,setSalaryCategoryModel]= useState(false)
-
     const[qualification,setQualification]=useState(false)
+    const[workExperience,setWorkExperience]= useState(false)
+    const[bankDetails,setBankDetails]= useState(false)
+    const[document,setDocument]=useState(false)
 
     // const CategoryHandler = ()=>{
     //     alert()
@@ -29,24 +33,58 @@ const ManagementLog = () => {
         setPersonalDetails(true)
         setOfficialDetails(false)
         setQualification(false)
+        setWorkExperience(false);
+        setBankDetails(false);
+        setDocument(false);
     };
 
     const PersonalDetailsHandler = ()=>{
         setPersonalDetails(true)
         setOfficialDetails(false)
         setQualification(false)
+        setWorkExperience(false);
+        setBankDetails(false);
+        setDocument(false);
     }
 
     const officialDetailsHandler = ()=>{
         setOfficialDetails(true)
         setPersonalDetails(false)
         setQualification(false)
+        setWorkExperience(false);
+        setBankDetails(false);
+        setBankDetails(false);
+        setDocument(false);
     }
 
     const QualificationHandler = ()=>{
         setQualification(true)
         setPersonalDetails(false)
         setOfficialDetails(false)
+        setWorkExperience(false);
+        setBankDetails(false);
+        setDocument(false);
+    }
+
+    const workExperienceHandler = ()=>{
+        setWorkExperience(true);
+        setQualification(false)
+        setBankDetails(false);
+        setDocument(false);
+    }
+
+    const BankDetailHandler = ()=>{
+        setBankDetails(true);
+        setPersonalDetails(false)
+        setOfficialDetails(false)
+        setQualification(false)
+        setWorkExperience(false);
+        setDocument(false);
+    }
+
+    const documentHandler = ()=>{
+        setDocument(true);
+        setBankDetails(false);
     }
 
   return (
@@ -290,9 +328,9 @@ const ManagementLog = () => {
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={PersonalDetailsHandler}>Personal Details</button>
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={officialDetailsHandler}>Official Details </button>
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={QualificationHandler}>Qualification</button>
-                            <button className='em-btn border px-1 border-secondary rounded-2'>Work Experiance </button>
-                            <button className='em-btn border px-1 border-secondary rounded-2'>Bank Details </button>
-                            <button className='em-btn border px-1 border-secondary rounded-2'>Document & Insurance </button>
+                            <button className='em-btn border px-1 border-secondary rounded-2' onClick={workExperienceHandler}>Work Experiance </button>
+                            <button className='em-btn border px-1 border-secondary rounded-2' onClick={BankDetailHandler}>Bank Details </button>
+                            <button className='em-btn border px-1 border-secondary rounded-2' onClick={documentHandler}>Document & Insurance </button>
                             <button className='em-btn border px-1 border-secondary rounded-2'>Dependent Details and Assests </button>
                             <button className='em-btn border px-1 border-secondary rounded-2'>Line Management Rating Head </button>
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={()=>setCategoryModel(true)}>CTC </button>
@@ -674,7 +712,7 @@ const ManagementLog = () => {
                     {qualification && (
                     <div className='row'>
                         <div className='col-md-12'>
-                            <fieldset className='rounded-1'>
+                            <fieldset className='rounded-1 border'>
                                 <legend>Qualification Details</legend>
                                 <div className='row'>
                                     <div className='col-md-2'>
@@ -756,7 +794,266 @@ const ManagementLog = () => {
                         </div>
                     </div>
                     )}
-                    {/*  */}
+                    {/*workExperiance */}
+                    {workExperience && (
+                        <div className='row'>
+                        <div className='col-md-12'>
+                            <fieldset className='rounded-1 border'>
+                                <legend>Work Experience</legend>
+                                <div className='row'>
+                                    <div className='col-md-3'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Company Name</label>
+                                            <input type="text" className="form-control" name='CompanyName' />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-3'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Designation</label>
+                                            <input type="text" className="form-control" name='Designation' />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-3'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">From Date</label>
+                                            <input type="date" className="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-3'>
+                                    <div className="mb-3">
+                                            <label className="form-label text-center w-100">To Date</label>
+                                            <input type="date" className="form-control"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='row'>
+                                    <div className='col-md-6'>
+                                    <div className="mb-2 row">
+                                        <label htmlFor="" className=" col-sm-4 col-form-label fs-6  text-end" >Description :</label>
+                                        <div className="col-sm-8 d-flex align-items-center">
+                                        <textarea name="Description" className='form-control' style={{resize:"none"}}></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div className='row px-3'>
+                                    <div className='col-md-12 border rounded-2 my-2' style={{height:"250px"}}>
+                                    <table className="table ">
+                                        <thead>
+                                            <tr className='fw-normal'>
+                                                <th className='fw-normal' scope="col">Company Name</th>
+                                                <th className='fw-normal' scope="col">Designation</th>
+                                                <th className='fw-normal' scope="col">From Date</th>
+                                                <th className='fw-normal' scope="col">To Date</th>
+                                                <th className='fw-normal' scope="col">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             <tr className='d-none'>
+                                                <td>BFOX PVT LMT</td>
+                                                <td>MERN STACK</td>
+                                                <td>1-3-2024</td>
+                                                <td>1-3-2026</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        </div>
+                    )}
+                    {/* Bank Details */}
+                    {bankDetails && (
+                        <div className='row'>
+                        <div className='col-md-12'>
+                            <fieldset className='rounded-1 border mt-3'>
+                                {/* <legend>Bank Details</legend> */}
+                                <div className='row py-3'>
+                                    <div className='col-md-3 '>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Account Name</label>
+                                            <input type="text" className="form-control" name='AccountName' autoComplete='off' />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-2'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Account Number</label>
+                                            <input type="number" className="form-control" name='AccountNumber' />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-3'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Bank Name</label>
+                                            <input type="text" className="form-control" name='BankName' autoComplete='off'/>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-2'>
+                                    <div className="mb-3">
+                                            <label className="form-label text-center w-100">Branch Name</label>
+                                            <input type="text" className="form-control" name='BranchName' autoComplete='off'/>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-2'>
+                                    <div className="mb-3">
+                                            <label className="form-label text-center w-100">IFSC Code</label>
+                                            <input type="text" className="form-control" name='IFSCCode' autoComplete='off'/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='row px-3'>
+                                    <div className='col-md-11 border rounded-2 my-2' style={{height:"250px"}}>
+                                    <table className="table ">
+                                        <thead>
+                                            <tr className='fw-normal'>
+                                                <th className='fw-normal' scope="col">Account Name</th>
+                                                <th className='fw-normal' scope="col">Account Number</th>
+                                                <th className='fw-normal' scope="col">Bank Name</th>
+                                                <th className='fw-normal' scope="col">Branch Name</th>
+                                                <th className='fw-normal' scope="col">IFSC Code</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             <tr className='d-none'>
+                                                <td>BFOX PVT LMT</td>
+                                                <td>MERN STACK</td>
+                                                <td>1-3-2024</td>
+                                                <td>1-3-2026</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                    <div className='col-md-1 d-flex flex-column gap-2 my-2'>
+                                        <button className='fs-5 btn text-info border'><FaPlus /></button>
+                                        <button className='fs-5 btn text-info border'><FaMinus /></button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        </div>
+                    )}
+                    {/* Document and Insurance */}
+                    {document && (
+                        <div className='row'>
+                        <div className='col-md-12'>
+                            <fieldset className='rounded-1 border mt-0'>
+                                <legend>Document Submitted</legend>
+                                <div className='row'>
+                                    <div className='col-md-3 '>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Document</label>
+                                            <input type="text" className="form-control" name='Document' autoComplete='off' />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-3'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Name Of Document</label>
+                                            <input type="text" className="form-control" name='NameOfDocument' />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-3'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">No. Of Document</label>
+                                            <input type="text" className="form-control" name='BankName' autoComplete='off'/>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-3 d-flex justify-content-center align-items-center pt-3 '>
+                                        <div className="row mb-3 mt-3 pe-3 ">
+                                            {/* <label className=" form-label text-center w-100">Branch Name</label> */}
+                                            <input type="file" className=" col-sm-8 form-control" name='ChooseFile' autoComplete='off'/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='row px-3'>
+                                    <div className='col-md-11 border rounded-2 my-2' style={{height:"250px"}}>
+                                    <table className="table ">
+                                        <thead>
+                                            <tr className='fw-normal'>
+                                                <th className='fw-normal' scope="col">Document</th>
+                                                <th className='fw-normal' scope="col">Name Of Document</th>
+                                                <th className='fw-normal' scope="col">No. Of Document</th>
+                                                <th className='fw-normal' scope="col">Choosen File</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             <tr className='d-none'>
+                                                <td>BFOX PVT LMT</td>
+                                                <td>MERN STACK</td>
+                                                <td>1-3-2024</td>
+                                                <td>1-3-2026</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                    <div className='col-md-1 d-flex flex-column gap-2 my-2'>
+                                        <button className='fs-5 btn text-info border'><FaPlus /></button>
+                                        <button className='fs-5 btn text-info border'><FaMinus /></button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset className='rounded-1 border mt-2'>
+                                <legend>Insurance Details</legend>
+                                <div className='row py-2'>
+                                    <div className='col-md-3 '>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Type of Insurance</label>
+                                            <input type="text" className="form-control" name='TypeofInsurance' autoComplete='off' />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-3'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Name Of Company</label>
+                                            <input type="text" className="form-control" name='NameOfCompany' />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-3'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Renewal Date</label>
+                                            <input type="date" className="form-control" name='RenewalDate' autoComplete='off'/>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-3 d-flex justify-content-center align-items-center '>
+                                        <div className="row mb-3 pe-3 ">
+                                            <label className=" form-label text-center w-100">Expiry Date</label>
+                                            <input type="date" className=" col-sm-8 form-control" name='ExpiryDate' autoComplete='off'/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='row px-3'>
+                                    <div className='col-md-11 border rounded-2 my-2' style={{height:"250px"}}>
+                                    <table className="table ">
+                                        <thead>
+                                            <tr className='fw-normal'>
+                                                <th className='fw-normal' scope="col">Type of Insurance</th>
+                                                <th className='fw-normal' scope="col">Name Of Company</th>
+                                                <th className='fw-normal' scope="col">Renewal Date</th>
+                                                <th className='fw-normal' scope="col">Expiry Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             <tr className='d-none'>
+                                                <td>BFOX PVT LMT</td>
+                                                <td>MERN STACK</td>
+                                                <td>1-3-2024</td>
+                                                <td>1-3-2026</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                    <div className='col-md-1 d-flex flex-column gap-2 my-2'>
+                                        <button className='fs-5 btn text-info border'><FaPlus /></button>
+                                        <button className='fs-5 btn text-info border'><FaMinus /></button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        </div>
+
+                    )}
                 </div>
             </div>
             {/* category */}
