@@ -16,6 +16,7 @@ const ManagementLog = () => {
     const[positionModel,setPositionModel]=useState(false)
     const[positionMaster,setPositionMaster]= useState(false)
     const[salaryCategoryPopup,setSalaryCategoryPopup]= useState(false)
+    const[salaryCategoryModel,setSalaryCategoryModel]= useState(false)
 
     const[qualification,setQualification]=useState(false)
 
@@ -1119,7 +1120,7 @@ const ManagementLog = () => {
                 <div className='col-md-12 text-end px-2 mb-2 d-flex justify-content-between'>
                     <h6 className=''> Select Salary Category </h6>
                     <button className='border px-2 rounded-2 bg-transparent border-primary' 
-                        onClick={()=>alert("Salary Category Call")}
+                        onClick={()=>setSalaryCategoryModel(true)}
                         >Add Category
                     </button>
                 </div>
@@ -1130,7 +1131,7 @@ const ManagementLog = () => {
                             <tr><th scope="col" className='fw-normal'>Category Name</th></tr>
                          </thead>
                         <tbody>
-                             <tr ><td>Genaral</td></tr>
+                             <tr ><td>General</td></tr>
                             <tr><td>SS</td></tr>
                         </tbody>
                     </table>
@@ -1144,6 +1145,78 @@ const ManagementLog = () => {
     </div>
   </div>
                 </div>
+            )}
+            {/* salary Category Model */}
+            {salaryCategoryModel && (
+                <div
+                className="modal show fade"
+                style={{ display: 'block' }}
+                id="exampleModal"
+                tabIndex="-1"
+                aria-labelledby="exampleModalLabel"
+                // aria-hidden="true"
+              >
+                <div className="modal-dialog  modal-dialog-centered">
+                  <div className="modal-content border border-secondary rounded-3">
+                    <div className="modal-header">
+                      <h6 className="modal-title fw-normal d-flex gap-2">
+                        <span><img src={faviconImg} style={{width:"25px"}} /></span>
+                         <span>Salary Category</span>  
+                        </h6>
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        onClick={()=>setSalaryCategoryModel(false)}
+                      ></button>
+                    </div>
+                    <div className="modal-body mx-1 my-0 rounded-3 ">
+                        <h5 className="fs-5">Salary Category </h5>
+                        <div className='border py-2 pe-1 my-2 rounded-2'>
+                            <div className="mb-2 row">
+                            <label htmlFor="" className=" col-sm-5 col-form-label fs-6  text-end" >Category :</label>
+                        <div className="col-sm-7 d-flex align-items-center">
+                          <input type="text" className="form-control"  name="Category"
+                            // value={data.currentYear} onChange={handleChange}
+                            autoComplete="off" required  />
+                        </div>
+                            </div>
+                            <div className="mb-2 row">
+                                <label htmlFor="" className=" col-sm-5 col-form-label fs-6  text-end" >Remarks :</label>
+                                <div className="col-sm-7 d-flex align-items-center">
+                                    <textarea name="Remarks" className='form-control'></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='border py-2 pe-1 my-2 rounded-2' >
+                            <div className="mb-2 row">
+                            <label htmlFor="" className=" col-sm-5 col-form-label fs-6  text-end">Salary Formula :</label>
+                            <div className="col-sm-7 d-flex align-items-center">
+                                <input type="text" className="form-control"  name="SalaryFormula"
+                            // value={data.createYear} onChange={handleChange}
+                                autoComplete="off" required  />
+                            </div>
+                            </div>
+                            <div className="row m-0 p-0 " >
+                                <div className="col-sm-9 ms-3 border" style={{height:"200px"}}>
+                                    <p className='text-center'>Salary Formula</p>
+                                </div>
+                                <div className='col-sm-2 d-flex flex-column gap-2'>
+                                    <button className=' btn text-primary fs-4 border-secondary'>+</button>
+                                    <button className=' btn text-primary fs-4 border-secondary'>-</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="modal-footer border-0 p-0 mx-2 my-1">
+                        <button type="button" className="btn btn-primary" >SAVE</button>
+                        <button type="button" className="btn btn-secondary" onClick={()=>setSalaryCategoryModel(false)} > CLOSE </button>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
             )}
         </div>
       </div>
