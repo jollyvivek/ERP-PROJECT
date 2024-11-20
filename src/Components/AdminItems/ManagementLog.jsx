@@ -24,6 +24,7 @@ const ManagementLog = () => {
     const[bankDetails,setBankDetails]= useState(false)
     const[document,setDocument]=useState(false)
     const[dependentAssets,setDependentAssets] = useState(false)
+    const[ManagersRating,setManagersRating] = useState(false)
 
     // const CategoryHandler = ()=>{
     //     alert()
@@ -34,10 +35,11 @@ const ManagementLog = () => {
         setPersonalDetails(true)
         setOfficialDetails(false)
         setQualification(false)
-        setWorkExperience(false);
-        setBankDetails(false);
-        setDocument(false);
-        setDependentAssets(false);
+        setWorkExperience(false)
+        setBankDetails(false)
+        setDocument(false)
+        setDependentAssets(false)
+        setManagersRating(false)
     };
 
     const PersonalDetailsHandler = ()=>{
@@ -48,6 +50,7 @@ const ManagementLog = () => {
         setBankDetails(false);
         setDocument(false);
         setDependentAssets(false);
+        setManagersRating(false)
     }
 
     const officialDetailsHandler = ()=>{
@@ -59,6 +62,7 @@ const ManagementLog = () => {
         setBankDetails(false);
         setDocument(false);
         setDependentAssets(false);
+        setManagersRating(false)
     }
 
     const QualificationHandler = ()=>{
@@ -69,14 +73,16 @@ const ManagementLog = () => {
         setBankDetails(false);
         setDocument(false);
         setDependentAssets(false);
+        setManagersRating(false)
     }
 
     const workExperienceHandler = ()=>{
-        setWorkExperience(true);
+        setWorkExperience(true)
         setQualification(false)
-        setBankDetails(false);
-        setDocument(false);
-        setDependentAssets(false);
+        setBankDetails(false)
+        setDocument(false)
+        setDependentAssets(false)
+        setManagersRating(false)
     }
 
     const BankDetailHandler = ()=>{
@@ -84,9 +90,10 @@ const ManagementLog = () => {
         setPersonalDetails(false)
         setOfficialDetails(false)
         setQualification(false)
-        setWorkExperience(false);
-        setDocument(false);
-        setDependentAssets(false);
+        setWorkExperience(false)
+        setDocument(false)
+        setDependentAssets(false)
+        setManagersRating(false)
     }
 
     const documentHandler = ()=>{
@@ -94,9 +101,10 @@ const ManagementLog = () => {
         setPersonalDetails(false)
         setOfficialDetails(false)
         setQualification(false)
-        setWorkExperience(false);
-        setBankDetails(false);
-        setDependentAssets(false);
+        setWorkExperience(false)
+        setBankDetails(false)
+        setDependentAssets(false)
+        setManagersRating(false)
     }
 
     const DependentAssetsHandler = ()=>{
@@ -104,9 +112,21 @@ const ManagementLog = () => {
         setPersonalDetails(false)
         setOfficialDetails(false)
         setQualification(false)
-        setWorkExperience(false);
-        setBankDetails(false);
-        setDocument(false);
+        setWorkExperience(false)
+        setBankDetails(false)
+        setDocument(false)
+        setManagersRating(false)
+    }
+
+    const ManagersRatingHandler = ()=>{
+        setManagersRating(true)
+        setPersonalDetails(false)
+        setOfficialDetails(false)
+        setQualification(false)
+        setWorkExperience(false)
+        setBankDetails(false)
+        setDocument(false)
+        setDependentAssets(false);
     }
 
   return (
@@ -354,7 +374,7 @@ const ManagementLog = () => {
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={BankDetailHandler}>Bank Details </button>
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={documentHandler}>Document & Insurance </button>
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={DependentAssetsHandler}>Dependent Details and Assests </button>
-                            <button className='em-btn border px-1 border-secondary rounded-2'>Line Management Rating Head </button>
+                            <button className='em-btn border px-1 border-secondary rounded-2' onClick={ManagersRatingHandler}>Line Managers & Rating Heads </button>
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={()=>setCategoryModel(true)}>CTC </button>
                         </div>
                     </div>
@@ -1092,7 +1112,7 @@ const ManagementLog = () => {
                                     <div className='col-md-3'>
                                         <div className="mb-3">
                                             <label className="form-label text-center w-100">Relation With Postion Holder</label>
-                                            <select className="form-select"  aria-label="Default select example">
+                                            <select className="form-select form-select-sm"  aria-label="Default select example">
                                                 <option> Select one of Relation</option>
                                                 <option value="Child">Child</option>
                                                 <option value="Other">Other</option>
@@ -1112,9 +1132,9 @@ const ManagementLog = () => {
                                         </div>
                                     </div>
                                     <div className='col-md-3'>
-                                    <div className="mb-3">
+                                        <div className="mb-3">
                                             <label className="form-label text-center w-100">Gender</label>
-                                            <select className="form-select"  aria-label="Default select example">
+                                            <select className="form-select form-select-sm "  aria-label="Default select example">
                                                 <option> Select one of Gender</option>
                                                 <option value="Male">Male</option>
                                                 <option value="Female">Female</option>
@@ -1196,6 +1216,145 @@ const ManagementLog = () => {
                         </div>
                         </div>
 
+                    )}
+                    {/* Line Managers and Rating */}
+                    {ManagersRating && (
+                        <div className='row'>
+                        <div className='col-md-12 mt-3'>
+                            <div className='row'>
+                            <div className='col-md-6'>
+                                 <fieldset className='rounded-1 border mt-2'>
+                                <legend>Senior Line Manager</legend>
+                                <div className='row py-2'>
+                                    <div className='col-md-10 '>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Senior Line Manager</label>
+                                            <input type="text" className="form-control" name='Name' autoComplete='off' />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='row px-3'>
+                                    <div className='col-md-10 border rounded-2 my-2' style={{height:"250px"}}>
+                                    <table className="table ">
+                                        <thead>
+                                            <tr className='fw-normal text-center'>
+                                                <th className='fw-normal' scope="col">Senior Line Manager</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             <tr className='d-none'>
+                                                <td>BFOX PVT LMT</td>
+                                                <td>MERN STACK</td>
+                                                <td>1-3-2024</td>
+                                                <td>1-3-2026</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                    <div className='col-md-2 d-flex flex-column gap-2 my-2'>
+                                        <button className='fs-5 btn text-info border'><FaPlus /></button>
+                                        <button className='fs-5 btn text-info border'><FaMinus /></button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            </div>
+                            <div className='col-md-6'>
+                                 <fieldset className='rounded-1 border mt-2'>
+                                <legend>Junior Line Manager</legend>
+                                <div className='row py-2'>
+                                    <div className='col-md-10 '>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Junior Line Manager</label>
+                                            <input type="text" className="form-control" name='Name' autoComplete='off' />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='row px-3'>
+                                    <div className='col-md-10 border rounded-2 my-2' style={{height:"250px"}}>
+                                    <table className="table ">
+                                        <thead>
+                                            <tr className='fw-normal text-center'>
+                                                <th className='fw-normal' scope="col">Junior Line Manager</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             <tr className='d-none'>
+                                                <td>BFOX PVT LMT</td>
+                                                <td>MERN STACK</td>
+                                                <td>1-3-2024</td>
+                                                <td>1-3-2026</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                    <div className='col-md-2 d-flex flex-column gap-2 my-2'>
+                                        <button className='fs-5 btn text-info border'><FaPlus /></button>
+                                        <button className='fs-5 btn text-info border'><FaMinus /></button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            </div>
+                            </div>
+                        </div>
+                        <div className='row'>
+                        <div className='col-md-6'>
+                            <fieldset className='rounded-1 border my-2'>
+                                <legend>Login Details</legend>
+                                <div className='row py-3'>
+                                    <div className='col-md-12'>
+                                        <div className="row mb-3 d-flex align-items-center">
+                                            <label className="col-sm-3 form-label"> Employee as User :</label>
+                                            <div className='col-sm-5'>
+                                                <select className="form-select form-select-sm"  aria-label="Default select example">
+                                                <option> Select one Items</option>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                            </div>
+                                            <button className='col-md-2 btn btn-secondary disabled'>Existing</button>
+                                        </div>
+                                        <div className='row mb-1'>
+                                    <label className="col-sm-3 form-label text-end">Role :</label>
+                                        <div className="col-sm-5">
+                                             <input type="text" className="form-control" name='Role' autoComplete='off' />                                            
+                                        </div>
+                                        </div>
+                                        <div className='row mb-1'>
+                                            <label className="col-sm-3 form-label text-end">Register User :</label>
+                                            <div className="col-sm-5">
+                                                <input type="text" className="form-control" name='RegisterUser' autoComplete='off' />                                            
+                                            </div>
+                                        </div>
+                                        <div className='row mb-1'>
+                                            <label className="col-sm-3 form-label text-end">Password :</label>
+                                            <div className="col-sm-5">
+                                                <input type="password" className="form-control" name='Password' autoComplete='off' />                                            
+                                            </div>
+                                        </div>
+                                        <div className='row mb-1'>
+                                            <label className="col-sm-3 form-label text-end">Confirm Password:</label>
+                                            <div className="col-sm-5">
+                                                <input type="password" className="form-control" name='ConfirmPassword' autoComplete='off' />                                            
+                                            </div>
+                                        </div>
+                                        <div className='row mb-1'>
+                                            <label className="col-sm-3 form-label text-end">Digital Sign :</label>
+                                            <div className="col-sm-5">
+                                                <input type="file" className="form-control" name='DigitalSign' autoComplete='off' />
+                                                <div className='mt-2 d-none'><img src="" alt="img" /></div>                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+    
+                            </fieldset>
+                        </div>
+                        </div>
+                        
+                        </div>
                     )}
                 </div>
             </div>
