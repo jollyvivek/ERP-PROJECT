@@ -23,6 +23,7 @@ const ManagementLog = () => {
     const[workExperience,setWorkExperience]= useState(false)
     const[bankDetails,setBankDetails]= useState(false)
     const[document,setDocument]=useState(false)
+    const[dependentAssets,setDependentAssets] = useState(false)
 
     // const CategoryHandler = ()=>{
     //     alert()
@@ -36,6 +37,7 @@ const ManagementLog = () => {
         setWorkExperience(false);
         setBankDetails(false);
         setDocument(false);
+        setDependentAssets(false);
     };
 
     const PersonalDetailsHandler = ()=>{
@@ -45,6 +47,7 @@ const ManagementLog = () => {
         setWorkExperience(false);
         setBankDetails(false);
         setDocument(false);
+        setDependentAssets(false);
     }
 
     const officialDetailsHandler = ()=>{
@@ -55,6 +58,7 @@ const ManagementLog = () => {
         setBankDetails(false);
         setBankDetails(false);
         setDocument(false);
+        setDependentAssets(false);
     }
 
     const QualificationHandler = ()=>{
@@ -64,6 +68,7 @@ const ManagementLog = () => {
         setWorkExperience(false);
         setBankDetails(false);
         setDocument(false);
+        setDependentAssets(false);
     }
 
     const workExperienceHandler = ()=>{
@@ -71,6 +76,7 @@ const ManagementLog = () => {
         setQualification(false)
         setBankDetails(false);
         setDocument(false);
+        setDependentAssets(false);
     }
 
     const BankDetailHandler = ()=>{
@@ -80,6 +86,7 @@ const ManagementLog = () => {
         setQualification(false)
         setWorkExperience(false);
         setDocument(false);
+        setDependentAssets(false);
     }
 
     const documentHandler = ()=>{
@@ -89,6 +96,17 @@ const ManagementLog = () => {
         setQualification(false)
         setWorkExperience(false);
         setBankDetails(false);
+        setDependentAssets(false);
+    }
+
+    const DependentAssetsHandler = ()=>{
+        setDependentAssets(true);
+        setPersonalDetails(false)
+        setOfficialDetails(false)
+        setQualification(false)
+        setWorkExperience(false);
+        setBankDetails(false);
+        setDocument(false);
     }
 
   return (
@@ -335,7 +353,7 @@ const ManagementLog = () => {
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={workExperienceHandler}>Work Experiance </button>
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={BankDetailHandler}>Bank Details </button>
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={documentHandler}>Document & Insurance </button>
-                            <button className='em-btn border px-1 border-secondary rounded-2'>Dependent Details and Assests </button>
+                            <button className='em-btn border px-1 border-secondary rounded-2' onClick={DependentAssetsHandler}>Dependent Details and Assests </button>
                             <button className='em-btn border px-1 border-secondary rounded-2'>Line Management Rating Head </button>
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={()=>setCategoryModel(true)}>CTC </button>
                         </div>
@@ -1054,6 +1072,127 @@ const ManagementLog = () => {
                                     </div>
                                 </div>
                             </fieldset>
+                        </div>
+                        </div>
+
+                    )}
+                    {/* Dependent Details */}
+                    {dependentAssets && (
+                        <div className='row'>
+                        <div className='col-md-12'>
+                            <fieldset className='rounded-1 border mt-3'>
+                                {/* <legend>Dependent Details</legend> */}
+                                <div className='row py-3'>
+                                    <div className='col-md-2 '>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Name Of Dependent</label>
+                                            <input type="text" className="form-control" name='AccountName' autoComplete='off' />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-3'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Relation With Postion Holder</label>
+                                            <select className="form-select"  aria-label="Default select example">
+                                                <option> Select one of Relation</option>
+                                                <option value="Child">Child</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-2'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Date Of Birth</label>
+                                            <input type="date" className="form-control" name='BankName' autoComplete='off'/>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-2'>
+                                    <div className="mb-3">
+                                            <label className="form-label text-center w-100">Age</label>
+                                            <input type="number" className="form-control" name='BranchName' autoComplete='off'/>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-3'>
+                                    <div className="mb-3">
+                                            <label className="form-label text-center w-100">Gender</label>
+                                            <select className="form-select"  aria-label="Default select example">
+                                                <option> Select one of Gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='row px-3'>
+                                    <div className='col-md-12 border rounded-2 my-2' style={{height:"250px"}}>
+                                    <table className="table ">
+                                        <thead>
+                                            <tr className='fw-normal'>
+                                                <th className='fw-normal' scope="col">Name Of Dependent</th>
+                                                <th className='fw-normal' scope="col">Relation With Postion Holder</th>
+                                                <th className='fw-normal' scope="col">Date Of Birth</th>
+                                                <th className='fw-normal' scope="col">Age</th>
+                                                <th className='fw-normal' scope="col">Gender</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             <tr className='d-none'>
+                                                <td>BFOX PVT LMT</td>
+                                                <td>MERN STACK</td>
+                                                <td>1-3-2024</td>
+                                                <td>1-3-2026</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-6'>
+                                 <fieldset className='rounded-1 border mt-2'>
+                                <legend>Assets Details</legend>
+                                <div className='row py-2'>
+                                    <div className='col-md-6 '>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Name</label>
+                                            <input type="text" className="form-control" name='Name' autoComplete='off' />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-6'>
+                                        <div className="mb-3">
+                                            <label className="form-label text-center w-100">Model</label>
+                                            <input type="text" className="form-control" name='Model' autoComplete='off' />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='row px-3'>
+                                    <div className='col-md-10 border rounded-2 my-2' style={{height:"250px"}}>
+                                    <table className="table ">
+                                        <thead>
+                                            <tr className='fw-normal'>
+                                                <th className='fw-normal' scope="col">Name</th>
+                                                <th className='fw-normal' scope="col">Model</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             <tr className='d-none'>
+                                                <td>BFOX PVT LMT</td>
+                                                <td>MERN STACK</td>
+                                                <td>1-3-2024</td>
+                                                <td>1-3-2026</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                    <div className='col-md-2 d-flex flex-column gap-2 my-2'>
+                                        <button className='fs-5 btn text-info border'><FaPlus /></button>
+                                        <button className='fs-5 btn text-info border'><FaMinus /></button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            </div>
                         </div>
                         </div>
 
