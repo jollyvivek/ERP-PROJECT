@@ -3,6 +3,7 @@ import DataTable from 'react-data-table-component'
 import faviconImg from '../../assets/favicon.ico'
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
+import { FaCaretRight } from "react-icons/fa6";
 
 const ManagementLog = () => {
     const[managementLogModel,setManagementLogModel] = useState(false)
@@ -1250,7 +1251,7 @@ const ManagementLog = () => {
                                                 <td>Lorem ipsum dolor sit amet.</td>
                                             </tr>
                                         </tbody>
-                                        </table>
+                                    </table>
                                     </div>
                                     <div className='col-md-2 d-flex flex-column gap-2 my-2'>
                                         <button className='fs-5 btn text-info border'><FaPlus /></button>
@@ -1350,6 +1351,32 @@ const ManagementLog = () => {
                                     
                                 </div>
     
+                            </fieldset>
+                        </div>
+                        <div className='col-md-6'>
+                            <fieldset className='rounded-1 border my-2'>
+                                <legend>Rating Heads</legend>
+                                <table className="table ">
+                                        <thead className=''>
+                                            <tr className='fw-normal'>
+                                                <th className='fw-normal border' scope="col"></th>
+                                                <th className='fw-normal border' scope="col">Ratings</th>
+                                                <th className='fw-normal border' scope="col">Rating Head Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             <tr className=''>
+                                                <td className='border text-center fs-5'><FaCaretRight /></td>
+                                                <td className='border border-end-0'>ABC</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr className=''>
+                                                <td className='border text-center fs-5'><FaCaretRight /></td>
+                                                <td className='border border-end-0'>XYZ</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                             </fieldset>
                         </div>
                         </div>
