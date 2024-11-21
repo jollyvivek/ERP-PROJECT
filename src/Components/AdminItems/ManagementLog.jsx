@@ -4,6 +4,7 @@ import faviconImg from '../../assets/favicon.ico'
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { FaCaretRight } from "react-icons/fa6";
+import { FaArrowRotateRight } from "react-icons/fa6";
 
 const ManagementLog = () => {
     const[managementLogModel,setManagementLogModel] = useState(false)
@@ -26,6 +27,7 @@ const ManagementLog = () => {
     const[document,setDocument]=useState(false)
     const[dependentAssets,setDependentAssets] = useState(false)
     const[ManagersRating,setManagersRating] = useState(false)
+    const[ctc,setCtc]=useState(false)
 
     // const CategoryHandler = ()=>{
     //     alert()
@@ -41,6 +43,7 @@ const ManagementLog = () => {
         setDocument(false)
         setDependentAssets(false)
         setManagersRating(false)
+        setCtc(false)
     };
 
     const PersonalDetailsHandler = ()=>{
@@ -52,18 +55,20 @@ const ManagementLog = () => {
         setDocument(false);
         setDependentAssets(false);
         setManagersRating(false)
+        setCtc(false)
     }
 
     const officialDetailsHandler = ()=>{
         setOfficialDetails(true)
         setPersonalDetails(false)
         setQualification(false)
-        setWorkExperience(false);
-        setBankDetails(false);
-        setBankDetails(false);
-        setDocument(false);
-        setDependentAssets(false);
+        setWorkExperience(false)
+        setBankDetails(false)
+        setBankDetails(false)
+        setDocument(false)
+        setDependentAssets(false)
         setManagersRating(false)
+        setCtc(false)
     }
 
     const QualificationHandler = ()=>{
@@ -75,6 +80,7 @@ const ManagementLog = () => {
         setDocument(false);
         setDependentAssets(false);
         setManagersRating(false)
+        setCtc(false)
     }
 
     const workExperienceHandler = ()=>{
@@ -84,6 +90,7 @@ const ManagementLog = () => {
         setDocument(false)
         setDependentAssets(false)
         setManagersRating(false)
+        setCtc(false)
     }
 
     const BankDetailHandler = ()=>{
@@ -95,6 +102,7 @@ const ManagementLog = () => {
         setDocument(false)
         setDependentAssets(false)
         setManagersRating(false)
+        setCtc(false)
     }
 
     const documentHandler = ()=>{
@@ -106,6 +114,7 @@ const ManagementLog = () => {
         setBankDetails(false)
         setDependentAssets(false)
         setManagersRating(false)
+        setCtc(false)
     }
 
     const DependentAssetsHandler = ()=>{
@@ -117,6 +126,7 @@ const ManagementLog = () => {
         setBankDetails(false)
         setDocument(false)
         setManagersRating(false)
+        setCtc(false)
     }
 
     const ManagersRatingHandler = ()=>{
@@ -128,6 +138,19 @@ const ManagementLog = () => {
         setBankDetails(false)
         setDocument(false)
         setDependentAssets(false);
+        setCtc(false)
+    }
+
+    const CtcHandler = ()=>{
+        setCtc(true)
+        setPersonalDetails(false)
+        setOfficialDetails(false)
+        setQualification(false)
+        setWorkExperience(false)
+        setBankDetails(false)
+        setDocument(false)
+        setDependentAssets(false)
+        setManagersRating(false)
     }
 
   return (
@@ -376,7 +399,7 @@ const ManagementLog = () => {
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={documentHandler}>Document & Insurance </button>
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={DependentAssetsHandler}>Dependent Details and Assests </button>
                             <button className='em-btn border px-1 border-secondary rounded-2' onClick={ManagersRatingHandler}>Line Managers & Rating Heads </button>
-                            <button className='em-btn border px-1 border-secondary rounded-2' onClick={()=>setCategoryModel(true)}>CTC </button>
+                            <button className='em-btn border px-1 border-secondary rounded-2' onClick={CtcHandler}>CTC </button>
                         </div>
                     </div>
                     {/* Personal Details */}
@@ -1258,7 +1281,7 @@ const ManagementLog = () => {
                                         <button className='fs-5 btn text-info border'><FaMinus /></button>
                                     </div>
                                 </div>
-                            </fieldset>
+                                </fieldset>
                             </div>
                             <div className='col-md-6'>
                                  <fieldset className='rounded-1 border mt-2'>
@@ -1376,11 +1399,120 @@ const ManagementLog = () => {
                                                 <td></td>
                                             </tr>
                                         </tbody>
-                                    </table>
+                                </table>
                             </fieldset>
                         </div>
                         </div>
                         
+                        </div>
+                    )}
+                    {/* CTC   */}
+                    {ctc && (
+                        <div className='container-fluid'>
+                            <div className='row mt-3'>
+                                <div className='col-md-12'>
+                                    <div className='row'>
+                                        <div className='col-md-6 mt-3'>
+                                            <div className='row'>
+                                            <label htmlFor="" className='col-sm-4 col-form-label text-end'>Salary</label>
+                                            <div className='col-sm-8'>
+                                                <input type="text" className=' form-control' name=""  />
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-md-6 mt-3 d-flex gap-2'>
+                                            <button className='btn border border-primary'>Generate</button>
+                                            <button className='btn border d-flex gap-2 border-primary'>
+                                                <span>Add Salary Formula</span> <span><FaArrowRotateRight /></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className='col-md-6 mt-3'>
+                                    <fieldset className='border rounded-2'>
+                                        <legend>Addition</legend>
+                                        <table className="table ">
+                                        <thead className=''>
+                                            <tr className='fw-normal'>
+                                                <th className='fw-normal border' scope="col"></th>
+                                                <th className='fw-normal border' scope="col">Label Name</th>
+                                                <th className='fw-normal border' scope="col">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className='bg-info' style={{height:"100px"}}>
+                                             <tr className='d-none'>
+                                                <td className='border text-center fs-5'></td>
+                                                <td className='border border-end-0'>ABC</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr className='d-none'>
+                                                <td className='border text-center fs-5'></td>
+                                                <td className='border border-end-0'>XYZ</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                        <div className='row mb-3 align-items-center'>
+                                            <label htmlFor="" className='col-sm-4 text-end'>Total Addition</label>
+                                            <div className='col-sm-8'>
+                                                <input type="number" className='form-control' name="" placeholder='0' />
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div className='col-md-6 mt-3'>
+                                    <fieldset className='border rounded-2'>
+                                        <legend>Deduction</legend>
+                                        <table className="table ">
+                                        <thead className=''>
+                                            <tr className='fw-normal'>
+                                                <th className='fw-normal border' scope="col"></th>
+                                                <th className='fw-normal border' scope="col">Label Name</th>
+                                                <th className='fw-normal border' scope="col">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className='' style={{height:"100px",background:"red"}}>
+                                             <tr className='d-none'>
+                                                <td className='border text-center fs-5'></td>
+                                                <td className='border border-end-0'>ABC</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr className='d-none'>
+                                                <td className='border text-center fs-5'></td>
+                                                <td className='border border-end-0'>XYZ</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                        <div className='row mb-3 align-items-center'>
+                                            <label htmlFor="" className='col-sm-4 text-end'>Total Deduction</label>
+                                            <div className='col-sm-8'>
+                                                <input type="number" className='form-control' name="" placeholder='0' />
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className='col-md-12'>
+                                        <div className='row my-3 align-items-center'>
+                                            <label htmlFor="" className='col-sm-3 offset-2 text-end'>Total Deduction</label>
+                                            <div className='col-sm-3'>
+                                                <input type="number" className='form-control' name="" placeholder='0' />
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div className='row my-2'>
+                                <div className='col-md-6 offset-3 py-2 d-flex justify-content-center gap-1 border rounded-2'>
+                                    <button className='btn border border-primary'>NEW</button>
+                                    <button className='btn border border-primary'>SAVE</button>
+                                    <button className='btn btn-secondary  disabled'>UPDATE</button>
+                                    <button className='btn btn-secondary  disabled'>DELETE</button>
+                                </div>
+                            </div>
                         </div>
                     )}
                 </div>
