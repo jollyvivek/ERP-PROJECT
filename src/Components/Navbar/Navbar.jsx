@@ -27,11 +27,11 @@ const Navbar = ({setShowLogin}) => {
   return (
     
      <div className='container-fluid nav-cont '>
-      <div className='row py-2 nav-row'>
+      <div className='row py-2 nav-row d-none '>
         <div className='col-md-6 d-flex gap-5 nav-cont-left '>
           
           <div className="d-flex align-items-center gap-3">
-            <span className="hamberMenu" onClick={hamberMenuHandler}><IoMenu /></span>
+          <span className="hamberMenu" onClick={hamberMenuHandler}><IoMenu /></span>
           <img className='img-fluid logo' onClick={()=>navigate("/")} src={logo} alt="logo" />
           </div>
           <div className='mobile-cont w-100 d-flex align-items-center'>
@@ -51,7 +51,34 @@ const Navbar = ({setShowLogin}) => {
               </div>}
             <span className="fs-4 setting-icon"><FaGear /></span> 
             </div>
-          {/* <p className="fs-5">User Name</p> */}
+        </div>
+      </div>
+
+      {/* navbar  */}
+      <div className="row nav-row">
+        <div className="col-md-12 d-flex justify-content-between navbar">
+              <div className="navbar-left d-flex gap-3" style={{flexBasis:"50%"}}>
+                <div className="d-flex align-items-center gap-3">
+                    <span className="hamberMenu" onClick={hamberMenuHandler}><IoMenu /></span>
+                    <img className='img-fluid logo' onClick={()=>navigate("/")} src={logo} alt="logo" />
+                </div>
+                <div className='mobile-cont w-100 d-flex align-items-center'>
+                  <span className='mobile-icon'><FaMobileAlt/></span>
+                  <span className='mobile-num fw-bold'>WhatsApp : 9876543210</span>
+              </div>
+              </div>
+              <div className="navbar-right" style={{flexBasis:"50%"}}>
+                <div className="setting d-flex justify-content-end px-3 gap-3 align-items-center"> 
+                {!token ?
+              <button className="fs-5 border-0 bg-transparent" 
+              onClick={()=>setShowLogin(true)}>Sign In</button>
+              :<div className="nav-profile gap-3 ">
+                <img className="user-icon" src={UserIcon} alt="userIcon" />
+                <p className="logout fs-5 pt-2" onClick={logout}>Logout</p>
+              </div>}
+              <span className="fs-4 setting-icon"><FaGear /></span> 
+              </div>
+              </div>
         </div>
       </div>
 

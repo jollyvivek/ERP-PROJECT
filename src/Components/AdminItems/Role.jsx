@@ -135,7 +135,7 @@ const Role = ({RoleModel}) => {
     <div className='container-fluid role'>
 
       <div className='row'>
-        <div className='col-md-10 offset-1'>
+        <div className='col-md-12'>
           <div className='d-flex justify-content-between mt-3'>
           <h4>Role Record</h4>
           <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5' onClick={()=>RoleModel(true)}>Add New</button>
