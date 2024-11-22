@@ -84,3 +84,36 @@ form label{
   background-color:grey;
   color: white;
 }
+
+@media (max-width:768px) {
+  .hamberMenu{
+    display: flex !important;
+  }
+  .mobile-cont{
+    display: none !important;
+  }
+
+  .dashboard{
+    position: absolute;
+    z-index: 10;
+    width:100%;
+    top:0rem;
+    background: lightgray;
+    left:-100vw;
+    transition: 0.5s ease-in-out;
+    /* display: none; */
+  }
+  .dashboard.show{
+    /* display: block; */
+    left: 0 !important;
+  }
+  .dashboard-right{
+    width: 100% !important;
+    /* background: red !important; */
+  }
+
+  .nav-cont .logo{
+    /* border: 2px solid green; */
+    max-width: 10rem;
+  }
+}

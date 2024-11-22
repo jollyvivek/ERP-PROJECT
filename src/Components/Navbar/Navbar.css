@@ -80,3 +80,9 @@
 .nav-btns .navLink:hover{
   color: blue;
 }
+
+@media (max-width:576px) {
+  .nav-row{
+    flex-direction: row-reverse ;
+  }
+}

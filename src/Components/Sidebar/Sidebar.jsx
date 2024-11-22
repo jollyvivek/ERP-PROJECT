@@ -131,7 +131,7 @@ const Sidebar = ({userData}) => {
     <div className="sidebar container-fluid ">
       { isRoleModel ? <RoleModel RoleModel={setIsRoleModel} /> : <></>}
       { isUserModel ?<UserModel addModelHandler={setIsUserModel} />:<></>}
-      <div className="row">
+      <div className="row position-relative">
         {/* { <div className="position-absolute z-1 p-0 h-100"><MasterReport/></div> } */}
 
         <div className="col-md-3 left dashboard ps-2 ">
@@ -159,7 +159,7 @@ const Sidebar = ({userData}) => {
             
           </div>
         </div>
-        <div className="col-md-9 p-0" >
+        <div className="col-md-9 dashboard-right p-0" >
         <Routes>
         {/* admin */}
         <Route path="/basic_details" element={<BasicDetails/>}/>

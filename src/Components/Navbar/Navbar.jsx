@@ -18,19 +18,27 @@ const Navbar = ({setShowLogin}) => {
     setToken("");
     navigate("/")
   }
+
+  const hamberMenuHandler =()=>{
+    const dashboard = document.querySelector(".dashboard")
+    dashboard.classList.toggle("show")
+    console.log(dashboard)
+  }
   return (
     
      <div className='container-fluid nav-cont '>
-      <div className='row py-2'>
+      <div className='row py-2 nav-row'>
         <div className='col-md-6 d-flex gap-5 nav-cont-left '>
+          
           <div className="d-flex align-items-center gap-3">
-            <span className="hamberMenu"><IoMenu /></span>
+            <span className="hamberMenu" onClick={hamberMenuHandler}><IoMenu /></span>
           <img className='img-fluid logo' onClick={()=>navigate("/")} src={logo} alt="logo" />
           </div>
           <div className='mobile-cont w-100 d-flex align-items-center'>
             <span className='mobile-icon'><FaMobileAlt/></span>
             <span className='mobile-num fw-bold'>WhatsApp : 9876543210</span>
           </div>
+
         </div>
         <div className='col-md-6 text-end nav-cont-right'>
             <div className="setting "> 
