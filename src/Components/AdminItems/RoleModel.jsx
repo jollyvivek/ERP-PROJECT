@@ -136,7 +136,7 @@ const RoleModel = ({RoleModel}) => {
           </fieldset>
         </div>
         <div className="col-md-8">
-          <ModuleMenuCommon/>
+          <ModuleMenuCommon RoleModel={RoleModel}/>
           {/* <div className="row">
             <div className="col-md-2"><p className="fw-bold">Menu Name</p></div>
             <div className="col-md-1 text-center"><p className="fw-bold">Read</p></div>
