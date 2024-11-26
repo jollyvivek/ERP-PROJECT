@@ -2,10 +2,10 @@ import React from "react";
 
 const SidebarRight = () => {
   return (
-    <div className="container bg-light h-100">
+    <div className="container h-100">
       <div className="row py-3">
         
-        <div className="col-md-10 offset-1">
+        <div className="col-md-12">
         <h2 className=" text-center">Bussiness ERP Solution</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum

@@ -128,10 +128,10 @@ const Sidebar = ({userData}) => {
   return (
     <>
     
-    <div className="sidebar container-fluid ">
+    <div className="sidebar p-0  container-fluid ">
       { isRoleModel ? <RoleModel RoleModel={setIsRoleModel} /> : <></>}
       { isUserModel ?<UserModel addModelHandler={setIsUserModel} />:<></>}
-      <div className="row position-relative">
+      <div className="row position-relative px-2">
         {/* { <div className="position-absolute z-1 p-0 h-100"><MasterReport/></div> } */}
 
         <div className="col-md-3 left dashboard ps-2 ">

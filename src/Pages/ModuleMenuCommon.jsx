@@ -8,24 +8,34 @@ const ModuleMenuCommon = ({RoleModel}) => {
     RoleModel(false)
     navigate('/')
   }
+
+  const ManageUserHandler = ()=>{
+    RoleModel(false)
+    navigate('/manageuser')
+  }
+
+  const RoleHandler = ()=>{
+    RoleModel(false)
+    navigate('/role')
+  }
   return (
     <div className='container-fluid border border-secondary rounded-2 mt-3'>
        <div className="row">
-            <div className="col-md-2"><p className="fw-bold">Menu Name</p></div>
-            <div className="col-md-1 text-center"><p className="fw-bold">Read</p></div>
-            <div className="col-md-1 text-center "><p className="fw-bold">Write</p></div>
-            <div className="col-md-1 text-center "><p className="fw-bold">Modify</p></div>
-            <div className="col-md-1 text-center"><p className="fw-bold">Delete</p></div>
-            <div className="col-md-4 d-flex justify-content-between">
-              <p className="fw-bold">Approved-1</p>
-              <p className="fw-bold">Approved-2</p>
-              <p className="fw-bold">Approved-3</p>
-            </div>
+          <div className='col-md-12 d-flex justify-content-between flex-wrap'>
+            <div className=""><p className="fw-bold">Menu Name</p></div>
+            <div className=" text-center"><p className="fw-bold">Read</p></div>
+            <div className=" text-center "><p className="fw-bold">Write</p></div>
+            <div className=" text-center "><p className="fw-bold">Modify</p></div>
+            <div className=" text-center"><p className="fw-bold">Delete</p></div>
+            <div className=" text-center"><p className="fw-bold">Approved-1</p></div>
+            <div className=" text-center"><p className="fw-bold">Approved-2</p></div>
+            <div className=" text-center"><p className="fw-bold">Approved-3</p></div>
             <div className="col-md-2"><p className="fw-bold">Report and Export</p></div>
           </div>
+        </div>
           {/* Admin */}
           <div className="row">
-          <h4 className=" m-0">Admin</h4>
+          <h5 className="my-1">Admin</h5>
           <div className='row'>
             <div className='col-md-12'>
             <div className='row'>
@@ -37,7 +47,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
             </div>
             <div className='row '>
               <div className='col-md-2 bg-danger'><p className="m-0 p-0">User</p></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center bg-danger' onClick={ManageUserHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
@@ -45,7 +55,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
             </div>
             <div className='row '>
               <div className='col-md-2 bg-danger'><p className="m-0 p-0">Role</p></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center bg-danger' onClick={RoleHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
@@ -152,7 +162,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
 
           {/* Inventry */}
           <div className="row mt-2">
-          <h4 className=" m-0">Inventry</h4>
+          <h5 className=" my-1">Inventry</h5>
           <div className='row'>
           <div className='col-md-12'>
             <div className='row'>

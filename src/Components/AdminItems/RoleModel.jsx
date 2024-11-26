@@ -65,7 +65,9 @@ const RoleModel = ({RoleModel}) => {
   return (
     <div className="container-fluid px-3 position-absolute  z-1 " 
     style={
-      {background:"lightGrey",
+      {
+        background:"lightGrey",
+        width:"100%"
       // overflowY:"scroll"
       }}>
       <div className="row">
