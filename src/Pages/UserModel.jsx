@@ -258,7 +258,7 @@ const UserModel = ({addModelHandler}) => {
           </fieldset>
       </div>
       <div className='col-md-8'>
-        <ModuleMenuCommon/>
+        <ModuleMenuCommon RoleModel={addModelHandler}/>
       </div>
 
 {/* TestMail Modal*/}
