@@ -1,15 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import NavTabs from '../Navbar/NavTabs'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { error } from 'jquery';
+import { StoreContext } from '../../Context/StoreContext';
 
-const TaxAndBankDetails = ({url}) => {
+const TaxAndBankDetails = () => {
     const navigate = useNavigate()
-  const [signImage,setSignImage] =useState(false)
-  const singInputRef= useRef(null)
-  const [data, setData] = useState({
+    const {url}= useContext(StoreContext)
+    const [taxBankData,setTaxAndBankData]= useState([])
+     const [signImage,setSignImage] =useState(false)
+     const singInputRef= useRef(null)
+     const [data, setData] = useState({
     panNo: '',
     gstNo: '',
     gstDate: '',
@@ -27,7 +30,7 @@ const TaxAndBankDetails = ({url}) => {
     ccMailId: '',
     enableSSL: '',
     sendMailForm: '',
-  });
+    });
   
 
    // Handle input change
@@ -98,16 +101,20 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
 
 }
 
+// TaxAndBankFetch
 
-// console.log(data,signImage)
+const  TaxAndBankFetch = async()=>{
+    const response = await axios.get(`${url}/api/bankdetails/list`);
+    if(response){
+        setTaxAndBankData(response.data.data);
+        // console.log(response.data.data)
+    }else{
+        console.log("error")
+    }
+}
 
+useEffect(()=>{ TaxAndBankFetch()},[]);
 
-
-
-// useEffect(()=>{
-//   console.log(formData)
-//   console.log(signImage)
-// },[formData,signImage]);
 
 
 
