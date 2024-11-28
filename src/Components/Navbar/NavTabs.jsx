@@ -27,10 +27,10 @@ const NavTabs = () => {
                 <NavLink to="/terms_condtions" style={NavLinkCss} className="navLink">Terms & Condtions</NavLink> 
               </button>
               <button className="btn btn-sm fs-5 ">
-                 <NavLink to="/report_heading" style={NavLinkCss} className="navLink"> Report Haeding</NavLink>   
+                 <NavLink to="/report_heading" style={NavLinkCss} className="navLink"> Report Heading</NavLink>   
               </button>
               <button className="btn btn-sm fs-5">
-                <NavLink to="/report_heading_two" style={NavLinkCss} className="navLink">Report Haeding</NavLink> 
+                <NavLink to="/report_heading_two" style={NavLinkCss} className="navLink">Report Heading</NavLink> 
               </button>
               <button className="btn btn-sm fs-5">
                 <NavLink to="/other_setting" style={NavLinkCss} className="navLink" >Other Setting</NavLink> 
@@ -48,7 +48,7 @@ const NavTabs = () => {
                 <NavLink to="/costing_setting" style={NavLinkCss} className="navLink">Costing Setting</NavLink> 
               </button>
               <button  className="btn btn-sm fs-5 ">
-                <NavLink to="/production_setting" style={NavLinkCss} className="navLink">Production setting</NavLink> 
+                <NavLink to="/production_setting" style={NavLinkCss} className="navLink">Production Setting</NavLink> 
               </button>
               {/* <button className="btn btn-sm fs-5 ">Terms & Conditions</button> */}
       </div>

@@ -20,7 +20,7 @@ const BatchTracking = () => {
 
    const BatchSubmitHandler =()=>{
     console.log(batchData)
-    setBatchData({ BatchNo:"", ItemCode:"", ItemName:""})
+    setBatchData({ BatchNo:"", ItemCode:"", ItemName:""});
    };
 
    const BatchResetHandler = ()=>{
@@ -35,6 +35,7 @@ const BatchTracking = () => {
    const batchModelHandler = ()=>{
     setShowModal(false)
     setBatchData(selectedValue)
+    setSelectedValue({ BatchNo:"", ItemCode:"", ItemName:""})
    }
 
   return (
