@@ -24,8 +24,13 @@ hr{
   text-decoration: none;
   color: black;
   padding-bottom: 5px;
+  font-size:1.2rem;
   /* border-radius: 5px; */
 }
+
+.nav-item:hover{
+  background:none;
+} 
 .app-content{
   display: flex;
   border-top: 2px solid #a9a9a9 ;
