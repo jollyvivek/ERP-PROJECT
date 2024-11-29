@@ -8,7 +8,7 @@ const NavTabs = () => {
     return{
       
       // borderBottom:isActive ? "3px solid blue" :"",
-      color:isActive ? "blue":""
+      color:isActive ? "blue":"",
     }
 
   }
@@ -56,13 +56,13 @@ const NavTabs = () => {
       </div>
       <div className='row mt-2'>
         <div className='col-md-12'>
-          <ul className="nav nav-tabs px-0">
-            <li className="nav-item">
+          <ul className="nav nav-tabs">
+            <li className="nav-item ">
               {/* <a className="nav-link active" aria-current="page" href="#">Active</a> */}
-              <NavLink to="/company/*" style={NavLinkCss} className="nav-link nav-link active" >Basic Details</NavLink> 
+              <NavLink to="/company/*" style={NavLinkCss} className=" navLink nav-link active" >Basic Details</NavLink> 
             </li>
             <li className="nav-item"> 
-              <NavLink to='/tax_bankdetails' style={NavLinkCss} className="navLink nav-link">Tax & Bank Details</NavLink>
+              <NavLink to='/tax_bankdetails' style={NavLinkCss} className=" navLink nav-link">Tax & Bank Details</NavLink>
             </li>
             <li className="nav-item">
               <NavLink to="/terms_condtions" style={NavLinkCss} className="navLink nav-link">Terms & Condtions</NavLink> 

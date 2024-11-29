@@ -67,8 +67,9 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {profileItem ? (
               <ul className="profile-items">
-                <li  className="title company-details-title">
-                  <NavLink to='/company' className="nav-link w-100 ">Edit Company</NavLink>
+                <li  className="title company-details-title" onClick={()=>navigate('/company')}>
+                  <span>Edit Company</span>
+                  {/* <NavLink to='/company' className="nav-link w-100 ">Edit Company</NavLink> */}
                 </li>
               </ul>
             ) : null}
