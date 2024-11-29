@@ -102,7 +102,7 @@ const ReportHeadingTwo = () => {
 
   return (
     <div className="container-fluid">
-      <h4 className="company-title fs-5">Company Details</h4>
+      <h4 className="company-title fs-5 mt-2">Company Details</h4>
       <div className="row ">
         <div className="col-md-12 px-0">
           <NavTabs />
