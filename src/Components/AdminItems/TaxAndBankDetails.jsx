@@ -120,7 +120,7 @@ useEffect(()=>{ TaxAndBankFetch()},[]);
 
   return (
     <div className='container-fluid'>
-    <h4 className="company-title fs-5 mt-2">Company Details</h4>
+    <h4 className="company-title fs-5 px-2 mt-2">Company Details</h4>
         <div className='row'>
             <div className='col-md-12 p-0'>
             <NavTabs/>

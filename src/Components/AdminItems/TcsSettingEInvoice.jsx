@@ -127,7 +127,7 @@ const TcsSettingEInvoice = () => {
     <div className='container-fluid'>
       <div className='row'>
         <div className='col-md-12'>
-        <h4 className="company-title fs-5">Company Details</h4>
+        <h4 className="company-title fs-5 px-2 mt-2">Company Details</h4>
           <NavTabs/>
         </div>
       </div>
