@@ -3,7 +3,7 @@ import DataTable from 'react-data-table-component'
 import { BiEdit } from "react-icons/bi";
 
 const SerialSetting = () => {
-  const[settingForm,setSettingForm]= useState(false)
+  const [settingForm,setSettingForm] = useState(false)
   const [settingModel,setSettingModel] = useState(false)
   const dataList =[
     {Name :"Gautam", Email:"gautam@gmail.com",MobileNo:"9876543210",AutoGenerate:"Yes"},
@@ -44,6 +44,8 @@ const SerialSetting = () => {
     },
     };
 
+    
+
 
 
 
@@ -53,9 +55,8 @@ const SerialSetting = () => {
           <div className='col-md-12 px-3'>
               <div className='d-flex justify-content-between mt-3'>
                 <h4>Setting Record</h4>
-                <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5 d-none'
+                <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5'
                    onClick={()=>setSettingModel(true)}
-                  //  data-bs-toggle="modal" data-bs-target="#exampleModal"
                    >Add New</button>
               </div>
               <div className='mt-3 '>
@@ -151,7 +152,9 @@ const SerialSetting = () => {
         
       </div>
       <div className="modal-footer border-0">
-        <button type="button" className="btn btn-primary">{settingForm ? "Update" :"Save"}</button>
+        <button type="button" className="btn btn-primary">
+          {settingForm ? "Update" : "Save"}
+        </button>
         <button type="button" className="btn btn-secondary" onClick={()=>setSettingModel(false)}>Close</button>
       </div>
     </div>
