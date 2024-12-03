@@ -3,8 +3,10 @@ import DataTable from 'react-data-table-component'
 import { BiEdit } from "react-icons/bi";
 
 const SerialSetting = () => {
-  const [settingForm,setSettingForm] = useState(false)
+
+  const [isUpdate,setIsUpdate]= useState(false)
   const [settingModel,setSettingModel] = useState(false)
+
   const dataList =[
     {Name :"Gautam", Email:"gautam@gmail.com",MobileNo:"9876543210",AutoGenerate:"Yes"},
     {Name :"Vivek", Email:"vivek@gmail.com",MobileNo:"7854239610",AutoGenerate:"Yes"},
@@ -17,7 +19,7 @@ const SerialSetting = () => {
     {name:"Postfix",selector:row=>row.MobileNo},
     {name:"Auto Generate",selector:row=>row.AutoGenerate},
     {name:"Modify",selector:row=>row,cell:row=>(
-      <button className="btn text-center fs-4" onClick={()=>setSettingModel(true)}><BiEdit/></button>
+      <button className="btn text-center fs-4" onClick={SerialSettingUpdate}><BiEdit/></button>
     )},
   ]
 
@@ -44,6 +46,25 @@ const SerialSetting = () => {
     },
     };
 
+    const SerailSettingAdd = ()=>{
+      setSettingModel(true)
+      setIsUpdate(false)
+    }
+
+    const SerailSettingAddHandler = ()=>{
+      alert("Add call")
+    }
+
+
+    const SerialSettingUpdate = ()=>{
+      setSettingModel(true)
+      setIsUpdate(true)
+    }
+
+    const SerailSettingUpdateHandler = ()=>{
+      alert("update call")
+    }
+
     
 
 
@@ -56,7 +77,7 @@ const SerialSetting = () => {
               <div className='d-flex justify-content-between mt-3'>
                 <h4>Setting Record</h4>
                 <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5'
-                   onClick={()=>setSettingModel(true)}
+                   onClick={SerailSettingAdd}
                    >Add New</button>
               </div>
               <div className='mt-3 '>
@@ -152,8 +173,10 @@ const SerialSetting = () => {
         
       </div>
       <div className="modal-footer border-0">
-        <button type="button" className="btn btn-primary">
-          {settingForm ? "Update" : "Save"}
+        <button type="button" className="btn btn-primary"
+          onClick={isUpdate ? ()=>SerailSettingUpdateHandler() : ()=>SerailSettingAddHandler()}        
+        >
+          {isUpdate ? "Update" : "Save"}
         </button>
         <button type="button" className="btn btn-secondary" onClick={()=>setSettingModel(false)}>Close</button>
       </div>
