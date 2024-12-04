@@ -1,10 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import { BiEdit } from "react-icons/bi";
 
 const OrderSerialSetting = () => {
   const[settingForm,setSettingForm]= useState(false)
   const [settingModel,setSettingModel] = useState(false)
+  const [data,setData] = useState({
+    Type:"",
+    Name:"",
+    Prefix:"",
+    Postfix:"",
+    AutoGenerate:"",
+    NoOfDigit:"",
+    StartFrom:""
+
+  })
 
   const dataList =[
     { Type:"Sales", Name :"Sales", Email:"gautam@gmail.com",MobileNo:"9876543210",AutoGenerate:"Yes"},
@@ -19,7 +29,7 @@ const OrderSerialSetting = () => {
     {name:"Postfix",selector:row=>row.MobileNo},
     {name:"Auto Generate",selector:row=>row.AutoGenerate},
     {name:"Modify",selector:row=>row,cell:row=>(
-      <button className="btn text-center fs-4" onClick={()=>setSettingModel(true)}><BiEdit/></button>
+      <button className="btn text-center fs-4" onClick={OrderSerialSettingUpdate}><BiEdit/></button>
     )},
   ]
   const customStyles = {
@@ -45,6 +55,30 @@ const OrderSerialSetting = () => {
     },
     };
 
+    const OrderSerialSettingAddModel = ()=>{
+      setSettingModel(true)
+      setSettingForm(false)
+    }
+
+    const onChangeHandler = (event)=>{
+      const {name,value} = event.target;
+      setData((data)=>({...data,[name]:value}))
+    }
+
+    // useEffect(()=>{console.log(data)},[data])
+
+    const OrderSerialSettingSubmit = (event)=>{
+      event.preventDefault()
+      setData({ Type:"",Name:"",Prefix:"", Postfix:"", AutoGenerate:"",NoOfDigit:"", StartFrom:""})
+      setSettingModel(false)
+      console.log(data)
+    }
+
+    const OrderSerialSettingUpdate = ()=>{
+      setSettingModel(true)
+      setSettingForm(true)
+    }
+
   return (
     <div className='container-fluid'>
       <div className='row'>
@@ -52,7 +86,7 @@ const OrderSerialSetting = () => {
           <div className='d-flex justify-content-between mt-3'>
                 <h4>Order Serial Setting Record</h4>
                 <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5'
-                   onClick={()=>setSettingModel(true)}
+                   onClick={OrderSerialSettingAddModel}
                    >Add New</button>
           </div>
           <div className='mt-3 '>
@@ -83,12 +117,12 @@ const OrderSerialSetting = () => {
         <div className='container-fluid'>
           <div className='row'>
             <div className='col-md-12'>
-              <form action="">
+              <form onSubmit={settingForm ? ()=>alert("update call") : OrderSerialSettingSubmit}>
                 <div className="mb-2 row ">
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Type :</label>             
                 <div className="col-sm-7 d-flex align-items-center">
                   <select className="form-select form-select-sm bg-body-secondary" 
-                        name='Type' required aria-label="Default select example">
+                        name='Type' value={data.Type} onChange={onChangeHandler} required aria-label="Default select example">
                            <option> select</option>
                            <option value="Sales Order">Sales Order</option>
                            <option value="Sales Order">Export Sales Order</option>
@@ -103,7 +137,7 @@ const OrderSerialSetting = () => {
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Name :</label>             
                 <div className="col-sm-7 d-flex align-items-center">
                     <input type="text" className="form-control bg-body-secondary"  name="Name"
-                      // value={updateData.RoleName} onChange={updateHandler}
+                      value={data.Name} onChange={onChangeHandler}
                       autoComplete="off" required  />
                 </div>
                 </div>
@@ -111,7 +145,7 @@ const OrderSerialSetting = () => {
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Prefix :</label>             
                 <div className="col-sm-7 d-flex align-items-center">
                     <input type="text" className="form-control bg-body-secondary"  name="Prefix"
-                      // value={updateData.RoleName} onChange={updateHandler}
+                      value={data.Prefix} onChange={onChangeHandler}
                       autoComplete="off" required  />
                 </div>
                 </div>
@@ -119,7 +153,7 @@ const OrderSerialSetting = () => {
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Post Fix :</label>             
                 <div className="col-sm-7 d-flex align-items-center">
                     <input type="text" className="form-control bg-body-secondary"  name="Postfix"
-                      // value={updateData.RoleName} onChange={updateHandler}
+                      value={data.Postfix} onChange={onChangeHandler}
                       autoComplete="off" required  />
                 </div>
                 </div>
@@ -127,15 +161,15 @@ const OrderSerialSetting = () => {
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >No Of Digit :</label>             
                 <div className="col-sm-7 d-flex align-items-center">
                     <input type="number" className="form-control bg-body-secondary"  name="NoOfDigit"
-                      // value={updateData.RoleName} onChange={updateHandler}
+                      value={data.NoOfDigit} onChange={onChangeHandler}
                       autoComplete="off" required  />
                 </div>
                 </div>
                 <div className="mb-2 row ">
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Start Form :</label>             
                 <div className="col-sm-7 d-flex align-items-center">
-                    <input type="number" className="form-control bg-body-secondary"  name="FormName"
-                      // value={updateData.RoleName} onChange={updateHandler}
+                    <input type="number" className="form-control bg-body-secondary"  name="StartFrom"
+                      value={data.StartFrom} onChange={onChangeHandler}
                       autoComplete="off" required  />
                 </div>
                 </div>
@@ -143,7 +177,7 @@ const OrderSerialSetting = () => {
                    <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Auto Generate :</label>             
                    <div className="col-sm-5 d-flex align-items-center">
                    <select className="form-select form-select-sm bg-body-secondary" 
-                        name='AutoGenerate' required aria-label="Default select example">
+                        name='AutoGenerate' value={data.AutoGenerate} onChange={onChangeHandler} required aria-label="Default select example">
                            <option> select</option>
                            <option value="Yes">Yes</option>
                            <option value="No">No</option>
@@ -154,6 +188,10 @@ const OrderSerialSetting = () => {
                     <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Example :</label>  
                     <label className='col-sm-7 col-form-label fs-5 '>01</label>
                   </div>
+                  <div className='mt-3 d-flex justify-content-center gap-2'>
+                    <button type="submit" className="btn btn-primary">{settingForm ? "Update" :"Save"}</button>
+                    <button type="button" className="btn btn-secondary" onClick={()=>setSettingModel(false)}>Close</button>
+                  </div>
               </form>
             </div>
           </div>
@@ -161,8 +199,7 @@ const OrderSerialSetting = () => {
         
       </div>
       <div className="modal-footer border-0">
-        <button type="button" className="btn btn-primary">{settingForm ? "Update" :"Save"}</button>
-        <button type="button" className="btn btn-secondary" onClick={()=>setSettingModel(false)}>Close</button>
+        
       </div>
     </div>
   </div>
