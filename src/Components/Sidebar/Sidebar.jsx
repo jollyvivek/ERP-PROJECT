@@ -79,7 +79,7 @@ const Sidebar = ({userData}) => {
   const [userUpdate,setUserUpdate] =useState({
     company:"",
     username:"",
-    email:"",
+    // email:"",
     password:"",
     phone:""
   })
@@ -256,7 +256,7 @@ const Sidebar = ({userData}) => {
                   <input  type="number" className="form-control" name="phone" value={userUpdate.phone} onChange={handleChange} required  />
                </div>
             </div>
-            <div className="mb-3 row">
+            <div className="mb-3 row d-none">
                 <label  className=" col-sm-4 col-form-label fs-5  text-end" > Email : </label>
               <div className="col-sm-8 d-flex align-items-center">
                   <input  type="email" className="form-control"   name="email" value={userUpdate.email} onChange={handleChange}    required   />

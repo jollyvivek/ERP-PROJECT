@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DataTable from 'react-data-table-component'
 
 const Group = () => {
+  const [showModal, setShowModal] = useState(false);
 
     const dataList =[
         { GroupName:"Book Bag", Description :"Book Bag", ProductionUnit:"Production Unit-I"},
@@ -45,8 +46,9 @@ const Group = () => {
             <div className='col-md-12'>
                 <div className='d-flex justify-content-between mt-3'>
                     <h5> Group Record</h5>
-                    <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5'
-                        data-bs-toggle="modal" data-bs-target="#GroupModal">Add New
+                    <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5' onClick={()=>setShowModal(true)}
+                        // data-bs-toggle="modal" data-bs-target="#GroupModal"
+                        >Add New
                     </button>
                 </div>
             </div>
@@ -60,16 +62,16 @@ const Group = () => {
         </div>
         {/* Group model */}
 
-{/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#GroupModal">
-  Launch demo modal
-</button> */}
-
-<div className="modal fade" id="GroupModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{showModal && (
+<div className="modal show fade" id="GroupModal" tabIndex="-1"  style={{ display: 'block' }}
+  aria-labelledby="exampleModalLabel"
+  //  aria-hidden="true"
+  >
   <div className="modal-dialog modal-dialog-centered">
     <div className="modal-content">
       <div className="modal-header">
         <h5 className="modal-title" id="exampleModalLabel">Group Master</h5>
-        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" className="btn-close" aria-label="Close" onClick={()=>setShowModal(false)}></button>
       </div>
       <div className="modal-body">
         <div className='container-fluid'>
@@ -114,12 +116,12 @@ const Group = () => {
       </div>
       <div className="modal-footer">
         <button type="button" className="btn btn-primary">Save</button>
-        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setShowModal(false)}>Close</button>
       </div>
     </div>
   </div>
 </div>
-
+)}
      </div>
   )
 }
