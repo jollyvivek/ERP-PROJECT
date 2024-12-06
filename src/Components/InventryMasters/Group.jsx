@@ -132,10 +132,10 @@ const Group = () => {
                         </div>
                         </div>
                         <div className='my-3 d-flex justify-content-center gap-1'>
-                        <button type="submit" className="btn btn-primary">Save</button>
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setShowModal(false)}>
-                          Close
-                        </button>
+                            <button type="submit" className="btn btn-primary">Save</button>
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setShowModal(false)}>
+                              Close
+                            </button>
                         </div>
                     </fieldset>
                   </form>
