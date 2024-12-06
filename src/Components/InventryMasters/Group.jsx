@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 
 const Group = () => {
   const [showModal, setShowModal] = useState(false);
+  const [data,setData] = useState({
+    GroupName:"",
+    ProductionUnit:"",
+    Description:""
+
+  })
 
     const dataList =[
         { GroupName:"Book Bag", Description :"Book Bag", ProductionUnit:"Production Unit-I"},
@@ -39,6 +45,21 @@ const Group = () => {
             },
         },
         };
+
+      // handler 
+      const onChangeHandler =(event)=>{
+        const {name,value} = event.target
+        setData((data)=>({...data,[name]:value}))
+      }
+
+      // useEffect(()=>{console.log(data)},[data])
+
+      const FormSubmitHandler =(event)=>{
+        event.preventDefault();
+        setData({GroupName:"",ProductionUnit:"",Description:""})
+        setShowModal(false)
+        console.log(data)
+      }
 
   return (
     <div className='container-fluid'>
@@ -77,6 +98,7 @@ const Group = () => {
         <div className='container-fluid'>
             <div className='row'>
                 <div className='col-md-12 px-0'>
+                  <form action="" onSubmit={FormSubmitHandler}>
                     <fieldset>
                         <legend>Group</legend>
                         <div className="mb-2 row">
@@ -84,8 +106,8 @@ const Group = () => {
                                  Group Name :
                             </label>
                         <div className="col-sm-8 d-flex align-items-center">
-                            <input type="text" className="form-control"  name="currentYear"
-                                // value={data.currentYear} onChange={handleChange}
+                            <input type="text" className="form-control"  name="GroupName"
+                                value={data.GroupName} onChange={onChangeHandler}
                                 autoComplete="off" required  />
                         </div>
                         </div>
@@ -94,8 +116,8 @@ const Group = () => {
                                  Production Unit :
                             </label>
                         <div className="col-sm-8 d-flex align-items-center">
-                            <input type="text" className="form-control"  name="currentYear"
-                                // value={data.currentYear} onChange={handleChange}
+                            <input type="text" className="form-control"  name="ProductionUnit"
+                                value={data.ProductionUnit} onChange={onChangeHandler}
                                 autoComplete="off" required  />
                         </div>
                         </div>
@@ -104,19 +126,25 @@ const Group = () => {
                                  Description :
                             </label>
                         <div className="col-sm-8 d-flex align-items-center">
-                            <input type="text" className="form-control"  name="currentYear"
-                                // value={data.currentYear} onChange={handleChange}
+                            <input type="text" className="form-control"  name="Description"
+                                value={data.Description} onChange={onChangeHandler}
                                 autoComplete="off" required  />
                         </div>
                         </div>
+                        <div className='my-3 d-flex justify-content-center gap-1'>
+                        <button type="submit" className="btn btn-primary">Save</button>
+                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setShowModal(false)}>
+                          Close
+                        </button>
+                        </div>
                     </fieldset>
+                  </form>
                 </div>
             </div>
         </div>
       </div>
       <div className="modal-footer">
-        <button type="button" className="btn btn-primary">Save</button>
-        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setShowModal(false)}>Close</button>
+        
       </div>
     </div>
   </div>
