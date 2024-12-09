@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
+import { StoreContext } from '../../Context/StoreContext';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Group = () => {
   const [showModal, setShowModal] = useState(false);
+  const {url} = useContext(StoreContext)
+  const [groupRecords,setGroupRecords]= useState([])
   const [data,setData] = useState({
     GroupName:"",
     ProductionUnit:"",
@@ -10,13 +15,13 @@ const Group = () => {
 
   })
 
-    const dataList =[
-        { GroupName:"Book Bag", Description :"Book Bag", ProductionUnit:"Production Unit-I"},
-        { GroupName:"Notebook", Description :"Notebook", ProductionUnit:"Production Unit-II"},
-        { GroupName:"Plastic", Description :"Plastic", ProductionUnit:"Production Unit-III"},
-        { GroupName:"ABCDE", Description :"ABCDE", ProductionUnit:"Production Unit-IV"},
-        { GroupName:"Casting", Description :"Casting", ProductionUnit:"Production Unit-V"}
-      ]
+    // const dataList =[
+    //     { GroupName:"Book Bag", Description :"Book Bag", ProductionUnit:"Production Unit-I"},
+    //     { GroupName:"Notebook", Description :"Notebook", ProductionUnit:"Production Unit-II"},
+    //     { GroupName:"Plastic", Description :"Plastic", ProductionUnit:"Production Unit-III"},
+    //     { GroupName:"ABCDE", Description :"ABCDE", ProductionUnit:"Production Unit-IV"},
+    //     { GroupName:"Casting", Description :"Casting", ProductionUnit:"Production Unit-V"}
+    //   ]
       const columns =[
         {name:"Group Name",selector:row=>row.GroupName,sortable:true},
         {name:"Description",selector:row=>row.Description,sortable:true},
@@ -52,14 +57,41 @@ const Group = () => {
         setData((data)=>({...data,[name]:value}))
       }
 
-      // useEffect(()=>{console.log(data)},[data])
-
-      const FormSubmitHandler =(event)=>{
+      const FormSubmitHandler = async(event)=>{
         event.preventDefault();
-        setData({GroupName:"",ProductionUnit:"",Description:""})
+        let payload = {
+          GroupName:data.GroupName,
+          ProductionUnit:data.ProductionUnit,
+          Description:data.Description
+        }
+        const response = await axios.post(`${url}/api/group/add`,payload);
+        if (response.data.success) {
+          setData({GroupName:"",ProductionUnit:"",Description:""})
+          toast.success(response.data.message)
+        } else {
+          console.log("error");
+          toast.error(response.data.message)
+        }
         setShowModal(false)
-        console.log(data)
+        groupFetchRecords()
       }
+
+      // facth records
+      const groupFetchRecords= async()=>{
+        const response = await axios.get(`${url}/api/group/list`);
+        if(response.data.data){
+          setGroupRecords(response.data.data)
+          // console.log(response)
+        }else{
+          console.log("Error")
+        }
+    
+      }
+    
+      useEffect(()=>{
+        groupFetchRecords();
+      },[]);
+
 
   return (
     <div className='container-fluid'>
@@ -79,7 +111,7 @@ const Group = () => {
                 //  onChange={handleFilter} 
                 placeholder='Search Here'  />
             </div>
-          <DataTable  columns={columns}  data={dataList}  customStyles={customStyles} />
+          <DataTable  columns={columns}  data={groupRecords}  customStyles={customStyles} />
         </div>
         {/* Group model */}
 
