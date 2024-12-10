@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component';
+import { StoreContext } from '../../Context/StoreContext';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 
 const Category = () => {
+   const {url} = useContext(StoreContext) 
   const [showModal, setShowModal] = useState(false)
+  const [categoryRecords,setCategoryRecords]= useState([])
   const [data,setData] = useState({
     CategoryName:"",
     ParentCategory:""
   })
 
-
-    const dataList =[
-        { CategoryName:"Book Bag", ParentCategoryName :"Book Bag"},
-        { CategoryName:"Notebook", ParentCategoryName :"Notebook"},
-        { CategoryName:"Plastic", ParentCategoryName :"Plastic"},
-        { CategoryName:"ABCDE", ParentCategoryName :"ABCDE"},
-        { CategoryName:"Casting", ParentCategoryName :"Casting"}
-      ]
       const columns =[
         {name:"Category Name",selector:row=>row.CategoryName,sortable:true},
-        {name:"Parent Category Name",selector:row=>row.ParentCategoryName,sortable:true},
+        {name:"Parent Category Name",selector:row=>row.ParentCategory,sortable:true},
       ];
       const customStyles = {
         rows: {
@@ -49,14 +46,39 @@ const Category = () => {
         setData((data)=>({...data,[name]:value}))
     }
 
-    // useEffect(()=>{console.log(data)},[data])
 
-    const FormSubmitHandler = (event) =>{
+    const FormSubmitHandler = async(event) =>{
         event.preventDefault();
-        setData({CategoryName:"",ParentCategory:""})
+        let payload = {
+            CategoryName:data.CategoryName,
+            ParentCategory:data.ParentCategory
+        }
+        const response = await axios.post(`${url}/api/category/add`,payload);
+        if (response.data.success) {
+            setData({CategoryName:"",ParentCategory:""})
+            toast.success(response.data.message)
+            // console.log(data)
+        } else {
+            console.log("error");
+            toast.error(response.data.message)
+        }
         setShowModal(false)
-        console.log(data)
     }
+
+    // fetch category records
+    const CategoryFetchRecords = async()=>{
+        const response = await axios.get(`${url}/api/category/list`);
+        if(response.data.data){
+          setCategoryRecords(response.data.data)
+        }else{
+          console.log("Error")
+        }
+    
+      }
+    
+      useEffect(()=>{
+        CategoryFetchRecords();
+      },[]);
 
   return (
     <div className='container-fluid'>
@@ -76,7 +98,7 @@ const Category = () => {
                 //  onChange={handleFilter} 
                 placeholder='Search Here'  />
             </div>
-            <DataTable  columns={columns}  data={dataList}  customStyles={customStyles} />
+            <DataTable  columns={columns}  data={categoryRecords}  customStyles={customStyles} />
 
         </div>
 
@@ -95,7 +117,7 @@ const Category = () => {
         <div className='container-fluid'>
             <div className='row'>
                 <div className='col-md-12 px-0'>
-                    <form action="" onSubmit={FormSubmitHandler}>
+                    <form onSubmit={FormSubmitHandler}>
                     <fieldset>
                         <legend>Category</legend>
                         <div className="mb-2 row">
