@@ -41,15 +41,16 @@ const [data,setData] = useState({
     billOfSupplyInvoiceSubHeading:""
 })
 
+const [fetchData,setFetchData] = useState([])
+
+
 
 const changeHandler = (event)=>{
     const {name,value}= event.target;
     setData({...data,[name]:value});
 }
 
-// useEffect(()=>{
-//     console.log(data)
-// },[data])
+
 
 const formSubmitHandler = async(event)=>{
     event.preventDefault();
@@ -130,6 +131,24 @@ const formSubmitHandler = async(event)=>{
     }
     console.log(data)
 }
+
+ // facth records
+ const FetchRecords= async()=>{
+    const response = await axios.get(`${url}/api/reportheading/list`);
+    if(response.data.data){
+        setFetchData(response.data.data)
+    //   console.log(fetchData);
+    }else{
+      console.log("Error")
+    }
+
+  }
+
+  useEffect(()=>{
+    FetchRecords();
+  },[]);
+
+
 
   return (
     <div className='container-fluid'>
