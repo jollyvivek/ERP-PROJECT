@@ -15,6 +15,7 @@ const ManagementLog = () => {
     const[personalDetails,setPersonalDetails]=useState(false)
     const[officialDetails,setOfficialDetails]=useState(false)
     const[shiftModel,setShiftModel]= useState(false)
+    const [addShiftModal, setAddShiftModal] = useState(false);
     const[departmentModel,setDepartmentModel]=useState(false)
     const[departmentMasterModel,setDepartmentMasetrModel]= useState(false)
     const[positionModel,setPositionModel]=useState(false)
@@ -1648,12 +1649,12 @@ const ManagementLog = () => {
                 <div className='col-md-12 text-end px-2 mb-2 d-flex justify-content-between'>
                     <h6 className=''> Select Shift</h6>
                     <button className='border px-2 rounded-2 bg-transparent border-primary' 
-                        // onClick={()=>setCategoryMaster(true)}
+                        onClick={()=>setAddShiftModal(true)}
                         >Add Shift
                     </button>
                 </div>
                 <div className='row p-0 m-0'>
-                    <div className='col-md-12 p-0'>
+                    <div className='col-md-12 py-0'>
                     <table className="table table-hover table-bordered ">
                         <thead>
                             <tr>
@@ -1698,7 +1699,76 @@ const ManagementLog = () => {
             
             
             )}
-            {/*  */}
+            {/* AddShiftModel */}
+            {addShiftModal && (
+<div className="modal show fade" id="GroupModal" tabIndex="-1"  style={{ display: 'block' }}
+  aria-labelledby="exampleModalLabel"
+  //  aria-hidden="true"
+  >
+  <div className="modal-dialog modal-dialog-centered">
+    <div className="modal-content py-3 border border-secondary rounded-3">
+      <div className="modal-header">
+        <h5 className="modal-title" id="exampleModalLabel"> Shift Master</h5>
+        <button type="button" className="btn-close" aria-label="Close" onClick={()=>setAddShiftModal(false)}></button>
+      </div>
+      <div className="modal-body">
+        <div className='container-fluid'>
+            <div className='row'>
+                <div className='col-md-12 px-0'>
+                  <form action="" 
+                //   onSubmit={FormSubmitHandler}
+                  >
+                    <fieldset>
+                        <legend>Shift Details</legend>
+                        <div className="mb-2 row">
+                            <label htmlFor="" className=" col-sm-4 col-form-label fs-6  text-end" >
+                                 Shift Code :
+                            </label>
+                        <div className="col-sm-8 d-flex align-items-center">
+                            <input type="text" className="form-control"  name="ShiftCode"
+                                // value={data.GroupName} onChange={onChangeHandler}
+                                autoComplete="off" required  />
+                        </div>
+                        </div>
+                        <div className="mb-2 row">
+                            <label htmlFor="" className=" col-sm-4 col-form-label fs-6  text-end" >
+                                 Shift Name :
+                            </label>
+                        <div className="col-sm-8 d-flex align-items-center">
+                            <input type="text" className="form-control"  name="ProductionUnit"
+                                // value={data.ProductionUnit} onChange={onChangeHandler}
+                                autoComplete="off" required  />
+                        </div>
+                        </div>
+                        <div className="mb-2 row d-none">
+                            <label htmlFor="" className=" col-sm-4 col-form-label fs-6  text-end" >
+                                 Description :
+                            </label>
+                        <div className="col-sm-8 d-flex align-items-center">
+                            <input type="text" className="form-control"  name="Description"
+                                // value={data.Description} onChange={onChangeHandler}
+                                autoComplete="off" required  />
+                        </div>
+                        </div>
+                        <div className='my-3 d-flex justify-content-center gap-1'>
+                            <button type="submit" className="btn btn-primary">Save</button>
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setAddShiftModal(false)}>
+                              Close
+                            </button>
+                        </div>
+                    </fieldset>
+                  </form>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div className="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+            )}
             {/* department popup */}
             {departmentModel && (
             <div className="modal show fade" style={{ display: 'block' }} aria-hidden="false">
