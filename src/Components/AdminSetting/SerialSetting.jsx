@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import { BiEdit } from "react-icons/bi";
+import { StoreContext } from '../../Context/StoreContext';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const SerialSetting = () => {
-
+  const {url} = useContext(StoreContext)
   const [isUpdate,setIsUpdate]= useState(false)
   const [settingModel,setSettingModel] = useState(false)
   const[data,setData] = useState({
@@ -66,10 +69,26 @@ const SerialSetting = () => {
 
     // useEffect(()=>{console.log(data)},[data])
 
-    const SerailSettingAddHandler = (e)=>{
+    const SerailSettingAddHandler = async(e)=>{
       e.preventDefault();
-      console.log(data);
-      setData({FormName:"", Prefix:"", Postfix:"", AutoGenerate:"", NoOfDigit:"",StartFrom:""});
+      let payload = {
+        FormName:data.FormName,
+        Prefix:data.Prefix,
+        Postfix:data.Postfix,
+        AutoGenerate:data.AutoGenerate,
+        NoOfDigit:Number(data.NoOfDigit),
+        StartFrom:Number(data.StartFrom)
+      }
+      const response = await axios.post(`${url}/api/serialsetting/add`,payload);
+      if (response.data.success) {
+        setData({FormName:"", Prefix:"", Postfix:"", AutoGenerate:"", NoOfDigit:"",StartFrom:""});
+        toast.success(response.data.message)
+        // console.log(data)
+      } else {
+        console.log("error");
+        toast.error(response.data.message)
+      }
+     
       setSettingModel(false)
     }
 
@@ -171,7 +190,7 @@ const SerialSetting = () => {
                 </div>
                   <div className=' mb-2 row '>
                     <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Example :</label>  
-                    <label className='col-sm-7 col-form-label fs-5 '> CHLN-01/22/23</label>
+                    <label className='col-sm-7 col-form-label fs-5 '> {data.Prefix + data.StartFrom + data.Postfix}</label>
                   </div>
                   <div className="mb-2 row">
                    <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Auto Generate :</label>             
