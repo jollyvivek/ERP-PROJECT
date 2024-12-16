@@ -113,7 +113,7 @@ const OrderSerialSetting = () => {
         <h5 className="modal-title ">Order Serial Setting</h5>
         <button type="button" className="btn-close" onClick={()=>setSettingModel(false)}></button>
       </div>
-      <div className="modal-body border  border-secondary mx-2">
+      <div className="modal-body border  border-secondary rounded-3 mx-2">
         <div className='container-fluid'>
           <div className='row'>
             <div className='col-md-12'>
@@ -125,7 +125,7 @@ const OrderSerialSetting = () => {
                         name='Type' value={data.Type} onChange={onChangeHandler} required aria-label="Default select example">
                            <option> select</option>
                            <option value="Sales Order">Sales Order</option>
-                           <option value="Sales Order">Export Sales Order</option>
+                           <option value="Export Sales Order">Export Sales Order</option>
                            <option value="Work Order">Work Order</option>
                            <option value="Export Work Order">Export Work Order</option>
                            <option value="Purchase Order">Purchase Order</option>
@@ -154,7 +154,7 @@ const OrderSerialSetting = () => {
                 <div className="col-sm-7 d-flex align-items-center">
                     <input type="text" className="form-control bg-body-secondary"  name="Postfix"
                       value={data.Postfix} onChange={onChangeHandler}
-                      autoComplete="off" required  />
+                      autoComplete="off"  />
                 </div>
                 </div>
                 <div className="mb-2 row ">
@@ -186,7 +186,7 @@ const OrderSerialSetting = () => {
                   </div>
                   <div className=' mb-2 row '>
                     <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Example :</label>  
-                    <label className='col-sm-7 col-form-label fs-5 '>01</label>
+                    <label className='col-sm-7 col-form-label fs-5 '>{data.Prefix + 0 + data.StartFrom + data.Postfix} </label>
                   </div>
                   <div className='mt-3 d-flex justify-content-center gap-2'>
                     <button type="submit" className="btn btn-primary">{settingForm ? "Update" :"Save"}</button>

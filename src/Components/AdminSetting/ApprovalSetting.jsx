@@ -135,7 +135,7 @@ const ApprovalSetting = () => {
                 <div className="mb-2 row ">
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Approved 1 :</label>             
                 <div className="col-sm-7 d-flex align-items-center gap-2">
-                    {/* <input type="checkbox" className='form-check-input p-2'  /> */}
+                    <input type="checkbox" className='form-check-input p-2'  />
                     <input type="text" className="form-control bg-body-secondary"  name="Approved1"
                       value={data.Approved1} onChange={onChangeHandler}
                       autoComplete="off" required  />
@@ -144,7 +144,7 @@ const ApprovalSetting = () => {
                 <div className="mb-2 row ">
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Approved 2 :</label>             
                 <div className="col-sm-7 d-flex align-items-center gap-2">
-                    {/* <input type="checkbox" className='form-check-input p-2'  /> */}
+                    <input type="checkbox" className='form-check-input p-2'  />
                     <input type="text" className="form-control bg-body-secondary"  name="Approved2"
                       value={data.Approved2} onChange={onChangeHandler}
                       autoComplete="off" required  />
@@ -153,7 +153,7 @@ const ApprovalSetting = () => {
                 <div className="mb-2 row ">
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Approved 3 :</label>             
                 <div className="col-sm-7 d-flex align-items-center gap-2">
-                    {/* <input type="checkbox" className='form-check-input p-2'  /> */}
+                    <input type="checkbox" className='form-check-input p-2'  />
                     <input type="text" className="form-control bg-body-secondary"  name="Approved3"
                       value={data.Approved3} onChange={onChangeHandler}
                       autoComplete="off" required  />
