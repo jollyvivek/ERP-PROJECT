@@ -1,14 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import { BiEdit } from "react-icons/bi";
+import { MdDelete } from "react-icons/md";
 import { StoreContext } from '../../Context/StoreContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const SerialSetting = () => {
   const {url} = useContext(StoreContext)
+  const [id,setId] = useState("")
   const [isUpdate,setIsUpdate]= useState(false)
   const [settingModel,setSettingModel] = useState(false)
+  const [serialSettingRecords,setSerialSettingRecords]= useState([])
   const[data,setData] = useState({
     FormName:"",
     Prefix:"",
@@ -18,20 +21,28 @@ const SerialSetting = () => {
     StartFrom:""
   })
 
-  const dataList =[
-    {Name :"Gautam", Email:"gautam@gmail.com",MobileNo:"9876543210",AutoGenerate:"Yes"},
-    {Name :"Vivek", Email:"vivek@gmail.com",MobileNo:"7854239610",AutoGenerate:"Yes"},
-    {Name :"Priya", Email:"priya@gmail.com",MobileNo:"999998888",AutoGenerate:"Yes"},
-    {Name :"Ajay", Email:"ajay@gmail.com",MobileNo:"88888999999",AutoGenerate:"Yes"}
-  ]
+  // const dataList =[
+  //   {Name :"Gautam", Email:"gautam@gmail.com",MobileNo:"9876543210",AutoGenerate:"Yes"},
+  //   {Name :"Vivek", Email:"vivek@gmail.com",MobileNo:"7854239610",AutoGenerate:"Yes"},
+  //   {Name :"Priya", Email:"priya@gmail.com",MobileNo:"999998888",AutoGenerate:"Yes"},
+  //   {Name :"Ajay", Email:"ajay@gmail.com",MobileNo:"88888999999",AutoGenerate:"Yes"}
+  // ]
   const columns =[
-    {name:"Form Name",selector:row=>row.Name,sortable:true},
-    {name:"Prefix",selector:row=>row.Email,sortable:true},
-    {name:"Postfix",selector:row=>row.MobileNo},
+    {name:"Form Name",selector:row=>row.FormName,sortable:true},
+    {name:"Prefix",selector:row=>row.Prefix,sortable:true},
+    {name:"Postfix",selector:row=>row.Postfix},
     {name:"Auto Generate",selector:row=>row.AutoGenerate},
     {name:"Modify",selector:row=>row,cell:row=>(
-      <button className="btn text-center fs-4" onClick={SerialSettingUpdate}><BiEdit/></button>
+      <button className="btn text-center fs-4" 
+      onClick={()=>SerialSettingUpdate(row._id,row.FormName,row.Prefix,row.Postfix,row.AutoGenerate,row.StartFrom,row.NoOfDigit)}><BiEdit/></button>
     )},
+    {name:"Delete",selecto:row=>row._id ,cell: row=>(
+        <button className=" btn text-danger text-center fs-4"
+         onClick={()=>alert("delete call")}
+         ><MdDelete/></button>
+      )
+    
+      }
   ]
 
   const customStyles = {
@@ -93,16 +104,33 @@ const SerialSetting = () => {
     }
 
 
-    const SerialSettingUpdate = ()=>{
+    const SerialSettingUpdate = (id,FormName,Prefix,Postfix,AutoGenerate,StartFrom,NoOfDigit)=>{
       setSettingModel(true)
       setIsUpdate(true)
+      setId(id)
+      setData({FormName:FormName,Prefix:Prefix,Postfix:Postfix,AutoGenerate:AutoGenerate,StartFrom:StartFrom,NoOfDigit:NoOfDigit})
     }
 
     const SerailSettingUpdateHandler = ()=>{
       alert("update call")
     }
 
-    
+    // fetch SerialSetting 
+
+    const SerialSettingFetch = async()=>{
+
+      const response = await axios.get(`${url}/api/serialsetting/list`);
+      if(response.data.data){
+        setSerialSettingRecords(response.data.data)
+        // console.log(response.data)
+      }else{
+        console.log("Error")
+      }
+    }
+
+     useEffect(()=>{
+            SerialSettingFetch();
+          },[]);
 
 
 
@@ -124,7 +152,7 @@ const SerialSetting = () => {
               </div>
               <DataTable
                 columns={columns}
-                data={dataList}
+                data={serialSettingRecords}
                 customStyles={customStyles}
               />
           </div>
