@@ -1,8 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import { BiEdit } from "react-icons/bi";
+import { MdDelete } from "react-icons/md";
+import { StoreContext } from '../../Context/StoreContext';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const OrderSerialSetting = () => {
+  const {url} = useContext(StoreContext)
+  const [fetchData,setFetchData] = useState([])
   const[settingForm,setSettingForm]= useState(false)
   const [settingModel,setSettingModel] = useState(false)
   const [data,setData] = useState({
@@ -16,21 +22,22 @@ const OrderSerialSetting = () => {
 
   })
 
-  const dataList =[
-    { Type:"Sales", Name :"Sales", Email:"gautam@gmail.com",MobileNo:"9876543210",AutoGenerate:"Yes"},
-    { Type:"Purchase",Name :"Purchase", Email:"vivek@gmail.com",MobileNo:"7854239610",AutoGenerate:"Yes"},
-    { Type:"Export",Name :"Export", Email:"priya@gmail.com",MobileNo:"999998888",AutoGenerate:"Yes"},
-    { Type:"Job Work",Name :"Job Work", Email:"ajay@gmail.com",MobileNo:"88888999999",AutoGenerate:"Yes"}
-  ]
   const columns =[
     {name:"Type",selector:row=>row.Type,sortable:true},
     {name:"Name",selector:row=>row.Name,sortable:true},
-    {name:"Prefix",selector:row=>row.Email,sortable:true},
-    {name:"Postfix",selector:row=>row.MobileNo},
+    {name:"Prefix",selector:row=>row.Prefix,sortable:true},
+    {name:"Postfix",selector:row=>row.Postfix},
     {name:"Auto Generate",selector:row=>row.AutoGenerate},
     {name:"Modify",selector:row=>row,cell:row=>(
-      <button className="btn text-center fs-4" onClick={OrderSerialSettingUpdate}><BiEdit/></button>
+      <button className="btn text-center fs-4" 
+      onClick={()=>OrderSerialSettingUpdate(row._id,row.Type,row.Name,row.Prefix,row.Postfix,row.AutoGenerate,row.NoOfDigit,row.StartFrom)}><BiEdit/></button>
     )},
+    {name:"Delete",selecto:row=>row._id ,cell: row=>(
+            <button className=" btn text-danger text-center fs-4"
+             onClick={()=>OrderSerialSettingRemove(row._id)}
+             ><MdDelete/></button>
+          )      
+    }
   ]
   const customStyles = {
     rows: {
@@ -67,16 +74,57 @@ const OrderSerialSetting = () => {
 
     // useEffect(()=>{console.log(data)},[data])
 
-    const OrderSerialSettingSubmit = (event)=>{
-      event.preventDefault()
-      setData({ Type:"",Name:"",Prefix:"", Postfix:"", AutoGenerate:"",NoOfDigit:"", StartFrom:""})
+    const OrderSerialSettingSubmit = async(event)=>{
+      event.preventDefault();
+      let payload = {
+        Type:data.Type,
+        Name:data.Name,
+        Prefix:data.Prefix,
+        Postfix:data.Postfix,
+        AutoGenerate:data.AutoGenerate,
+        NoOfDigit:Number(data.NoOfDigit),
+        StartFrom:Number(data.StartFrom)
+      }
+      const response = await axios.post(`${url}/api/orderserialsetting/add`,payload);
+      if (response.data.success) {
+          setData({ Type:"",Name:"",Prefix:"", Postfix:"", AutoGenerate:"",NoOfDigit:"", StartFrom:""})
+          toast.success(response.data.message)
+        } else {
+                console.log("error");
+                toast.error(response.data.message)
+              }
       setSettingModel(false)
-      console.log(data)
+      FetchRecords()
+      // console.log(data)
     }
+    // fetch data
+    const FetchRecords= async()=>{
+      const response = await axios.get(`${url}/api/orderserialsetting/list`);
+      if(response.data.data){
+        setFetchData(response.data.data)
+        // console.log(response.data.data)
+      }else{
+        console.log("Error")
+      }
+  
+    }
+  
+    useEffect(()=>{
+      FetchRecords();
+    },[]);
 
-    const OrderSerialSettingUpdate = ()=>{
+    // update
+    const OrderSerialSettingUpdate = (id,Type,Name,Prefix,Postfix,AutoGenerate,NoOfDigit,StartFrom)=>{
       setSettingModel(true)
       setSettingForm(true)
+      setData({Type:Type,Name:Name,Prefix:Prefix,Postfix:Postfix,AutoGenerate:AutoGenerate,NoOfDigit:NoOfDigit,StartFrom:StartFrom})
+    }
+
+    // delete
+    const OrderSerialSettingRemove = async(id)=>{
+      const response = await axios.post(`${url}/api/orderserialsetting/remove`,{id:id})
+      await FetchRecords();
+      toast.success(response.data.message)
     }
 
   return (
@@ -94,7 +142,7 @@ const OrderSerialSetting = () => {
                 //  onChange={handleFilter} 
                 placeholder='Search Here'  />
           </div>
-          <DataTable  columns={columns}  data={dataList}    customStyles={customStyles}  />
+          <DataTable  columns={columns}  data={fetchData}    customStyles={customStyles}  />
 
 
         </div>

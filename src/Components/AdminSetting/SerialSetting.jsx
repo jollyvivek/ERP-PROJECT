@@ -38,7 +38,7 @@ const SerialSetting = () => {
     )},
     {name:"Delete",selecto:row=>row._id ,cell: row=>(
         <button className=" btn text-danger text-center fs-4"
-         onClick={()=>alert("delete call")}
+         onClick={()=>SerialSettingRemove(row._id)}
          ><MdDelete/></button>
       )
     
@@ -98,9 +98,9 @@ const SerialSetting = () => {
       } else {
         console.log("error");
         toast.error(response.data.message)
-      }
-     
-      setSettingModel(false)
+      }     
+      setSettingModel(false);
+      SerialSettingFetch()
     }
 
 
@@ -128,11 +128,14 @@ const SerialSetting = () => {
       }
     }
 
-     useEffect(()=>{
-            SerialSettingFetch();
-          },[]);
+     useEffect(()=>{ SerialSettingFetch(); },[]);
 
-
+      // delete
+    const SerialSettingRemove = async(id)=>{
+      const response = await axios.post(`${url}/api/serialsetting/remove`,{id:id})
+      await SerialSettingFetch();
+      toast.success(response.data.message)
+    }
 
 
   return (
