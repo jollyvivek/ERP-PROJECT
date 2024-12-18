@@ -21,12 +21,7 @@ const SerialSetting = () => {
     StartFrom:""
   })
 
-  // const dataList =[
-  //   {Name :"Gautam", Email:"gautam@gmail.com",MobileNo:"9876543210",AutoGenerate:"Yes"},
-  //   {Name :"Vivek", Email:"vivek@gmail.com",MobileNo:"7854239610",AutoGenerate:"Yes"},
-  //   {Name :"Priya", Email:"priya@gmail.com",MobileNo:"999998888",AutoGenerate:"Yes"},
-  //   {Name :"Ajay", Email:"ajay@gmail.com",MobileNo:"88888999999",AutoGenerate:"Yes"}
-  // ]
+
   const columns =[
     {name:"Form Name",selector:row=>row.FormName,sortable:true},
     {name:"Prefix",selector:row=>row.Prefix,sortable:true},
@@ -68,9 +63,10 @@ const SerialSetting = () => {
     },
     };
 
-    const SerailSettingAdd = ()=>{
+    const SerialSettingAdd = ()=>{
       setSettingModel(true)
       setIsUpdate(false)
+      setData({FormName:"", Prefix:"", Postfix:"", AutoGenerate:"", NoOfDigit:"",StartFrom:""});
     }
 
     const onChangeHandler = (event)=>{
@@ -78,7 +74,7 @@ const SerialSetting = () => {
       setData((data)=>({...data,[name]:value}));
     }
 
-    // useEffect(()=>{console.log(data)},[data])
+
 
     const SerailSettingAddHandler = async(e)=>{
       e.preventDefault();
@@ -111,8 +107,23 @@ const SerialSetting = () => {
       setData({FormName:FormName,Prefix:Prefix,Postfix:Postfix,AutoGenerate:AutoGenerate,StartFrom:StartFrom,NoOfDigit:NoOfDigit})
     }
 
-    const SerailSettingUpdateHandler = ()=>{
-      alert("update call")
+    const SerailSettingUpdateHandler = async(id,data)=>{
+      try {
+        const response = await axios.post(`${url}/api/serialsetting/update`,{id:id,FormName:data.FormName,
+          Prefix:data.Prefix,Postfix:data.Postfix,AutoGenerate:data.AutoGenerate,StartFrom:Number(data.StartFrom),NoOfDigit:Number(data.NoOfDigit)});
+        if (response.data.success) {
+          setSettingModel(false)
+          setIsUpdate(false)
+          setData({FormName:"", Prefix:"", Postfix:"", AutoGenerate:"", NoOfDigit:"",StartFrom:""});
+          toast.success(response.data.message)
+        } else {
+          toast.error(response.data.message)
+        }
+      } catch (error) {
+        console.log("Error");
+        toast.error(response.data.message);
+      }
+      SerialSettingFetch()
     }
 
     // fetch SerialSetting 
@@ -145,7 +156,7 @@ const SerialSetting = () => {
               <div className='d-flex justify-content-between mt-3'>
                 <h4>Setting Record</h4>
                 <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5'
-                   onClick={SerailSettingAdd}
+                   onClick={SerialSettingAdd}
                    >Add New</button>
               </div>
               <div className='mt-3 '>
@@ -178,7 +189,9 @@ const SerialSetting = () => {
         <div className='container'>
           <div className='row'>
             <div className='col-md-12'>
-              <form onSubmit={isUpdate ? ()=>SerailSettingUpdateHandler() : SerailSettingAddHandler }>
+              <form 
+              // onSubmit={isUpdate ? ()=>SerailSettingUpdateHandler(id,data) : SerailSettingAddHandler }
+              >
                 <div className="mb-2 row ">
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Form Name :</label>             
                 <div className="col-sm-7 d-flex align-items-center">
@@ -235,8 +248,8 @@ const SerialSetting = () => {
                     </div>
                   </div>
                   <div className=' d-flex justify-content-center gap-2 mt-2'>
-                     <button type="submit" className="btn btn-primary"
-                      // onClick={isUpdate ? ()=>SerailSettingUpdateHandler() : SerailSettingAddHandler}        
+                     <button type="button" className="btn btn-primary"
+                      onClick={isUpdate ? ()=>SerailSettingUpdateHandler(id,data) : SerailSettingAddHandler}        
                      >
                       {isUpdate ? "Update" : "Save"}
                     </button>
