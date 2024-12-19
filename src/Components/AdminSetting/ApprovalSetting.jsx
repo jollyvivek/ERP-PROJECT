@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import { BiEdit } from "react-icons/bi";
 const ApprovalSetting = () => {
-
+  const [isCheckedAp1, setIsCheckedAp1] = useState(false);
+  const [isCheckedAp2, setIsCheckedAp2] = useState(false);
+  const [isCheckedAp3, setIsCheckedAp3] = useState(false);
   const[settingForm,setSettingForm]= useState(false)
   const [settingModel,setSettingModel] = useState(false)
   const [data,setData] = useState({
@@ -54,6 +56,17 @@ const ApprovalSetting = () => {
         },
     },
     };
+
+    // Function to toggle the checkbox state
+  const handleCheckboxChangeAp1 = (e) => {
+    setIsCheckedAp1(e.target.checked);
+  };
+  const handleCheckboxChangeAp2 = (e) => {
+    setIsCheckedAp2(e.target.checked);
+  };
+  const handleCheckboxChangeAp3 = (e) => {
+    setIsCheckedAp3(e.target.checked);
+  };
 
     const onChangeHandler = (event)=>{
         const {name,value} = event.target
@@ -123,7 +136,9 @@ const ApprovalSetting = () => {
         <div className='container'>
           <div className='row'>
             <div className='col-md-12'>
-              <form onSubmit={settingForm ? ()=>alert("update call") : ApprovalSettingSubmit}>
+              <form 
+                  onSubmit={settingForm ? ()=>alert("update call") : ApprovalSettingSubmit}
+                  >
                 <div className="mb-2 row ">
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Form Name :</label>             
                 <div className="col-sm-7 d-flex align-items-center">
@@ -135,32 +150,36 @@ const ApprovalSetting = () => {
                 <div className="mb-2 row ">
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Approved 1 :</label>             
                 <div className="col-sm-7 d-flex align-items-center gap-2">
-                    <input type="checkbox" className='form-check-input p-2'  />
+                    <input type="checkbox" className='form-check-input p-2' checked={isCheckedAp1} 
+                       onChange={handleCheckboxChangeAp1}  />
                     <input type="text" className="form-control bg-body-secondary"  name="Approved1"
                       value={data.Approved1} onChange={onChangeHandler}
-                      autoComplete="off" required  />
+                      autoComplete="off" disabled={!isCheckedAp1} required  />
                 </div>
                 </div>
                 <div className="mb-2 row ">
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Approved 2 :</label>             
                 <div className="col-sm-7 d-flex align-items-center gap-2">
-                    <input type="checkbox" className='form-check-input p-2'  />
+                    <input type="checkbox" className='form-check-input p-2' checked={isCheckedAp2} 
+                      onChange={handleCheckboxChangeAp2} />
                     <input type="text" className="form-control bg-body-secondary"  name="Approved2"
                       value={data.Approved2} onChange={onChangeHandler}
-                      autoComplete="off" required  />
+                      autoComplete="off" disabled={!isCheckedAp2} required  />
                 </div>
                 </div>
                 <div className="mb-2 row ">
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Approved 3 :</label>             
                 <div className="col-sm-7 d-flex align-items-center gap-2">
-                    <input type="checkbox" className='form-check-input p-2'  />
+                    <input type="checkbox" className='form-check-input p-2' checked={isCheckedAp3} 
+                        onChange={handleCheckboxChangeAp3}  />
                     <input type="text" className="form-control bg-body-secondary"  name="Approved3"
                       value={data.Approved3} onChange={onChangeHandler}
-                      autoComplete="off" required  />
+                      autoComplete="off" disabled={!isCheckedAp3} required  />
                 </div>
                 </div>
                 <div className='mt-3 d-flex justify-content-center gap-2'>
-                  <button type="submit" className="btn btn-primary">{settingForm ? "Update" :"Save"}</button>
+                  <button type="button" className="btn btn-primary"
+                    onClick={settingForm ? ()=>alert("update call") : ApprovalSettingSubmit}>{settingForm ? "Update" :"Save"}</button>
                   <button type="button" className="btn btn-secondary" onClick={()=>setSettingModel(false)}>Close</button>
                 </div>
                  
