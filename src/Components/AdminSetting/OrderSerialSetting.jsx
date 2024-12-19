@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 
 const OrderSerialSetting = () => {
   const {url} = useContext(StoreContext)
+  const [id,setId] = useState("")
   const [fetchData,setFetchData] = useState([])
   const[settingForm,setSettingForm]= useState(false)
   const [settingModel,setSettingModel] = useState(false)
@@ -65,6 +66,7 @@ const OrderSerialSetting = () => {
     const OrderSerialSettingAddModel = ()=>{
       setSettingModel(true)
       setSettingForm(false)
+      setData({Type:"",Name:"",Prefix:"",Postfix:"",AutoGenerate:"",NoOfDigit:"",StartFrom:""})
     }
 
     const onChangeHandler = (event)=>{
@@ -117,7 +119,30 @@ const OrderSerialSetting = () => {
     const OrderSerialSettingUpdate = (id,Type,Name,Prefix,Postfix,AutoGenerate,NoOfDigit,StartFrom)=>{
       setSettingModel(true)
       setSettingForm(true)
-      setData({Type:Type,Name:Name,Prefix:Prefix,Postfix:Postfix,AutoGenerate:AutoGenerate,NoOfDigit:NoOfDigit,StartFrom:StartFrom})
+      setData({Type:Type,Name:Name,Prefix:Prefix,Postfix:Postfix,AutoGenerate:AutoGenerate,NoOfDigit:NoOfDigit,StartFrom:StartFrom});
+      setId(id)
+    }
+
+    const OrderSerialSettingUpdateHandler = async(id,data)=>{
+      try {
+        const response = await axios.post(`${url}/api/orderserialsetting/update`,{
+          id:id,Type:data.Type,Name:data.Name,Prefix:data.Prefix,Postfix:data.Postfix,AutoGenerate:data.AutoGenerate,
+          NoOfDigit:Number(data.NoOfDigit),
+          StartFrom:Number(data.StartFrom)
+        });
+        if (response.data.success) {
+          setSettingModel(false)
+          setSettingForm(false)
+          setData({ Type:"",Name:"",Prefix:"",Postfix:"",AutoGenerate:"",NoOfDigit:"",StartFrom:""});
+          toast.success(response.data.message)
+        } else {
+          toast.error(response.data.message)
+        }
+      } catch (error) {
+        console.log("Error");
+        toast.error(response.data.message);
+      }
+      FetchRecords();
     }
 
     // delete
@@ -165,7 +190,9 @@ const OrderSerialSetting = () => {
         <div className='container-fluid'>
           <div className='row'>
             <div className='col-md-12'>
-              <form onSubmit={settingForm ? ()=>alert("update call") : OrderSerialSettingSubmit}>
+              <form 
+                  // onSubmit={settingForm ? ()=>alert("update call") : OrderSerialSettingSubmit}
+              >
                 <div className="mb-2 row ">
                   <label htmlFor="" className=" col-sm-5 col-form-label fs-5" >Type :</label>             
                 <div className="col-sm-7 d-flex align-items-center">
@@ -237,7 +264,8 @@ const OrderSerialSetting = () => {
                     <label className='col-sm-7 col-form-label fs-5 '>{data.Prefix + 0 + data.StartFrom + data.Postfix} </label>
                   </div>
                   <div className='mt-3 d-flex justify-content-center gap-2'>
-                    <button type="submit" className="btn btn-primary">{settingForm ? "Update" :"Save"}</button>
+                    <button type="button" className="btn btn-primary"
+                      onClick={settingForm ? ()=>OrderSerialSettingUpdateHandler(id,data) : OrderSerialSettingSubmit}>{settingForm ? "Update" :"Save"}</button>
                     <button type="button" className="btn btn-secondary" onClick={()=>setSettingModel(false)}>Close</button>
                   </div>
               </form>
