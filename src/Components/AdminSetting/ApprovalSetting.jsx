@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
 import { BiEdit } from "react-icons/bi";
+import { MdDelete } from "react-icons/md";
+import { StoreContext } from '../../Context/StoreContext';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 const ApprovalSetting = () => {
+  const {url} = useContext(StoreContext)
+  const [id,setId] = useState("")
   const [isCheckedAp1, setIsCheckedAp1] = useState(false);
   const [isCheckedAp2, setIsCheckedAp2] = useState(false);
   const [isCheckedAp3, setIsCheckedAp3] = useState(false);
+  const [fetchData,setFetchData] = useState([])
   const[settingForm,setSettingForm]= useState(false)
   const [settingModel,setSettingModel] = useState(false)
   const [data,setData] = useState({
@@ -22,12 +29,18 @@ const ApprovalSetting = () => {
   ]
   const columns =[
     {name:"Form Name",selector:row=>row.FormName,sortable:true},
-    {name:"Approval 1",selector:row=>row.ap1,sortable:true},
-    {name:"Approval 2",selector:row=>row.ap2},
-    {name:"Approval 3",selector:row=>row.ap3},
+    {name:"Approval 1",selector:row=>row.Approved1,sortable:true},
+    {name:"Approval 2",selector:row=>row.Approved2},
+    {name:"Approval 3",selector:row=>row.Approved3},
     {name:"Modify",selector:row=>row,cell:row=>(
-      <button className="btn text-center fs-4" onClick={ApprovalSettingUpdate}><BiEdit/></button>
+      <button className="btn text-center fs-4" onClick={()=>ApprovalSettingUpdate(row._id,row.FormName,row.Approved1,row.Approved2,row.Approved3)}><BiEdit/></button>
     )},
+    {name:"Delete",selecto:row=>row._id ,cell: row=>(
+                <button className=" btn text-danger text-center fs-4"
+                 onClick={()=>ApprovalSettingRemove(row._id)}
+                 ><MdDelete/></button>
+              )      
+        }
   ]
 
   const customStyles = {
@@ -78,20 +91,60 @@ const ApprovalSetting = () => {
     const ApprovalSettingAddModel = ()=>{
       setSettingModel(true)
       setSettingForm(false)
+      setIsCheckedAp1(false)
+      setIsCheckedAp2(false)
+      setIsCheckedAp3(false)
+      setData({FormName:"", Approved1:"", Approved2:"", Approved3:""});
     }
-
-    const ApprovalSettingSubmit = (event)=>{
+// add
+    const ApprovalSettingSubmit = async(event)=>{
       event.preventDefault();
-      console.log(data)
-      setData({FormName:"", Approved1:"", Approved2:"", Approved3:""})
+      let payload = {
+        FormName:data.FormName,
+        Approved1:data.Approved1,
+        Approved2:data.Approved2,
+        Approved3:data.Approved3       
+      }
+      const response = await axios.post(`${url}/api/approvalsetting/add`,payload);
+      if (response.data.success) {
+        // console.log(data)
+        setData({FormName:"", Approved1:"", Approved2:"", Approved3:""});
+        toast.success(response.data.message)
+      } else {
+        toast.error(response.data.message)
+      }      
       setSettingModel(false)
+      FetchRecords();
     }
-    
+// fetchList
+const FetchRecords= async()=>{
+  const response = await axios.get(`${url}/api/approvalsetting/list`);
+  if(response.data.data){
+    setFetchData(response.data.data)
+    // console.log(response.data.data)
+  }else{
+    console.log("Error")
+  }
 
-    const ApprovalSettingUpdate = ()=>{
+}
+
+useEffect(()=>{
+  FetchRecords();
+},[]);
+ 
+// update
+    const ApprovalSettingUpdate = (id,FormName,Approved1,Approved2,Approved3)=>{
       setSettingModel(true)
       setSettingForm(true)
+      setData({FormName:FormName,Approved1:Approved1,Approved2:Approved2,Approved3:Approved3})
     }
+// delete
+
+const ApprovalSettingRemove = async(id)=>{
+  const response = await axios.post(`${url}/api/approvalsetting/remove`,{id:id})
+      await FetchRecords();
+      toast.success(response.data.message)
+}
 
   return (
     <div className='container-fluid'>
@@ -110,7 +163,7 @@ const ApprovalSetting = () => {
               </div>
               <DataTable
                 columns={columns}
-                data={dataList}
+                data={fetchData}
                 customStyles={customStyles}
               />
 
