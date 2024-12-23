@@ -137,6 +137,25 @@ useEffect(()=>{
       setSettingModel(true)
       setSettingForm(true)
       setData({FormName:FormName,Approved1:Approved1,Approved2:Approved2,Approved3:Approved3})
+      setId(id)
+    }
+
+    const ApprovalSettingUpdateHandler = async(id,data)=>{
+      try {
+        const response = await axios.post(`${url}/api/approvalsetting/update`,{id:id,FormName:data.FormName,
+          Approved1:data.Approved1,Approved2:data.Approved2,Approved3:data.Approved3 });
+          if (response.data.success) {
+            setData({FormName:"", Approved1:"", Approved2:"", Approved3:""});
+            toast.success(response.data.message)
+          } else {
+            toast.error(response.data.message)
+          }
+      } catch (error) {
+        toast.error(response.data.message);
+      }
+      setSettingModel(false)
+      setSettingForm(false)
+      FetchRecords();
     }
 // delete
 
@@ -232,7 +251,7 @@ const ApprovalSettingRemove = async(id)=>{
                 </div>
                 <div className='mt-3 d-flex justify-content-center gap-2'>
                   <button type="button" className="btn btn-primary"
-                    onClick={settingForm ? ()=>alert("update call") : ApprovalSettingSubmit}>{settingForm ? "Update" :"Save"}</button>
+                    onClick={settingForm ? ()=>ApprovalSettingUpdateHandler(id,data) : ApprovalSettingSubmit}>{settingForm ? "Update" :"Save"}</button>
                   <button type="button" className="btn btn-secondary" onClick={()=>setSettingModel(false)}>Close</button>
                 </div>
                  

@@ -98,7 +98,7 @@ const updateHandler = async(codeId,data)=>{
         toast.error(response.data.message)
       }
   } catch (error) {
-    console.log("Error");
+    console.log(error);
     toast.error(response.data.message);
   }
  
