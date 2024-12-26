@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
+import { BiEdit } from "react-icons/bi";
+import { MdDelete } from "react-icons/md";
 import { StoreContext } from '../../Context/StoreContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -7,6 +9,8 @@ import { toast } from 'react-toastify';
 const Group = () => {
   const [showModal, setShowModal] = useState(false);
   const {url} = useContext(StoreContext)
+  const [groupId,setGroupId]=useState("")
+  const[groupForm,setGroupForm]= useState(false)
   const [groupRecords,setGroupRecords]= useState([])
   const [data,setData] = useState({
     GroupName:"",
@@ -15,17 +19,22 @@ const Group = () => {
 
   })
 
-    // const dataList =[
-    //     { GroupName:"Book Bag", Description :"Book Bag", ProductionUnit:"Production Unit-I"},
-    //     { GroupName:"Notebook", Description :"Notebook", ProductionUnit:"Production Unit-II"},
-    //     { GroupName:"Plastic", Description :"Plastic", ProductionUnit:"Production Unit-III"},
-    //     { GroupName:"ABCDE", Description :"ABCDE", ProductionUnit:"Production Unit-IV"},
-    //     { GroupName:"Casting", Description :"Casting", ProductionUnit:"Production Unit-V"}
-    //   ]
+    
       const columns =[
         {name:"Group Name",selector:row=>row.GroupName,sortable:true},
         {name:"Description",selector:row=>row.Description,sortable:true},
         {name:"Production Unit",selector:row=>row.ProductionUnit,sortable:true},
+        {name:"Modify",selector:row=>row._id,cell:row=>(
+            <button className="btn text-center fs-4" 
+            onClick={()=>updateModelHandelr(row._id,row.GroupName,row.ProductionUnit,row.Description)}><BiEdit/></button>
+          )},
+          {name:"Delete",selecto:row=>row._id ,cell: row=>(
+              <button className=" btn text-danger text-center fs-4"
+               onClick={()=>GroupRemove(row._id)}
+               ><MdDelete/></button>
+            )
+          
+            }
       ];
 
       const customStyles = {
@@ -55,6 +64,12 @@ const Group = () => {
       const onChangeHandler =(event)=>{
         const {name,value} = event.target
         setData((data)=>({...data,[name]:value}))
+      }
+
+      const AddNewModel = async()=>{
+        setShowModal(true)
+        setGroupForm(false)
+        setData({GroupName:"",ProductionUnit:"",Description:""})
       }
 
       const FormSubmitHandler = async(event)=>{
@@ -92,6 +107,39 @@ const Group = () => {
         groupFetchRecords();
       },[]);
 
+      // delete
+      const GroupRemove = async(id)=>{
+        const response = await axios.post(`${url}/api/group/remove`,{id:id})
+        await groupFetchRecords();
+        toast.success(response.data.message)
+      }
+
+      // update
+
+      const updateModelHandelr = (id,GroupName,ProductionUnit,Description)=>{
+        setShowModal(true)
+        setGroupForm(true)
+        setGroupId(id)
+        setData({GroupName:GroupName,ProductionUnit:ProductionUnit,Description:Description})
+      }
+      const GroupUpdateHandler = async(groupId,data)=>{
+          try {
+            const response = await axios.post(`${url}/api/group/update`,{id:groupId,GroupName:data.GroupName,
+              ProductionUnit:data.ProductionUnit,Description:data.Description});
+              if (response.data.success) {
+                setData({GroupName:"",ProductionUnit:"",Description:""})
+                toast.success(response.data.message)
+              } else {
+                 toast.error(response.data.message)
+              }
+          } catch (error) {
+             toast.error(response.data.message)
+          }
+          setShowModal(false)
+          setGroupForm(false)
+          groupFetchRecords();
+      }
+
 
   return (
     <div className='container-fluid'>
@@ -99,7 +147,7 @@ const Group = () => {
             <div className='col-md-12'>
                 <div className='d-flex justify-content-between mt-3'>
                     <h5> Group Record</h5>
-                    <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5' onClick={()=>setShowModal(true)}
+                    <button className='px-3 py-1 border-1 rounded-3 border-primary bg-transparent fs-5' onClick={AddNewModel}
                         // data-bs-toggle="modal" data-bs-target="#GroupModal"
                         >Add New
                     </button>
@@ -130,7 +178,7 @@ const Group = () => {
         <div className='container-fluid'>
             <div className='row'>
                 <div className='col-md-12 px-0'>
-                  <form action="" onSubmit={FormSubmitHandler}>
+                  <form action="">
                     <fieldset>
                         <legend>Group</legend>
                         <div className="mb-2 row">
@@ -164,7 +212,8 @@ const Group = () => {
                         </div>
                         </div>
                         <div className='my-3 d-flex justify-content-center gap-1'>
-                            <button type="submit" className="btn btn-primary">Save</button>
+                            <button type="button" className="btn btn-primary" 
+                            onClick={groupForm ? ()=>GroupUpdateHandler(groupId,data) : FormSubmitHandler}>{groupForm ? "Update" :"Save"}</button>
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setShowModal(false)}>
                               Close
                             </button>
