@@ -39,85 +39,85 @@ const ModuleMenuCommon = ({RoleModel}) => {
           <div className='row'>
             <div className='col-md-12'>
             <div className='row'>
-              <div className='col-md-2 bg-danger'><p className="m-0 p-0">Company</p></div>
-              <div className='col-md-1 text-center bg-danger' onClick={companyReadHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-7 bg-primary' ></div>
+              <div className='col-md-2 '><p className="m-0 p-0">Company</p></div>
+              <div className='col-md-1 text-center' onClick={companyReadHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-7' ></div>
             </div>
             <div className='row '>
-              <div className='col-md-2 bg-danger'><p className="m-0 p-0">User</p></div>
-              <div className='col-md-1 text-center bg-danger' onClick={ManageUserHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-6 bg-primary'></div>
+              <div className='col-md-2'><p className="m-0 p-0">User</p></div>
+              <div className='col-md-1 text-center' onClick={ManageUserHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-6'></div>
             </div>
             <div className='row '>
-              <div className='col-md-2 bg-danger'><p className="m-0 p-0">Role</p></div>
-              <div className='col-md-1 text-center bg-danger' onClick={RoleHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-6 bg-primary'></div>
+              <div className='col-md-2'><p className="m-0 p-0">Role</p></div>
+              <div className='col-md-1 text-center' onClick={RoleHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-6'></div>
             </div>
             <div className='row '>
-              <div className='col-md-2 bg-danger'><p className="m-0 p-0">Send Mail</p></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-2'><p className="m-0 p-0">Send Mail</p></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center d-none'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center d-none'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center d-none'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-9 bg-primary'></div>
+              <div className='col-md-9'></div>
             </div>
             <div className='row '>
-              <div className='col-md-2 bg-danger'><p className="m-0 p-0">Serial Setting</p></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-2'><p className="m-0 p-0">Serial Setting</p></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
-              <div className='col-md-6 bg-primary'></div>
+              <div className='col-md-6'></div>
             </div>
             <div className='row '>
-              <div className='col-md-2 bg-danger'><p className="m-0 p-0">ApprovalSetting</p></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-2'><p className="m-0 p-0">ApprovalSetting</p></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
-              <div className='col-md-6 bg-primary'></div>
+              <div className='col-md-6'></div>
             </div>
             <div className='row '>
-              <div className='col-md-2 bg-danger'><p className="m-0 p-0">Country Master</p></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-6 bg-primary'></div>
+              <div className='col-md-2'><p className="m-0 p-0">Country Master</p></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-6'></div>
             </div>
             <div className='row '>
-              <div className='col-md-2 bg-danger'><p className="m-0 p-0">State Master</p></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-6 bg-primary'></div>
+              <div className='col-md-2'><p className="m-0 p-0">State Master</p></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-6'></div>
             </div>
             <div className='row'>
-              <div className='col-md-2 bg-danger'><p className="m-0 p-0">Bank Master</p></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-6 bg-primary'></div>
+              <div className='col-md-2'><p className="m-0 p-0">Bank Master</p></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-6'></div>
             </div>
             <div className='row '>
-              <div className='col-md-2 bg-danger'><p className="m-0 p-0">Master Report</p></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-2'><p className="m-0 p-0">Master Report</p></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center d-none'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center d-none'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center d-none'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-9 bg-primary'></div>
+              <div className='col-md-9'></div>
             </div>
-            <div className='row bg-danger'>
+            <div className='row'>
               <div className='col-md-2'><p className="m-0 p-0">ManagementLog</p></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
@@ -126,32 +126,32 @@ const ModuleMenuCommon = ({RoleModel}) => {
               <div className='col-md-6 text-end'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
             </div>
             <div className='row'>
-              <div className='col-md-2 bg-danger'><p className="m-0 p-0">Import Excel</p></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-2'><p className="m-0 p-0">Import Excel</p></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
-              <div className='col-md-6 text-end bg-danger'>
+              <div className='col-md-6 text-end'>
               <input type="checkbox" className="form-check-input p-2" name="" id="" />
               </div>
             </div>
             <div className='row'>
-              <div className='col-md-2 bg-danger'><p className="m-0 p-0">FinancialYear</p></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-2'><p className="m-0 p-0">FinancialYear</p></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
-              <div className='col-md-6 text-end bg-danger'>
+              <div className='col-md-6 text-end'>
               <input type="checkbox" className="form-check-input p-2" name="" id="" />
               </div>
             </div>
             <div className='row'>
-              <div className='col-md-2 bg-danger'><p className="m-0 p-0">Mail History</p></div>
-              <div className='col-md-1 text-center bg-danger'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-2'><p className="m-0 p-0">Mail History</p></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
-              <div className='col-md-6 text-end bg-danger'>
+              <div className='col-md-6 text-end'>
               <input type="checkbox" className="form-check-input p-2" name="" id="" />
               </div>
             </div> 

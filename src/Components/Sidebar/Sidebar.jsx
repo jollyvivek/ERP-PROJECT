@@ -164,7 +164,7 @@ const Sidebar = ({userData}) => {
         {/* admin */}
         <Route path="/basic_details" element={<BasicDetails/>}/>
         <Route path="/" element={<SidebarRight/>}/>
-        <Route path="/company/*" element={<CompanyDetail/>}/>
+        <Route path="/company" element={<CompanyDetail/>}/>
         <Route path="/tax_bankDetails" element={<TaxAndBankDetails url={url}/>}/>
         <Route path="/terms_condtions" element={<TermsCondtions/>}/>
         <Route path="/report_heading" element={<ReportHeading/>}/>
