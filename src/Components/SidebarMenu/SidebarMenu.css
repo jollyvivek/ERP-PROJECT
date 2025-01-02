@@ -18,23 +18,38 @@ ul li:hover{
   text-decoration: none;
   font-size: 1.3em;
   background: transparent;
+  padding-block:8px !important;
 }
 
-.nav-link .active{
+/* .nav-link .active{
   background:lightgray !important;
  
+} */
+
+.active{
+  /* background: lightgray; */
+  padding-block: 5px;
+  border-radius: 5px;
 }
 
 .company-details-title a.active{
   background: lightgray;
-  padding-block: 10px;
+  border-radius: 5px;
+}
+
+.role a.active,.manage-user a.active{
+  background: lightgray;
   border-radius: 5px;
 }
 .title{
   font-size: 1.3em;
 }
 
-
+.CountryMaster a.active ,.BankMaster a.active,.StateMaster a.active{
+  background: lightgray;
+  border-radius: 5px;
+  padding-block:10px;
+}
 .admin-menu{
   /* border: 2px solid green; */
   width: 100%;
@@ -93,9 +108,9 @@ ul li:hover{
 
 .admin-items .title{
   font-size: 1em;
-  padding-block: 0.5em;
+  padding-block: 0.3em;
   cursor: pointer;
-
+  
 }
 
 .profile-items li,.master-items li,.setting-items li,.import-excel-items li,.finance-year-items li{

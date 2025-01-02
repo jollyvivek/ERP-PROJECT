@@ -67,17 +67,16 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {profileItem ? (
               <ul className="profile-items">
-                <li  className="title company-details-title" onClick={()=>navigate('/company')}>
-                  <span>Edit Company</span>
-                  {/* <NavLink to='/company' className="nav-link w-100 ">Edit Company</NavLink> */}
+                <li  className="title company-details-title">
+                  <NavLink to='/company' className="nav-link w-100 ">Edit Company</NavLink>
                 </li>
               </ul>
             ) : null}
-            <li className="title role" onClick={()=>navigate('/role')}>           
-              <span>Role</span>
+            <li className="title role" >           
+              <NavLink to='/role' className="nav-link w-100">Role</NavLink>
             </li>
-            <li  className="title manage-user" onClick={()=>navigate('/manageuser')}>            
-              <span>Manage Users</span>
+            <li  className="title manage-user">            
+              <NavLink to='/manageuser' className="nav-link w-100 ">Manage Users</NavLink>
             </li>
             <li className="master flex">
               <span>Master</span>
@@ -87,14 +86,14 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {masterItems ? (
               <ul className="master-items">
-                <li className="title" onClick={()=>navigate("/countrymaster")} >
-                 <span > Country Master</span>
+                <li className="title CountryMaster">
+                 <NavLink to='/countrymaster' className="nav-link w-100" > Country Master</NavLink>
                 </li>
-                <li className="title" onClick={()=>navigate('/bankmaster')}>
-                  <span>Bank Master</span>
+                <li className="title BankMaster">
+                  <NavLink to='/bankmaster' className="nav-link w-100">Bank Master</NavLink>
                 </li>
-                <li className="title" onClick={()=>navigate('/statemaster')}>
-                  <span>State Master</span>
+                <li className="title StateMaster">
+                  <NavLink to='/statemaster' className="nav-link w-100">State Master</NavLink>
                 </li>
               </ul>
             ) : null}
@@ -106,7 +105,7 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {settingItems ? (
               <ul className="setting-items mb-3">
-                <li>
+                <li className="">
                   <span onClick={()=>navigate('/serialsetting')}> Serial Setting </span>
                 </li>
                 <li>

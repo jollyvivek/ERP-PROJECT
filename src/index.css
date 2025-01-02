@@ -40,12 +40,11 @@ hr{
   /* border-radius: 5px; */
 }
 
-.active{
-  /* border: 0; */
+/* .active{
   border-bottom:2px solid #808080 !important ;
   padding:0;
   padding-bottom:3px;
-}
+} */
 
 .nav-item:hover{
   background:none;
