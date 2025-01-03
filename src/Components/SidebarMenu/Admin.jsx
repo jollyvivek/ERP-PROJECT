@@ -105,19 +105,19 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {settingItems ? (
               <ul className="setting-items mb-3">
-                <li className="">
-                  <span onClick={()=>navigate('/serialsetting')}> Serial Setting </span>
+                <li className="title SerialSetting">
+                  <NavLink to='/serialsetting' className="nav-link w-100"> Serial Setting </NavLink>
                 </li>
-                <li>
-                  <span onClick={()=>navigate('/approvalsetting')}>Approval Setting </span>
+                <li className="title ApprovalSetting">
+                  <NavLink to='/approvalsetting' className="nav-link w-100">Approval Setting </NavLink>
                 </li>
-                <li>
-                  <span onClick={()=>navigate('/orderserialsetting')}>Order Serial Setting</span>
+                <li className="title OrderSerialSetting ">
+                  <NavLink to='/orderserialsetting' className="nav-link w-100">Order Serial Setting</NavLink>
                 </li>
               </ul>
             ) : null}
-            <li className="title">
-              <span onClick={()=>setIsPassModel(true)}>Change Password</span>
+            <li className="title ChangePassword">
+              <NavLink  className="nav-link w-100" onClick={()=>setIsPassModel(true)}>Change Password</NavLink>
             </li>
             <li className="d-flex justify-content-between align-items-center">
               <span>Import Excel</span>

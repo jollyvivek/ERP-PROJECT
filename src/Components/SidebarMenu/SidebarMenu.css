@@ -50,6 +50,16 @@ ul li:hover{
   border-radius: 5px;
   padding-block:10px;
 }
+
+.SerialSetting a.active,.ApprovalSetting a.active,.OrderSerialSetting a.active{
+  background: lightgray;
+  border-radius: 5px;
+}
+
+.ChangePassword a.active{
+  background: lightgray;
+  border-radius: 5px;
+}
 .admin-menu{
   /* border: 2px solid green; */
   width: 100%;
@@ -122,8 +132,8 @@ ul li:hover{
   font-size: 1.2em;
 }
 
-.master-items li{
+/* .master-items li{
   padding-block:0.8em !important;
-}
+} */
 
 
