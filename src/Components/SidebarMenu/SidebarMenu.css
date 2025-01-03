@@ -56,10 +56,26 @@ ul li:hover{
   border-radius: 5px;
 }
 
-.ChangePassword a.active{
+/* .ChangePassword a.active{
+  background: lightgray;
+  border-radius: 5px;
+} */
+
+.ImportInstrument a.active,.ImportItem a.active,.OpeningBalanceGroup a.active,.ImportBom a.active,.ImportOperation a.active{
   background: lightgray;
   border-radius: 5px;
 }
+.ImportPackingBom a.active,.ImportPriceList a.active,.QcTestingMaster a.active,.ImportLedger a.active,.PackingInstruction a.active{
+  background: lightgray;
+  border-radius: 5px;
+}
+
+.ImportTestCertificate a.active{
+  background: lightgray;
+  border-radius: 5px;
+}
+
+
 .admin-menu{
   /* border: 2px solid green; */
   width: 100%;

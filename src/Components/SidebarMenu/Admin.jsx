@@ -41,6 +41,10 @@ const Admin = ({userData,setIsPassModel}) => {
     setFinancialYearItem(!financialYearItem);
   }
 
+  const ChangePasswordHandler = ()=>{
+    setIsPassModel(true)
+  }
+
   return (
     <div className="admin-menu ">
       <div className=" admin-menu-cont flex mb-1">
@@ -117,7 +121,7 @@ const Admin = ({userData,setIsPassModel}) => {
               </ul>
             ) : null}
             <li className="title ChangePassword">
-              <NavLink  className="nav-link w-100" onClick={()=>setIsPassModel(true)}>Change Password</NavLink>
+              <NavLink  className="nav-link w-100" onClick={ChangePasswordHandler}>Change Password</NavLink>
             </li>
             <li className="d-flex justify-content-between align-items-center">
               <span>Import Excel</span>
@@ -127,19 +131,19 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {importExcelItem ? (
               <ul className="import-excel-items">
-                <li> <span onClick={()=>navigate('/importinstrument')}> Import Instrument </span></li>
-                <li>
-                  <span onClick={()=>navigate('/importitem')}> Import Item </span>
+                <li className="title ImportInstrument"><NavLink to='/importinstrument' className="nav-link w-100"> Import Instrument </NavLink></li>
+                <li className="title ImportItem"><NavLink to='/importitem' className="nav-link w-100"> Import Item </NavLink></li>
+                <li className="title OpeningBalanceGroup ">
+                  <NavLink to='/importitemopening' className="nav-link w-100">Import Item Opening Balance Group Wise</NavLink>
                 </li>
-                <li><span onClick={()=>navigate('/importitemopening')}>Import Item Opening Balance Group Wise</span></li>
-                <li onClick={()=>navigate('/importbom')}><span> Import BOM </span></li>
-                <li onClick={()=>navigate('/importoperation')}><span>Import Operatipon</span></li>
-                <li onClick={()=>navigate('/importpackingbom')}><span>Import Packing BOM</span></li>
-                <li onClick={()=>navigate('/importpricelist')}><span>Import Price List </span></li>
-                <li onClick={()=>navigate('/importqctesting')}><span>Import QC Testing Master</span></li>
-                <li onClick={()=>navigate('/importledger')}><span> Import Ledger </span></li>
-                <li onClick={()=>navigate('/importpackinginstruction')}><span>Packing Instruction </span></li>
-                <li onClick={()=>navigate('/testcertificate')}><span>Import Internal Test Certificate Details </span></li>
+                <li className="title ImportBom"><NavLink to='/importbom' className="nav-link w-100"> Import BOM </NavLink></li>
+                <li className="title ImportOperation"><NavLink to='/importoperation' className="nav-link w-100">Import Operatipon</NavLink></li>
+                <li className="title ImportPackingBom"><NavLink to='/importpackingbom' className="nav-link w-100">Import Packing BOM</NavLink></li>
+                <li className="title ImportPriceList"><NavLink to='/importpricelist' className="nav-link w-100">Import Price List </NavLink></li>
+                <li className="title QcTestingMaster"><NavLink to='/importqctesting' className="nav-link w-100">Import QC Testing Master</NavLink></li>
+                <li className="title ImportLedger"><NavLink to='/importledger' className="nav-link w-100"> Import Ledger </NavLink></li>
+                <li className="title PackingInstruction"><NavLink to='/importpackinginstruction' className="nav-link w-100">Packing Instruction </NavLink></li>
+                <li className="title ImportTestCertificate"><NavLink to='/testcertificate' className="nav-link w-100">Import Internal Test Certificate Details </NavLink></li>
                 <li><span>Import EU Declartion Into Item</span></li>
                 <li><span>Import Export Description Into Item</span></li>
                 <li><span>Import Rev. No. Into Item</span></li>
