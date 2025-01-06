@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import '../../Styles/NavTab.css'
 
 
 
@@ -59,7 +60,7 @@ const NavTabs = () => {
       <div className='row mt-2'>
         <div className='col-md-12'>
           <ul className="nav">
-            <li className="nav-item ">
+            <li className="nav-item BasicDetails ">
               <NavLink to="/company" style={NavLinkCss} className="navLink" >Basic Details</NavLink> 
             </li>
             <li className="nav-item"> 

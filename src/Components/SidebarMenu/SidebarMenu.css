@@ -8,7 +8,7 @@ ul li{
   padding-inline: 5px;
 }
 
-ul li:hover{
+ul li a:hover{
   background:lightgray;
   /* color: white; */
   border-radius: 5px;
@@ -45,10 +45,14 @@ ul li:hover{
   font-size: 1.3em;
 }
 
+.CountryMaster a ,.BankMaster a,.StateMaster a{
+  padding-block:0.8rem !important;
+}
+
 .CountryMaster a.active ,.BankMaster a.active,.StateMaster a.active{
   background: lightgray;
   border-radius: 5px;
-  padding-block:10px;
+  
 }
 
 .SerialSetting a.active,.ApprovalSetting a.active,.OrderSerialSetting a.active{
@@ -70,11 +74,25 @@ ul li:hover{
   border-radius: 5px;
 }
 
-.ImportTestCertificate a.active{
+.ImportTestCertificate a.active,.ImportBatchSerial a.active,.ImportChemicalMaster a.active,.ImportMechanicalMaster a.active{
   background: lightgray;
   border-radius: 5px;
 }
 
+.ExportExcel a.active{
+  background: lightgray;
+  border-radius: 5px;
+}
+
+.FinancialYearCreateYear a.active,.FinancialYearInventrySetting a.active,.FinancialYearFinancialSetting a.active{
+  background: lightgray;
+  border-radius: 5px;
+}
+
+.AdminMasterReport a.active,.AdminMailHistory a.active,.AdminManagementLog a.active,.AdminBatchTracking a.active{
+  background: lightgray;
+  border-radius: 5px;
+}
 
 .admin-menu{
   /* border: 2px solid green; */

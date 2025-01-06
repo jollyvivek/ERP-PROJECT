@@ -20,7 +20,7 @@ const ChemicalMaster = () => {
 							</div>
 							<div className='col-md-6'>
 								<div className='row'>
-									<label htmlFor="" className='col-md-4'>Sheet Name "</label>
+									<label htmlFor="" className='col-md-4'>Sheet Name :</label>
 									<div className='col-md-8'>
 										<input type="text" className='form-control' />
 									</div>

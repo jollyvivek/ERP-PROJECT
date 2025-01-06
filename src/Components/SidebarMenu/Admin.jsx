@@ -149,13 +149,19 @@ const Admin = ({userData,setIsPassModel}) => {
                 <li><span>Import Rev. No. Into Item</span></li>
                 <li><span>Import NetWeight in Operation</span></li>
                 <li><span>Import NetWeight In Item</span></li>
-                <li onClick={()=>navigate('/batchserial')}><span>Import BatchSerial In Item</span></li>
-                <li onClick={()=>navigate('/chemicalmaster')}><span>Import Chemical Master</span></li>
-                <li onClick={()=>navigate('/mechanicalmaster')}><span>Import Mechanical Master</span></li>
+                <li className="title ImportBatchSerial">
+                  <NavLink to='/batchserial' className="nav-link w-100">Import BatchSerial In Item</NavLink>
+                </li>
+                <li className="title ImportChemicalMaster">
+                  <NavLink to='/chemicalmaster' className="nav-link w-100">Import Chemical Master</NavLink>
+                </li>
+                <li className="title ImportMechanicalMaster">
+                  <NavLink to='/mechanicalmaster' className="nav-link w-100">Import Mechanical Master</NavLink>
+                </li>
               </ul>
             ) : null}
-            <li className="title">
-              <span onClick={()=>navigate('/exportexcel')}>Export Excel</span>
+            <li className="title ExportExcel">
+              <NavLink to='/exportexcel' className="nav-link w-100">Export Excel</NavLink>
             </li>
             <li className="d-flex justify-content-between align-items-center">
               <span>Financial Year Setting</span>
@@ -163,16 +169,30 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {financialYearItem ?(
             <ul className="finance-year-items">
-                <li className="title" onClick={()=>navigate('/createyear')}> <span>Create Year </span></li>
-                <li className="title" onClick={()=>navigate("/inventrysetting")}> <span>Inventry Setting </span></li>
-                <li className="title" onClick={()=>navigate('/financesetting')}> <span>Financial Setting </span></li>
+                <li className="title FinancialYearCreateYear">
+                   <NavLink to='/createyear' className="nav-link w-100">Create Year </NavLink>
+                </li>
+                <li className="title FinancialYearInventrySetting"> 
+                  <NavLink to='/inventrysetting' className="nav-link w-100">Inventry Setting </NavLink>
+                </li>
+                <li className="title FinancialYearFinancialSetting"> 
+                  <NavLink to='/financesetting' className="nav-link w-100">Financial Setting </NavLink>
+                </li>
               </ul>
               ):null}
 
-            <li className=" title" onClick={()=>navigate('/masterreport')}><span>Master Report</span></li>
-            <li className="title" onClick={()=>navigate('/mailhistory')}><span>Mail History</span></li>
-            <li className=" title" onClick={()=>navigate('/managementlog')}><span>Managemeny Log</span></li>
-            <li className="title" onClick={()=>navigate('/batchtracking')}><span>Batch Tracking</span></li>
+            <li className="title AdminMasterReport">
+              <NavLink to='/masterreport' className="nav-link w-100">Master Report</NavLink>
+            </li>
+            <li className="title AdminMailHistory">
+              <NavLink to='/mailhistory' className="nav-link w-100">Mail History</NavLink>
+            </li>
+            <li className="title AdminManagementLog" >
+              <NavLink to='/managementlog' className="nav-link w-100">Management Log</NavLink>
+            </li>
+            <li className="title AdminBatchTracking">
+              <NavLink to='/batchtracking' className="nav-link w-100">Batch Tracking</NavLink>
+            </li>
           </ul>
         </div>
       ) : null}
