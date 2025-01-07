@@ -171,3 +171,11 @@ ul li a:hover{
 } */
 
 
+/* Inventry Menu */
+
+.InventryGroup a.active,.InventryCategory a.active{
+  background: lightgray;
+  border-radius: 5px;
+}
+
+
