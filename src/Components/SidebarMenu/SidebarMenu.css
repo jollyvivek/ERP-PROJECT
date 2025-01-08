@@ -21,10 +21,11 @@ ul li a:hover{
   padding-block:8px !important;
 }
 
-/* .nav-link .active{
+.active2{
   background:lightgray !important;
+  border-radius: 5px;
  
-} */
+}
 
 .active{
   /* background: lightgray; */

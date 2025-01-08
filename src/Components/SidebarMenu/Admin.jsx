@@ -23,14 +23,23 @@ const Admin = ({userData,setIsPassModel}) => {
 
   const profileDropedown = () => {
     setProfileItem(!profileItem);
+    const profile = document.getElementById("profile").classList.add("active2");
+    const master = document.getElementById("master").classList.remove("active2")
+    const setting = document.getElementById("setting").classList.remove("active2")
   };
 
   const masterDropdown = () => {
     setMasterItems(!masterItems);
+    const master = document.getElementById("master").classList.add("active2")
+    const profile = document.getElementById("profile").classList.remove("active2")
+    const setting = document.getElementById("setting").classList.remove("active2")
   };
 
   const settingDropdown = () => {
     setSettingItems(!settingItems);
+    const setting = document.getElementById("setting").classList.add("active2")
+    const profile = document.getElementById("profile").classList.remove("active2")
+    const master = document.getElementById("master").classList.remove("active2")
   };
 
   const importExcelDropdown = () => {
@@ -59,7 +68,7 @@ const Admin = ({userData,setIsPassModel}) => {
       {adminItems ? (
         <div id="admin-items" className="admin-items">
           <ul>
-            <li className="profile flex text-dark">
+            <li id="profile" className="profile flex text-dark">
               <span>Profile</span>
               <span
                 className=" profile-arrow fs-1 "
@@ -82,7 +91,7 @@ const Admin = ({userData,setIsPassModel}) => {
             <li  className="title manage-user">            
               <NavLink to='/manageuser' className="nav-link w-100 ">Manage Users</NavLink>
             </li>
-            <li className="master flex">
+            <li id="master" className="master flex">
               <span>Master</span>
               <span className="arrow-icon" onClick={masterDropdown}>
                 <RiArrowDropDownLine />
@@ -101,7 +110,7 @@ const Admin = ({userData,setIsPassModel}) => {
                 </li>
               </ul>
             ) : null}
-            <li className="d-flex justify-content-between align-items-center">
+            <li id="setting" className="d-flex justify-content-between align-items-center">
               <span> Setting</span>
               <span className="arrow-icon" onClick={settingDropdown}>
                 <RiArrowDropDownLine />
