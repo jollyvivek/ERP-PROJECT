@@ -23,6 +23,7 @@ const [reportsTwoItem,setReportsTwoItem]= useState(false)
 
    const inventryMasterDropedown = () =>{
     setMasterItem(!masterItem)
+    const InventryMaster = document.getElementById("InventryMaster").classList.add("active2");
    }
 
    const inventryVendorDropdown = () =>{
@@ -61,7 +62,7 @@ const reportsTwoDropdown = () =>{
       {inventryItem ? (
       <div className='inventry-items'>
         <ul>
-          <li className='d-flex justify-content-between align-items-center master'>
+          <li id='InventryMaster' className='d-flex justify-content-between align-items-center master mb-1'>
             <span>Master</span>
             <span className='arrow-icon' onClick={inventryMasterDropedown} ><RiArrowDropDownLine/></span>
           </li>

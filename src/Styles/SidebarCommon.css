@@ -29,6 +29,12 @@ button a.active{
   padding: 5px;
 }
 
+.active2{
+  background:lightgray !important;
+  border-radius: 5px;
+ 
+}
+
 .title {
   font-size: 1.3em;
 }
