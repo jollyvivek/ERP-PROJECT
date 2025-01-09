@@ -24,22 +24,76 @@ const [reportsTwoItem,setReportsTwoItem]= useState(false)
    const inventryMasterDropedown = () =>{
     setMasterItem(!masterItem)
     const InventryMaster = document.getElementById("InventryMaster").classList.add("active2");
+    const InventryVendor = document.getElementById("InventryVendor").classList.remove("active2");
+    const InventryInward = document.getElementById("InventryInward").classList.remove("active2");
+    const InventryOutward = document.getElementById("InventryOutward").classList.remove("active2");
+    const InventryJobwork = document.getElementById("InventryJobwork").classList.remove("active2");
+    const StockAdjusment = document.getElementById("StockAdjusment").classList.remove("active2");
+    const PackingList = document.getElementById("PackingList").classList.remove("active2");
    }
 
    const inventryVendorDropdown = () =>{
     setVendorItem(!vendorItem)
+    const InventryVendor = document.getElementById("InventryVendor").classList.add("active2");
+    const InventryMaster = document.getElementById("InventryMaster").classList.remove("active2");
+    const InventryInward = document.getElementById("InventryInward").classList.remove("active2");
+    const InventryOutward = document.getElementById("InventryOutward").classList.remove("active2");
+    const InventryJobwork = document.getElementById("InventryJobwork").classList.remove("active2");
+    const StockAdjusment = document.getElementById("StockAdjusment").classList.remove("active2");
+    const PackingList = document.getElementById("PackingList").classList.remove("active2");
    }
 
    const inventryInwardDropedown = () =>{
     setInwardItem(!inwardItem)
+    const InventryInward = document.getElementById("InventryInward").classList.add("active2");
+    const InventryMaster = document.getElementById("InventryMaster").classList.remove("active2");
+    const InventryVendor = document.getElementById("InventryVendor").classList.remove("active2");
+    const InventryOutward = document.getElementById("InventryOutward").classList.remove("active2");
+    const InventryJobwork = document.getElementById("InventryJobwork").classList.remove("active2");
+    const StockAdjusment = document.getElementById("StockAdjusment").classList.remove("active2");
+    const PackingList = document.getElementById("PackingList").classList.remove("active2");
    }
 
 const inventryOutwardDropedown = () =>{
  setOutwardItem(!outwardItem)
+ const InventryOutward = document.getElementById("InventryOutward").classList.add("active2");
+ const InventryMaster = document.getElementById("InventryMaster").classList.remove("active2");
+ const InventryVendor = document.getElementById("InventryVendor").classList.remove("active2");
+ const InventryInward = document.getElementById("InventryInward").classList.remove("active2");
+ const InventryJobwork = document.getElementById("InventryJobwork").classList.remove("active2");
+ const StockAdjusment = document.getElementById("StockAdjusment").classList.remove("active2");
+ const PackingList = document.getElementById("PackingList").classList.remove("active2");
 }
 
 const jobworkDropdown = () =>{
   setJobworkItem(!jobworkItem)
+  const InventryJobwork = document.getElementById("InventryJobwork").classList.add("active2");
+  const InventryMaster = document.getElementById("InventryMaster").classList.remove("active2");
+  const InventryVendor = document.getElementById("InventryVendor").classList.remove("active2");
+  const InventryInward = document.getElementById("InventryInward").classList.remove("active2");
+  const InventryOutward = document.getElementById("InventryOutward").classList.remove("active2");
+  const StockAdjusment = document.getElementById("StockAdjusment").classList.remove("active2");
+  const PackingList = document.getElementById("PackingList").classList.remove("active2");
+}
+
+const StockAdjusmentHandler = ()=>{
+  const StockAdjusment = document.getElementById("StockAdjusment").classList.add("active2");
+  const InventryMaster = document.getElementById("InventryMaster").classList.remove("active2");
+  const InventryVendor = document.getElementById("InventryVendor").classList.remove("active2");
+  const InventryInward = document.getElementById("InventryInward").classList.remove("active2");
+  const InventryOutward = document.getElementById("InventryOutward").classList.remove("active2");
+  const InventryJobwork = document.getElementById("InventryJobwork").classList.remove("active2");
+  const PackingList = document.getElementById("PackingList").classList.remove("active2");
+}
+
+const PackingListHandler = ()=>{
+  const PackingList = document.getElementById("PackingList").classList.add("active2");
+  const InventryMaster = document.getElementById("InventryMaster").classList.remove("active2");
+  const InventryVendor = document.getElementById("InventryVendor").classList.remove("active2");
+  const InventryInward = document.getElementById("InventryInward").classList.remove("active2");
+  const InventryOutward = document.getElementById("InventryOutward").classList.remove("active2");
+  const InventryJobwork = document.getElementById("InventryJobwork").classList.remove("active2");
+  const StockAdjusment = document.getElementById("StockAdjusment").classList.remove("active2");
 }
 
 const reportsDropedown = () =>{
@@ -89,7 +143,7 @@ const reportsTwoDropdown = () =>{
                 <li><span>Specification Master</span></li>
           </ul>
           ):null}
-          <li className='d-flex justify-content-between align-items-center'>
+          <li id='InventryVendor' className='d-flex justify-content-between align-items-center'>
             <span>Vendor</span> 
             <span className='arrow-icon' onClick={inventryVendorDropdown}><RiArrowDropDownLine/></span>
           </li>
@@ -103,7 +157,7 @@ const reportsTwoDropdown = () =>{
                 <li><span>Vendor Fill Assessment</span></li>
           </ul>
           ):null}
-          <li className='d-flex justify-content-between align-items-center'>
+          <li id='InventryInward' className='d-flex justify-content-between align-items-center'>
             <span>Inward</span>
             <span className='arrow-icon' onClick={inventryInwardDropedown}><RiArrowDropDownLine/></span>
           </li>
@@ -115,7 +169,7 @@ const reportsTwoDropdown = () =>{
                 <li><span>Return Rejected</span></li>
           </ul>
           ):null}
-          <li className='d-flex justify-content-between align-items-center'>
+          <li id='InventryOutward' className='d-flex justify-content-between align-items-center'>
             <span>Outward</span>
             <span className='arrow-icon' onClick={inventryOutwardDropedown}><RiArrowDropDownLine/></span>
             </li>
@@ -127,7 +181,7 @@ const reportsTwoDropdown = () =>{
                 <li><span>Return Rejected</span></li>
               </ul>
               ):null}
-          <li className='d-flex justify-content-between align-items-center'>
+          <li id='InventryJobwork' className='d-flex justify-content-between align-items-center'>
             <span>Job Work</span>
             <span className='arrow-icon' onClick={jobworkDropdown}><RiArrowDropDownLine/></span>
           </li>
@@ -139,8 +193,10 @@ const reportsTwoDropdown = () =>{
                 <li><span>Job Work Balance Statement</span></li>
           </ul>
           ):null} 
-          <li className='inventry-stock'><span>Stock Adjusment</span></li>
-          <li className='invenry-packing'><span>Packing List</span></li>
+
+          <li id='StockAdjusment' className='inventry-stock' onClick={StockAdjusmentHandler}><span>Stock Adjusment</span></li>
+          <li id='PackingList' className='invenry-packing' onClick={PackingListHandler}><span>Packing List</span></li>
+
           <li className='d-flex justify-content-between align-items-center'>
             <span>Reports</span>
             <span className='arrow-icon' onClick={reportsDropedown}><RiArrowDropDownLine/></span>

@@ -104,6 +104,10 @@ ul li {
   font-size: 1.3em;
 }
 
+#StockAdjusment,#PackingList{
+  padding-block:8px;
+}
+
 /* purchase-menu */
 
 .purchase-menu {
