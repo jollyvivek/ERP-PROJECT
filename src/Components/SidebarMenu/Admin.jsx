@@ -30,6 +30,10 @@ const Admin = ({userData,setIsPassModel}) => {
     const financialYear = document.getElementById("financialYear").classList.remove("active2")
   };
 
+  const ProfileEditCompanyHandler = ()=>{
+    const ProfileEditCompany = document.getElementById("ProfileEditCompany").classList.add("active2");
+  }
+
   const masterDropdown = () => {
     setMasterItems(!masterItems);
     const master = document.getElementById("master").classList.add("active2")
@@ -104,7 +108,7 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {profileItem ? (
               <ul className="profile-items">
-                <li  className="title company-details-title">
+                <li id="ProfileEditCompany" onClick={ProfileEditCompanyHandler}  className="title company-details-title my-1 py-0">
                   <NavLink to='/company' className="nav-link w-100 ">Edit Company</NavLink>
                 </li>
               </ul>

@@ -30,6 +30,8 @@ const [reportsTwoItem,setReportsTwoItem]= useState(false)
     const InventryJobwork = document.getElementById("InventryJobwork").classList.remove("active2");
     const StockAdjusment = document.getElementById("StockAdjusment").classList.remove("active2");
     const PackingList = document.getElementById("PackingList").classList.remove("active2");
+    const InventryReports = document.getElementById("InventryReports").classList.remove("active2");
+    const InventryReportsTwo = document.getElementById("InventryReportsTwo").classList.remove("active2");
    }
 
    const inventryVendorDropdown = () =>{
@@ -41,6 +43,8 @@ const [reportsTwoItem,setReportsTwoItem]= useState(false)
     const InventryJobwork = document.getElementById("InventryJobwork").classList.remove("active2");
     const StockAdjusment = document.getElementById("StockAdjusment").classList.remove("active2");
     const PackingList = document.getElementById("PackingList").classList.remove("active2");
+    const InventryReports = document.getElementById("InventryReports").classList.remove("active2");
+    const InventryReportsTwo = document.getElementById("InventryReportsTwo").classList.remove("active2");
    }
 
    const inventryInwardDropedown = () =>{
@@ -52,6 +56,8 @@ const [reportsTwoItem,setReportsTwoItem]= useState(false)
     const InventryJobwork = document.getElementById("InventryJobwork").classList.remove("active2");
     const StockAdjusment = document.getElementById("StockAdjusment").classList.remove("active2");
     const PackingList = document.getElementById("PackingList").classList.remove("active2");
+    const InventryReports = document.getElementById("InventryReports").classList.remove("active2");
+    const InventryReportsTwo = document.getElementById("InventryReportsTwo").classList.remove("active2");
    }
 
 const inventryOutwardDropedown = () =>{
@@ -63,6 +69,8 @@ const inventryOutwardDropedown = () =>{
  const InventryJobwork = document.getElementById("InventryJobwork").classList.remove("active2");
  const StockAdjusment = document.getElementById("StockAdjusment").classList.remove("active2");
  const PackingList = document.getElementById("PackingList").classList.remove("active2");
+ const InventryReports = document.getElementById("InventryReports").classList.remove("active2");
+ const InventryReportsTwo = document.getElementById("InventryReportsTwo").classList.remove("active2");
 }
 
 const jobworkDropdown = () =>{
@@ -74,6 +82,8 @@ const jobworkDropdown = () =>{
   const InventryOutward = document.getElementById("InventryOutward").classList.remove("active2");
   const StockAdjusment = document.getElementById("StockAdjusment").classList.remove("active2");
   const PackingList = document.getElementById("PackingList").classList.remove("active2");
+  const InventryReports = document.getElementById("InventryReports").classList.remove("active2");
+  const InventryReportsTwo = document.getElementById("InventryReportsTwo").classList.remove("active2");
 }
 
 const StockAdjusmentHandler = ()=>{
@@ -84,6 +94,8 @@ const StockAdjusmentHandler = ()=>{
   const InventryOutward = document.getElementById("InventryOutward").classList.remove("active2");
   const InventryJobwork = document.getElementById("InventryJobwork").classList.remove("active2");
   const PackingList = document.getElementById("PackingList").classList.remove("active2");
+  const InventryReports = document.getElementById("InventryReports").classList.remove("active2");
+  const InventryReportsTwo = document.getElementById("InventryReportsTwo").classList.remove("active2");
 }
 
 const PackingListHandler = ()=>{
@@ -94,14 +106,34 @@ const PackingListHandler = ()=>{
   const InventryOutward = document.getElementById("InventryOutward").classList.remove("active2");
   const InventryJobwork = document.getElementById("InventryJobwork").classList.remove("active2");
   const StockAdjusment = document.getElementById("StockAdjusment").classList.remove("active2");
+  const InventryReports = document.getElementById("InventryReports").classList.remove("active2");
+  const InventryReportsTwo = document.getElementById("InventryReportsTwo").classList.remove("active2");
 }
 
 const reportsDropedown = () =>{
  setReportsItem(!reportsItem)
+  const InventryReports = document.getElementById("InventryReports").classList.add("active2");
+  const InventryMaster = document.getElementById("InventryMaster").classList.remove("active2");
+  const InventryVendor = document.getElementById("InventryVendor").classList.remove("active2");
+  const InventryInward = document.getElementById("InventryInward").classList.remove("active2");
+  const InventryOutward = document.getElementById("InventryOutward").classList.remove("active2");
+  const InventryJobwork = document.getElementById("InventryJobwork").classList.remove("active2");
+  const StockAdjusment = document.getElementById("StockAdjusment").classList.remove("active2");
+  const PackingList = document.getElementById("PackingList").classList.remove("active2");
+  const InventryReportsTwo = document.getElementById("InventryReportsTwo").classList.remove("active2");
 }
 
 const reportsTwoDropdown = () =>{
   setReportsTwoItem(!reportsTwoItem)
+  const InventryReportsTwo = document.getElementById("InventryReportsTwo").classList.add("active2");
+  const InventryMaster = document.getElementById("InventryMaster").classList.remove("active2");
+  const InventryVendor = document.getElementById("InventryVendor").classList.remove("active2");
+  const InventryInward = document.getElementById("InventryInward").classList.remove("active2");
+  const InventryOutward = document.getElementById("InventryOutward").classList.remove("active2");
+  const InventryJobwork = document.getElementById("InventryJobwork").classList.remove("active2");
+  const StockAdjusment = document.getElementById("StockAdjusment").classList.remove("active2");
+  const PackingList = document.getElementById("PackingList").classList.remove("active2");
+  const InventryReports = document.getElementById("InventryReports").classList.remove("active2");
 }
 
 
@@ -197,7 +229,7 @@ const reportsTwoDropdown = () =>{
           <li id='StockAdjusment' className='inventry-stock' onClick={StockAdjusmentHandler}><span>Stock Adjusment</span></li>
           <li id='PackingList' className='invenry-packing' onClick={PackingListHandler}><span>Packing List</span></li>
 
-          <li className='d-flex justify-content-between align-items-center'>
+          <li id='InventryReports' className='d-flex justify-content-between align-items-center'>
             <span>Reports</span>
             <span className='arrow-icon' onClick={reportsDropedown}><RiArrowDropDownLine/></span>
             </li>
@@ -225,7 +257,7 @@ const reportsTwoDropdown = () =>{
               </ul>
               ):null}
 
-          <li className='d-flex justify-content-between align-items-center'>
+          <li id='InventryReportsTwo' className='d-flex justify-content-between align-items-center'>
             <span>Reports 2</span>
             <span className='arrow-icon' onClick={reportsTwoDropdown}><RiArrowDropDownLine/></span>
             </li>
