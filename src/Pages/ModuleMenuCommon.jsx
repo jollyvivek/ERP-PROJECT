@@ -6,7 +6,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
 
   const companyReadHandler = ()=>{
     RoleModel(false)
-    navigate('/')
+    navigate('/company')
   }
 
   const ManageUserHandler = ()=>{
@@ -18,6 +18,17 @@ const ModuleMenuCommon = ({RoleModel}) => {
     RoleModel(false)
     navigate('/role')
   }
+
+  const SerialSettingHandler =()=>{
+    RoleModel(false)
+    navigate('/serialsetting')
+  }
+
+  const ApprovalSettingHandler =()=>{
+    RoleModel(false)
+    navigate('/approvalsetting')
+  }
+  
   return (
     <div className='container-fluid border border-secondary rounded-2 mt-3'>
        <div className="row">
@@ -71,7 +82,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
             </div>
             <div className='row '>
               <div className='col-md-2'><p className="m-0 p-0">Serial Setting</p></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center' onClick={SerialSettingHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
@@ -79,7 +90,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
             </div>
             <div className='row '>
               <div className='col-md-2'><p className="m-0 p-0">ApprovalSetting</p></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center' onClick={ApprovalSettingHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>

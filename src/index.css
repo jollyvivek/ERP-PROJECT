@@ -46,8 +46,8 @@ hr{
   padding-bottom:3px;
 } */
 
-.nav-item:hover{
-  background:none;
+.nav-item a:hover{
+  background:none !important;
  
 } 
 .app-content{
