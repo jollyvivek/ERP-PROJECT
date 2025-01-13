@@ -28,6 +28,44 @@ const ModuleMenuCommon = ({RoleModel}) => {
     RoleModel(false)
     navigate('/approvalsetting')
   }
+
+  const CountryMasterHandler =()=>{
+    RoleModel(false)
+    navigate('/countrymaster')
+  }
+
+  const StateMasterHandler = ()=>{
+    RoleModel(false)
+    navigate('/statemaster')
+  }
+
+  const BankMasterHandler = ()=>{
+    RoleModel(false)
+    navigate('/bankmaster')
+  }
+
+  const MasterReportHandler = ()=>{
+    RoleModel(false)
+    navigate('/masterreport')
+  }
+
+  const ManagementLogHandler = ()=>{
+    RoleModel(false)
+    navigate('/managementlog')
+  }
+
+  const ImportExcelHandler = ()=>{
+    RoleModel(false)
+  }
+
+  const FinancialYearHandler = ()=>{
+    RoleModel(false)
+  }
+
+  const MailHistoryHandler = ()=>{
+    RoleModel(false)
+    navigate('/mailhistory')
+  }
   
   return (
     <div className='container-fluid border border-secondary rounded-2 mt-3'>
@@ -98,7 +136,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
             </div>
             <div className='row '>
               <div className='col-md-2'><p className="m-0 p-0">Country Master</p></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center' onClick={CountryMasterHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
@@ -106,7 +144,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
             </div>
             <div className='row '>
               <div className='col-md-2'><p className="m-0 p-0">State Master</p></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center' onClick={StateMasterHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
@@ -114,7 +152,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
             </div>
             <div className='row'>
               <div className='col-md-2'><p className="m-0 p-0">Bank Master</p></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center' onClick={BankMasterHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
@@ -122,7 +160,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
             </div>
             <div className='row '>
               <div className='col-md-2'><p className="m-0 p-0">Master Report</p></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center' onClick={MasterReportHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center d-none'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center d-none'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center d-none'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
@@ -130,7 +168,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
             </div>
             <div className='row'>
               <div className='col-md-2'><p className="m-0 p-0">ManagementLog</p></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center' onClick={ManagementLogHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
@@ -138,7 +176,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
             </div>
             <div className='row'>
               <div className='col-md-2'><p className="m-0 p-0">Import Excel</p></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center' onClick={ImportExcelHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
@@ -148,7 +186,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
             </div>
             <div className='row'>
               <div className='col-md-2'><p className="m-0 p-0">FinancialYear</p></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center' onClick={FinancialYearHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
@@ -158,7 +196,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
             </div>
             <div className='row'>
               <div className='col-md-2'><p className="m-0 p-0">Mail History</p></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center' onClick={MailHistoryHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
