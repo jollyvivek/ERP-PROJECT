@@ -11,7 +11,8 @@ const NavTabs = () => {
     return{
       
       // borderBottom:isActive ? "3px solid blue" :"",
-      color:isActive ? "blue":"",
+      color:isActive ? "white":"",
+      background:isActive ? "black" :""
     }
 
   }

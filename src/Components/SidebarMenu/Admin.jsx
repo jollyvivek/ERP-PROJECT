@@ -38,6 +38,7 @@ const Admin = ({userData,setIsPassModel}) => {
     setMasterItems(!masterItems);
     const master = document.getElementById("master").classList.add("active2")
     const profile = document.getElementById("profile").classList.remove("active2")
+    const ProfileEditCompany = document.getElementById("ProfileEditCompany").classList.remove("active2");
     const setting = document.getElementById("setting").classList.remove("active2")
     const importExcel = document.getElementById("importExcel").classList.remove("active2")
     const financialYear = document.getElementById("financialYear").classList.remove("active2")
@@ -76,6 +77,7 @@ const Admin = ({userData,setIsPassModel}) => {
 
   const RoleHandler = ()=>{
     const profile = document.getElementById("profile").classList.remove("active2")
+    // const ProfileEditCompany = document.getElementById("ProfileEditCompany").classList.remove("active2");
     const master = document.getElementById("master").classList.remove("active2")
     const setting = document.getElementById("setting").classList.remove("active2")
     const importExcel = document.getElementById("importExcel").classList.remove("active2")

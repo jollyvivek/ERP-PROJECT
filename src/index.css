@@ -28,15 +28,19 @@ hr{
   border: 0 !important; 
 }
 
+.nav li {
+  margin-top: 5px;
+}
+
 .navLink{
   text-decoration: none;
   color: black;
-  padding-bottom: 5px;
+  padding: 5px;
   font-size:1.2rem;
   margin-inline: 0.5rem;
-  &:hover{
+  /* &:hover{
     color: blue;
-  }
+  } */
   /* border-radius: 5px; */
 }
 
@@ -47,7 +51,8 @@ hr{
 } */
 
 .nav-item a:hover{
-  background:none !important;
+  background:black !important;
+  color: white;
  
 } 
 .app-content{
