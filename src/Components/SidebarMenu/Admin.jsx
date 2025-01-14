@@ -43,6 +43,12 @@ const Admin = ({userData,setIsPassModel}) => {
     const importExcel = document.getElementById("importExcel").classList.remove("active2")
     const financialYear = document.getElementById("financialYear").classList.remove("active2")
   };
+  const MasterHandler =()=>{
+    const ProfileEditCompany = document.querySelector(".EditCompany").classList.remove("active");
+    const RoleActive =document.querySelector(".RoleActive").classList.remove("active");
+    const ManageUsersActive=document.querySelector(".ManageUsersActive").classList.remove("active");
+    const ExportExcelActive =document.querySelector(".ExportExcelActive").classList.remove("active");
+  }
 
   const settingDropdown = () => {
     setSettingItems(!settingItems);
@@ -52,6 +58,8 @@ const Admin = ({userData,setIsPassModel}) => {
     const importExcel = document.getElementById("importExcel").classList.remove("active2")
     const financialYear = document.getElementById("financialYear").classList.remove("active2")
   };
+
+  
 
   const importExcelDropdown = () => {
     setImportExcelItem(!importExcelItem);
@@ -77,7 +85,7 @@ const Admin = ({userData,setIsPassModel}) => {
 
   const RoleHandler = ()=>{
     const profile = document.getElementById("profile").classList.remove("active2")
-    // const ProfileEditCompany = document.getElementById("ProfileEditCompany").classList.remove("active2");
+    const ProfileEditCompany = document.getElementById("ProfileEditCompany").classList.remove("active2");
     const master = document.getElementById("master").classList.remove("active2")
     const setting = document.getElementById("setting").classList.remove("active2")
     const importExcel = document.getElementById("importExcel").classList.remove("active2")
@@ -111,17 +119,17 @@ const Admin = ({userData,setIsPassModel}) => {
             {profileItem ? (
               <ul className="profile-items">
                 <li id="ProfileEditCompany" onClick={ProfileEditCompanyHandler}  className="title company-details-title my-1 py-0">
-                  <NavLink to='/company' className="nav-link w-100 ">Edit Company</NavLink>
+                  <NavLink  to='/company' className="nav-link w-100 EditCompany"  >Edit Company</NavLink>
                 </li>
               </ul>
             ) : null}
             <li className="title role" >           
-              <NavLink to='/role' className="nav-link w-100" onClick={RoleHandler}>Role</NavLink>
+              <NavLink to='/role' className="nav-link w-100 RoleActive" onClick={RoleHandler}>Role</NavLink>
             </li>
             <li  className="title manage-user">            
-              <NavLink to='/manageuser' className="nav-link w-100 " onClick={RoleHandler}>Manage Users</NavLink>
+              <NavLink to='/manageuser' className="nav-link w-100 ManageUsersActive" onClick={RoleHandler}>Manage Users</NavLink>
             </li>
-            <li id="master" className="master flex">
+            <li id="master" className="master flex" onClick={MasterHandler}>
               <span>Master</span>
               <span className="arrow-icon" onClick={masterDropdown}>
                 <RiArrowDropDownLine />
@@ -140,7 +148,9 @@ const Admin = ({userData,setIsPassModel}) => {
                 </li>
               </ul>
             ) : null}
-            <li id="setting" className="d-flex justify-content-between align-items-center">
+            <li id="setting" className="d-flex justify-content-between align-items-center" 
+            // onClick={SettingHandler}
+            >
               <span> Setting</span>
               <span className="arrow-icon" onClick={settingDropdown}>
                 <RiArrowDropDownLine />
@@ -200,7 +210,7 @@ const Admin = ({userData,setIsPassModel}) => {
               </ul>
             ) : null}
             <li className="title ExportExcel">
-              <NavLink to='/exportexcel' className="nav-link w-100" onClick={RoleHandler}>Export Excel</NavLink>
+              <NavLink to='/exportexcel' className="nav-link w-100 ExportExcelActive" onClick={RoleHandler}>Export Excel</NavLink>
             </li>
             <li id="financialYear" className="d-flex justify-content-between align-items-center">
               <span>Financial Year Setting</span>
