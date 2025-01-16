@@ -48,12 +48,18 @@ const Admin = ({userData,setIsPassModel}) => {
     const RoleActive =document.querySelector(".RoleActive").classList.remove("active");
     const ManageUsersActive=document.querySelector(".ManageUsersActive").classList.remove("active");
     const ExportExcelActive =document.querySelector(".ExportExcelActive").classList.remove("active");
+    const AdminMasterReportActive =document.querySelector(".AdminMasterReportActive").classList.remove("active");
+    const MailHistoryActive =document.querySelector(".MailHistoryActive").classList.remove("active"); 
+    const ManagementLogActive =document.querySelector(".ManagementLogActive").classList.remove("active")
+    const BatchTrackingActive =document.querySelector(".BatchTrackingActive").classList.remove("active")
   }
 
   const settingDropdown = () => {
     setSettingItems(!settingItems);
     const setting = document.getElementById("setting").classList.add("active2")
     const profile = document.getElementById("profile").classList.remove("active2")
+    const ProfileEditCompany = document.querySelector(".ProfileEditCompany").classList.remove("active2");
+    const EditCompany = document.querySelector(".EditCompany").classList.remove("active2");
     const master = document.getElementById("master").classList.remove("active2")
     const importExcel = document.getElementById("importExcel").classList.remove("active2")
     const financialYear = document.getElementById("financialYear").classList.remove("active2")
@@ -65,6 +71,8 @@ const Admin = ({userData,setIsPassModel}) => {
     setImportExcelItem(!importExcelItem);
     const importExcel = document.getElementById("importExcel").classList.add("active2")
     const profile = document.getElementById("profile").classList.remove("active2")
+    const ProfileEditCompany = document.querySelector(".ProfileEditCompany").classList.remove("active2");
+    const EditCompany = document.querySelector(".EditCompany").classList.remove("active2");
     const master = document.getElementById("master").classList.remove("active2")
     const setting = document.getElementById("setting").classList.remove("active2")
     const financialYear = document.getElementById("financialYear").classList.remove("active2")
@@ -74,6 +82,8 @@ const Admin = ({userData,setIsPassModel}) => {
     setFinancialYearItem(!financialYearItem);
     const financialYear = document.getElementById("financialYear").classList.add("active2")
     const profile = document.getElementById("profile").classList.remove("active2")
+    const ProfileEditCompany = document.querySelector(".ProfileEditCompany").classList.remove("active2");
+    const EditCompany = document.querySelector(".EditCompany").classList.remove("active2");
     const master = document.getElementById("master").classList.remove("active2")
     const setting = document.getElementById("setting").classList.remove("active2")
     const importExcel = document.getElementById("importExcel").classList.remove("active2")
@@ -83,7 +93,8 @@ const Admin = ({userData,setIsPassModel}) => {
     setIsPassModel(true)
   }
 
-  const RoleHandler = ()=>{
+  const RoleHandler = (e)=>{
+    // e.preventDefault()
     const profile = document.getElementById("profile").classList.remove("active2")
     const ProfileEditCompany = document.getElementById("ProfileEditCompany").classList.remove("active2");
     const master = document.getElementById("master").classList.remove("active2")
@@ -118,16 +129,20 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {profileItem ? (
               <ul className="profile-items">
-                <li id="ProfileEditCompany" onClick={ProfileEditCompanyHandler}  className="title company-details-title my-1 py-0">
+                <li id="ProfileEditCompany" onClick={ProfileEditCompanyHandler}  className="title company-details-title my-1 py-0 ProfileEditCompany">
                   <NavLink  to='/company' className="nav-link w-100 EditCompany"  >Edit Company</NavLink>
                 </li>
               </ul>
             ) : null}
             <li className="title role" >           
-              <NavLink to='/role' className="nav-link w-100 RoleActive" onClick={RoleHandler}>Role</NavLink>
+              <NavLink to='/role' className="nav-link w-100 RoleActive"
+              //  onClick={RoleHandler}
+               >Role</NavLink>
             </li>
             <li  className="title manage-user">            
-              <NavLink to='/manageuser' className="nav-link w-100 ManageUsersActive" onClick={RoleHandler}>Manage Users</NavLink>
+              <NavLink to='/manageuser' className="nav-link w-100 ManageUsersActive" 
+              // onClick={RoleHandler}
+              >Manage Users</NavLink>
             </li>
             <li id="master" className="master flex" onClick={MasterHandler}>
               <span>Master</span>
@@ -148,9 +163,7 @@ const Admin = ({userData,setIsPassModel}) => {
                 </li>
               </ul>
             ) : null}
-            <li id="setting" className="d-flex justify-content-between align-items-center" 
-            // onClick={SettingHandler}
-            >
+            <li id="setting" className="d-flex justify-content-between align-items-center" onClick={MasterHandler} >
               <span> Setting</span>
               <span className="arrow-icon" onClick={settingDropdown}>
                 <RiArrowDropDownLine />
@@ -172,7 +185,7 @@ const Admin = ({userData,setIsPassModel}) => {
             <li className="title ChangePassword">
               <NavLink  className="nav-link w-100" onClick={ChangePasswordHandler}>Change Password</NavLink>
             </li>
-            <li id="importExcel" className="d-flex justify-content-between align-items-center">
+            <li id="importExcel" className="d-flex justify-content-between align-items-center" onClick={MasterHandler}>
               <span>Import Excel</span>
               <span className="arrow-icon" onClick={importExcelDropdown}>
                 <RiArrowDropDownLine />
@@ -210,9 +223,11 @@ const Admin = ({userData,setIsPassModel}) => {
               </ul>
             ) : null}
             <li className="title ExportExcel">
-              <NavLink to='/exportexcel' className="nav-link w-100 ExportExcelActive" onClick={RoleHandler}>Export Excel</NavLink>
+              <NavLink to='/exportexcel' className="nav-link w-100 ExportExcelActive" 
+              // onClick={RoleHandler}
+              >Export Excel</NavLink>
             </li>
-            <li id="financialYear" className="d-flex justify-content-between align-items-center">
+            <li id="financialYear" className="d-flex justify-content-between align-items-center" onClick={MasterHandler}>
               <span>Financial Year Setting</span>
               <span className="arrow-icon" onClick={financialYearDropdown}><RiArrowDropDownLine /></span>
             </li>
@@ -231,16 +246,24 @@ const Admin = ({userData,setIsPassModel}) => {
               ):null}
 
             <li className="title AdminMasterReport">
-              <NavLink to='/masterreport' className="nav-link w-100" onClick={RoleHandler}>Master Report</NavLink>
+              <NavLink to='/masterreport' className="nav-link w-100 AdminMasterReportActive"
+              //  onClick={RoleHandler}
+               >Master Report</NavLink>
             </li>
             <li className="title AdminMailHistory">
-              <NavLink to='/mailhistory' className="nav-link w-100" onClick={RoleHandler}>Mail History</NavLink>
+              <NavLink to='/mailhistory' className="nav-link w-100 MailHistoryActive" 
+              // onClick={RoleHandler}
+              >Mail History</NavLink>
             </li>
             <li className="title AdminManagementLog" >
-              <NavLink to='/managementlog' className="nav-link w-100" onClick={RoleHandler}>Management Log</NavLink>
+              <NavLink to='/managementlog' className="nav-link w-100 ManagementLogActive" 
+              // onClick={RoleHandler}
+              >Management Log</NavLink>
             </li>
             <li className="title AdminBatchTracking">
-              <NavLink to='/batchtracking' className="nav-link w-100" onClick={RoleHandler}>Batch Tracking</NavLink>
+              <NavLink to='/batchtracking' className="nav-link w-100 BatchTrackingActive"
+              //  onClick={RoleHandler}
+               >Batch Tracking</NavLink>
             </li>
           </ul>
         </div>
