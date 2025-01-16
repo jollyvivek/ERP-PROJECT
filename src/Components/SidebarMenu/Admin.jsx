@@ -134,15 +134,11 @@ const Admin = ({userData,setIsPassModel}) => {
                 </li>
               </ul>
             ) : null}
-            <li className="title role" >           
-              <NavLink to='/role' className="nav-link w-100 RoleActive"
-              //  onClick={RoleHandler}
-               >Role</NavLink>
+            <li className="title role" onClick={RoleHandler} >           
+              <NavLink to='/role' className="nav-link w-100 RoleActive">Role</NavLink>
             </li>
-            <li  className="title manage-user">            
-              <NavLink to='/manageuser' className="nav-link w-100 ManageUsersActive" 
-              // onClick={RoleHandler}
-              >Manage Users</NavLink>
+            <li  className="title manage-user" onClick={RoleHandler}>            
+              <NavLink to='/manageuser' className="nav-link w-100 ManageUsersActive">Manage Users</NavLink>
             </li>
             <li id="master" className="master flex" onClick={MasterHandler}>
               <span>Master</span>
@@ -222,7 +218,7 @@ const Admin = ({userData,setIsPassModel}) => {
                 </li>
               </ul>
             ) : null}
-            <li className="title ExportExcel">
+            <li className="title ExportExcel" onClick={RoleHandler}>
               <NavLink to='/exportexcel' className="nav-link w-100 ExportExcelActive" 
               // onClick={RoleHandler}
               >Export Excel</NavLink>
@@ -245,25 +241,17 @@ const Admin = ({userData,setIsPassModel}) => {
               </ul>
               ):null}
 
-            <li className="title AdminMasterReport">
-              <NavLink to='/masterreport' className="nav-link w-100 AdminMasterReportActive"
-              //  onClick={RoleHandler}
-               >Master Report</NavLink>
+            <li className="title AdminMasterReport" onClick={RoleHandler}>
+              <NavLink to='/masterreport' className="nav-link w-100 AdminMasterReportActive">Master Report</NavLink>
             </li>
-            <li className="title AdminMailHistory">
-              <NavLink to='/mailhistory' className="nav-link w-100 MailHistoryActive" 
-              // onClick={RoleHandler}
-              >Mail History</NavLink>
+            <li className="title AdminMailHistory" onClick={RoleHandler}>
+              <NavLink to='/mailhistory' className="nav-link w-100 MailHistoryActive">Mail History</NavLink>
             </li>
-            <li className="title AdminManagementLog" >
-              <NavLink to='/managementlog' className="nav-link w-100 ManagementLogActive" 
-              // onClick={RoleHandler}
-              >Management Log</NavLink>
+            <li className="title AdminManagementLog" onClick={RoleHandler} >
+              <NavLink to='/managementlog' className="nav-link w-100 ManagementLogActive">Management Log</NavLink>
             </li>
-            <li className="title AdminBatchTracking">
-              <NavLink to='/batchtracking' className="nav-link w-100 BatchTrackingActive"
-              //  onClick={RoleHandler}
-               >Batch Tracking</NavLink>
+            <li className="title AdminBatchTracking" onClick={RoleHandler}>
+              <NavLink to='/batchtracking' className="nav-link w-100 BatchTrackingActive">Batch Tracking</NavLink>
             </li>
           </ul>
         </div>
