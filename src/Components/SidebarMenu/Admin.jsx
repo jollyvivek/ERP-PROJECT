@@ -2,6 +2,7 @@ import React from "react";
 import "./SidebarMenu.css";
 import { FaUser } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { GoDotFill } from "react-icons/go";
 import { useState } from "react";
 // import $ from 'jquery'
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -31,20 +32,20 @@ const Admin = ({userData,setIsPassModel}) => {
   };
 
   const ProfileEditCompanyHandler = ()=>{
-    const ProfileEditCompany = document.getElementById("ProfileEditCompany").classList.add("active2");
+    const EditCompany = document.querySelector(".EditCompany").classList.add("active2");
   }
 
   const masterDropdown = () => {
     setMasterItems(!masterItems);
     const master = document.getElementById("master").classList.add("active2")
     const profile = document.getElementById("profile").classList.remove("active2")
-    const ProfileEditCompany = document.getElementById("ProfileEditCompany").classList.remove("active2");
+    // const ProfileEditCompany = document.getElementById("ProfileEditCompany").classList.remove("active2");
     const setting = document.getElementById("setting").classList.remove("active2")
     const importExcel = document.getElementById("importExcel").classList.remove("active2")
     const financialYear = document.getElementById("financialYear").classList.remove("active2")
   };
   const MasterHandler =()=>{
-    const ProfileEditCompany = document.querySelector(".EditCompany").classList.remove("active");
+    // const ProfileEditCompany = document.querySelector(".EditCompany").classList.remove("active");
     const RoleActive =document.querySelector(".RoleActive").classList.remove("active");
     const ManageUsersActive=document.querySelector(".ManageUsersActive").classList.remove("active");
     const ExportExcelActive =document.querySelector(".ExportExcelActive").classList.remove("active");
@@ -58,8 +59,8 @@ const Admin = ({userData,setIsPassModel}) => {
     setSettingItems(!settingItems);
     const setting = document.getElementById("setting").classList.add("active2")
     const profile = document.getElementById("profile").classList.remove("active2")
-    const ProfileEditCompany = document.querySelector(".ProfileEditCompany").classList.remove("active2");
-    const EditCompany = document.querySelector(".EditCompany").classList.remove("active2");
+    // const ProfileEditCompany = document.querySelector(".ProfileEditCompany").classList.remove("active2");
+    // const EditCompany = document.querySelector(".EditCompany").classList.remove("active2");
     const master = document.getElementById("master").classList.remove("active2")
     const importExcel = document.getElementById("importExcel").classList.remove("active2")
     const financialYear = document.getElementById("financialYear").classList.remove("active2")
@@ -71,8 +72,8 @@ const Admin = ({userData,setIsPassModel}) => {
     setImportExcelItem(!importExcelItem);
     const importExcel = document.getElementById("importExcel").classList.add("active2")
     const profile = document.getElementById("profile").classList.remove("active2")
-    const ProfileEditCompany = document.querySelector(".ProfileEditCompany").classList.remove("active2");
-    const EditCompany = document.querySelector(".EditCompany").classList.remove("active2");
+    // const ProfileEditCompany = document.querySelector(".ProfileEditCompany").classList.remove("active2");
+    // const EditCompany = document.querySelector(".EditCompany").classList.remove("active2");
     const master = document.getElementById("master").classList.remove("active2")
     const setting = document.getElementById("setting").classList.remove("active2")
     const financialYear = document.getElementById("financialYear").classList.remove("active2")
@@ -82,8 +83,8 @@ const Admin = ({userData,setIsPassModel}) => {
     setFinancialYearItem(!financialYearItem);
     const financialYear = document.getElementById("financialYear").classList.add("active2")
     const profile = document.getElementById("profile").classList.remove("active2")
-    const ProfileEditCompany = document.querySelector(".ProfileEditCompany").classList.remove("active2");
-    const EditCompany = document.querySelector(".EditCompany").classList.remove("active2");
+    // const ProfileEditCompany = document.querySelector(".ProfileEditCompany").classList.remove("active2");
+    // const EditCompany = document.querySelector(".EditCompany").classList.remove("active2");
     const master = document.getElementById("master").classList.remove("active2")
     const setting = document.getElementById("setting").classList.remove("active2")
     const importExcel = document.getElementById("importExcel").classList.remove("active2")
@@ -96,8 +97,11 @@ const Admin = ({userData,setIsPassModel}) => {
   const RoleHandler = (e)=>{
     // e.preventDefault()
     const profile = document.getElementById("profile").classList.remove("active2")
-    const ProfileEditCompany = document.getElementById("ProfileEditCompany").classList.remove("active2");
-    const master = document.getElementById("master").classList.remove("active2")
+    // const ProfileEditCompany = document.getElementById("ProfileEditCompany").classList.remove("active2");
+    // const EditCompany = document.querySelector(".EditCompany")
+    //   EditCompany.classList.remove("active2");
+    //   console.log(EditCompany)
+    const master = document.querySelector("#master").classList.remove("active2")
     const setting = document.getElementById("setting").classList.remove("active2")
     const importExcel = document.getElementById("importExcel").classList.remove("active2")
     const financialYear = document.getElementById("financialYear").classList.remove("active2")
@@ -129,8 +133,10 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {profileItem ? (
               <ul className="profile-items">
-                <li id="ProfileEditCompany" onClick={ProfileEditCompanyHandler}  className="title company-details-title my-1 py-0 ProfileEditCompany">
-                  <NavLink  to='/company' className="nav-link w-100 EditCompany"  >Edit Company</NavLink>
+                <li id="ProfileEditCompany" onClick={ProfileEditCompanyHandler}  
+                className="title flex gap-1 company-details-title my-1 py-0 ProfileEditCompany">
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink  to='/company' className="nav-link w-100 px-2 EditCompany"   >Edit Company</NavLink>
                 </li>
               </ul>
             ) : null}
@@ -148,14 +154,17 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {masterItems ? (
               <ul className="master-items">
-                <li className="title CountryMaster">
-                 <NavLink to='/countrymaster' className="nav-link w-100" > Country Master</NavLink>
+                <li className="title  CountryMaster flex gap-1">
+                <span className="text-dark fs-4"><GoDotFill /></span>
+                 <NavLink to='/countrymaster' className="nav-link w-100 px-2 " > Country Master</NavLink>
                 </li>
-                <li className="title BankMaster">
-                  <NavLink to='/bankmaster' className="nav-link w-100">Bank Master</NavLink>
+                <li className="title BankMaster flex gap-1">
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/bankmaster' className="nav-link w-100 px-2 ">Bank Master</NavLink>
                 </li>
-                <li className="title StateMaster">
-                  <NavLink to='/statemaster' className="nav-link w-100">State Master</NavLink>
+                <li className="title StateMaster flex gap-1">
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/statemaster' className="nav-link w-100 px-2 ">State Master</NavLink>
                 </li>
               </ul>
             ) : null}
@@ -167,14 +176,17 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {settingItems ? (
               <ul className="setting-items mb-3">
-                <li className="title SerialSetting">
-                  <NavLink to='/serialsetting' className="nav-link w-100"> Serial Setting </NavLink>
+                <li className="title SerialSetting flex gap-1">
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/serialsetting' className="nav-link w-100 px-2"> Serial Setting </NavLink>
                 </li>
-                <li className="title ApprovalSetting">
-                  <NavLink to='/approvalsetting' className="nav-link w-100">Approval Setting </NavLink>
+                <li className="title ApprovalSetting flex gap-1">
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/approvalsetting' className="nav-link w-100 px-2">Approval Setting </NavLink>
                 </li>
-                <li className="title OrderSerialSetting ">
-                  <NavLink to='/orderserialsetting' className="nav-link w-100">Order Serial Setting</NavLink>
+                <li className="title OrderSerialSetting flex gap-1">
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/orderserialsetting' className="nav-link w-100 px-2">Order Serial Setting</NavLink>
                 </li>
               </ul>
             ) : null}
