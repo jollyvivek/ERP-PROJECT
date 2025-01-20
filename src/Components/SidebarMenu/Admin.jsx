@@ -201,32 +201,65 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {importExcelItem ? (
               <ul className="import-excel-items">
-                <li className="title ImportInstrument"><NavLink to='/importinstrument' className="nav-link w-100"> Import Instrument </NavLink></li>
-                <li className="title ImportItem"><NavLink to='/importitem' className="nav-link w-100"> Import Item </NavLink></li>
-                <li className="title OpeningBalanceGroup ">
-                  <NavLink to='/importitemopening' className="nav-link w-100">Import Item Opening Balance Group Wise</NavLink>
+                <li className="title flex gap-1 ImportInstrument">
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/importinstrument' className="nav-link w-100 px-2"> Import Instrument </NavLink>
                 </li>
-                <li className="title ImportBom"><NavLink to='/importbom' className="nav-link w-100"> Import BOM </NavLink></li>
-                <li className="title ImportOperation"><NavLink to='/importoperation' className="nav-link w-100">Import Operatipon</NavLink></li>
-                <li className="title ImportPackingBom"><NavLink to='/importpackingbom' className="nav-link w-100">Import Packing BOM</NavLink></li>
-                <li className="title ImportPriceList"><NavLink to='/importpricelist' className="nav-link w-100">Import Price List </NavLink></li>
-                <li className="title QcTestingMaster"><NavLink to='/importqctesting' className="nav-link w-100">Import QC Testing Master</NavLink></li>
-                <li className="title ImportLedger"><NavLink to='/importledger' className="nav-link w-100"> Import Ledger </NavLink></li>
-                <li className="title PackingInstruction"><NavLink to='/importpackinginstruction' className="nav-link w-100">Packing Instruction </NavLink></li>
-                <li className="title ImportTestCertificate"><NavLink to='/testcertificate' className="nav-link w-100">Import Internal Test Certificate Details </NavLink></li>
+                <li className="title flex gap-1 ImportItem">
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/importitem' className="nav-link w-100 px-2"> Import Item </NavLink></li>
+                <li className="title flex gap-1 OpeningBalanceGroup ">
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/importitemopening' className="nav-link w-100 px-2">Import Item Opening Balance Group Wise</NavLink>
+                </li>
+                <li className="title flex gap-1 ImportBom">
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/importbom' className="nav-link w-100 px-2"> Import BOM </NavLink>
+                </li>
+                <li className="title flex gap-1 ImportOperation">
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/importoperation' className="nav-link w-100 px-2">Import Operatipon</NavLink>
+                  </li>
+                <li className="title flex gap-1 ImportPackingBom">
+                  <span className="text-dark fs-4 "><GoDotFill /></span>
+                  <NavLink to='/importpackingbom' className="nav-link w-100 px-2">Import Packing BOM</NavLink>
+                </li>
+                <li className="title flex gap-1 ImportPriceList">
+                  <span className="text-dark fs-4 "><GoDotFill /></span>
+                  <NavLink to='/importpricelist' className="nav-link w-100 px-2">Import Price List </NavLink>
+                </li>
+                <li className="title flex gap-1 QcTestingMaster">
+                  <span className="text-dark fs-4 "><GoDotFill /></span>
+                  <NavLink to='/importqctesting' className="nav-link w-100 px-2">Import QC Testing Master</NavLink>
+                </li>
+                <li className="title flex gap-1 ImportLedger">
+                  <span className="text-dark fs-4 "><GoDotFill /></span>
+                  <NavLink to='/importledger' className="nav-link w-100 px-2"> Import Ledger </NavLink>
+                </li>
+                <li className="title flex gap-1 PackingInstruction">
+                  <span className="text-dark fs-4 "><GoDotFill /></span>
+                  <NavLink to='/importpackinginstruction' className="nav-link w-100 px-2">Packing Instruction </NavLink>
+                </li>
+                <li className="title flex gap-1 ImportTestCertificate">
+                  <span className="text-dark fs-4 "><GoDotFill /></span>
+                  <NavLink to='/testcertificate' className="nav-link w-100 px-2">Import Internal Test Certificate Details </NavLink>
+                </li>
                 <li><span>Import EU Declartion Into Item</span></li>
                 <li><span>Import Export Description Into Item</span></li>
                 <li><span>Import Rev. No. Into Item</span></li>
                 <li><span>Import NetWeight in Operation</span></li>
                 <li><span>Import NetWeight In Item</span></li>
-                <li className="title ImportBatchSerial">
-                  <NavLink to='/batchserial' className="nav-link w-100">Import BatchSerial In Item</NavLink>
+                <li className="title flex gap-1 ImportBatchSerial">
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/batchserial' className="nav-link w-100 px-2">Import BatchSerial In Item</NavLink>
                 </li>
-                <li className="title ImportChemicalMaster">
-                  <NavLink to='/chemicalmaster' className="nav-link w-100">Import Chemical Master</NavLink>
+                <li className="title flex gap-1 ImportChemicalMaster">
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/chemicalmaster' className="nav-link w-100 px-2">Import Chemical Master</NavLink>
                 </li>
-                <li className="title ImportMechanicalMaster">
-                  <NavLink to='/mechanicalmaster' className="nav-link w-100">Import Mechanical Master</NavLink>
+                <li className="title flex gap-1 ImportMechanicalMaster">
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/mechanicalmaster' className="nav-link w-100 px-2">Import Mechanical Master</NavLink>
                 </li>
               </ul>
             ) : null}
@@ -241,14 +274,17 @@ const Admin = ({userData,setIsPassModel}) => {
             </li>
             {financialYearItem ?(
             <ul className="finance-year-items">
-                <li className="title FinancialYearCreateYear">
-                   <NavLink to='/createyear' className="nav-link w-100">Create Year </NavLink>
+                <li className="title flex gap-1 FinancialYearCreateYear">
+                    <span className="text-dark fs-4"><GoDotFill /></span>
+                   <NavLink to='/createyear' className="nav-link w-100 px-2">Create Year </NavLink>
                 </li>
-                <li className="title FinancialYearInventrySetting"> 
-                  <NavLink to='/inventrysetting' className="nav-link w-100">Inventry Setting </NavLink>
+                <li className="title flex gap-1 FinancialYearInventrySetting"> 
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/inventrysetting' className="nav-link w-100 px-2">Inventry Setting </NavLink>
                 </li>
-                <li className="title FinancialYearFinancialSetting"> 
-                  <NavLink to='/financesetting' className="nav-link w-100">Financial Setting </NavLink>
+                <li className="title flex gap-1 FinancialYearFinancialSetting">
+                  <span className="text-dark fs-4"><GoDotFill /></span> 
+                  <NavLink to='/financesetting' className="nav-link w-100 px-2">Financial Setting </NavLink>
                 </li>
               </ul>
               ):null}
