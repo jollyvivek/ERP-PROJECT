@@ -101,6 +101,12 @@ const Admin = ({userData,setIsPassModel}) => {
     // const EditCompany = document.querySelector(".EditCompany")
     //   EditCompany.classList.remove("active2");
     //   console.log(EditCompany)
+
+    setProfileItem(false)
+    setMasterItems(false)
+    setSettingItems(false)
+    setImportExcelItem(false)
+    setFinancialYearItem(false)
     const master = document.querySelector("#master").classList.remove("active2")
     const setting = document.getElementById("setting").classList.remove("active2")
     const importExcel = document.getElementById("importExcel").classList.remove("active2")

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../../Styles/SidebarCommon.css'
 import { FaBox, FaLessThanEqual } from "react-icons/fa";
 import { RiArrowDropDownLine } from 'react-icons/ri'
+import { GoDotFill } from "react-icons/go";
 import { FaBedPulse } from 'react-icons/fa6';
 import { NavLink, useNavigate } from 'react-router-dom';
 
@@ -154,14 +155,17 @@ const reportsTwoDropdown = () =>{
           </li>
           {masterItem ?(
           <ul className='master-items'>
-                <li className='title InventryGroup mb-1 p-0'>
-                  <NavLink to='/inventrygroup' className="nav-link w-100">Group</NavLink>
+                <li className='title flex gap-1 InventryGroup mb-1 p-0'>
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/inventrygroup' className="nav-link w-100 px-2">Group</NavLink>
                 </li>
-                <li className=' title InventryCategory mb-1 p-0' >
-                  <NavLink to='/inventrycategory' className='nav-link w-100'>Category</NavLink>
+                <li className='title flex gap-1 InventryCategory mb-1 p-0' >
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to='/inventrycategory' className='nav-link w-100 px-2'>Category</NavLink>
                 </li>
-                <li className='InventryHsnSac mb-1 p-0'>
-                <NavLink className='nav-link w-100'>HSN/SAC</NavLink>
+                <li className='title flex gap-1 InventryHsnSac mb-1 p-0'>
+                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <NavLink to={'/'} className='nav-link w-100 px-2'>HSN/SAC</NavLink>
                 </li>
                 <li><span>Unit</span></li>
                 <li><span>Item</span></li>
