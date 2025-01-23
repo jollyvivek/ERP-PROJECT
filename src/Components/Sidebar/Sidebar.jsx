@@ -69,8 +69,8 @@ import ManagementLog from "../AdminItems/ManagementLog";
 
 
 
-const Sidebar = ({userData}) => {
-  const {url,token,setToken}= useContext(StoreContext)
+const Sidebar = () => {
+  const {url,token,setToken,userData}= useContext(StoreContext)
   const navigate = useNavigate()
   const [isRoleModel,setIsRoleModel]= useState(false)
   const [isUserModel,setIsUserModel] = useState(false)
@@ -144,7 +144,7 @@ const Sidebar = ({userData}) => {
             <span className="dashboard-title ">Dashboard</span>
           </div>
           <div className="item1">
-            <Admin userData={userData} setIsPassModel ={setIsPassModel}/>
+            <Admin  setIsPassModel ={setIsPassModel}/>
             <Inventry/>
             <Purchase/>
             <Finance/>

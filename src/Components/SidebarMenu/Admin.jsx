@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./SidebarMenu.css";
 import { FaUser } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
@@ -6,9 +6,11 @@ import { GoDotFill } from "react-icons/go";
 import { useState } from "react";
 // import $ from 'jquery'
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { StoreContext } from "../../Context/StoreContext";
 
 
-const Admin = ({userData,setIsPassModel}) => {
+const Admin = ({setIsPassModel}) => {
+  const {userData} = useContext(StoreContext)
 
   const [adminItems, setAdminItem] = useState(false);
   const [profileItem, setProfileItem] = useState(false);
@@ -90,8 +92,10 @@ const Admin = ({userData,setIsPassModel}) => {
     const importExcel = document.getElementById("importExcel").classList.remove("active2")
   }
 
-  const ChangePasswordHandler = ()=>{
+  const ChangePasswordHandler = (e)=>{
+    e.preventDefault()
     setIsPassModel(true)
+    // console.log(userData.email)
   }
 
   const RoleHandler = (e)=>{

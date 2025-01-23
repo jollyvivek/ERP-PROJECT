@@ -4,6 +4,8 @@ export const StoreContext = createContext(null)
 const StoreContextProvider = (props)=>{
 const url ="http://localhost:4000";
 const [token ,setToken] = useState("")
+const[showLogin,setShowLogin]=useState(false)
+const [userData,setUserData] = useState()
 
 
 
@@ -17,7 +19,7 @@ useEffect(()=>{
 const contextValue ={
 url,
 token,
-setToken
+setToken,showLogin,setShowLogin,userData,setUserData
 }
 
 return (

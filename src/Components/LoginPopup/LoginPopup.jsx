@@ -4,8 +4,8 @@ import { RxCross2 } from "react-icons/rx";
 import { toast } from 'react-toastify';
 import { StoreContext } from '../../Context/StoreContext';
 import axios from 'axios';
-const LoginPopup = ({setShowLogin,setUserData}) => {
-  const {url,token,setToken} = useContext(StoreContext);
+const LoginPopup = () => {
+  const {url,token,setToken,setShowLogin,setUserData} = useContext(StoreContext);
   const[currState,setCurrState] = useState("Login")
   const[data,setData]=useState({
     username:"",

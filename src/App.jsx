@@ -11,16 +11,16 @@ import ErpHome from "./Components/ErpHome/ErpHome";
 import RoleModel from "./Pages/RoleModel";
 
 const App = () => {
-  const[showLogin,setShowLogin]=useState(false)
-  const [userData,setUserData] = useState()
-  const{token}= useContext(StoreContext)
+  // const[showLogin,setShowLogin]=useState(false)
+  // const [userData,setUserData] = useState()
+  const{token,setShowLogin,showLogin,setUserData,userData}= useContext(StoreContext)
   const[value,setValue]=useState(token)
  
 // console.log(userData)
   return (
     <>
   <div>
-    {showLogin ?<LoginPopup setShowLogin={setShowLogin} setUserData = {setUserData}/> :<></>}
+    {showLogin ?<LoginPopup /> :<></>}
     <ToastContainer/>
     <Navbar setShowLogin={setShowLogin}/>
     {/* <hr /> */}

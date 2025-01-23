@@ -5,7 +5,8 @@ import { StoreContext } from "../../Context/StoreContext";
 import axios from "axios";
 
 const ReportHeadingTwo = () => {
-    const {url} = useContext(StoreContext)
+    const {url,userData} = useContext(StoreContext)
+    const [fetchData,setFetchData] = useState([])
      const [data,setData] = useState({
     TaxOrderHeading :"",
     ProformaInvoice :"",
@@ -30,13 +31,25 @@ const ReportHeadingTwo = () => {
     ReturnRejectedHeading:"",
     ReturnRejectedReportHeading:""
     })
+    console.log(userData)
+    const ReportHeadingTwoFetch = async()=>{
+        const response = await axios.get(`${url}/api/reportheadingtwo/list`);
+        if(response.data.data){
+            setFetchData(response.data.data)
+            console.log(response.data)
+          }else{
+            console.log("Error")
+          }
+    }
 
   const changeHandler = (event)=>{
     const {name,value}= event.target;
     setData({...data,[name]:value})
   }
 
-  // useEffect(()=>{console.log(data)},[data])
+  useEffect(()=>{
+    ReportHeadingTwoFetch()
+  },[])
 
 
   const formSubmitHandler = async(event)=>{
@@ -63,7 +76,8 @@ const ReportHeadingTwo = () => {
     ExportQuotation :data.ExportQuotation,
 
     ReturnRejectedHeading :data.ReturnRejectedHeading,
-    ReturnRejectedReportHeading :data.ReturnRejectedReportHeading
+    ReturnRejectedReportHeading :data.ReturnRejectedReportHeading,
+    LogInUserEmailId:userData.email
     }
 
     const response = await axios.post(`${url}/api/reportheadingtwo/add`,payrole)
