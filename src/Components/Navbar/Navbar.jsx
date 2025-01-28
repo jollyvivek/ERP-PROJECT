@@ -10,11 +10,12 @@ import { RiH6 } from "react-icons/ri";
 import { StoreContext } from "../../Context/StoreContext";
 
 const Navbar = ({setShowLogin}) => {
-  const{token,setToken} =useContext(StoreContext)
+  const{token,setToken,setUserData} =useContext(StoreContext)
   const navigate = useNavigate()
 
   const logout =()=>{
     localStorage.removeItem("token");
+    localStorage.removeItem("user")
     setToken("");
     navigate("/")
   }

@@ -6,8 +6,7 @@ import axios from "axios";
 
 const ReportHeadingTwo = () => {
     const {url,userData} = useContext(StoreContext)
-    const [fetchData,setFetchData] = useState([])
-     const [data,setData] = useState({
+    const [data,setData] = useState({
     TaxOrderHeading :"",
     ProformaInvoice :"",
 
@@ -29,18 +28,27 @@ const ReportHeadingTwo = () => {
     ExportQuotation:"",
 
     ReturnRejectedHeading:"",
-    ReturnRejectedReportHeading:""
+    ReturnRejectedReportHeading:"",
+    LogInUserEmailId:""
     })
-    console.log(userData)
+    // console.log(userData)
     const ReportHeadingTwoFetch = async()=>{
         const response = await axios.get(`${url}/api/reportheadingtwo/list`);
         if(response.data.data){
-            setFetchData(response.data.data)
-            console.log(response.data)
+            const reportLists = response.data.data;
+            // console.log(reportLists) 
+            if (reportLists.length > 0) {
+                const {email} = userData
+                const foundObject = reportLists.find((item) => item.LogInUserEmailId === email);
+                // console.log(foundObject)
+                if(foundObject) setData(foundObject);
+            }    
           }else{
             console.log("Error")
           }
     }
+
+ 
 
   const changeHandler = (event)=>{
     const {name,value}= event.target;
@@ -105,7 +113,9 @@ const ReportHeadingTwo = () => {
             ExportQuotation:"",
         
             ReturnRejectedHeading:"",
-            ReturnRejectedReportHeading:""
+            ReturnRejectedReportHeading:"",
+            LogInUserEmailId:""
+
           });
           toast.success(response.data.message)
     } else {
