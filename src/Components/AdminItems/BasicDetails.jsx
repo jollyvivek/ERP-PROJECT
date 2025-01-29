@@ -1,10 +1,12 @@
 import axios from 'axios'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { toast } from 'react-toastify'
+import { StoreContext } from '../../Context/StoreContext'
 
 const BasicDetails = () => {
   const [selectedData, setSelectedData]=useState([])
-  const url = "http://localhost:4000"
+  const {url,userData} = useContext(StoreContext)
+  // console.log(userData)
   const fileInputRef = useRef(null)
   const [logo,setLogo]=useState(false)
   const [data, setData] = useState({
@@ -36,9 +38,16 @@ const BasicDetails = () => {
 
   const companyList = async()=>{
     const response = await axios.get(`${url}/api/company/list`);
-    if(response){
-      // console.log(response.data.data)
-      setSelectedData(response.data.data[5]);
+    if(response.data.data){
+      const companyData = response.data.data;
+      console.log(companyData)
+      if (companyData.length > 0) {
+        const {email} = userData
+        const foundObject = companyData.find((item) => item.LogInUserEmailId === email);
+        console.log(foundObject)
+        if(foundObject) setData(foundObject);
+    }  
+      
     }else{
       console.log("Error")
     }
@@ -72,6 +81,7 @@ const BasicDetails = () => {
     formData.append("city",data.city)
     formData.append("pincode",Number(data.pincode))
     formData.append("note",data.note)
+    formData.append("LogInUserEmailId",userData.email)
 
     // console.log(data,logo)
     
@@ -127,7 +137,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="companyName"
-                          value={ data.companyName || selectedData.companyName  }
+                          value={ data.companyName }
                           required
                         />
                       </div>
@@ -146,7 +156,7 @@ const BasicDetails = () => {
                           onChange={ (e)=>setLogo(e.target.files[0] )}
                           required
                         />
-                         <img className="mt-3 img-fluid" src={logo ? URL.createObjectURL(logo):`${url}/images/` + selectedData.logo} alt="" />
+                         <img className="mt-3 img-fluid" src={logo ? URL.createObjectURL(logo):""} alt="" />
                       </div>
                     </div>
                     <div className="mb-3 row">
@@ -159,7 +169,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="tagline"
-                          value={ data.tagline || selectedData.tagline }
+                          value={ data.tagline }
                           required
                         />
                       </div>
@@ -174,7 +184,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="website"
-                          value={data.website || selectedData.website}
+                          value={data.website}
                           required
                         />
                       </div>
@@ -189,7 +199,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="email"
-                          value={data.email || selectedData.email}
+                          value={data.email}
                           required
                         />
                       </div>
@@ -204,7 +214,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="optionalEmail"
-                          value={data.optionalEmail || selectedData.optionalEmail}
+                          value={data.optionalEmail}
                           required
                         />
                       </div>
@@ -219,7 +229,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="aadhaarNo"
-                          value={ data.aadhaarNo || selectedData.aadhaarNo}
+                          value={ data.aadhaarNo}
                           required
                         />
                       </div>
@@ -234,7 +244,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="contactNo"
-                          value={data.contactNo || selectedData.contactNo}
+                          value={data.contactNo}
                           required
                         />
                       </div>
@@ -252,7 +262,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="contactPerson"
-                          value={data.contactPerson || selectedData.contactPerson}
+                          value={data.contactPerson}
                           required
                         />
                       </div>
@@ -267,7 +277,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="personContactNo"
-                          value={ data.personContactNo || selectedData.personContactNo}
+                          value={ data.personContactNo}
                           required
                         />
                       </div>
@@ -281,7 +291,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="address"
-                          value={ data.address || selectedData.address}
+                          value={ data.address}
                           required
                         ></textarea>
                       </div>
@@ -296,7 +306,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="country"
-                          value={data.country || selectedData.country}
+                          value={data.country}
                           required
                         />
                       </div>
@@ -311,7 +321,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="state"
-                          value={ data.state || selectedData.state}
+                          value={ data.state}
                           required
                         />
                       </div>
@@ -326,7 +336,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="city"
-                          value={ data.city || selectedData.city}
+                          value={ data.city}
                           required
                         />
                       </div>
@@ -341,7 +351,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="pincode"
-                          value={ data.pincode || selectedData.pincode}
+                          value={ data.pincode}
                           required
                         />
                       </div>
@@ -356,7 +366,7 @@ const BasicDetails = () => {
                           className="form-control"
                           onChange={onChangeHandler}
                           name="note"
-                          value={ data.note || selectedData.note}
+                          value={ data.note}
                           required
                         ></textarea>
                       </div>
