@@ -40,11 +40,11 @@ const BasicDetails = () => {
     const response = await axios.get(`${url}/api/company/list`);
     if(response.data.data){
       const companyData = response.data.data;
-      console.log(companyData)
+      // console.log(companyData)
       if (companyData.length > 0) {
         const {email} = userData
         const foundObject = companyData.find((item) => item.LogInUserEmailId === email);
-        console.log(foundObject)
+        // console.log(foundObject)
         if(foundObject) setData(foundObject);
     }  
       
@@ -156,7 +156,7 @@ const BasicDetails = () => {
                           onChange={ (e)=>setLogo(e.target.files[0] )}
                           required
                         />
-                         <img className="mt-3 img-fluid" src={logo ? URL.createObjectURL(logo):""} alt="" />
+                         <img className="mt-3 img-fluid" src={logo ? URL.createObjectURL(logo): `${url}/images/`+ data.logo} alt="" />
                       </div>
                     </div>
                     <div className="mb-3 row">

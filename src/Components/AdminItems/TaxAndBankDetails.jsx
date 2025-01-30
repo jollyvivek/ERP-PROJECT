@@ -8,8 +8,8 @@ import { StoreContext } from '../../Context/StoreContext';
 
 const TaxAndBankDetails = () => {
     const navigate = useNavigate()
-    const {url}= useContext(StoreContext)
-    const [taxBankData,setTaxAndBankData]= useState([])
+    const {url,userData}= useContext(StoreContext)
+    // console.log(userData)
      const [signImage,setSignImage] =useState(false)
      const singInputRef= useRef(null)
      const [data, setData] = useState({
@@ -65,6 +65,7 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
    formData.append("ccMailId",data.ccMailId)
    formData.append("enableSSL",data.enableSSL)
    formData.append("sendMailForm",data.sendMailForm)
+   formData.append("LogInUserEmailId",userData.email)
 
     // console.log(data,signImage)
 
@@ -106,8 +107,17 @@ const taxAndBankDetailSubmitHandler = async(event)=>{
 const  TaxAndBankFetch = async()=>{
     const response = await axios.get(`${url}/api/bankdetails/list`);
     if(response){
-        setTaxAndBankData(response.data.data);
-        // console.log(response.data.data)
+        const TaxAndBankData = response.data.data;
+        // console.log(TaxAndBankData)
+        if (TaxAndBankData.length > 0) {
+            const {email} = userData
+            const foundObject = TaxAndBankData.find((item) => item.LogInUserEmailId === email);
+            // console.log(foundObject)
+            if(foundObject){
+                foundObject.gstDate=new Date(foundObject.gstDate).toISOString().split('T')[0];
+                setData(foundObject)
+            } ;
+          }  
     }else{
         console.log("error")
     }
@@ -195,7 +205,7 @@ useEffect(()=>{ TaxAndBankFetch()},[]);
                             <div className="mb-3 py-2 row">
                                 <label className="col-sm-6 col-form-label">Signature Image :</label>
                                 <div className="col-sm-6 text-center d-flex flex-column justify-content-center gap-3">
-                                    <img src={signImage ? URL.createObjectURL(signImage):""} className='w-75 m-auto' alt="" />
+                                    <img src={signImage ? URL.createObjectURL(signImage):`${url}/images/`+ data.signatureImage} className='w-75 m-auto' alt="" />
                                     {/* <label htmlFor="signature-image" className='p-1 w-50 m-auto border'>BROWSE</label> */}
                                     <input 
                                       type="file" 
