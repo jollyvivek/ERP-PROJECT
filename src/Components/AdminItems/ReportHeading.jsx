@@ -5,7 +5,7 @@ import { StoreContext } from '../../Context/StoreContext'
 import axios from 'axios'
 
 const ReportHeading = () => {
-const {url} = useContext(StoreContext)
+const {url,userData} = useContext(StoreContext)
 const [data,setData] = useState({
     taxInvoiceHeading:"",
     taxStockTransfer:"",
@@ -42,7 +42,7 @@ const [data,setData] = useState({
 })
 
 const [fetchData,setFetchData] = useState([])
-
+// console.log(userData)
 
 
 const changeHandler = (event)=>{
@@ -86,7 +86,8 @@ const formSubmitHandler = async(event)=>{
     taxImportInvoiceHeading:data.taxImportInvoiceHeading,
     taxImportInvoiceSubHeading:data.taxImportInvoiceSubHeading,
     billOfSupplyInvoiceHeading:data.billOfSupplyInvoiceHeading,
-    billOfSupplyInvoiceSubHeading:data.billOfSupplyInvoiceSubHeading
+    billOfSupplyInvoiceSubHeading:data.billOfSupplyInvoiceSubHeading,
+    LogInUserEmailId:userData.email
     }
     const response = await axios.post(`${url}/api/reportheading/add`,payload);
     if (response.data.success) {
@@ -136,8 +137,14 @@ const formSubmitHandler = async(event)=>{
  const FetchRecords= async()=>{
     const response = await axios.get(`${url}/api/reportheading/list`);
     if(response.data.data){
-        setFetchData(response.data.data)
-    //   console.log(fetchData);
+        const reportLists = response.data.data;
+    //   console.log(reportLists);
+      if (reportLists.length > 0) {
+        const {email} = userData
+        const foundObject = reportLists.find((item) => item.LogInUserEmailId === email);
+        // console.log(foundObject)
+        if(foundObject) setData(foundObject);
+    } 
     }else{
       console.log("Error")
     }
