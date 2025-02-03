@@ -6,7 +6,7 @@ import { StoreContext } from '../../Context/StoreContext'
 import axios from 'axios'
 
 const TermsCondtions = () => {
-    const{url} = useContext(StoreContext);
+    const{url,userData} = useContext(StoreContext);
     const navigate = useNavigate();
     const[data,setData]= useState({
     salesOrder:"",
@@ -45,7 +45,22 @@ const TermsCondtions = () => {
     exportQuotationSubject:""
   })
 
-
+// fecth data
+const TermConditionFetch =async()=>{
+    const response = await axios.get(`${url}/api/termcondtion/list`);
+    if(response.data.data){
+        const Lists = response.data.data;
+        // console.log(Lists) 
+        if (Lists.length > 0) {
+            const {email} = userData
+            const foundObject =Lists.find((item) => item.LogInUserEmailId === email);
+            // console.log(foundObject)
+            if(foundObject) setData(foundObject);
+        }    
+      }else{
+        console.log("Error")
+      }
+}
 
   const handleChange = (event)=>{
     const { name, value } = event.target;
@@ -91,9 +106,10 @@ const handleFormSubmit = async(e)=>{
     exportQuotationAbout:data.exportQuotationAbout,
     exportSalesOrderSubject:data.exportSalesOrderSubject,
     importPurchaseOrderSubject:data.importPurchaseOrderSubject,
-    exportQuotationSubject:data.exportQuotationSubject
+    exportQuotationSubject:data.exportQuotationSubject,
+    LogInUserEmailId:userData.email
     }
-
+    // console.log(payload)
     const response = await axios.post(`${url}/api/termcondtion/add`,payload);
     if (response.data.success) {
         setData({
@@ -139,9 +155,9 @@ const handleFormSubmit = async(e)=>{
     }
 }
 
-// useEffect(()=>{
-//   console.log(data)
-// },[data])
+useEffect(()=>{
+    TermConditionFetch()
+},[])
 
   return (
     <div className='container-fluid'>
