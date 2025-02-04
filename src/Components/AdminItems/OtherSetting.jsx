@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import NavTabs from '../Navbar/NavTabs'
 import { toast } from 'react-toastify'
 import { useContext } from 'react'
@@ -6,7 +6,7 @@ import { StoreContext } from '../../Context/StoreContext'
 import axios from 'axios'
 
 const OtherSetting = () => {
-    const {url} = useContext(StoreContext);
+    const {url,userData} = useContext(StoreContext);
     
   const [data,setData] = useState({
     QtyRoundOf :"",
@@ -47,8 +47,35 @@ const OtherSetting = () => {
     Cess :"",
 
     MergePdfSystemPath :"",
-    SelectPathForEuDeclarationPath :""
+    SelectPathForEuDeclarationPath :"",
+    LogInUserEmailId:""
   })
+
+//   console.log(userData)
+// fetch data
+const FetchOtherSetting = async()=>{
+    const response = await axios.get(`${url}/api/othersetting/list`);
+    if(response.data.data){
+        const Lists = response.data.data;
+    //   console.log(Lists);
+      if (Lists.length > 0) {
+        const {email} = userData
+        const foundObject = Lists.find((item) => item.LogInUserEmailId === email);
+        // console.log(foundObject)
+        if(foundObject) setData(foundObject);
+       
+    } 
+    }else{
+      console.log("Error")
+    }
+}
+
+useEffect(()=>{
+    FetchOtherSetting();
+  },[]);
+
+
+
 
   const changeHandler =(event)=>{
     const {name,value} = event.target;
@@ -98,9 +125,10 @@ const OtherSetting = () => {
         Cess :data.Cess,
     
         MergePdfSystemPath :data.MergePdfSystemPath,
-        SelectPathForEuDeclarationPath :data.SelectPathForEuDeclarationPath
+        SelectPathForEuDeclarationPath :data.SelectPathForEuDeclarationPath,
+        LogInUserEmailId:userData.email
     }
-
+    // console.log(payload)
     const response = await axios.post(`${url}/api/othersetting/add`,payload);
 
     if (response.data.success) {
@@ -267,7 +295,7 @@ const OtherSetting = () => {
                                         </div>
                                         <div className="mb-3 row">
                                             <label className="col-sm-8 col-form-label text-end">Print
-                                                Invoice in Letter Head/Footer :</label>
+                                                Invoice in Letter Head/Footer:</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm"
                                                  name='PrintInvoiceInLetterHead_Footer' value={data.PrintInvoiceInLetterHead_Footer} onChange={changeHandler} >
@@ -355,7 +383,7 @@ const OtherSetting = () => {
                                         <div className="mb-3 row">
                                             <label className="col-sm-8 col-form-label text-end">Term & Condition
                                                 Based
-                                                On Master :</label>
+                                                On Master:</label>
                                             <div className="col-sm-4 d-flex align-items-center">
                                                 <select className="form-select form-select-sm" 
                                                 name='Term_ConditionBasedOnMaster' value={data.Term_ConditionBasedOnMaster} onChange={changeHandler} >
