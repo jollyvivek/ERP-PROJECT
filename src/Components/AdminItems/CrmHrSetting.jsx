@@ -42,7 +42,7 @@ const CrmHrSetting = () => {
     BriefQuotation :""
   });
 
-  console.log(userData)
+//   console.log(userData)
 // fetch
 const CrmHrSettingFetch =async()=>{
     const response = await axios.get(`${url}/api/crmhrsetting/list`);
