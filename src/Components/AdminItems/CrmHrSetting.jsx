@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import NavTabs from '../Navbar/NavTabs'
 import { toast } from 'react-toastify';
 import { StoreContext } from '../../Context/StoreContext';
 import axios from 'axios';
 const CrmHrSetting = () => {
-    const {url} = useContext(StoreContext)
+    const {url,userData} = useContext(StoreContext)
   const [data,setData] =useState({
     InquiryStatus :"",
     ConvertedStatus :"",
@@ -41,6 +41,29 @@ const CrmHrSetting = () => {
     QuotationAsPerInputInPrint :"",
     BriefQuotation :""
   });
+
+//   console.log(userData)
+// fetch
+const CrmHrSettingFetch =async()=>{
+    const response = await axios.get(`${url}/api/crmhrsetting/list`);
+    
+    if (response.data.data) {
+        const list = response.data.data
+        // console.log(list)
+        if(list.length > 0){
+            const {email} = userData
+            const foundObject = list.find((item)=> item.LogInUserEmailId === email);
+            // console.log(foundObject)
+            if(foundObject)setData(foundObject);
+        }
+    } else {
+        console.log(list)
+    }
+}
+
+
+useEffect(()=>{ CrmHrSettingFetch()},[]);
+
 
   const changeHandler = (event)=>{
       const {name,value} = event.target;
@@ -84,9 +107,10 @@ const CrmHrSetting = () => {
         DefaultCtc :data.DefaultCtc,
         OtFormula :data.OtFormula,
         QuotationAsPerInputInPrint :data.QuotationAsPerInputInPrint,
-        BriefQuotation :data.BriefQuotation
+        BriefQuotation :data.BriefQuotation,
+        LogInUserEmailId:userData.email
     }
-
+    // console.log(payload)
     const response = await axios.post(`${url}/api/crmhrsetting/add`,payload);
     if (response.data.success) {
         setData({
