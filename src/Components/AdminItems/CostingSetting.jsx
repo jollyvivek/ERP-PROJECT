@@ -6,7 +6,7 @@ import axios from 'axios';
 import { StoreContext } from '../../Context/StoreContext';
 
 const CostingSetting = () => {
-    const {url} = useContext(StoreContext)
+    const {url,userData} = useContext(StoreContext)
     const[data,setData] = useState({
         BasicScrap :"",
         ExtrusionConversionRate :"",
@@ -24,6 +24,27 @@ const CostingSetting = () => {
         QuotationWithMold :"",
         QuotationWithMachine :""
     });
+
+    // fetch functionality from api
+    const CostingSettingFetch = async()=>{
+        const response = await axios.get(`${url}/api/costingSetting/list`);
+        if (response.data.data) {
+            const list = response.data.data;
+            // console.log(list)
+            if(list.length>0){
+                const {email} = userData;
+                const findObject =list.find((item)=>item.LogInUserEmailId === email);
+                // console.log(findObject)
+                if(findObject)setData(findObject)
+            }
+        } else {
+            console.log(response.data.message)
+        }
+    }
+
+useEffect(()=>{CostingSettingFetch()},[])
+
+
 
     const handlleChange = (event)=>{
         const {name,value} = event.target;
@@ -47,9 +68,11 @@ const CostingSetting = () => {
 
         RawMaterialsMrs:data.RawMaterialsMrs,
         QuotationWithMold :data.QuotationWithMold,
-        QuotationWithMachine :data.QuotationWithMachine
-        }
+        QuotationWithMachine :data.QuotationWithMachine,
 
+        LogInUserEmailId:userData.email
+        }
+        // console.log(payload)
         const response = await axios.post(`${url}/api/costingsetting/add`,payload);
 
         if (response.data.success) {
