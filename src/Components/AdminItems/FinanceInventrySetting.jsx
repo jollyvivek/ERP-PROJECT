@@ -5,7 +5,7 @@ import {StoreContext} from '../../Context/StoreContext'
 import axios from 'axios';
 
 const FinanceInventrySetting = () => {
-  const {url} = useContext(StoreContext)
+  const {url,userData} = useContext(StoreContext)
   const [data,setdata] = useState({
     SecondUnitCalculationAuto :"",
     StockAcceptance:"",
@@ -51,12 +51,32 @@ const FinanceInventrySetting = () => {
 
   });
 
+  // console.log(userData)
+  // fetch 
+
+  const FinanceInventrySettingFetch = async()=>{
+    const response = await axios.get(`${url}/api/financeinventry/list`)
+    if (response.data.data) {
+      const List =response.data.data;
+      // console.log(List)
+      if(List.length>0){
+        const {email} = userData
+        const findObject = List.find((item)=>item.LogInUserEmailId === email)
+        // console.log(findObject)
+        if(findObject) setdata(findObject)
+      }
+    } else {
+      console.log(response.data.message)
+    }
+
+  }
+
   const changeHandler =(event)=>{
     const {name,value} =event.target; 
     setdata({...data,[name]:value})
   }
 
-  // useEffect(()=>console.log(data),[data])
+  useEffect(()=>{FinanceInventrySettingFetch()},[])
 
   const handleFormSubmit = async(event)=>{
     event.preventDefault();
@@ -102,9 +122,10 @@ const FinanceInventrySetting = () => {
   
       DashboardImage :data.DashboardImage,
       NearDueDaysAlert :Number(data.NearDueDaysAlert),
-      SelectPathForDrgImage :data.SelectPathForDrgImage
+      SelectPathForDrgImage :data.SelectPathForDrgImage,
+      LogInUserEmailId:userData.email
     }
-
+    // console.log(payload)
     const response = await axios.post(`${url}/api/financeinventry/add`,payload);
     if (response.data.success) {
       setdata({
@@ -407,7 +428,7 @@ const FinanceInventrySetting = () => {
                       <div className="col-sm-4 d-flex align-items-center">
                         <select className="form-select form-select-sm" name='SalesOrderInvoice' value={data.SalesOrderInvoice} onChange={changeHandler} required >
                           <option>Select</option>
-                          <option value="Item1">Item1</option>
+                          <option value="Finished Goods/Raw Materials">Finished Goods/Raw Materials</option>
                           <option value="Item2">Item2</option>
                         </select>
                       </div>
