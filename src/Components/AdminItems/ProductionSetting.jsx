@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaInfo, FaInfoCircle } from "react-icons/fa";
 
 import NavTabs from "../Navbar/NavTabs";
@@ -7,7 +7,7 @@ import { StoreContext } from "../../Context/StoreContext";
 import axios from "axios";
 
 const ProductionSetting = () => {
-  const {url} = useContext(StoreContext)
+  const {url,userData} = useContext(StoreContext)
   const [data, setData] = useState({
     MachineBasedProduction: "",
     RecordInMRSFromBOM: "",
@@ -50,6 +50,25 @@ const ProductionSetting = () => {
     JobWorkDefaultMachine: "",
     FoundaryMachineCategory: "",
   });
+  // console.log(userData)
+// fetch List
+
+const ProductionSettingFetch = async()=>{
+  const response = await axios.get(`${url}/api/productionsetting/list`)
+  if (response.data.data) {
+    const list = response.data.data;
+    // console.log(list)
+    if(list.length > 0){
+        const {email} = userData;
+        const foundObject = list.find((item)=>item.LogInUserEmailId === email);
+        if(foundObject) setData(foundObject)
+    }
+  } else {
+    console.log("Error")
+  }
+}
+
+useEffect(()=>{ ProductionSettingFetch()},[])
 
   const changeHandler = (event) => {
     const { name, value } = event.target;
@@ -101,8 +120,10 @@ const ProductionSetting = () => {
   
       JobWorkDefaultMachine :data.JobWorkDefaultMachine,
       FoundaryMachineCategory :data.FoundaryMachineCategory,
-    }
 
+      LogInUserEmailId:userData.email
+    }
+    // console.log(payload)
     const response = await axios.post(`${url}/api/productionsetting/add`,payload);
     if (response.data.success) {
       setData({
