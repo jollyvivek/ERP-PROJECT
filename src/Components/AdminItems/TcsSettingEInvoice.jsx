@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import NavTabs from '../Navbar/NavTabs'
 import { toast } from 'react-toastify';
 import { StoreContext } from '../../Context/StoreContext';
@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const TcsSettingEInvoice = () => {
 
-    const {url} = useContext(StoreContext)
+    const {url,userData} = useContext(StoreContext)
     const[data,setData] = useState({
         TcsApplicable :"",
         TcsLedgerForSales :"",
@@ -38,6 +38,24 @@ const TcsSettingEInvoice = () => {
         GstNo :""
 
     });
+    // console.log(userData)
+    // fetch
+    const TcsSettingEInvoiceFetch = async()=>{
+        const response = await axios.get(`${url}/api/tcseinvoicesetting/list`);
+        if (response.data.data) {
+            const List = response.data.data
+            // console.log(List)
+            if(List.length>0){
+                const {email}= userData;
+                const findObject = List.find((item)=> item.LogInUserEmailId === email)
+                if(findObject) setData(findObject)
+            }
+        } else {
+            console.log("Error")
+        }
+    }
+
+    useEffect(()=>{TcsSettingEInvoiceFetch()},[])
 
     const handleChange = (event)=>{
         const {name,value} = event.target;
@@ -75,9 +93,10 @@ const TcsSettingEInvoice = () => {
             EInvoiceType :data.EInvoiceType,
             Key :data.Key,
             SubscriptionId :data.SubscriptionId,
-            GstNo :data.GstNo
+            GstNo :data.GstNo,
+            LogInUserEmailId:userData.email
         }
-
+        // console.log(payload)
         const response = await axios.post(`${url}/api/tcseinvoicesetting/add`,payload);
 
         if (response.data.success) {
