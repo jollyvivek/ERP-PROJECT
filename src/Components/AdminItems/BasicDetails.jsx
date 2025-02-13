@@ -147,16 +147,18 @@ const BasicDetails = () => {
                         Company Logo
                        
                       </label>
-                      <div className="col-sm-7 d-flex flex-column align-items-center">
+                      <div className="col-sm-7 d-flex flex-column">
                         <input
+                          id='logo'
                           type="file"
-                          className="form-control"
+                          className="form-control d-none"
                           ref={fileInputRef}
                           name='logo'
                           onChange={ (e)=>setLogo(e.target.files[0] )}
                           required
                         />
                          <img className="mt-3 img-fluid" src={logo ? URL.createObjectURL(logo): `${url}/images/`+ data.logo} alt="" />
+                         <label htmlFor="logo" className='border rounded-2 py-1 mt-3 w-50 text-center fs-6'>BROWSE</label>
                       </div>
                     </div>
                     <div className="mb-3 row">

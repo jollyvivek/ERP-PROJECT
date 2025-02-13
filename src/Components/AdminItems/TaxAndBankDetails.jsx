@@ -204,14 +204,14 @@ useEffect(()=>{ TaxAndBankFetch()},[]);
                             </div>
                             <div className="mb-3 py-2 row">
                                 <label className="col-sm-6 col-form-label">Signature Image :</label>
-                                <div className="col-sm-6 text-center d-flex flex-column justify-content-center gap-3">
-                                    <img src={signImage ? URL.createObjectURL(signImage):`${url}/images/`+ data.signatureImage} className='w-75 m-auto' alt="" />
-                                    {/* <label htmlFor="signature-image" className='p-1 w-50 m-auto border'>BROWSE</label> */}
+                                <div className="col-sm-6 d-flex flex-column  gap-3">
+                                    <img src={signImage ? URL.createObjectURL(signImage):`${url}/images/`+ data.signatureImage} className='img-fluid' alt="image" />
+                                    <label htmlFor="signature-image" className='py-1 w-50 border rounded-1 text-center fs-6'>BROWSE</label>
                                     <input 
                                       type="file" 
                                       ref={singInputRef}
                                       id='signature-image'
-                                       className="form-control"
+                                       className="form-control d-none"
                                        onChange={(e)=>setSignImage(e.target.files[0])}
                                        required
                                        />
