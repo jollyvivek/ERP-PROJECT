@@ -1,9 +1,20 @@
 import React, { useContext } from "react";
+import { useState } from "react";
 import "./SidebarMenu.css";
 import { FaUser } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { GoDotFill } from "react-icons/go";
-import { useState } from "react";
+import { FaUserEdit } from "react-icons/fa";
+import { FcGlobe } from "react-icons/fc";
+import { SiMobxstatetree } from "react-icons/si";
+import { BiImport } from "react-icons/bi";
+import { IoMdSettings } from "react-icons/io";
+import { SlCalender } from "react-icons/sl";
+import { IoDiamond } from "react-icons/io5";
+import { BsBank2 } from "react-icons/bs";
+import { FaToolbox } from "react-icons/fa6";
+import { FaShoppingBasket } from "react-icons/fa";
+
 // import $ from 'jquery'
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { StoreContext } from "../../Context/StoreContext";
@@ -144,8 +155,8 @@ const Admin = ({setIsPassModel}) => {
             {profileItem ? (
               <ul className="profile-items">
                 <li id="ProfileEditCompany" onClick={ProfileEditCompanyHandler}  
-                className="title flex gap-1 company-details-title my-1 py-0 ProfileEditCompany">
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                className="title flex align-items-center gap-2 company-details-title my-1 py-0 ProfileEditCompany">
+                  <span className="text-dark fs-3 "><FaUserEdit /></span>
                   <NavLink  to='/company' className="nav-link w-100 px-2 EditCompany"   >Edit Company</NavLink>
                 </li>
               </ul>
@@ -164,16 +175,16 @@ const Admin = ({setIsPassModel}) => {
             </li>
             {masterItems ? (
               <ul className="master-items">
-                <li className="title  CountryMaster flex gap-1">
-                <span className="text-dark fs-4"><GoDotFill /></span>
+                <li className="title  CountryMaster flex gap-2">
+                <span className="text-dark fs-3"><FcGlobe /></span>
                  <NavLink to='/countrymaster' className="nav-link w-100 px-2 " > Country Master</NavLink>
                 </li>
-                <li className="title BankMaster flex gap-1">
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                <li className="title BankMaster flex gap-2">
+                  <span className="text-dark fs-4"><BsBank2 /></span>
                   <NavLink to='/bankmaster' className="nav-link w-100 px-2 ">Bank Master</NavLink>
                 </li>
-                <li className="title StateMaster flex gap-1">
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                <li className="title StateMaster flex gap-2">
+                  <span className="text-dark fs-4"><SiMobxstatetree /></span>
                   <NavLink to='/statemaster' className="nav-link w-100 px-2 ">State Master</NavLink>
                 </li>
               </ul>
@@ -186,16 +197,16 @@ const Admin = ({setIsPassModel}) => {
             </li>
             {settingItems ? (
               <ul className="setting-items mb-3">
-                <li className="title SerialSetting flex gap-1">
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                <li className="title SerialSetting flex gap-2">
+                  <span className="text-dark fs-4"><IoMdSettings /></span>
                   <NavLink to='/serialsetting' className="nav-link w-100 px-2"> Serial Setting </NavLink>
                 </li>
-                <li className="title ApprovalSetting flex gap-1">
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                <li className="title ApprovalSetting flex gap-2">
+                  <span className="text-dark fs-4"><IoMdSettings /></span>
                   <NavLink to='/approvalsetting' className="nav-link w-100 px-2">Approval Setting </NavLink>
                 </li>
-                <li className="title OrderSerialSetting flex gap-1">
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                <li className="title OrderSerialSetting flex gap-2">
+                  <span className="text-dark fs-4"><IoMdSettings /></span>
                   <NavLink to='/orderserialsetting' className="nav-link w-100 px-2">Order Serial Setting</NavLink>
                 </li>
               </ul>
@@ -211,47 +222,47 @@ const Admin = ({setIsPassModel}) => {
             </li>
             {importExcelItem ? (
               <ul className="import-excel-items">
-                <li className="title flex gap-1 ImportInstrument">
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                <li className="title flex gap-2 ImportInstrument">
+                  <span className="text-dark fs-4"><FaToolbox /></span>
                   <NavLink to='/importinstrument' className="nav-link w-100 px-2"> Import Instrument </NavLink>
                 </li>
-                <li className="title flex gap-1 ImportItem">
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                <li className="title flex gap-2 ImportItem">
+                  <span className="text-dark fs-4"><FaShoppingBasket /></span>
                   <NavLink to='/importitem' className="nav-link w-100 px-2"> Import Item </NavLink></li>
                 <li className="title flex gap-1 OpeningBalanceGroup ">
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <span className="text-dark fs-4"><BiImport /></span>
                   <NavLink to='/importitemopening' className="nav-link w-100 px-2">Import Item Opening Balance Group Wise</NavLink>
                 </li>
                 <li className="title flex gap-1 ImportBom">
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <span className="text-dark fs-4"><BiImport /></span>
                   <NavLink to='/importbom' className="nav-link w-100 px-2"> Import BOM </NavLink>
                 </li>
                 <li className="title flex gap-1 ImportOperation">
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <span className="text-dark fs-4"><BiImport /></span>
                   <NavLink to='/importoperation' className="nav-link w-100 px-2">Import Operatipon</NavLink>
                   </li>
                 <li className="title flex gap-1 ImportPackingBom">
-                  <span className="text-dark fs-4 "><GoDotFill /></span>
+                  <span className="text-dark fs-4 "><BiImport /></span>
                   <NavLink to='/importpackingbom' className="nav-link w-100 px-2">Import Packing BOM</NavLink>
                 </li>
                 <li className="title flex gap-1 ImportPriceList">
-                  <span className="text-dark fs-4 "><GoDotFill /></span>
+                  <span className="text-dark fs-4 "><BiImport /></span>
                   <NavLink to='/importpricelist' className="nav-link w-100 px-2">Import Price List </NavLink>
                 </li>
                 <li className="title flex gap-1 QcTestingMaster">
-                  <span className="text-dark fs-4 "><GoDotFill /></span>
+                  <span className="text-dark fs-4 "><BiImport /></span>
                   <NavLink to='/importqctesting' className="nav-link w-100 px-2">Import QC Testing Master</NavLink>
                 </li>
                 <li className="title flex gap-1 ImportLedger">
-                  <span className="text-dark fs-4 "><GoDotFill /></span>
+                  <span className="text-dark fs-4 "><BiImport /></span>
                   <NavLink to='/importledger' className="nav-link w-100 px-2"> Import Ledger </NavLink>
                 </li>
                 <li className="title flex gap-1 PackingInstruction">
-                  <span className="text-dark fs-4 "><GoDotFill /></span>
+                  <span className="text-dark fs-4 "><BiImport /></span>
                   <NavLink to='/importpackinginstruction' className="nav-link w-100 px-2">Packing Instruction </NavLink>
                 </li>
                 <li className="title flex gap-1 ImportTestCertificate">
-                  <span className="text-dark fs-4 "><GoDotFill /></span>
+                  <span className="text-dark fs-4 "><BiImport /></span>
                   <NavLink to='/testcertificate' className="nav-link w-100 px-2">Import Internal Test Certificate Details </NavLink>
                 </li>
                 <li><span>Import EU Declartion Into Item</span></li>
@@ -260,15 +271,15 @@ const Admin = ({setIsPassModel}) => {
                 <li><span>Import NetWeight in Operation</span></li>
                 <li><span>Import NetWeight In Item</span></li>
                 <li className="title flex gap-1 ImportBatchSerial">
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <span className="text-dark fs-4"><BiImport /></span>
                   <NavLink to='/batchserial' className="nav-link w-100 px-2">Import BatchSerial In Item</NavLink>
                 </li>
                 <li className="title flex gap-1 ImportChemicalMaster">
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <span className="text-dark fs-4"><BiImport /></span>
                   <NavLink to='/chemicalmaster' className="nav-link w-100 px-2">Import Chemical Master</NavLink>
                 </li>
                 <li className="title flex gap-1 ImportMechanicalMaster">
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <span className="text-dark fs-4"><BiImport /></span>
                   <NavLink to='/mechanicalmaster' className="nav-link w-100 px-2">Import Mechanical Master</NavLink>
                 </li>
               </ul>
@@ -284,16 +295,16 @@ const Admin = ({setIsPassModel}) => {
             </li>
             {financialYearItem ?(
             <ul className="finance-year-items">
-                <li className="title flex gap-1 FinancialYearCreateYear">
-                    <span className="text-dark fs-4"><GoDotFill /></span>
+                <li className="title flex gap-2 FinancialYearCreateYear">
+                    <span className="text-dark fs-4"><SlCalender /></span>
                    <NavLink to='/createyear' className="nav-link w-100 px-2">Create Year </NavLink>
                 </li>
                 <li className="title flex gap-1 FinancialYearInventrySetting"> 
-                  <span className="text-dark fs-4"><GoDotFill /></span>
+                  <span className="text-dark fs-4"><IoMdSettings /></span>
                   <NavLink to='/inventrysetting' className="nav-link w-100 px-2">Inventry Setting </NavLink>
                 </li>
                 <li className="title flex gap-1 FinancialYearFinancialSetting">
-                  <span className="text-dark fs-4"><GoDotFill /></span> 
+                  <span className="text-dark fs-4"><IoMdSettings /></span> 
                   <NavLink to='/financesetting' className="nav-link w-100 px-2">Financial Setting </NavLink>
                 </li>
               </ul>
