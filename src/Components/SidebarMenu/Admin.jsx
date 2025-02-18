@@ -37,6 +37,10 @@ const Admin = ({setIsPassModel}) => {
 
   const profileDropedown = () => {
     setProfileItem(!profileItem);
+    setMasterItems(false);
+    setSettingItems(false);
+    setImportExcelItem(false);
+    setFinancialYearItem(false);
     const profile = document.getElementById("profile").classList.add("active2");
     const master = document.getElementById("master").classList.remove("active2")
     const setting = document.getElementById("setting").classList.remove("active2")
@@ -50,6 +54,10 @@ const Admin = ({setIsPassModel}) => {
 
   const masterDropdown = () => {
     setMasterItems(!masterItems);
+    setProfileItem(false);
+    setSettingItems(false);
+    setImportExcelItem(false);
+    setFinancialYearItem(false);
     const master = document.getElementById("master").classList.add("active2")
     const profile = document.getElementById("profile").classList.remove("active2")
     // const ProfileEditCompany = document.getElementById("ProfileEditCompany").classList.remove("active2");
@@ -70,6 +78,10 @@ const Admin = ({setIsPassModel}) => {
 
   const settingDropdown = () => {
     setSettingItems(!settingItems);
+    setProfileItem(false);
+    setMasterItems(false);
+    setImportExcelItem(false);
+    setFinancialYearItem(false);
     const setting = document.getElementById("setting").classList.add("active2")
     const profile = document.getElementById("profile").classList.remove("active2")
     // const ProfileEditCompany = document.querySelector(".ProfileEditCompany").classList.remove("active2");
@@ -83,6 +95,10 @@ const Admin = ({setIsPassModel}) => {
 
   const importExcelDropdown = () => {
     setImportExcelItem(!importExcelItem);
+    setProfileItem(false);
+    setMasterItems(false);
+    setSettingItems(false);
+    setFinancialYearItem(false);
     const importExcel = document.getElementById("importExcel").classList.add("active2")
     const profile = document.getElementById("profile").classList.remove("active2")
     // const ProfileEditCompany = document.querySelector(".ProfileEditCompany").classList.remove("active2");
@@ -94,6 +110,10 @@ const Admin = ({setIsPassModel}) => {
 
   const financialYearDropdown = () =>{
     setFinancialYearItem(!financialYearItem);
+    setProfileItem(false);
+    setMasterItems(false);
+    setSettingItems(false);
+    setImportExcelItem(false);
     const financialYear = document.getElementById("financialYear").classList.add("active2")
     const profile = document.getElementById("profile").classList.remove("active2")
     // const ProfileEditCompany = document.querySelector(".ProfileEditCompany").classList.remove("active2");
@@ -112,11 +132,6 @@ const Admin = ({setIsPassModel}) => {
   const RoleHandler = (e)=>{
     // e.preventDefault()
     const profile = document.getElementById("profile").classList.remove("active2")
-    // const ProfileEditCompany = document.getElementById("ProfileEditCompany").classList.remove("active2");
-    // const EditCompany = document.querySelector(".EditCompany")
-    //   EditCompany.classList.remove("active2");
-    //   console.log(EditCompany)
-
     setProfileItem(false)
     setMasterItems(false)
     setSettingItems(false)
