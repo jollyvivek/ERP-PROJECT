@@ -39,24 +39,45 @@ const UserModel = ({addModelHandler}) => {
 
   // useEffect(()=>console.log(data),[data])
 
-  const userFormHandler = (event)=>{
+  const userFormHandler = async(event)=>{
     event.preventDefault();
     // console.log(data);
     addModelHandler(false);
-    setData({
-      Name:"",
-      Role:"",
-      UserName:"",
-      Password:"",
-      MobileNo:"",
-      Email:"",
-      EmailPassword:"",
-      SmtpPort:"",
-      SmtpHost:"",
-      PopPort:"",
-      EnableSsl:"",
-      digitalSign:""
-    })
+    const payload ={
+      Name:data.Name,
+      Role:data.Role,
+      UserName:data.UserName,
+      Password:data.Password,
+      MobileNo:data.MobileNo,
+      Email:data.Email,
+      EmailPassword:data.EmailPassword,
+      SmtpPort:data.SmtpPort,
+      SmtpHost:data.SmtpHost,
+      PopPort:data.PopPort,
+      EnableSsl:data.EnableSsl,
+      DigitalSign:data.DigitalSign
+    }
+    const response = await axios.post(`${url}/api/manageuser/add`,payload)
+    if (response.data.success) {
+      setData({
+        Name:"",
+        Role:"",
+        UserName:"",
+        Password:"",
+        MobileNo:"",
+        Email:"",
+        EmailPassword:"",
+        SmtpPort:"",
+        SmtpHost:"",
+        PopPort:"",
+        EnableSsl:"",
+        DigitalSign:""
+      });
+      toast.success(response.data.message)
+    } else {
+       console.log("Error");
+      toast.error(response.data.message);
+    }   
 
   }
   // sendMailHandler

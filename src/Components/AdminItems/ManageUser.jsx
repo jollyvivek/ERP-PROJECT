@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component'
+import { StoreContext } from '../../Context/StoreContext'
+import axios from 'axios'
+import { BiEdit } from "react-icons/bi";
+import { MdDelete } from "react-icons/md";
+import { toast } from 'react-toastify';
 
 const ManageUser = ({addModelHandler}) => {
-
-  const dataList =[
-    {Name :"Gautam", Email:"gautam@gmail.com",MobileNo:"9876543210"},
-    {Name :"Vivek", Email:"vivek@gmail.com",MobileNo:"7854239610"},
-    {Name :"Priya", Email:"priya@gmail.com",MobileNo:"999998888"},
-    {Name :"Ajay", Email:"ajay@gmail.com",MobileNo:"88888999999"}
-  ]
+  const {url} = useContext(StoreContext)
+  const [dataList,setDataList]= useState([])
+  
   const columns =[
     {name:"Name",selector:row=>row.Name,sortable:true},
     {name:"Email",selector:row=>row.Email,sortable:true},
-    {name:"Mobile No",selector:row=>row.MobileNo}
+    {name:"Mobile No",selector:row=>row.MobileNo},
+    {name:"Modify",selector:row=>row._id,cell:row=>(
+          <button className="btn text-center fs-4"  onClick={()=>alert(row._id)}><BiEdit/></button>
+        )},
+    {name:"Delete",selecto:row=>row._id ,cell: row=>(
+          <button className=" btn text-danger text-center fs-4"
+           onClick={()=>RemoveManageUser(row._id)}
+           ><MdDelete/></button>
+        )}
   ]
 
 
@@ -37,6 +46,41 @@ const ManageUser = ({addModelHandler}) => {
         },
     },
     };
+    // ManageUserFetch
+    const ManageUserFetch = async()=>{
+        try {
+            const response = await axios.get(`${url}/api/manageuser/list`);
+            // console.log(response)
+            if (response.data.success) {
+                setDataList(response.data.data);
+            } else {
+                console.log(response.data.message)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+      
+    }
+    useEffect(()=>{ManageUserFetch()},[]);
+
+// remove
+
+const RemoveManageUser = async(id)=>{
+   try {
+    const response = await axios.post(`${url}/api/manageuser/remove`,{id:id});
+            console.log(response)
+            if (response) {
+              ManageUserFetch()
+              toast.success(response.data.message)
+            } else {
+              toast.error(response.data.message)
+            }
+   } catch (error) {
+    console.log(error)
+   }
+}
+
+
 
   return (
     <div className='container-fluid manage-user'>
