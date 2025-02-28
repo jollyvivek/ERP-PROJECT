@@ -74,6 +74,7 @@ const UserModel = ({addModelHandler}) => {
         DigitalSign:""
       });
       toast.success(response.data.message)
+      addModelHandler(false)
     } else {
        console.log("Error");
       toast.error(response.data.message);
@@ -272,8 +273,8 @@ const UserModel = ({addModelHandler}) => {
                  onClick={()=>setIsConfirmModel(true)}
                  >New</button>
                 <button type="submit" className="px-3 py-1 border-1 rounded-1 border-primary" > Save</button>
-                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={()=>addModelHandler(false)}>Update</button>
-                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" >Delete</button>
+                <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" onClick={()=>alert("update call")}>Update</button>
+                {/* <button type="button" className="px-3 py-1 border-1 rounded-1 border-primary" >Delete</button> */}
               </div>
             </form>
           </fieldset>
