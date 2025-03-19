@@ -1,12 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const ModuleMenuCommon = ({RoleModel}) => {
+  const [permisson ,setPermisson] = useState({
+    Read:"",
+    Write:"",
+    Modify:"",
+    Delete:""
+  })
   const navigate = useNavigate()
+
+  const PermissonHandler =(e)=>{
+    const name =e.target.name;
+    const value = e.target.value;
+    const checked = e.target.checked;
+      setPermisson((data) => ({ ...data,[name]:checked }))
+    // alert(e.target.value,e.target.checked)
+   
+  }
+  const companyPermissonHandler = ()=>{
+    console.log(permisson)
+    RoleModel(false)
+    // navigate('/company')
+  }
+
+  const userPermissionHandler =()=>{
+    console.log(permisson)
+    RoleModel(false)
+  }
 
   const companyReadHandler = ()=>{
     RoleModel(false)
-    navigate('/company')
+    // navigate('/company')
   }
 
   const ManageUserHandler = ()=>{
@@ -14,9 +39,10 @@ const ModuleMenuCommon = ({RoleModel}) => {
     navigate('/manageuser')
   }
 
-  const RoleHandler = ()=>{
+  const PermissionRoleHandler = ()=>{
     RoleModel(false)
-    navigate('/role')
+     console.log(permisson)
+    // navigate('/role')
   }
 
   const SerialSettingHandler =()=>{
@@ -89,26 +115,27 @@ const ModuleMenuCommon = ({RoleModel}) => {
             <div className='col-md-12'>
             <div className='row'>
               <div className='col-md-2 '><p className="m-0 p-0">Company</p></div>
-              <div className='col-md-1 text-center' onClick={companyReadHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-7' ></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} 
+              value={permisson.Read} className="form-check-input p-2" name="Read" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Write} className="form-check-input p-2" name="Write" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Modify} className="form-check-input p-2" name="Modify" id="" /></div>
+              <div className='col-md-7 ' ><button className="btn p-0 px-3 btn-secondary" onClick={companyPermissonHandler} > OK</button></div>
             </div>
-            <div className='row '>
+            <div className='row mb-1 '>
               <div className='col-md-2'><p className="m-0 p-0">User</p></div>
-              <div className='col-md-1 text-center' onClick={ManageUserHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-6'></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Read} className="form-check-input p-2" name="Read" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Write} className="form-check-input p-2" name="Write" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Modify} className="form-check-input p-2" name="Modify" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Delete} className="form-check-input p-2" name="Delete" id="" /></div>
+              <div className='col-md-6'><button className="btn p-0 px-3 btn-secondary" onClick={userPermissionHandler} > OK</button></div>
             </div>
             <div className='row '>
               <div className='col-md-2'><p className="m-0 p-0">Role</p></div>
-              <div className='col-md-1 text-center' onClick={RoleHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-6'></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Read} className="form-check-input p-2" name="Read" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Write} className="form-check-input p-2" name="Write" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Modify} className="form-check-input p-2" name="Modify" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Delete} className="form-check-input p-2" name="Delete" id="" /></div>
+              <div className='col-md-6'><button className="btn p-0 px-3 btn-secondary" onClick={PermissionRoleHandler} > OK</button></div>
             </div>
             <div className='row '>
               <div className='col-md-2'><p className="m-0 p-0">Send Mail</p></div>
