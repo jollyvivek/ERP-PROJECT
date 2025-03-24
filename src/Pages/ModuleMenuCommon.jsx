@@ -2,24 +2,24 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const ModuleMenuCommon = ({RoleModel}) => {
-  const [permisson ,setPermisson] = useState({
-    Read:"",
-    Write:"",
-    Modify:"",
-    Delete:""
+  const [permission,setPermission] = useState({
+    CompanyRead:"",CompanyWrite:"",CompanyModify:"",
+    UserRead:"",UserWrite:"",UserModify:"",UserDelete:"",
+    RoleRead:"",RoleWrite:"",RoleModify:"",RoleDelete:"",SendMailRead:"",SerialSettingRead:"",SerialSettingModify:"",
+    ApprovalSettingRead:"",ApprovalSettingModify:""
   })
   const navigate = useNavigate()
 
-  const PermissonHandler =(e)=>{
+  const ChangeHandler =(e)=>{
     const name =e.target.name;
     const value = e.target.value;
     const checked = e.target.checked;
-      setPermisson((data) => ({ ...data,[name]:checked }))
+      setPermission((data) => ({ ...data,[name]:checked }))
     // alert(e.target.value,e.target.checked)
    
   }
-  const companyPermissonHandler = ()=>{
-    console.log(permisson)
+  const PermissonSubmitHandler = ()=>{
+    console.log(permission)
     RoleModel(false)
     // navigate('/company')
   }
@@ -45,15 +45,9 @@ const ModuleMenuCommon = ({RoleModel}) => {
     // navigate('/role')
   }
 
-  const SerialSettingHandler =()=>{
-    RoleModel(false)
-    navigate('/serialsetting')
-  }
+ 
 
-  const ApprovalSettingHandler =()=>{
-    RoleModel(false)
-    navigate('/approvalsetting')
-  }
+  
 
   const CountryMasterHandler =()=>{
     RoleModel(false)
@@ -115,31 +109,31 @@ const ModuleMenuCommon = ({RoleModel}) => {
             <div className='col-md-12'>
             <div className='row'>
               <div className='col-md-2 '><p className="m-0 p-0">Company</p></div>
-              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} 
-              value={permisson.Read} className="form-check-input p-2" name="Read" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Write} className="form-check-input p-2" name="Write" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Modify} className="form-check-input p-2" name="Modify" id="" /></div>
-              <div className='col-md-7 ' ><button className="btn p-0 px-3 btn-secondary" onClick={companyPermissonHandler} > OK</button></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} 
+              value={permission.CompanyRead} className="form-check-input p-2" name="CompanyRead" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} value={permission.CompanyWrite} className="form-check-input p-2" name="CompanyWrite" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} value={permission.CompanyModify} className="form-check-input p-2" name="CompanyModify" id="" /></div>
+              <div className='col-md-7 ' ></div>
             </div>
             <div className='row mb-1 '>
               <div className='col-md-2'><p className="m-0 p-0">User</p></div>
-              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Read} className="form-check-input p-2" name="Read" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Write} className="form-check-input p-2" name="Write" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Modify} className="form-check-input p-2" name="Modify" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Delete} className="form-check-input p-2" name="Delete" id="" /></div>
-              <div className='col-md-6'><button className="btn p-0 px-3 btn-secondary" onClick={userPermissionHandler} > OK</button></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} value={permission.UserRead} className="form-check-input p-2" name="UserRead" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} value={permission.UserWrite} className="form-check-input p-2" name="UserWrite" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} value={permission.UserModify} className="form-check-input p-2" name="UserModify" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} value={permission.UserDelete} className="form-check-input p-2" name="UserDelete" id="" /></div>
+              <div className='col-md-6'></div>
             </div>
             <div className='row '>
               <div className='col-md-2'><p className="m-0 p-0">Role</p></div>
-              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Read} className="form-check-input p-2" name="Read" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Write} className="form-check-input p-2" name="Write" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Modify} className="form-check-input p-2" name="Modify" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" onChange={PermissonHandler} value={permisson.Delete} className="form-check-input p-2" name="Delete" id="" /></div>
-              <div className='col-md-6'><button className="btn p-0 px-3 btn-secondary" onClick={PermissionRoleHandler} > OK</button></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} value={permission.RoleRead} className="form-check-input p-2" name="RoleRead" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} value={permission.RoleWrite} className="form-check-input p-2" name="RoleWrite" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} value={permission.RoleModify} className="form-check-input p-2" name="RoleModify" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} value={permission.RoleDelete} className="form-check-input p-2" name="RoleDelete" id="" /></div>
+              <div className='col-md-6'></div>
             </div>
             <div className='row '>
               <div className='col-md-2'><p className="m-0 p-0">Send Mail</p></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} value={permission.SendMailRead} className="form-check-input p-2" name="SendMailRead" /></div>
               <div className='col-md-1 text-center d-none'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center d-none'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
               <div className='col-md-1 text-center d-none'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
@@ -147,17 +141,17 @@ const ModuleMenuCommon = ({RoleModel}) => {
             </div>
             <div className='row '>
               <div className='col-md-2'><p className="m-0 p-0">Serial Setting</p></div>
-              <div className='col-md-1 text-center' onClick={SerialSettingHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" onChange={ChangeHandler} value={permission.SerialSettingRead} name="SerialSettingRead" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" onChange={ChangeHandler} value={permission.SerialSettingModify} name="SerialSettingModify" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-6'></div>
             </div>
             <div className='row '>
               <div className='col-md-2'><p className="m-0 p-0">ApprovalSetting</p></div>
-              <div className='col-md-1 text-center' onClick={ApprovalSettingHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" onChange={ChangeHandler} value={permission.ApprovalSettingRead} name="ApprovalSettingRead" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" onChange={ChangeHandler} value={permission.ApprovalSettingModify} name="ApprovalSettingModify" id="" /></div>
               <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none" name="" id="" /></div>
               <div className='col-md-6'></div>
             </div>
@@ -231,7 +225,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
               <input type="checkbox" className="form-check-input p-2" name="" id="" />
               </div>
             </div> 
-
+            <div className="d-flex justify-content-end mt-3 " onClick={PermissonSubmitHandler}><button className="btn btn-primary px-3">Submit</button></div>
             </div>
           </div> 
           </div>
