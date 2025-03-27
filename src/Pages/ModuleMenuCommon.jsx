@@ -6,7 +6,10 @@ const ModuleMenuCommon = ({RoleModel}) => {
     CompanyRead:"",CompanyWrite:"",CompanyModify:"",
     UserRead:"",UserWrite:"",UserModify:"",UserDelete:"",
     RoleRead:"",RoleWrite:"",RoleModify:"",RoleDelete:"",SendMailRead:"",SerialSettingRead:"",SerialSettingModify:"",
-    ApprovalSettingRead:"",ApprovalSettingModify:""
+    ApprovalSettingRead:"",ApprovalSettingModify:"",
+    CountryMasterRead:"",CountryMasterWrite:"",CountryMasterModify:"",CountryMasterDelete:"",
+    StateMasterRead:"",StateMasterWrite:"",StateMasterModify:"",StateMasterDelete:"",
+    BankMasterRead:"",BankMasterWrite:"",BankMasterModify:"",BankMasterDelete:"",
   })
   const navigate = useNavigate()
 
@@ -45,24 +48,6 @@ const ModuleMenuCommon = ({RoleModel}) => {
     // navigate('/role')
   }
 
- 
-
-  
-
-  const CountryMasterHandler =()=>{
-    RoleModel(false)
-    navigate('/countrymaster')
-  }
-
-  const StateMasterHandler = ()=>{
-    RoleModel(false)
-    navigate('/statemaster')
-  }
-
-  const BankMasterHandler = ()=>{
-    RoleModel(false)
-    navigate('/bankmaster')
-  }
 
   const MasterReportHandler = ()=>{
     RoleModel(false)
@@ -157,26 +142,26 @@ const ModuleMenuCommon = ({RoleModel}) => {
             </div>
             <div className='row '>
               <div className='col-md-2'><p className="m-0 p-0">Country Master</p></div>
-              <div className='col-md-1 text-center' onClick={CountryMasterHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="CountryMasterRead"   value={permission.CountryMasterRead}  /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="CountryMasterWrite"  value={permission.CountryMasterWrite} /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="CountryMasterModify" value={permission.CountryMasterModify} /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="CountryMasterDelete" value={permission.CountryMasterDelete} /></div>
               <div className='col-md-6'></div>
             </div>
             <div className='row '>
               <div className='col-md-2'><p className="m-0 p-0">State Master</p></div>
-              <div className='col-md-1 text-center' onClick={StateMasterHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2"onChange={ChangeHandler} value={permission.StateMasterRead} name="StateMasterRead"  /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2"onChange={ChangeHandler} value={permission.StateMasterWrite} name="StateMasterWrite"  /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2"onChange={ChangeHandler} value={permission.StateMasterModify} name="StateMasterModify"  /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2"onChange={ChangeHandler} value={permission.StateMasterDelete} name="StateMasterDelete"  /></div>
               <div className='col-md-6'></div>
             </div>
             <div className='row'>
               <div className='col-md-2'><p className="m-0 p-0">Bank Master</p></div>
-              <div className='col-md-1 text-center' onClick={BankMasterHandler}><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
-              <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2" name="" id="" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.BankMasterRead} name="BankMasterRead" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.BankMasterWrite} name="BankMasterWrite" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.BankMasterModify} name="BankMasterModify" /></div>
+              <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.BankMasterDelete} name="BankMasterDelete" /></div>
               <div className='col-md-6'></div>
             </div>
             <div className='row '>
