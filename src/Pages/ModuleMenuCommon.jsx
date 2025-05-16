@@ -50,6 +50,10 @@ const ModuleMenuCommon = ({RoleModel}) => {
     BatchSerialSettingRead:"",BatchSerialSettingWrite:"",BatchSerialSettingModify:"",BatchSerialSettingDelete:"",
     ServiceRequisitionRead:"",ServiceRequisitionWrite:"",ServiceRequisitionModify:"",ServiceRequisitionDelete:"",
     SpecificDetailsRead:"",SpecificDetailsWrite:"",SpecificDetailsModify:"",SpecificDetailsDelete:"",
+    PhoneGroupRead:"",PhoneGroupWrite:"",PhoneGroupModify:"",PhoneGroupDelete:"",
+    // finance
+    FinanceGroupRead:"",FinanceGroupWrite:"",FinanceGroupModify:"",FinanceGroupDelete:"",
+    LedgerRead:"",LedgerWrite:"",LedgerModify:"",LedgerDelete:"",LedgerApproved1:"",LedgerApproved2:"",LedgerApproved3:"",LedgerReportAndExport:"",
 
 
   })
@@ -63,7 +67,6 @@ const ModuleMenuCommon = ({RoleModel}) => {
     const value = e.target.value;
     const checked = e.target.checked;
       setPermission((data) => ({ ...data,[name]:checked }))
-    // alert(e.target.value,e.target.checked)
    
   }
   const PermissonSubmitHandler = ()=>{
@@ -73,7 +76,7 @@ const ModuleMenuCommon = ({RoleModel}) => {
   }
 
   const userPermissionHandler =()=>{
-    console.log(permisson)
+    console.log(permission)
     RoleModel(false)
   }
 
@@ -564,15 +567,1179 @@ const ModuleMenuCommon = ({RoleModel}) => {
               <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.SpecificDetailsDelete} name="SpecificDetailsDelete" /></div>
               <div className='col-md-6' ></div>
             </div>  
-            <div className="d-flex justify-content-end my-3 " onClick={PermissonSubmitHandler}>
-              <button className="btn btn-primary px-3">Submit</button></div>
+              <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Phone Group</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.PhoneGroupRead}  name="PhoneGroupRead" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.PhoneGroupWrite}  name="PhoneGroupWrite" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.PhoneGroupModify}  name="PhoneGroupModify" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.PhoneGroupDelete}  name="PhoneGroupDelete" /></div>
+              </div>            
+              {/* <div className="d-flex justify-content-end mt-2 " onClick={PermissonSubmitHandler}>
+                <button className="btn btn-primary px-3">Submit</button>
+              </div> */}
             </div>                       
           </div>
           </div>
+
+          {/* finance */}
+          <div className='row'>
+            <h5 className=" my-1">Finance</h5>
+            <div className='row'>
+                <div className='col-md-12'>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Finance Group</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.FinanceGroupRead} name="FinanceGroupRead" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.FinanceGroupWrite} name="FinanceGroupWrite" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.FinanceGroupModify} name="FinanceGroupModify" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.FinanceGroupDelete} name="FinanceGroupDelete" /></div>
+                  <div className='col-md-6' ></div>
+                 </div>
+               <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Ledger</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.LedgerRead}  name="LedgerRead" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.LedgerWrite}  name="LedgerWrite" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.LedgerModify}  name="LedgerModify" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.LedgerDelete}  name="LedgerDelete" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.LedgerApproved1}  name="LedgerApproved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.LedgerApproved2}  name="LedgerApproved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.LedgerApproved3}  name="LedgerApproved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" value={permission.LedgerReportAndExport}  name="LedgerReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Register Setting</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Read" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">PaymentMaster</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                  <div className='col-md-6' ></div>
+                 </div>
+                 <div className='row'>
+                    <div className='col-md-2'><p className="m-0 p-0">ChequeBookMaster</p></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-6' ></div>
+                 </div>
+                <div className='row'>
+                    <div className='col-md-2'><p className="m-0 p-0">Cheque Master</p></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-6' ></div>
+                 </div>
+                 <div className='row'>
+                    <div className='col-md-2 '><p className="m-0 p-0">ChequeStatement</p></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Read" /></div>
+                </div>
+                <div className='row'>
+                    <div className='col-md-2'><p className="m-0 p-0">Currency</p></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-6' ></div>
+                 </div>
+                 <div className='row'>
+                    <div className='col-md-2'><p className="m-0 p-0">IEC No Master</p></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-6' ></div>
+                 </div>
+                 <div className='row'>
+                    <div className='col-md-2'><p className="m-0 p-0">LUT No Master</p></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-6' ></div>
+                 </div>
+                 <div className='row'>
+                    <div className='col-md-2'><p className="m-0 p-0">LC No Master</p></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-6' ></div>
+                 </div>
+                 <div className='row'>
+                    <div className='col-md-2'><p className="m-0 p-0">AdvanceAuthNo</p></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-6' ></div>
+                 </div>
+                 <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Purchase Order</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                    <div className='col-md-2'><p className="m-0 p-0">Grade Master</p></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name="" /></div>
+                    <div className='col-md-6' ></div>
+                 </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">RetailPurchaseOrder</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Import Order</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">ImportRetailOrder</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Purchase</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Retail Purchase</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Import Invoice</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">ImportRetailInvoice</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Purchase Return</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">RetailPurchaseReturn</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Sales Order</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">RetailSalesOrder</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Export Order</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">ExportRetailOrder</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Sales</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Retail Sales</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Export Invoice</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">ExportRetailInvoice</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Sales Return</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">RetailSalesReturn</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Payment Issue</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">PaymentReceipt</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Journal Entry</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Contra Voucher</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Gain Profit/Loss</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Debit Note</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">RetailDebitNote</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Credit Note</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">RetailCreditNote</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">TermConditionMaster</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">OutstandingReport</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved1" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved2" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="Approved3" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+
+
+                </div>
+            </div>
+          </div>
+
+          {/* QC AND QA */}
+          <div className='row mt-2'>
+            <h5 className="my-1">QC/QA</h5>
+            <div className='row'>
+              <div className='col-md-12'>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">QC Testing</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                 <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">QCSamplaningPlan</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                 <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">QCIsoTolerance</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                 <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Variant Master</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                 <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">RM COA</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                 <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">RM Visual</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                 <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">FG COA</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                 <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">FG Visual</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                 <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">INProcess</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                 <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">ISO Document</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2 d-none" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2 d-none" name=""  /></div>
+                 <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">MinutesOfMeeting</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                 <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">QC Item</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                 <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">PendingSOFOperator </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">PendingSalesOrder </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">DutyDrawbackReport </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Tally Integration </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">TaxClassification </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox"  className="form-check-input p-2 d-none"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Contract Report </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox"  className="form-check-input p-2"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">ExpanceVoucherType </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" className="form-check-input p-2 d-none"  name="" /></div>
+                  <div className='col-md-3 text-end'>   <input type="checkbox"  className="form-check-input p-2 d-none"  name="ReportAndExport" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">ExpanceVoucher </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Contact Type </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Quotation Type </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Deal Stage</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Task Status</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">ComplaintStatus</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Company Type </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Inquiry</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Deal</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Task</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Company</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Contact</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Complaint</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Call Type</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Event Type </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Quotation </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Retail Quotation </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">ExportQuotation </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Purchase Indent</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">PurchaseQuotation </p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Phone Group</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Phone Book</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Send Message</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Comment</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Event</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Contact Group</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Message</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Call</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Meeting</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Remainder</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">CustomerSatisfication</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">InvoiceSatisfication</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">AttachmentCategory</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">AttachmentRecord</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2 '><p className="m-0 p-0">Pre Inquiry</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2"  name="" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        {/* // Hr& Payroll */}
+        <div className='row mt-2'>
+            <h5 className="my-1">HR & Payroll</h5>
+            <div className='row'>
+                <div className='col-md-12'>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">EmployeeCategory</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Department</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>  
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Position</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Holiday</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Leave Type</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Leave</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Apply Leave</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Leave Approved</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">LeaveMonthlyAdd</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">LeaveMonthlyDeduct</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Shift</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Employee</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Assign Shift</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div> 
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">AppraisalQuestions</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Indicator</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Rating Head</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Ratings</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Increment</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Memo</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Performance</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Appriasal</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Device</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">DeviceConnection</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">OutdoreAttendace</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                 <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Salary Formula</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Salary Category</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">SalaryIncrement</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">AdvancePayment</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">AdvancePaySalary</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Generate Salary</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">Pay Salary</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className='row'>
+                  <div className='col-md-2'><p className="m-0 p-0">HourlyAttendance</p></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-1 text-center'><input type="checkbox" onChange={ChangeHandler} className="form-check-input p-2" name=""  /></div>
+                  <div className='col-md-6' ></div>
+                </div>
+                <div className="d-flex justify-content-end mt-2 " onClick={PermissonSubmitHandler}>
+                  <button className="btn btn-primary px-3">Submit</button>
+                </div>
+
+
+
+                </div>
+            </div>
+        </div>
           
       </div>
       
-  // </div>
+  
   )
 }
 
