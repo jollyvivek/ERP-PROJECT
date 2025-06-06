@@ -23,7 +23,7 @@ const Navbar = ({setShowLogin}) => {
   const hamberMenuHandler =()=>{
     const dashboard = document.querySelector(".dashboard")
     dashboard.classList.toggle("show")
-    console.log(dashboard)
+    // console.log(dashboard)
   }
   return (
     

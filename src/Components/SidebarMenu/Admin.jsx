@@ -31,6 +31,9 @@ const Admin = ({setIsPassModel}) => {
   const [financialYearItem,setFinancialYearItem] = useState(false)
   const navigate = useNavigate()
 
+  const dashboard = document.querySelector(".dashboard")
+  
+
   const openAdminMenu = () => {
     setAdminItem(!adminItems);
   };
@@ -50,6 +53,7 @@ const Admin = ({setIsPassModel}) => {
 
   const ProfileEditCompanyHandler = ()=>{
     const EditCompany = document.querySelector(".EditCompany").classList.add("active2");
+    dashboard.classList.remove("show")
   }
 
   const masterDropdown = () => {
@@ -132,6 +136,7 @@ const Admin = ({setIsPassModel}) => {
   const RoleHandler = (e)=>{
     // e.preventDefault()
     const profile = document.getElementById("profile").classList.remove("active2")
+    dashboard.classList.remove("show")
     setProfileItem(false)
     setMasterItems(false)
     setSettingItems(false)
@@ -192,15 +197,15 @@ const Admin = ({setIsPassModel}) => {
               <ul className="master-items">
                 <li className="title  CountryMaster flex gap-2">
                 <span className="text-dark fs-3"><FcGlobe /></span>
-                 <NavLink to='/countrymaster' className="nav-link w-100 px-2 " > Country Master</NavLink>
+                 <NavLink to='/countrymaster' className="nav-link w-100 px-2 " onClick={()=>{dashboard.classList.remove("show")}}> Country Master</NavLink>
                 </li>
                 <li className="title BankMaster flex gap-2">
                   <span className="text-dark fs-4"><BsBank2 /></span>
-                  <NavLink to='/bankmaster' className="nav-link w-100 px-2 ">Bank Master</NavLink>
+                  <NavLink to='/bankmaster' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Bank Master</NavLink>
                 </li>
                 <li className="title StateMaster flex gap-2">
                   <span className="text-dark fs-4"><SiMobxstatetree /></span>
-                  <NavLink to='/statemaster' className="nav-link w-100 px-2 ">State Master</NavLink>
+                  <NavLink to='/statemaster' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>State Master</NavLink>
                 </li>
               </ul>
             ) : null}
@@ -214,19 +219,19 @@ const Admin = ({setIsPassModel}) => {
               <ul className="setting-items mb-3">
                 <li className="title SerialSetting flex gap-2">
                   <span className="text-dark fs-4"><IoMdSettings /></span>
-                  <NavLink to='/serialsetting' className="nav-link w-100 px-2"> Serial Setting </NavLink>
+                  <NavLink to='/serialsetting' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}> Serial Setting </NavLink>
                 </li>
                 <li className="title ApprovalSetting flex gap-2">
                   <span className="text-dark fs-4"><IoMdSettings /></span>
-                  <NavLink to='/approvalsetting' className="nav-link w-100 px-2">Approval Setting </NavLink>
+                  <NavLink to='/approvalsetting' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Approval Setting </NavLink>
                 </li>
                 <li className="title OrderSerialSetting flex gap-2">
                   <span className="text-dark fs-4"><IoMdSettings /></span>
-                  <NavLink to='/orderserialsetting' className="nav-link w-100 px-2">Order Serial Setting</NavLink>
+                  <NavLink to='/orderserialsetting' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Order Serial Setting</NavLink>
                 </li>
               </ul>
             ) : null}
-            <li className="title ChangePassword">
+            <li className="title ChangePassword" onClick={()=>{dashboard.classList.remove("show")}}>
               <NavLink  className="nav-link w-100" onClick={ChangePasswordHandler}>Change Password</NavLink>
             </li>
             <li id="importExcel" className="d-flex justify-content-between align-items-center" onClick={MasterHandler}>
@@ -239,46 +244,46 @@ const Admin = ({setIsPassModel}) => {
               <ul className="import-excel-items">
                 <li className="title flex gap-2 ImportInstrument">
                   <span className="text-dark fs-4"><FaToolbox /></span>
-                  <NavLink to='/importinstrument' className="nav-link w-100 px-2"> Import Instrument </NavLink>
+                  <NavLink to='/importinstrument' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}> Import Instrument </NavLink>
                 </li>
                 <li className="title flex gap-2 ImportItem">
                   <span className="text-dark fs-4"><FaShoppingBasket /></span>
-                  <NavLink to='/importitem' className="nav-link w-100 px-2"> Import Item </NavLink></li>
+                  <NavLink to='/importitem' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}> Import Item </NavLink></li>
                 <li className="title flex gap-1 OpeningBalanceGroup ">
                   <span className="text-dark fs-4"><BiImport /></span>
-                  <NavLink to='/importitemopening' className="nav-link w-100 px-2">Import Item Opening Balance Group Wise</NavLink>
+                  <NavLink to='/importitemopening' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Import Item Opening Balance Group Wise</NavLink>
                 </li>
                 <li className="title flex gap-1 ImportBom">
                   <span className="text-dark fs-4"><BiImport /></span>
-                  <NavLink to='/importbom' className="nav-link w-100 px-2"> Import BOM </NavLink>
+                  <NavLink to='/importbom' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}> Import BOM </NavLink>
                 </li>
                 <li className="title flex gap-1 ImportOperation">
                   <span className="text-dark fs-4"><BiImport /></span>
-                  <NavLink to='/importoperation' className="nav-link w-100 px-2">Import Operatipon</NavLink>
+                  <NavLink to='/importoperation' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Import Operatipon</NavLink>
                   </li>
                 <li className="title flex gap-1 ImportPackingBom">
                   <span className="text-dark fs-4 "><BiImport /></span>
-                  <NavLink to='/importpackingbom' className="nav-link w-100 px-2">Import Packing BOM</NavLink>
+                  <NavLink to='/importpackingbom' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Import Packing BOM</NavLink>
                 </li>
                 <li className="title flex gap-1 ImportPriceList">
                   <span className="text-dark fs-4 "><BiImport /></span>
-                  <NavLink to='/importpricelist' className="nav-link w-100 px-2">Import Price List </NavLink>
+                  <NavLink to='/importpricelist' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Import Price List </NavLink>
                 </li>
                 <li className="title flex gap-1 QcTestingMaster">
                   <span className="text-dark fs-4 "><BiImport /></span>
-                  <NavLink to='/importqctesting' className="nav-link w-100 px-2">Import QC Testing Master</NavLink>
+                  <NavLink to='/importqctesting' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Import QC Testing Master</NavLink>
                 </li>
                 <li className="title flex gap-1 ImportLedger">
                   <span className="text-dark fs-4 "><BiImport /></span>
-                  <NavLink to='/importledger' className="nav-link w-100 px-2"> Import Ledger </NavLink>
+                  <NavLink to='/importledger' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}> Import Ledger </NavLink>
                 </li>
                 <li className="title flex gap-1 PackingInstruction">
                   <span className="text-dark fs-4 "><BiImport /></span>
-                  <NavLink to='/importpackinginstruction' className="nav-link w-100 px-2">Packing Instruction </NavLink>
+                  <NavLink to='/importpackinginstruction' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Packing Instruction </NavLink>
                 </li>
                 <li className="title flex gap-1 ImportTestCertificate">
                   <span className="text-dark fs-4 "><BiImport /></span>
-                  <NavLink to='/testcertificate' className="nav-link w-100 px-2">Import Internal Test Certificate Details </NavLink>
+                  <NavLink to='/testcertificate' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Import Internal Test Certificate Details </NavLink>
                 </li>
                 <li><span>Import EU Declartion Into Item</span></li>
                 <li><span>Import Export Description Into Item</span></li>
@@ -287,15 +292,15 @@ const Admin = ({setIsPassModel}) => {
                 <li><span>Import NetWeight In Item</span></li>
                 <li className="title flex gap-1 ImportBatchSerial">
                   <span className="text-dark fs-4"><BiImport /></span>
-                  <NavLink to='/batchserial' className="nav-link w-100 px-2">Import BatchSerial In Item</NavLink>
+                  <NavLink to='/batchserial' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Import BatchSerial In Item</NavLink>
                 </li>
                 <li className="title flex gap-1 ImportChemicalMaster">
                   <span className="text-dark fs-4"><BiImport /></span>
-                  <NavLink to='/chemicalmaster' className="nav-link w-100 px-2">Import Chemical Master</NavLink>
+                  <NavLink to='/chemicalmaster' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Import Chemical Master</NavLink>
                 </li>
                 <li className="title flex gap-1 ImportMechanicalMaster">
                   <span className="text-dark fs-4"><BiImport /></span>
-                  <NavLink to='/mechanicalmaster' className="nav-link w-100 px-2">Import Mechanical Master</NavLink>
+                  <NavLink to='/mechanicalmaster' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Import Mechanical Master</NavLink>
                 </li>
               </ul>
             ) : null}
@@ -312,30 +317,30 @@ const Admin = ({setIsPassModel}) => {
             <ul className="finance-year-items">
                 <li className="title flex gap-2 FinancialYearCreateYear">
                     <span className="text-dark fs-4"><SlCalender /></span>
-                   <NavLink to='/createyear' className="nav-link w-100 px-2">Create Year </NavLink>
+                   <NavLink to='/createyear' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Create Year </NavLink>
                 </li>
                 <li className="title flex gap-1 FinancialYearInventrySetting"> 
                   <span className="text-dark fs-4"><IoMdSettings /></span>
-                  <NavLink to='/inventrysetting' className="nav-link w-100 px-2">Inventry Setting </NavLink>
+                  <NavLink to='/inventrysetting' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Inventry Setting </NavLink>
                 </li>
                 <li className="title flex gap-1 FinancialYearFinancialSetting">
                   <span className="text-dark fs-4"><IoMdSettings /></span> 
-                  <NavLink to='/financesetting' className="nav-link w-100 px-2">Financial Setting </NavLink>
+                  <NavLink to='/financesetting' className="nav-link w-100 px-2" onClick={()=>{dashboard.classList.remove("show")}}>Financial Setting </NavLink>
                 </li>
               </ul>
               ):null}
 
             <li className="title AdminMasterReport" onClick={RoleHandler}>
-              <NavLink to='/masterreport' className="nav-link w-100 AdminMasterReportActive">Master Report</NavLink>
+              <NavLink to='/masterreport' className="nav-link w-100 AdminMasterReportActive" onClick={()=>{dashboard.classList.remove("show")}}>Master Report</NavLink>
             </li>
             <li className="title AdminMailHistory" onClick={RoleHandler}>
-              <NavLink to='/mailhistory' className="nav-link w-100 MailHistoryActive">Mail History</NavLink>
+              <NavLink to='/mailhistory' className="nav-link w-100 MailHistoryActive" onClick={()=>{dashboard.classList.remove("show")}}>Mail History</NavLink>
             </li>
             <li className="title AdminManagementLog" onClick={RoleHandler} >
-              <NavLink to='/managementlog' className="nav-link w-100 ManagementLogActive">Management Log</NavLink>
+              <NavLink to='/managementlog' className="nav-link w-100 ManagementLogActive" onClick={()=>{dashboard.classList.remove("show")}}>Management Log</NavLink>
             </li>
             <li className="title AdminBatchTracking" onClick={RoleHandler}>
-              <NavLink to='/batchtracking' className="nav-link w-100 BatchTrackingActive">Batch Tracking</NavLink>
+              <NavLink to='/batchtracking' className="nav-link w-100 BatchTrackingActive" onClick={()=>{dashboard.classList.remove("show")}}>Batch Tracking</NavLink>
             </li>
           </ul>
         </div>

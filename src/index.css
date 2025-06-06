@@ -150,4 +150,8 @@ form label{
     /* border: 2px solid green; */
     max-width: 10rem;
   }
+  /* label{
+    color: red;
+    font-size: 10px;
+  } */
 }
