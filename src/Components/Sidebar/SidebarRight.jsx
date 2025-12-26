@@ -3,7 +3,7 @@ import React from "react";
 const SidebarRight = () => {
   return (
     <div className="container h-100">
-      <div className="row py-3">
+      <div className="row py-3 sidebarRight">
         <div className="col-md-12">
           <h2 className=" text-center">Bussiness ERP Solution</h2>
           <p className="px-3" style={{textAlign:"justify"}}>
